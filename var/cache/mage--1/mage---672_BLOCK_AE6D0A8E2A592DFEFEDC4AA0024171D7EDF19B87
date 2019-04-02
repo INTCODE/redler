@@ -1,6 +1,0 @@
-a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1554143850;s:6:"expire";i:1554147450;s:4:"tags";s:69:"672_BLOCK_HTML,672_CAT_C,672_CAT_C_3,672_CAT_C_5,672_CAT_C_6,672_MAGE";}
-
-<nav class="navigation" data-action="navigation">
-    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
-        <li  class="level0 nav-1 category-item first level-top"><a href="http://localhost/projekty/blm/redler/beer-cider.html"  class="level-top" ><span>Beer &amp; Cider</span></a></li><li  class="level0 nav-2 category-item level-top"><a href="http://localhost/projekty/blm/redler/spirits.html"  class="level-top" ><span>Spirits</span></a></li><li  class="level0 nav-3 category-item last level-top"><a href="http://localhost/projekty/blm/redler/soft-drinks.html"  class="level-top" ><span>Soft drinks</span></a></li>            </ul>
-</nav>
