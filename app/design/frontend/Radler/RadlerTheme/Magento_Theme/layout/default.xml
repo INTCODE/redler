@@ -13,12 +13,15 @@
         </arguments>
     </referenceBlock>
 
-
+    <!--MOVED BLOCKS -->
+    <move element="authorization-link-login" destination="header-wrapper" after="minicart"/>
+    <move element="my-account-link" destination="header-wrapper" after="minicart"/>
+   
     <!--REMOVED BLOCKS -->
-     <referenceContainer name="header.container">
+    <referenceContainer name="header.container">
         <referenceBlock name="top.search" remove="true"/>
     </referenceContainer>
-        <referenceBlock name="header.panel.wrapper" remove="true" />
+    <referenceBlock name="header.panel.wrapper" remove="true" />
         <referenceBlock name="form.subscribe" remove="true" />
         <referenceBlock name="copyright" remove="true" />
     </body>
