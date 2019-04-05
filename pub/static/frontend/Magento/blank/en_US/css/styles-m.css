@@ -4147,6 +4147,309 @@ body._has-modal-custom .modal-custom-overlay {
   width: 100vw;
   z-index: 899;
 }
+.slick-slider {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+.slick-list {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.slick-list:focus {
+  outline: none;
+}
+.slick-list.dragging {
+  cursor: pointer;
+  cursor: hand;
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.slick-track {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.slick-track:before,
+.slick-track:after {
+  content: "";
+  display: table;
+}
+.slick-track:after {
+  clear: both;
+}
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+.slick-slide {
+  float: left;
+  height: 100%;
+  min-height: 1px;
+  display: none;
+}
+[dir="rtl"] .slick-slide {
+  float: right;
+}
+.slick-slide img {
+  display: block;
+}
+.slick-slide.slick-loading img {
+  display: none;
+}
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+.slick-initialized .slick-slide {
+  display: block;
+}
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+.slick-vertical .slick-slide {
+  display: block;
+  height: auto;
+  border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+  display: none;
+}
+.slick-prev,
+.slick-next {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: transparent;
+  cursor: pointer;
+  display: block;
+  font-size: 0px;
+  line-height: 0px;
+  outline: none;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  z-index: 1;
+}
+.slick-prev:not(.primary),
+.slick-next:not(.primary) {
+  box-shadow: none;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1;
+  opacity: 0.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.slick-prev:hover,
+.slick-next:hover,
+.slick-prev:focus,
+.slick-next:focus {
+  background: transparent;
+  border: 0;
+  color: transparent;
+  outline: none;
+}
+.slick-prev:hover:before,
+.slick-next:hover:before,
+.slick-prev:focus:before,
+.slick-next:focus:before {
+  opacity: 1;
+}
+.slick-prev:active,
+.slick-next:active {
+  box-shadow: none;
+}
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {
+  opacity: 0.25;
+}
+.slick-prev {
+  left: 10px;
+}
+[dir="rtl"] .slick-prev {
+  left: auto;
+  right: -25px;
+}
+.slick-prev:before {
+  content: '\003C';
+}
+[dir="rtl"] .slick-prev:before {
+  content: '\003E';
+}
+.slick-next {
+  right: 10px;
+}
+[dir="rtl"] .slick-next {
+  left: -25px;
+  right: auto;
+}
+.slick-next:before {
+  content: '\003E';
+}
+[dir="rtl"] .slick-next:before {
+  content: '\003C';
+}
+.slick-dotted .slick-slider {
+  margin-bottom: 30px;
+}
+.slick-dots {
+  list-style: none;
+  display: block;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  margin: 0 5px;
+  padding: 0;
+  cursor: pointer;
+}
+.slick-dots li button,
+.slick-dots li .cart.table-wrapper .actions-toolbar > .action,
+.slick-dots li .action-gift {
+  border: 0;
+  background: transparent;
+  display: block;
+  outline: none;
+  line-height: 0px;
+  font-size: 0px;
+  color: transparent;
+  padding: 5px;
+  cursor: pointer;
+}
+.slick-dots li button:hover,
+.slick-dots li button:focus,
+.slick-dots li .cart.table-wrapper .actions-toolbar > .action:hover,
+.slick-dots li .cart.table-wrapper .actions-toolbar > .action:focus,
+.slick-dots li .action-gift:hover,
+.slick-dots li .action-gift:focus {
+  outline: none;
+}
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before,
+.slick-dots li .cart.table-wrapper .actions-toolbar > .action:hover:before,
+.slick-dots li .cart.table-wrapper .actions-toolbar > .action:focus:before,
+.slick-dots li .action-gift:hover:before,
+.slick-dots li .action-gift:focus:before {
+  opacity: 1;
+}
+.slick-dots li button:active,
+.slick-dots li .cart.table-wrapper .actions-toolbar > .action:active,
+.slick-dots li .action-gift:active {
+  box-shadow: none;
+}
+.slick-dots li button:before,
+.slick-dots li .cart.table-wrapper .actions-toolbar > .action:before,
+.slick-dots li .action-gift:before {
+  content: '';
+  background-color: #000000;
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  left: 0;
+  opacity: 0.25;
+  position: absolute;
+  top: 0;
+  width: 10px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.slick-dots li.slick-active button:before,
+.slick-dots li.slick-active .cart.table-wrapper .actions-toolbar > .action:before,
+.slick-dots li.slick-active .action-gift:before {
+  background-color: #000000;
+  opacity: 0.75;
+}
+.c-aslider {
+  background-color: transparent;
+  margin: 0 0 20px 0;
+  overflow: hidden;
+}
+.c-aslider__slides {
+  height: 0;
+  visibility: hidden;
+}
+.c-aslider__loading {
+  height: auto;
+  visibility: visible;
+}
+.c-aslider__link {
+  color: #000000;
+}
+.c-aslider__item {
+  position: relative;
+}
+.c-aslider__item--full .c-aslider__image {
+  width: 100%;
+}
+.c-aslider__caption {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #000000;
+  padding: 20px;
+}
+.c-aslider__picture {
+  display: block;
+  margin: 0 auto;
+}
+.c-aslider__image {
+  display: block;
+  margin: 0 auto;
+}
+.c-aslider .slick-arrow {
+  width: 40px;
+  height: 40px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  background: url('../../../../../frontend/Magento/base/default/Absolute_AdvancedSlider/images/angle-left.svg') no-repeat center center;
+}
+.c-aslider .slick-arrow.slick-next {
+  background: url('../../../../../frontend/Magento/base/default/Absolute_AdvancedSlider/images/angle-right.svg') no-repeat center center;
+}
+.c-aslider .slick-arrow:before {
+  content: '';
+}
+.c-aslider__nav {
+  display: none;
+  opacity: 0;
+  transition: all 0.5s ease-in;
+  visibility: hidden;
+}
+.c-aslider__nav.slick-slider {
+  display: none;
+}
+.c-aslider__nav .slick-slide {
+  padding: 0px 10px;
+  box-sizing: border-box;
+}
 /**
  * MageSpecialist
  *

@@ -254,6 +254,8 @@ return array(
     '3109cb1a231dcd04bee1f9f620d46975' => $vendorDir . '/paragonie/sodium_compat/autoload.php',
     'aa75ea0761a2f40c1f3b32ad314f86c4' => $vendorDir . '/phpseclib/mcrypt_compat/lib/mcrypt.php',
     '153a7817726e1caca4e6c3b7bc76f329' => $vendorDir . '/temando/module-shipping-m2/registration.php',
+    '9204c9af8c177116765a39f38156b57d' => $vendorDir . '/absolute_design/absolute-slider/registration.php',
+    '6db6653f02963b2e83c8e6f7ddffaedf' => $vendorDir . '/magebees/module-mostviewed/registration.php',
     'eda65932675b68b5aee4503e0762d64d' => $vendorDir . '/magento/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/_bootstrap.php',
     'b4cf39431a4b949eea8aa69ebb3d39da' => $baseDir . '/app/etc/NonComposerComponentRegistration.php',
 );

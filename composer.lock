@@ -4,8 +4,48 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "758832dca53cba659d813c126f37d8a1",
+    "content-hash": "f3f30eb6a9836bc180b94758647bca37",
     "packages": [
+        {
+            "name": "absolute_design/absolute-slider",
+            "version": "2.0.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/absolute_design/absolute-slider/absolute_design-absolute-slider-2.0.1.0.zip",
+                "shasum": "5629bdc37c2d217ea1a95ad11fe6ee6948814b32"
+            },
+            "require": {
+                "magento/framework": ">101.0",
+                "magento/module-config": ">100.0",
+                "magento/module-directory": ">100.0",
+                "magento/module-media-storage": ">100.0",
+                "magento/module-store": ">100.0",
+                "magento/module-theme": ">100.0",
+                "php": "~7.0|~7.1|~7.2"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Absolute\\AdvancedSlider\\": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Magento 2 Slider",
+            "homepage": "https://www.absolute-design.co.uk",
+            "keywords": [
+                "magento",
+                "magento 2",
+                "magento2",
+                "module",
+                "plugin",
+                "slider"
+            ]
+        },
         {
             "name": "amzn/amazon-pay-and-login-magento-2-module",
             "version": "3.1.4",
@@ -1810,6 +1850,37 @@
                 }
             ],
             "description": "Klarna Order Management Magento 2 Extension"
+        },
+        {
+            "name": "magebees/module-mostviewed",
+            "version": "1.0.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magebees/module-mostviewed/magebees-module-mostviewed-1.0.4.0.zip",
+                "shasum": "6389e96b5163a83c21b256d854c131126384e8b2"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Magebees\\Mostviewed\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0",
+                "AFL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "MageBees",
+                    "email": "support@magebees.com",
+                    "homepage": "https://www.magebees.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A module for mostviewed product."
         },
         {
             "name": "magento/composer",

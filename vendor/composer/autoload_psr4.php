@@ -303,6 +303,7 @@ return array(
     'Magento\\AdvancedPricingImportExport\\' => array($vendorDir . '/magento/module-advanced-pricing-import-export'),
     'Magento\\AdminNotification\\' => array($vendorDir . '/magento/module-admin-notification'),
     'Magento\\' => array($baseDir . '/app/code/Magento'),
+    'Magebees\\Mostviewed\\' => array($vendorDir . '/magebees/module-mostviewed'),
     'MSP\\TwoFactorAuth\\' => array($vendorDir . '/msp/twofactorauth'),
     'MSP\\ReCaptcha\\' => array($vendorDir . '/msp/recaptcha'),
     'MFTF\\' => array($vendorDir . '/magento/magento2-functional-testing-framework/dev/tests/functional/MFTF'),
@@ -350,4 +351,5 @@ return array(
     'Amazon\\Login\\' => array($vendorDir . '/amzn/login-with-amazon-module'),
     'Amazon\\Core\\' => array($vendorDir . '/amzn/amazon-pay-and-login-with-amazon-core-module'),
     'AmazonPay\\' => array($vendorDir . '/amzn/amazon-pay-sdk-php/AmazonPay'),
+    'Absolute\\AdvancedSlider\\' => array($vendorDir . '/absolute_design/absolute-slider'),
 );

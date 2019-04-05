@@ -255,6 +255,8 @@ class ComposerStaticInitb87eecde5cbae00b2ad75cc8fc882b41
         '3109cb1a231dcd04bee1f9f620d46975' => __DIR__ . '/..' . '/paragonie/sodium_compat/autoload.php',
         'aa75ea0761a2f40c1f3b32ad314f86c4' => __DIR__ . '/..' . '/phpseclib/mcrypt_compat/lib/mcrypt.php',
         '153a7817726e1caca4e6c3b7bc76f329' => __DIR__ . '/..' . '/temando/module-shipping-m2/registration.php',
+        '9204c9af8c177116765a39f38156b57d' => __DIR__ . '/..' . '/absolute_design/absolute-slider/registration.php',
+        '6db6653f02963b2e83c8e6f7ddffaedf' => __DIR__ . '/..' . '/magebees/module-mostviewed/registration.php',
         'eda65932675b68b5aee4503e0762d64d' => __DIR__ . '/..' . '/magento/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/_bootstrap.php',
         'b4cf39431a4b949eea8aa69ebb3d39da' => __DIR__ . '/../..' . '/app/etc/NonComposerComponentRegistration.php',
     );
@@ -589,6 +591,7 @@ class ComposerStaticInitb87eecde5cbae00b2ad75cc8fc882b41
             'Magento\\AdvancedPricingImportExport\\' => 36,
             'Magento\\AdminNotification\\' => 26,
             'Magento\\' => 8,
+            'Magebees\\Mostviewed\\' => 20,
             'MSP\\TwoFactorAuth\\' => 18,
             'MSP\\ReCaptcha\\' => 14,
             'MFTF\\' => 5,
@@ -669,6 +672,7 @@ class ComposerStaticInitb87eecde5cbae00b2ad75cc8fc882b41
             'Amazon\\Login\\' => 13,
             'Amazon\\Core\\' => 12,
             'AmazonPay\\' => 10,
+            'Absolute\\AdvancedSlider\\' => 24,
         ),
     );
 
@@ -1864,6 +1868,10 @@ class ComposerStaticInitb87eecde5cbae00b2ad75cc8fc882b41
         array (
             0 => __DIR__ . '/../..' . '/app/code/Magento',
         ),
+        'Magebees\\Mostviewed\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/magebees/module-mostviewed',
+        ),
         'MSP\\TwoFactorAuth\\' => 
         array (
             0 => __DIR__ . '/..' . '/msp/twofactorauth',
@@ -2052,6 +2060,10 @@ class ComposerStaticInitb87eecde5cbae00b2ad75cc8fc882b41
         'AmazonPay\\' => 
         array (
             0 => __DIR__ . '/..' . '/amzn/amazon-pay-sdk-php/AmazonPay',
+        ),
+        'Absolute\\AdvancedSlider\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/absolute_design/absolute-slider',
         ),
     );
 

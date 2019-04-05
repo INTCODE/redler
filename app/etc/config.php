@@ -1,6 +1,7 @@
 <?php
 return [
     'modules' => [
+        'Absolute_AdvancedSlider' => 1,
         'Magento_Store' => 1,
         'Magento_Directory' => 1,
         'Magento_Theme' => 1,
@@ -10,6 +11,7 @@ return [
         'Magento_AdminNotification' => 1,
         'MSP_ReCaptcha' => 1,
         'Magento_Config' => 1,
+        'Magebees_Mostviewed' => 1,
         'Magento_Indexer' => 1,
         'Magento_AdvancedPricingImportExport' => 1,
         'Magento_Search' => 1,
