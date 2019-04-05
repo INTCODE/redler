@@ -12,6 +12,12 @@
     <referenceBlock name="customer.new" remove="true" />
     <!--End of Removed Blocks-->
 
+    <referenceBlock name="customer_form_register">
+        <arguments>
+            <argument name="show_address_fields" xsi:type="boolean">true</argument>
+        </arguments>
+    </referenceBlock>
+
    <referenceContainer name="content">
         <container name="customer.register.container" label="Customer Register Container" htmlTag="div" htmlClass="register-container" >
             <block class="Magento\Customer\Block\Form\Register" name="customer_form_register" template="Magento_Customer::form/register.phtml">

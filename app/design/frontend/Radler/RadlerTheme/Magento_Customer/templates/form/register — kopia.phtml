@@ -14,14 +14,18 @@
 <form class="form create account form-create-account" action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>" method="post" id="form-validate" enctype="multipart/form-data" autocomplete="off">
     <?= /* @noEscape */ $block->getBlockHtml('formkey'); ?>
     <fieldset class="fieldset create info">
-    <!--
-        Insert 
-
-        -->
-        <legend class="legend"><span><?= $block->escapeHtml(__('You can comlpete the application. If we consider it positively, you will recive an account.')) ?></span></legend><br>
+        <legend class="legend"><span><?= $block->escapeHtml(__('Personal Information')) ?></span></legend><br>
         <input type="hidden" name="success_url" value="<?= $block->escapeUrl($block->getSuccessUrl()) ?>">
         <input type="hidden" name="error_url" value="<?= $block->escapeUrl($block->getErrorUrl()) ?>">
         <?= $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Name')->setObject($block->getFormData())->setForceUseCustomerAttributes(true)->toHtml() ?>
+        <?php if ($block->isNewsletterEnabled()): ?>
+            <div class="field choice newsletter">
+                <input type="checkbox" name="is_subscribed" title="<?= $block->escapeHtmlAttr(__('Sign Up for Newsletter')) ?>" value="1" id="is_subscribed"<?php if ($block->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="checkbox">
+                <label for="is_subscribed" class="label"><span><?= $block->escapeHtml(__('Sign Up for Newsletter')) ?></span></label>
+            </div>
+            <?php /* Extensions placeholder */ ?>
+            <?= $block->getChildHtml('customer.form.register.newsletter') ?>
+        <?php endif ?>
 
         <?php $_dob = $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Dob') ?>
         <?php if ($_dob->isEnabled()): ?>
@@ -87,6 +91,16 @@
                 </div>
             </div>
 
+            <div class="field region required">
+                <label for="region_id" class="label"><span><?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('region') ?></span></label>
+                <div class="control">
+                    <select id="region_id" name="region_id" title="<?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('region') ?>" class="validate-select region_id" style="display:none;">
+                        <option value=""><?= $block->escapeHtml(__('Please select a region, state or province.')) ?></option>
+                    </select>
+                    <input type="text" id="region" name="region" value="<?= $block->escapeHtml($block->getRegion()) ?>" title="<?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('region') ?>" class="input-text <?= $block->escapeHtmlAttr($this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('region')) ?>" style="display:none;">
+                </div>
+            </div>
+
             <div class="field zip required">
                 <label for="zip" class="label"><span><?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('postcode') ?></span></label>
                 <div class="control">
@@ -130,14 +144,14 @@
                        data-password-min-character-sets="<?= $block->escapeHtmlAttr($block->getRequiredCharacterClassesNumber()) ?>"
                        data-validate="{required:true, 'validate-customer-password':true}"
                        autocomplete="off">
-                <div id="password-strength-meter-container" data-role="password-strength-meter" aria-live="polite">
+                <!-- <div id="password-strength-meter-container" data-role="password-strength-meter" aria-live="polite">
                     <div id="password-strength-meter" class="password-strength-meter">
                         <?= $block->escapeHtml(__('Password Strength')) ?>:
                         <span id="password-strength-meter-label" data-role="password-strength-meter-label">
                             <?= $block->escapeHtml(__('No Password')) ?>
                         </span>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>
@@ -158,11 +172,6 @@
         </div>
     </div>
 </form>
-
-
-
-
-
 <script>
 require([
     'jquery',
