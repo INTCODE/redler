@@ -18,12 +18,13 @@
  
    <referenceBlock name="register-link">
         <arguments>
-            <argument name="label" xsi:type="string" translate="true">Sign Up</argument>
+            <argument name="label" xsi:type="string" translate="true">Sign In</argument>
         </arguments>
     </referenceBlock>
 
     <!--REMOVED BLOCKS -->
-
+    <referenceBlock name="catalog.compare.sidebar" remove="true"/> 
+    <referenceBlock name="wishlist_sidebar" remove="true" />
     <referenceBlock name="top.search" remove="true"/>
     <referenceBlock name="greet_welcome" remove="true"/>
     <referenceBlock name="authorization-link-login" remove="true"/>

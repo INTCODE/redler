@@ -14,10 +14,6 @@
 <form class="form create account form-create-account" action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>" method="post" id="form-validate" enctype="multipart/form-data" autocomplete="off">
     <?= /* @noEscape */ $block->getBlockHtml('formkey'); ?>
     <fieldset class="fieldset create info">
-    <!--
-        Insert 
-
-        -->
         <legend class="legend"><span><?= $block->escapeHtml(__('You can comlpete the application. If we consider it positively, you will recive an account.')) ?></span></legend><br>
         <input type="hidden" name="success_url" value="<?= $block->escapeUrl($block->getSuccessUrl()) ?>">
         <input type="hidden" name="error_url" value="<?= $block->escapeUrl($block->getErrorUrl()) ?>">
@@ -40,7 +36,6 @@
     </fieldset>
     <?php if ($block->getShowAddressFields()): ?>
         <fieldset class="fieldset address">
-            <legend class="legend"><span><?= $block->escapeHtml(__('Address Information')) ?></span></legend><br>
             <input type="hidden" name="create_address" value="1" />
 
             <?php $_company = $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Company') ?>
@@ -94,12 +89,6 @@
                 </div>
             </div>
 
-            <div class="field country required">
-                <label for="country" class="label"><span><?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('country_id') ?></span></label>
-                <div class="control">
-                    <?= $block->getCountryHtmlSelect() ?>
-                </div>
-            </div>
             <?php $addressAttributes = $block->getChildBlock('customer_form_address_user_attributes');?>
             <?php if ($addressAttributes): ?>
                 <?php $addressAttributes->setEntityType('customer_address'); ?>
@@ -113,7 +102,6 @@
 
     <?php endif; ?>
     <fieldset class="fieldset create account" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>">
-        <legend class="legend"><span><?= $block->escapeHtml(__('Sign-in Information')) ?></span></legend><br>
         <div class="field required">
             <label for="email_address" class="label"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
             <div class="control">
@@ -130,14 +118,6 @@
                        data-password-min-character-sets="<?= $block->escapeHtmlAttr($block->getRequiredCharacterClassesNumber()) ?>"
                        data-validate="{required:true, 'validate-customer-password':true}"
                        autocomplete="off">
-                <div id="password-strength-meter-container" data-role="password-strength-meter" aria-live="polite">
-                    <div id="password-strength-meter" class="password-strength-meter">
-                        <?= $block->escapeHtml(__('Password Strength')) ?>:
-                        <span id="password-strength-meter-label" data-role="password-strength-meter-label">
-                            <?= $block->escapeHtml(__('No Password')) ?>
-                        </span>
-                    </div>
-                </div>
             </div>
 
         </div>
@@ -151,17 +131,13 @@
     </fieldset>
     <div class="actions-toolbar">
         <div class="primary">
-            <button type="submit" class="action submit primary" title="<?= $block->escapeHtmlAttr(__('Create an Account')) ?>"><span><?= $block->escapeHtml(__('Create an Account')) ?></span></button>
+            <button type="submit" class="action submit primary" title="<?= $block->escapeHtmlAttr(__('SEND APPLICATION')) ?>"><span><?= $block->escapeHtml(__('SEND APPLICATION')) ?></span></button>
         </div>
         <div class="secondary">
             <a class="action back" href="<?= $block->escapeUrl($block->getBackUrl()) ?>"><span><?= $block->escapeHtml(__('Back')) ?></span></a>
         </div>
     </div>
 </form>
-
-
-
-
 
 <script>
 require([
