@@ -59,3 +59,102 @@ Line: 14
 [2019-04-09 11:39:45] main.CRITICAL: Recoverable Error: Object of class Magento\CatalogWidget\Block\Product\ProductsList\Interceptor could not be converted to string in C:\xampp\htdocs\projekty\blm\redler\vendor\magento\framework\Phrase.php on line 72 {"exception":"[object] (Exception(code: 0): Recoverable Error: Object of class Magento\\CatalogWidget\\Block\\Product\\ProductsList\\Interceptor could not be converted to string in C:\\xampp\\htdocs\\projekty\\blm\edler\\vendor\\magento\\framework\\Phrase.php on line 72 at C:\\xampp\\htdocs\\projekty\\blm\edler\\vendor\\magento\\framework\\App\\ErrorHandler.php:61)"} []
 [2019-04-09 11:44:41] main.CRITICAL: Notice: Undefined variable: block2 in C:\xampp\htdocs\projekty\blm\redler\app\design\frontend\Radler\RadlerTheme\Magento_CatalogWidget\templates\product\widget\content\grid.phtml on line 26 {"exception":"[object] (Exception(code: 0): Notice: Undefined variable: block2 in C:\\xampp\\htdocs\\projekty\\blm\edler\\app\\design\\frontend\\Radler\\RadlerTheme\\Magento_CatalogWidget\\templates\\product\\widget\\content\\grid.phtml on line 26 at C:\\xampp\\htdocs\\projekty\\blm\edler\\vendor\\magento\\framework\\App\\ErrorHandler.php:61)"} []
 [2019-04-09 11:44:42] main.CRITICAL: Notice: Undefined variable: block2 in C:\xampp\htdocs\projekty\blm\redler\app\design\frontend\Radler\RadlerTheme\Magento_CatalogWidget\templates\product\widget\content\grid.phtml on line 26 {"exception":"[object] (Exception(code: 0): Notice: Undefined variable: block2 in C:\\xampp\\htdocs\\projekty\\blm\edler\\app\\design\\frontend\\Radler\\RadlerTheme\\Magento_CatalogWidget\\templates\\product\\widget\\content\\grid.phtml on line 26 at C:\\xampp\\htdocs\\projekty\\blm\edler\\vendor\\magento\\framework\\App\\ErrorHandler.php:61)"} []
+[2019-04-11 11:05:16] main.CRITICAL: Warning: Packets out of order. Expected 1 received 0. Packet size=30 in C:\xampp\htdocs\projekty\blm\redler\vendor\magento\zendframework1\library\Zend\Db\Statement\Pdo.php on line 228 {"exception":"[object] (Exception(code: 0): Warning: Packets out of order. Expected 1 received 0. Packet size=30 in C:\\xampp\\htdocs\\projekty\\blm\edler\\vendor\\magento\\zendframework1\\library\\Zend\\Db\\Statement\\Pdo.php on line 228 at C:\\xampp\\htdocs\\projekty\\blm\edler\\vendor\\magento\\framework\\App\\ErrorHandler.php:61)"} []
+[2019-04-11 11:13:41] main.CRITICAL: Element 'move': This element is not expected. Expected is one of ( block, container, referenceBlock, referenceContainer, uiComponent ).
+Line: 1159
+ {"exception":"[object] (Magento\\Framework\\Config\\Dom\\ValidationException(code: 0): Element 'move': This element is not expected. Expected is one of ( block, container, referenceBlock, referenceContainer, uiComponent ).
+Line: 1159
+ at C:\\xampp\\htdocs\\projekty\\blm\edler\\vendor\\magento\\framework\\Config\\Dom.php:400)"} []
+[2019-04-11 11:51:26] main.CRITICAL: Theme layout update file 'C:/xampp/htdocs/projekty/blm/redler/app/design/frontend/Radler/RadlerTheme/Magento_Catalog/layout/catalog_product_view.xml' is not valid.
+Opening and ending tag mismatch: referenceContainer line 10 and container
+ Line: 37
+Opening and ending tag mismatch: body line 9 and referenceContainer
+ Line: 38
+Opening and ending tag mismatch: page line 8 and body
+ Line: 56
+Extra content at the end of the document
+ Line: 57 {"exception":"[object] (Magento\\Framework\\Config\\Dom\\ValidationException(code: 0): Theme layout update file 'C:/xampp/htdocs/projekty/blm/redler/app/design/frontend/Radler/RadlerTheme/Magento_Catalog/layout/catalog_product_view.xml' is not valid.
+Opening and ending tag mismatch: referenceContainer line 10 and container
+ Line: 37
+Opening and ending tag mismatch: body line 9 and referenceContainer
+ Line: 38
+Opening and ending tag mismatch: page line 8 and body
+ Line: 56
+Extra content at the end of the document
+ Line: 57 at C:\\xampp\\htdocs\\projekty\\blm\edler\\vendor\\magento\\framework\\View\\Model\\Layout\\Merge.php:743)"} []
+[2019-04-11 11:52:29] main.CRITICAL: Theme layout update file 'C:/xampp/htdocs/projekty/blm/redler/app/design/frontend/Radler/RadlerTheme/Magento_Catalog/layout/catalog_product_view.xml' is not valid.
+Opening and ending tag mismatch: referenceContainer line 10 and container
+ Line: 31
+Opening and ending tag mismatch: body line 9 and referenceContainer
+ Line: 32
+Opening and ending tag mismatch: page line 8 and body
+ Line: 50
+Extra content at the end of the document
+ Line: 51 {"exception":"[object] (Magento\\Framework\\Config\\Dom\\ValidationException(code: 0): Theme layout update file 'C:/xampp/htdocs/projekty/blm/redler/app/design/frontend/Radler/RadlerTheme/Magento_Catalog/layout/catalog_product_view.xml' is not valid.
+Opening and ending tag mismatch: referenceContainer line 10 and container
+ Line: 31
+Opening and ending tag mismatch: body line 9 and referenceContainer
+ Line: 32
+Opening and ending tag mismatch: page line 8 and body
+ Line: 50
+Extra content at the end of the document
+ Line: 51 at C:\\xampp\\htdocs\\projekty\\blm\edler\\vendor\\magento\\framework\\View\\Model\\Layout\\Merge.php:743)"} []
+[2019-04-11 12:18:31] main.CRITICAL: Theme layout update file 'C:/xampp/htdocs/projekty/blm/redler/app/design/frontend/Radler/RadlerTheme/Magento_Catalog/layout/catalog_product_view.xml' is not valid.
+Opening and ending tag mismatch: referenceContainer line 14 and container
+ Line: 84
+Opening and ending tag mismatch: body line 13 and referenceContainer
+ Line: 85
+Opening and ending tag mismatch: page line 12 and body
+ Line: 95
+Extra content at the end of the document
+ Line: 96 {"exception":"[object] (Magento\\Framework\\Config\\Dom\\ValidationException(code: 0): Theme layout update file 'C:/xampp/htdocs/projekty/blm/redler/app/design/frontend/Radler/RadlerTheme/Magento_Catalog/layout/catalog_product_view.xml' is not valid.
+Opening and ending tag mismatch: referenceContainer line 14 and container
+ Line: 84
+Opening and ending tag mismatch: body line 13 and referenceContainer
+ Line: 85
+Opening and ending tag mismatch: page line 12 and body
+ Line: 95
+Extra content at the end of the document
+ Line: 96 at C:\\xampp\\htdocs\\projekty\\blm\edler\\vendor\\magento\\framework\\View\\Model\\Layout\\Merge.php:743)"} []
+[2019-04-11 12:23:31] main.CRITICAL: Theme layout update file 'C:/xampp/htdocs/projekty/blm/redler/app/design/frontend/Radler/RadlerTheme/Magento_Catalog/layout/catalog_product_view.xml' is not valid.
+Opening and ending tag mismatch: block line 18 and container
+ Line: 50
+Opening and ending tag mismatch: container line 15 and referenceContainer
+ Line: 51
+Opening and ending tag mismatch: referenceContainer line 14 and body
+ Line: 61
+Opening and ending tag mismatch: body line 13 and page
+ Line: 62
+Premature end of data in tag page line 12
+ Line: 63 {"exception":"[object] (Magento\\Framework\\Config\\Dom\\ValidationException(code: 0): Theme layout update file 'C:/xampp/htdocs/projekty/blm/redler/app/design/frontend/Radler/RadlerTheme/Magento_Catalog/layout/catalog_product_view.xml' is not valid.
+Opening and ending tag mismatch: block line 18 and container
+ Line: 50
+Opening and ending tag mismatch: container line 15 and referenceContainer
+ Line: 51
+Opening and ending tag mismatch: referenceContainer line 14 and body
+ Line: 61
+Opening and ending tag mismatch: body line 13 and page
+ Line: 62
+Premature end of data in tag page line 12
+ Line: 63 at C:\\xampp\\htdocs\\projekty\\blm\edler\\vendor\\magento\\framework\\View\\Model\\Layout\\Merge.php:743)"} []
+[2019-04-11 12:47:09] main.CRITICAL: Theme layout update file 'C:/xampp/htdocs/projekty/blm/redler/app/design/frontend/Radler/RadlerTheme/Magento_Catalog/layout/catalog_product_view.xml' is not valid.
+Opening and ending tag mismatch: block line 26 and container
+ Line: 46
+Opening and ending tag mismatch: container line 16 and referenceContainer
+ Line: 47
+Opening and ending tag mismatch: referenceContainer line 15 and body
+ Line: 57
+Opening and ending tag mismatch: body line 14 and page
+ Line: 58
+Premature end of data in tag page line 12
+ Line: 59 {"exception":"[object] (Magento\\Framework\\Config\\Dom\\ValidationException(code: 0): Theme layout update file 'C:/xampp/htdocs/projekty/blm/redler/app/design/frontend/Radler/RadlerTheme/Magento_Catalog/layout/catalog_product_view.xml' is not valid.
+Opening and ending tag mismatch: block line 26 and container
+ Line: 46
+Opening and ending tag mismatch: container line 16 and referenceContainer
+ Line: 47
+Opening and ending tag mismatch: referenceContainer line 15 and body
+ Line: 57
+Opening and ending tag mismatch: body line 14 and page
+ Line: 58
+Premature end of data in tag page line 12
+ Line: 59 at C:\\xampp\\htdocs\\projekty\\blm\edler\\vendor\\magento\\framework\\View\\Model\\Layout\\Merge.php:743)"} []

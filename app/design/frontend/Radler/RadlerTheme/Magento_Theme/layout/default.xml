@@ -23,6 +23,7 @@
     </referenceBlock>
 
     <!--REMOVED BLOCKS -->
+    <referenceBlock name="catalog.compare.link" remove="true"/>
     <referenceBlock name="catalog.compare.sidebar" remove="true"/> 
     <referenceBlock name="wishlist_sidebar" remove="true" />
     <referenceBlock name="top.search" remove="true"/>
@@ -32,5 +33,6 @@
     <referenceBlock name="form.subscribe" remove="true" />
     <referenceBlock name="copyright" remove="true" />
     <referenceBlock name="footer_links" remove="true" />
+    <referenceBlock name="breadcrumbs" remove="true" />
     </body>
 </page>
