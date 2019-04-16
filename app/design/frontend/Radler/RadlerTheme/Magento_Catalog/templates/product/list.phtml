@@ -45,6 +45,15 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
         <ol class="products list items product-items">
             <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
             <?php foreach ($_productCollection as $_product): ?>
+
+            <?php
+                //-------
+                $size = $_product->getResource()->getAttribute('size')->getFrontend()->getValue($_product);
+                $alcoholByVolume = $_product->getResource()->getAttribute('alcohol_by_volume')->getFrontend()->getValue($_product);
+                $isReturnable = $_product->getResource()->getAttribute('returnable_bottle')->getFrontend()->getValue($_product);
+                //------
+            ?>
+
             <li class="item product product-item">
                 <div class="product-item-info" data-container="product-<?= /* @escapeNotVerified */ $viewMode ?>">
                     <?php
@@ -68,6 +77,14 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                                 <?= /* @escapeNotVerified */ $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
                             </a>
                         </strong>
+
+                        <div class="test">
+                            <?php echo $size; ?>
+                            <?php echo $alcoholByVolume; ?>
+                            <?php echo ($isReturnable == "Yes" ? "" : "NRB"); ?>
+                        </div>
+
+
                         <?= $block->getReviewsSummaryHtml($_product, $templateType) ?>
                         <?= /* @escapeNotVerified */ $block->getProductPrice($_product) ?>
                         <?= $block->getProductDetailsHtml($_product) ?>

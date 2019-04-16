@@ -158,3 +158,4 @@ Opening and ending tag mismatch: body line 14 and page
  Line: 58
 Premature end of data in tag page line 12
  Line: 59 at C:\\xampp\\htdocs\\projekty\\blm\edler\\vendor\\magento\\framework\\View\\Model\\Layout\\Merge.php:743)"} []
+[2019-04-16 13:07:09] main.CRITICAL: Notice: Undefined variable: _product in C:\xampp\htdocs\projekty\blm\redler\app\design\frontend\Radler\RadlerTheme\Magento_Catalog\templates\product\image_with_borders.phtml on line 10 {"exception":"[object] (Exception(code: 0): Notice: Undefined variable: _product in C:\\xampp\\htdocs\\projekty\\blm\edler\\app\\design\\frontend\\Radler\\RadlerTheme\\Magento_Catalog\\templates\\product\\image_with_borders.phtml on line 10 at C:\\xampp\\htdocs\\projekty\\blm\edler\\vendor\\magento\\framework\\App\\ErrorHandler.php:61)"} []

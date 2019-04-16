@@ -21,8 +21,14 @@ $_className = $block->getCssClass();
 $_attributeLabel = $block->getAtLabel();
 $_attributeType = $block->getAtType();
 $_attributeAddAttribute = $block->getAddAttribute();
-
 $renderLabel = true;
+
+//-------
+$size = $_product->getResource()->getAttribute('size')->getFrontend()->getValue($_product);
+$alcoholByVolume = $_product->getResource()->getAttribute('alcohol_by_volume')->getFrontend()->getValue($_product);
+$isReturnable = $_product->getResource()->getAttribute('returnable_bottle')->getFrontend()->getValue($_product);
+//------
+
 // if defined as 'none' in layout, do not render
 if ($_attributeLabel == 'none') {
     $renderLabel = false;
@@ -36,7 +42,17 @@ if ($_attributeType && $_attributeType == 'text') {
 } else {
     $_attributeValue = $_helper->productAttribute($_product, $_product->$_call(), $_code);
 }
+
+
+
 ?>
+<div class="test">
+    <strong>
+       <?php echo $size; ?>
+       <?php echo $alcoholByVolume; ?>
+       <?php echo ($isReturnable == "Yes" ? "" : "NRB"); ?>
+    </strong>
+</div>
 
 <?php if ($_attributeValue): ?>
 <div class="product attribute <?= /* @escapeNotVerified */ $_className ?>">
