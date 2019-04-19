@@ -5,6 +5,7 @@ return [
         'Magento_Store' => 1,
         'Magento_Directory' => 1,
         'Magento_Theme' => 1,
+        'Amitshree_Customer' => 1,
         'Magento_Backend' => 1,
         'Magento_Variable' => 1,
         'Magento_Eav' => 1,

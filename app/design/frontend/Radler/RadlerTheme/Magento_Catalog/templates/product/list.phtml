@@ -81,9 +81,8 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                         <div class="test">
                             <?php echo $size; ?>
                             <?php echo $alcoholByVolume; ?>
-                            <?php echo ($isReturnable == "Yes" ? "" : "NRB"); ?>
+                            <?php echo ($isReturnable == "Yes" ? "" : "NRB"); ?>       
                         </div>
-
 
                         <?= $block->getReviewsSummaryHtml($_product, $templateType) ?>
                         <?= /* @escapeNotVerified */ $block->getProductPrice($_product) ?>
@@ -98,6 +97,18 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                                             <input type="hidden" name="product" value="<?= /* @escapeNotVerified */ $postParams['data']['product'] ?>">
                                             <input type="hidden" name="<?= /* @escapeNotVerified */ Action::PARAM_NAME_URL_ENCODED ?>" value="<?= /* @escapeNotVerified */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
                                             <?= $block->getBlockHtml('formkey') ?>
+                                            <div class="field qty">
+                                             <div class="control">
+                                                <input type="number"
+                                                    name="qty"
+                                                    id="qty"
+                                                    value="<?= /* @escapeNotVerified */ $block->getProductDefaultQty() * 1 ?>"
+                                                    title="<?= /* @escapeNotVerified */ __('Qty') ?>"
+                                                    class="input-text qty"
+                                                    data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                                                    />
+                                             </div>
+                                            </div>
                                             <button type="submit"
                                                     title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
                                                     class="action tocart primary">
