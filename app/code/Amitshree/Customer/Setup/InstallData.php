@@ -92,7 +92,7 @@ class InstallData implements InstallDataInterface
                 'is_used_in_grid' => true,
                 'is_visible_in_grid' => true,
                 'is_filterable_in_grid' => true,
-                'is_searchable_in_grid' => true,
+                'is_searchable_in_grid' => true
             ]);
         $approve_account = $customerSetup->getEavConfig()->getAttribute(Customer::ENTITY, self::APPROVE_ACCOUNT)
             ->addData([

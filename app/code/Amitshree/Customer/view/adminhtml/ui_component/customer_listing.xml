@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top"/>
     <columns name="customer_columns">
-        <column name="approve_account">
+        <column name="approve_account" class="Amitshree\Customer\Ui\Component\Listing\Column\AccountStatus">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
-                    <item name="label" translate="true" xsi:type="string">Account Status</item>
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="editor" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Account Status</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
                 </item>
             </argument>
         </column>
     </columns>
 </listing>
+

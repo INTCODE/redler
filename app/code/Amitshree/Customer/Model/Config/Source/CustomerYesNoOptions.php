@@ -28,8 +28,8 @@ class CustomerYesNoOptions extends \Magento\Eav\Model\Entity\Attribute\Source\Ab
     public function getAllOptions()
     {
         $this->_options = [
-            ['label' => __('No'), 'value' => self::VALUE_NO],
-            ['label' => __('Yes'), 'value' => self::VALUE_YES],
+            ['label' => __('Dissaproved'), 'value' => self::VALUE_NO],
+            ['label' => __('Approved'), 'value' => self::VALUE_YES],
         ];
         return $this->_options;
     }

@@ -55,9 +55,9 @@ class Redirect
             $this->session->destroy();
 
             /** @var \Magento\Framework\Controller\Result\Redirect $result */
-            //$result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-            //$result->setUrl($this->url->getUrl('customer/account/login'));
-            //return $result;
+            $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
+            $result->setUrl($this->url->getUrl('customer/account/login'));
+            return $result;
         }
 
         return $proceed();
