@@ -10,5 +10,6 @@
         <css src="css/custom.css" />
         <remove src="css/styles-m.css" />
         <remove src="css/styles-l.css" />
+        <remove src="Magebees_Mostviewed::css/mostviewed.css" />
     </head>
 </page>

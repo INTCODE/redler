@@ -131,10 +131,18 @@ class LoginPost
         }
 
         $isApprovedAccount = $customer->getCustomAttribute('approve_account')->getValue();
-        if($isApprovedAccount)
+        
+        if($isApprovedAccount == 0) {
+            return true;
+        }
+        else if($isApprovedAccount == 1) {
+            return true;
+        }
+        else if($isApprovedAccount == 2)
         {
             return false;
-        }
+        }else
+
         return true;
     }
 }

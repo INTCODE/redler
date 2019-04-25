@@ -41,12 +41,15 @@ class AccountStatus extends Column
 
                 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
                 $customer = $objectManager->create('Magento\Customer\Model\Customer')->load($item['entity_id']);
-
-                if($customer->getData('approve_account')) {
-                    $item[$this->getData('name')] = __("Approved");
+                $item[$this->getData('name')] = $customer->getData('approve_account');
+                if($customer->getData('approve_account') == 0) {
+                    $item[$this->getData('name')] = __("Pending");
                 }
-                else {
+                else if ($customer->getData('approve_account') == 1){
                     $item[$this->getData('name')] = __("Dissaproved");
+                }
+                else if($customer->getData('approve_account') == 2) {
+                    $item[$this->getData('name')] = __("Approved");
                 }
             }
         }

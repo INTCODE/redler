@@ -13,8 +13,8 @@ class CustomerYesNoOptions extends \Magento\Eav\Model\Entity\Attribute\Source\Ab
      * Option values
      */
 
-    const VALUE_NO = 0;
-    const VALUE_YES = 1;
+    const VALUE_NO = 1;
+    const VALUE_YES = 2;
 
     /**
      * @var optionFactory
