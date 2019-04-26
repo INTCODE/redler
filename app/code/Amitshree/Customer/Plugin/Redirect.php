@@ -49,14 +49,14 @@ class Redirect
             $this->messageManager->getMessages(true);
 
             // Adding a custom message
-            $this->messageManager->addErrorMessage(__('Your account is not approved. Kindly contact website admin for assitance.'));
+            $this->messageManager->addErrorMessage(__('Your account is not approved. Contact website admin for assitance.'));
 
             // Destroy the customer session in order to redirect him to the login page
             $this->session->destroy();
-
-            /** @var \Magento\Framework\Controller\Result\Redirect $result */
-            $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-            $result->setUrl($this->url->getUrl('customer/account/login'));
+            // $this->_redirect('../../account/create');
+           /** @var \Magento\Framework\Controller\Result\Redirect $result */
+           $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
+            $result->setUrl($this->url->getUrl('../../account/create'));
             return $result;
         }
 

@@ -7,9 +7,12 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
+
+    <!-- PLIK W GITIGNORE  -->
+
         <css src="css/custom.css" />
-        <remove src="css/styles-m.css" />
+        <!-- <remove src="css/styles-m.css" />
         <remove src="css/styles-l.css" />
-        <remove src="Magebees_Mostviewed::css/mostviewed.css" />
+        <remove src="Magebees_Mostviewed::css/mostviewed.css" /> -->
     </head>
 </page>

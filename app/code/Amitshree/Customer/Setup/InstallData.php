@@ -20,6 +20,7 @@ class InstallData implements InstallDataInterface
      * attribute to identify customer account is approved or not
      */
     const APPROVE_ACCOUNT = 'approve_account';
+    const CUSTOMER_DOCUMENTS = 'customer_documents';
 
     /**
      * @var EavSetupFactory
@@ -81,7 +82,7 @@ class InstallData implements InstallDataInterface
                 'type' => 'int',
                 'label' => 'Approve Account',
                 'input' => 'select',
-                "source"   => "Amitshree\Customer\Model\Config\Source\CustomerYesNoOptions",
+                'source'   => 'Amitshree\Customer\Model\Config\Source\CustomerYesNoOptions',
                 'required' => false,
                 'default' => '0',
                 'visible' => true,
@@ -101,6 +102,35 @@ class InstallData implements InstallDataInterface
                 'used_in_forms' => ['adminhtml_customer','customer_account_create','customer_account_edit'],
             ]);
         $approve_account->save();
+
+         /**
+         * Create customer attribute customer_documents
+         */
+        $customerSetup->addAttribute(Customer::ENTITY, self::CUSTOMER_DOCUMENTS,
+        [
+            'type' => 'text',
+            'label' => 'Documents',
+            'input' => 'file',
+            'source'   => '',
+            'required' => false,
+            'default' => '0',
+            'visible' => true,
+            'user_defined' => true,
+            'sort_order' => 216,
+            'position' => 216,
+            'system' => false,
+            'is_used_in_grid' => false,
+            'is_visible_in_grid' => false,
+            'is_filterable_in_grid' => false,
+            'is_searchable_in_grid' => false
+        ]);
+    $customer_documents = $customerSetup->getEavConfig()->getAttribute(Customer::ENTITY, self::CUSTOMER_DOCUMENTS)
+        ->addData([
+            'attribute_set_id' => $attributeSetId,
+            'attribute_group_id' => $attributeGroupId,
+            'used_in_forms' => ['adminhtml_customer','customer_account_create','customer_account_edit'],
+        ]);
+    $customer_documents->save();
 
         $setup->endSetup();
     }
