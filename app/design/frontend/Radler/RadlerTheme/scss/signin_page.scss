@@ -1,0 +1,128 @@
+.customer-account-create{
+    padding: 0;
+    background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%);
+    .right-full::after{
+        background-color: $third_bg_color;
+    }
+    .signin-container{
+        @extend .row;
+        position: relative;
+        .left{
+            @extend .col-lg-2;
+
+            .signin{
+                width: 565px;
+                height: 575px;
+                position: absolute;
+                z-index: 2;
+                top: 80px;
+                left: 0;
+                background-color: $body_background_color;
+                padding: 100px;
+                form{
+                    max-width: 525px;
+                    margin: auto;
+                }
+            }
+        }
+        .right{
+            @extend .col-lg-10;
+            background-color: $third_bg_color;
+            background-image: url('../../assets/img/singin_bg.png');
+            background-position: bottom right;
+            background-repeat: no-repeat;
+            padding: 160px 0 160px 450px;
+            form{
+                max-width: 525px;
+                @extend .row;
+                >div{
+                    @extend .col-lg-6;
+                    padding: 0;
+                    &:nth-child(odd){
+                        padding-right: 25px;
+                    }
+                    &:nth-child(3){
+                        label{
+                            padding-bottom: 0;
+                        }
+                    }
+                    &:last-child{
+                        @include flex-row(flex-end, flex-end);
+                    }
+                }
+                fieldset{
+                    @include flex-row(space-between, center);
+                    label:last-child{
+                        margin-left: 25px;
+                        width: 70%;
+                    }
+                }
+            }
+        }
+        .heading{
+            font-size: 32px;
+        }
+        .subtext{
+            color: $opacity-color;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        label{
+            width: 100%;
+            padding-bottom: 15px;
+            span{
+                font-size: 14px;
+                font-weight: 600;
+                padding-bottom: 15px;
+                display: inline-block;
+            }
+        }
+        .bottom{
+            font-size: $f-12;
+            margin-bottom: 50px;
+            color: $opacity-color;
+            @include flex-row(space-between, center);
+            a{
+                color: $green;
+            }
+
+        }
+    }
+}
+@media (max-width:991px){
+    #signin_page{
+        .signin-container{
+            .heading, .subtext{
+                text-align: center;
+            }
+            .left{
+                padding: 0;
+                .signin{
+                    top: 5px;
+                    position: relative;
+                    width: 100%;
+                    height: auto;
+                    padding: 40px 20px 45px;
+                    .btn{
+                        width: 100%;
+                    }
+                }
+            }
+            .right{
+                padding: 50px 20px;
+                background-image: none;
+                form{
+                    margin: auto;
+                    >div:nth-child(odd){
+                        padding-right: 0;
+                    }
+                    .btn{
+                        margin-top: 30px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,112 @@
+#basket_page{
+    .heading{
+        font-size: 32px;
+    }
+    .wrapper{
+        position: relative;
+        .return-arrow{
+            top: 15px;
+        }
+        >div{
+            @extend .row;
+            .basket-list{
+                @extend .col-lg-9;
+                padding: 0 120px 0 0;
+                .head{
+                    @extend .row;
+                    @extend .d-none;
+                    @extend .d-lg-flex;
+                    padding: 15px 0;
+                    border-bottom: 1px solid #eadfcf;
+                    >span{
+                        color: #a09792;
+                        font-size: $f-12;
+                        &:not(:first-child){
+                            text-align: center;
+                        }
+                    }
+                    span:nth-child(1){
+                        padding: 0;
+                        @extend .col-lg-7;
+                    }
+                    span:nth-child(2){
+                        @extend .col-lg-2;
+                    }
+                    span:nth-child(3){
+                        @extend .col-lg-2;
+                    }
+                    span:nth-child(4){
+                        @extend .col-lg-1;
+                    }
+                }
+            }
+            .panel{
+                @extend .col-lg-3;
+                .summary{
+                    background-color: $primary_bg_color;
+                    padding: 20px 30px;
+                    .heading{
+                        font-size: 20px;
+                    }
+                    p{
+                        @include flex-row(space-between, center);
+                    }
+                    .shipping{
+                        margin: 15px 0;
+                        background-color: $body_background_color;
+                        padding: 10px;
+                        text-align: center;
+                        font-size: 14px;
+                        color: #a09792;
+
+                    }
+                    .borders{
+                        margin: 20px 0 15px;
+                        padding: 15px 0;
+                        border-top: 1px solid #eadfcf;
+                        border-bottom: 1px solid #eadfcf;
+                        p span:first-child{
+                            margin-bottom: 10px;
+                        }
+                    }
+                    .total{
+                        font-weight: 600;
+                        font-size: $f-18;
+                    }
+                    .btn{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .bottom{
+            padding-top: 30px;
+            label{
+                span{
+                    font-size: $f-16;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:991px){
+    #basket_page{
+        .wrapper{
+            .heading{
+                text-align: center;
+            }
+            >div{
+                .basket-list{
+                    padding: 0 20px;
+                }
+            }
+            .bottom{
+                label{
+                    margin: auto;
+                }
+            }
+        }
+    }
+}

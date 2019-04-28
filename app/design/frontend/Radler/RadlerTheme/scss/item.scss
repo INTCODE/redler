@@ -1,0 +1,109 @@
+.product-item{
+    background-color: #fff;
+    display: inline-block;
+    text-align: center;
+    padding: 20px 10px;
+    box-shadow: -2.5px 15.8px 68px #B49D7f48;
+    position: relative;
+    margin: 2px!important;
+    max-width: 255px;
+    &.promo::before{
+        content: "";
+        background-image: url('../../assets/img/promo.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: $green;
+        border-radius: 50%;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        display: block;
+        width: 60px;
+        height: 60px;
+    }
+    .product-image-container{
+        float: left;
+    }
+    .product-image-wrapper{ 
+        float: left;
+        margin-left: 0;
+        width: 100%;
+        padding-bottom: 0px!important;
+    }
+    .product-image-photo{ 
+        max-width: 80%;
+        height: auto; 
+    }
+    .product-item-name{
+        font-size: $f-18;
+        font-weight: 600;
+        margin: 0px 0 0;
+        width: 100%;
+        display: block;
+    }
+    .tocart{
+    display: none;       
+    }
+
+    .price-box{ 
+        width: 50%;
+        display: inline-block; 
+        float: left;
+        padding-top: 20px;
+        .price-label{
+            display: none;
+        }
+        .price{
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .old-price{
+            .price{
+                text-decoration: line-through;
+                font-size: $f-12;
+                color: $gray;
+            } 
+        }
+    }
+    .field {
+        width: 50%;
+        display: inline-block;
+        float: left;
+        padding-top: 20px; 
+        &.qty{ 
+            .control{
+                input[type="number"]{
+                    appearance: textfield;
+                    width: 80%;
+                    height:100%;
+                    text-align: center;
+                    border: 1px solid $third_bg_color;
+                }
+                input[type=number]::-webkit-inner-spin-button,
+                input[type=number]::-webkit-outer-spin-button
+                {
+                  -webkit-appearance: none;
+                  margin: 0;
+                } 
+            }
+        }
+    }
+
+    .subtext{
+        color: $primary_text_color;
+        font-size: $f-12;
+    }
+    .top-panel{
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+    .actions-secondary{
+        display: none;
+    } 
+
+   
+    .pager{
+        display: none;
+    }
+}

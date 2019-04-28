@@ -1,0 +1,47 @@
+#contact_form{
+    .wrapper{
+        @extend .row;
+        align-items: center;
+        .text{
+            @extend .col-lg-3;
+            p{
+                max-width: 250px;
+            }
+            .bottom-text{
+                padding-top: 20px;
+                font-size: 14px;
+            }
+        }
+        form{
+            @extend .col-lg-8;
+            @extend .row;
+            .inputs{
+                @extend .col-lg-4;
+            }
+            .textarea{
+                @extend .col-lg-8;
+            }
+            label{
+                font-size: 14px;
+                font-weight: 600;
+                width: 100%;
+                padding-bottom: 18px;
+                span{
+                    display: block;
+                    padding-bottom: 5px;
+                }
+            }
+            .bottom-panel{
+                width: 100%;
+                @include flex-row(flex-end, center);
+                label{
+                    padding: 0;
+                    display: flex;
+                    .bottom-text{
+                        padding-left:30px;
+                    }
+                }
+            }
+        }
+    }
+}

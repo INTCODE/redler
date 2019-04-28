@@ -1,0 +1,30 @@
+#popular_products{
+    .wrapper{
+        @extend .row;
+        #bestsellers{
+            @extend .col-lg-5;
+            background: linear-gradient( 180deg, $primary_bg_color 19%, $body_background_color 100%);
+
+            padding: 35px 32px;
+            &::before{
+                content: url('../../assets/img/icons/star.png');
+                position: absolute;
+                top: 25px;
+                right: 25px;
+            }
+        }
+        #most_viewed{
+            @extend .col-lg-7;
+            padding: 35px 32px;
+            &::before{
+                content: url('../../assets/img/icons/eye.png');
+                position: absolute;
+                top: 25px;
+                right: 25px;
+            } 
+        }
+        .item-grid{
+            text-align: center;
+        }
+    }
+}

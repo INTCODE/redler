@@ -1,0 +1,33 @@
+.nav-sections{
+    z-index: 1;
+    position: relative;
+    .section-item-title{
+        display: none;
+    }
+    nav{
+        max-width: 1460px;
+        width: 98%;
+        margin: auto !important;
+    }
+    ul{
+        list-style: none;
+        margin-bottom: 0;
+        @extend .row;
+        li{
+            padding: 10px;
+            @extend .col-lg-4;
+            text-align: center;
+            &.active a{
+                // color: #000;
+            }
+            a{
+                letter-spacing: 2px;
+                font-weight: 600;
+                color: $primary_text_color;
+                font-size:$f-13;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+}

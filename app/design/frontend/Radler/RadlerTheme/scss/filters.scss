@@ -1,0 +1,54 @@
+.filters{
+    p{
+        font-size: $f-16;
+        font-weight: 600;
+        padding-bottom: 10px;
+    }
+    .filters-item{
+        background-color: $secondary_bg_color;
+        width: 100%;
+        margin: 8px 0;
+        cursor: pointer;
+        .top{
+            padding: 10px 20px;
+            @include flex-row(space-between, center);
+            span{
+                font-weight: 600;
+                font-size: 14px;
+            }
+            svg{
+                transition: 300ms;
+                width: 15px;
+                height: 15px;
+                fill:$primary_text_color;
+            }
+            &.active{
+                svg{
+                    transform: rotate(180deg);
+                }
+                & + ul{
+                    max-height: 500px;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+        ul{
+            transition: 300ms;
+            max-height: 0;
+            overflow: hidden;
+            padding-left: 10px;
+            list-style: none;
+            padding: 0 20px;
+            li{
+                font-size: $f-12;
+                padding: 2.5px 0;
+                label{
+                    width: 100%;
+                }
+                span:not(.mark){
+                    padding-left: 30px;
+                }
+            }
+        }
+    }
+}

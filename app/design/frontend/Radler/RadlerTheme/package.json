@@ -1,0 +1,29 @@
+{
+  "name": "radlerfront",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/INTCODE/radlerFront.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/INTCODE/radlerFront/issues"
+  },
+  "homepage": "https://github.com/INTCODE/radlerFront#readme",
+  "devDependencies": {
+    "bootstrap": "^4.3.1",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-inline-css": "^3.3.1",
+    "gulp-sass": "^4.0.2",
+    "jquery": "^3.4.0",
+    "popper.js": "^1.14.7"
+  }
+}

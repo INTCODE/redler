@@ -1,0 +1,84 @@
+.footer{
+    // background: linear-gradient(left, $lightgreen 0%, $lightgreen 52%, $green 52%, $green 100%)!important;
+    background: $green ;
+    padding: 50px 0;
+    .wrapper{
+        @extend .row;
+        .column{
+            @extend .col-lg-3 ;
+            @extend .col-md-6 ;
+            text-align: center;
+            .column-title{
+                color:$secondary_text_color;
+                letter-spacing: 2px;
+                font-weight: 600;
+                font-size: $f-15;
+            }
+            ul{
+                padding: 0;
+                list-style: none;
+                li{
+                    a{
+                        font-weight: 600;
+                        font-size: $f-13;
+                        color: $primary_text_color;
+                    }
+                }
+            }
+        }
+        .about{
+            @extend .col-lg-4;
+            @extend .col-md-6;
+            padding-left: 150px;
+            p{
+                max-width: 170px;
+                padding-top: 1rem;
+                color: $primary_text_color;
+                font-size: $f-13;
+            }
+        }
+        .contact{
+            @extend .col-lg-2;
+            @extend .col-md-6;
+            background-color: $darkgreen;
+            padding: 20px 25px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 160px;
+            p{
+                color: $secondary_text_color;
+                font-size: $f-15;
+                margin-bottom: .5rem;
+                line-height: 1.3;
+                font-weight: 600;
+                &.number{
+                    margin: 0;
+                    font-size: $f-13;
+                    color: $primary_text_color;
+                }
+            }
+        }
+    }
+}
+@media (max-width:991px){
+    footer{
+        background: $green;
+        .wrapper{
+
+            .column{
+                margin: 10px 0;
+            }
+            .about{
+                margin: 20px 0;
+                text-align: center;
+                padding: 0;
+                p{
+                    margin: auto;
+                }
+            }
+            .contact{
+                margin: 10px auto;
+            }
+        }
+    }
+}
