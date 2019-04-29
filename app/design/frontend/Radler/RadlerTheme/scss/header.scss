@@ -5,9 +5,7 @@
     .content{
         max-width: 1460px;
         width: 98%;
-        margin: auto!important;
-        
-        .links, 
+        margin: auto!important; 
         .nav-toggle{
             display: none;
         } 
@@ -89,19 +87,31 @@
             }
         }
 
-    #account{
-        margin-left: 50px;
-        @include flex-row(center, center);
-        #my_account{
-            font-weight: 600;
-            padding: 0 25px;
-            border-right: 1px solid $body_background_color;
-            img{
-                padding-right: 20px;
-            }
+    .links{
+        display: inline-block;
+        float: right;
+        margin-top: 7px;
+        font-weight: 600;
+        padding: 0 25px 0 30px;
+        position: relative;
+        &::before{
+            content: "";
+            width: 20px;
+            height: 20px; 
+            position: absolute;
+            left: 0;
+            top: 3px;
+            background: url("../images/icons/user.png");
+            background-repeat: no-repeat;
         }
-    
-    }
+        border-right: 1px solid $body_background_color;
+            li{
+                list-style: none;
+                a{
+                    font-size: 12px;
+                }
+            } 
+        }
     }
 }
 @media (max-width:1180px){

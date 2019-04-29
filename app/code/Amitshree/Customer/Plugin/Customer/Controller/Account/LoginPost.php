@@ -71,8 +71,8 @@ class LoginPost
                 try {
                     if (!empty($customer->getCustomAttributes())) {
                         if ($this->isAccountNotApproved($customer)) {
-                            $this->messageManager->addErrorMessage(__('Your account is not approved. Kindly contact website admin for assitance.'));
-                            $this->responseHttp->setRedirect('customer/account/login');
+                            $this->messageManager->addErrorMessage(__('Your account is not approved. Contact website admin for assitance.'));
+                            $this->responseHttp->setRedirect('../../account/create');
                             //@todo:: redirect to last visited url
                         } else {
                             return $proceed();
@@ -87,7 +87,7 @@ class LoginPost
                     $message = "Invalid User credentials.";
                     $this->messageManager->addError($message);
                     $this->session->setUsername($login['username']);
-                    $this->responseHttp->setRedirect('customer/account/login');
+                    $this->responseHttp->setRedirect('../../account/create');
                 }
 
             }

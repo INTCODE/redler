@@ -65,3 +65,6 @@ atlassian*
 /generated/*
 !/generated/.htaccess
 .DS_Store
+
+
+/app/design/frontend/Radler/RadlerTheme/Magento_Theme/layout
