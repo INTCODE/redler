@@ -313,3 +313,4 @@ Opening and ending tag mismatch: head line 9 and page
  Line: 14
 Premature end of data in tag page line 8
  Line: 15 at /Users/bartektalar/Sites/projekty/blm/redler/vendor/magento/framework/View/Model/Layout/Merge.php:743)"} []
+[2019-04-29 10:13:08] main.CRITICAL: Invalid block type: php string {"exception":"[object] (Magento\\Framework\\Exception\\LocalizedException(code: 0): Invalid block type: php string at C:\\xampp\\htdocs\\projekty\\blm\edler\\vendor\\magento\\framework\\View\\Layout\\Generator\\Block.php:274, ReflectionException(code: -1): Class php string does not exist at C:\\xampp\\htdocs\\projekty\\blm\edler\\vendor\\magento\\framework\\Code\\Reader\\ClassReader.php:19)"} []
