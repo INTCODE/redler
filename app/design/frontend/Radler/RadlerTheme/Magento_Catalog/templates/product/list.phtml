@@ -77,17 +77,14 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                                 <?= /* @escapeNotVerified */ $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
                             </a>
                         </strong>
-
-                        <div class="test">
+                        <div class="attribute-short">
                             <?php echo $size; ?>
                             <?php echo $alcoholByVolume; ?>
                             <?php echo ($isReturnable == "Yes" ? "" : "NRB"); ?>       
                         </div>
-
                         <?= $block->getReviewsSummaryHtml($_product, $templateType) ?>
                         <?= /* @escapeNotVerified */ $block->getProductPrice($_product) ?>
                         <?= $block->getProductDetailsHtml($_product) ?>
-
                         <div class="product-item-inner">
                             <div class="product actions product-item-actions"<?= strpos($pos, $viewMode . '-actions') ? $position : '' ?>>
                                 <div class="actions-primary"<?= strpos($pos, $viewMode . '-primary') ? $position : '' ?>>
@@ -98,7 +95,7 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                                             <input type="hidden" name="<?= /* @escapeNotVerified */ Action::PARAM_NAME_URL_ENCODED ?>" value="<?= /* @escapeNotVerified */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
                                             <?= $block->getBlockHtml('formkey') ?>
                                             <div class="field qty">
-                                             <div class="control">
+                                                <div class="control">
                                                 <input type="number"
                                                     name="qty"
                                                     id="qty"
@@ -107,7 +104,9 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                                                     class="input-text qty"
                                                     data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
                                                     />
-                                             </div>
+                                                    <button data-bind="click: increaseQty">+</button>
+                                                    <button data-bind="click: decreaseQty">-</button>
+                                                </div>                     
                                             </div>
                                             <button type="submit"
                                                     title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
