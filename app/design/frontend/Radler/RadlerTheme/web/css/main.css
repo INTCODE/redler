@@ -7214,6 +7214,9 @@ section {
 .page .column {
   border: solid red !important; }
 
+.toolbar {
+  display: none; }
+
 input[type="text"], input[type="password"], textarea {
   border: none;
   width: 100%;
@@ -8011,6 +8014,66 @@ input[type="text"], input[type="password"], textarea {
   .block-products-list .block-title strong {
     font-size: 1.125rem;
     font-weight: 600; }
+
+.sidebar-main h1.page-title span.base {
+  margin: 50px 0 30px;
+  font-size: 42px;
+  font-weight: 600;
+  line-height: .6; }
+
+.filter-title {
+  display: none; }
+
+.filter-content .filter-subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  padding-bottom: 10px; }
+
+.filter-content .filter-options-title {
+  background-color: #EADFCF;
+  width: 100%;
+  margin: 8px 0;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; }
+  .filter-content .filter-options-title .top {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
+    .filter-content .filter-options-title .top span {
+      font-weight: 600;
+      font-size: 14px; }
+    .filter-content .filter-options-title .top svg {
+      transition: 300ms;
+      width: 15px;
+      height: 15px;
+      fill: #CFA773; }
+    .filter-content .filter-options-title .top.active svg {
+      transform: rotate(180deg); }
+    .filter-content .filter-options-title .top.active + ul {
+      max-height: 500px;
+      padding-bottom: 10px; }
+  .filter-content .filter-options-title ul {
+    transition: 300ms;
+    max-height: 0;
+    overflow: hidden;
+    padding-left: 10px;
+    list-style: none;
+    padding: 0 20px; }
+    .filter-content .filter-options-title ul li {
+      font-size: 0.75rem;
+      padding: 2.5px 0; }
+      .filter-content .filter-options-title ul li label {
+        width: 100%; }
+      .filter-content .filter-options-title ul li span:not(.mark) {
+        padding-left: 30px; }
 
 .footer {
   background: #1C6441;

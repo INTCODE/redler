@@ -1,14 +1,24 @@
-.filters{
-    p{
+
+.filter-title{
+    display: none;
+} 
+
+.filter-content{
+    .filter-subtitle{
         font-size: $f-16;
         font-weight: 600;
         padding-bottom: 10px;
-    }
-    .filters-item{
+    } 
+    .filter-options-title{
         background-color: $secondary_bg_color;
         width: 100%;
         margin: 8px 0;
+        font-weight: 600;
+        font-size: 14px;
         cursor: pointer;
+        padding: 10px 20px;
+        @include flex-row(space-between, center);
+
         .top{
             padding: 10px 20px;
             @include flex-row(space-between, center);

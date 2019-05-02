@@ -12,9 +12,12 @@
 <?php /* Extensions placeholder */ ?>
 <?= $block->getChildHtml('customer.form.register.extra') ?>
 <form class="form create account form-create-account" action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>" method="post" id="form-validate" enctype="multipart/form-data" autocomplete="off">
+    <div class="block-title">
+        <strong>Are you new?</strong>
+    </div>
     <?= /* @noEscape */ $block->getBlockHtml('formkey'); ?>
     <fieldset class="fieldset create info">
-        <legend class="legend"><span><?= $block->escapeHtml(__('You can comlpete the application. If we consider it positively, you will recive an account.')) ?></span></legend><br>
+        <legend class="legend"><span><?= $block->escapeHtml(__('You can complete the application. If we consider it positively, you will receive an account.')) ?></span></legend><br>
         <input type="hidden" name="success_url" value="<?= $block->escapeUrl($block->getSuccessUrl()) ?>">
         <input type="hidden" name="error_url" value="<?= $block->escapeUrl($block->getErrorUrl()) ?>">
         <?= $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Name')->setObject($block->getFormData())->setForceUseCustomerAttributes(true)->toHtml() ?>
