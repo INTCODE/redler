@@ -66,19 +66,17 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
 							<?php if($this->getProductsPrice()): ?>
 								<?php echo $block->getProductPrice($_product) ?>
 							<?php endif; ?>	
-							<div class="field qty">
-                                <div class="control">
-                                    <input type="number"
-                                            name="qty"
-                                            id="qty"
-                                            value="<?= /* @escapeNotVerified */ $block->getProductDefaultQty() * 1 ?>"
-                                            title="<?= /* @escapeNotVerified */ __('Qty') ?>"
-                                            class="input-text qty"
-                                            data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
-                                    />
-									<button  >+</button>
-                                    <button  >-</button>
-                                </div>
+							<div class="control">
+								<input type="number" 
+									id="cart-<?= /* @escapeNotVerified */ $_product->getId() ?>-qty"
+									name="cart[<?= /* @escapeNotVerified */ $_product->getId() ?>][qty]"
+									value="<?= /* @escapeNotVerified */ $block->getProductDefaultQty() * 1 ?>" 
+									title="<?= /* @escapeNotVerified */ __('Qty') ?>" 
+									class="input-text qty" 
+									data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>" /> 
+
+                                <button type="button"  id="<?= /* @escapeNotVerified */ $_product->getId() ?>-upt" class="increaseQty">+</button>
+                                <button type="button"   id="<?= /* @escapeNotVerified */ $_product->getId() ?>-dec"  class="decreaseQty">-</button>
                             </div>
 							<div class="product-item-inner">
 								<div class="product actions product-item-actions"<?php echo strpos($pos, $viewMode . '-actions') ? $position : ''; ?>>
