@@ -70,31 +70,12 @@ body{
     background-color: $body_background_color;
     padding: 0;
     margin:0;
+    -ms-text-size-adjust: 100%;
+-webkit-text-size-adjust: 100%;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
-.page-products{
-    background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%); 
-    .main{
-        background-color: #f6f3f1;
-        padding: 0 70px;
-        position: relative;
-        @extend .col-lg-10; 
-        // &:after{
-        //     content: "";
-        //     width: calc((100vw - 100% - 18px) / 2);
-        //     height: calc(100% - 40px);
-        //     background-color: #f6f3f1;
-        //     position: absolute;
-        //     left: 100%;
-        //     top: 0px;
-        // }
-    }
-    .sidebar{
-        @extend .col-lg-2; 
-    }
-    #see_all_products{
-        display: none;
-    }
-}
+
 h1{
     font-size: 58px;
     font-weight: 700;
@@ -158,25 +139,7 @@ a{
     color: $primary_text_color;
     background-color: $primary_bg_color;
 }
-.select{
-    padding: 13px 13px 13px 45px;
-    position: relative;
-    font-size: inherit;
-    select{
-        padding-right: 25px;
-        font-size: inherit;
-        border: none;
-        appearance: none;
-        background-color: inherit;
-        background-image: url('../../assets/img/icons/drop-down-arrow.svg');
-        background-size: 10px;
-        background-repeat: no-repeat;
-        background-position: right 10px center;
-        option{
-            color: $primary_text_color;
-        }
-    }
-}
+
 section{
     padding: 50px 0;
 }
@@ -208,36 +171,7 @@ section{
     }
 }
 
-.pagination{
-    @include flex-row(flex-start, center);
-    span{
-        color: #000;
-        opacity: .5;
-        font-weight: 600;
-    }
-    ul{
-        padding-left: 20px;
-        display: flex;
-        li{
-            cursor: pointer;
-            @include flex-row(center, center);
-            width: 35px;
-            height: 35px;
-            color: #000;
-            opacity: .5;
-            font-weight: 600;
-            transition: 300ms;
-            &.active{
-                background-color: $primary_bg_color;
-                opacity: 1;
-            }
-            &:hover{
-                background-color: $primary_bg_color;
-                opacity: 1;
-            }
-        }
-    }
-}
+
 .slick-arrow{
     position: absolute;
     top: 40%;
@@ -278,6 +212,5 @@ section{
     }
 }
 
-.toolbar{
-    display: none;
-}
+
+ 

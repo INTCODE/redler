@@ -37,6 +37,7 @@ use Magento\Framework\App\Action\Action;
                     <?php $iterator = 1; ?>
                     <?php foreach ($items as $_item): ?>
                         <?= /* @noEscape */ ($iterator++ == 1) ? '<li class="product-item">' : '</li><li class="product-item">' ?>
+                        
                         <div class="product-item-info">
                             <a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="product-item-photo">
                                 <?= $block->getImage($_item, $image)->toHtml() ?>
@@ -49,6 +50,16 @@ use Magento\Framework\App\Action\Action;
                                         <?= $block->escapeHtml($_item->getName()) ?>
                                     </a>
                                 </strong>
+                                <?php
+                                    $size = $_item->getResource()->getAttribute('size')->getFrontend()->getValue($_item);
+                                    $alcoholByVolume = $_item->getResource()->getAttribute('alcohol_by_volume')->getFrontend()->getValue($_item);
+                                    $isReturnable = $_item->getResource()->getAttribute('returnable_bottle')->getFrontend()->getValue($_item);
+                                ?>
+                                <div class="attribute-short">
+                                    <?php echo $size; ?>
+                                    <?php echo $alcoholByVolume; ?>
+                                    <?php echo ($isReturnable == "Yes" ? "" : "NRB"); ?>       
+                                </div>
                                 <?php if ($templateType): ?>
                                     <?= $block->getReviewsSummaryHtml($_item, $templateType) ?>
                                 <?php endif; ?>
@@ -78,6 +89,8 @@ use Magento\Framework\App\Action\Action;
                                                                         class="input-text qty"
                                                                         data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
                                                                         />
+                                                                    <button data-bind="click: increaseQty">+</button>
+                                                                    <button data-bind="click: decreaseQty">-</button>
                                                                 </div>
                                                             </div>
                                                             <button type="submit"

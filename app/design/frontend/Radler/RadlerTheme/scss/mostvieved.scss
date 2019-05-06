@@ -12,23 +12,23 @@
     }
     .column{
         @extend .col-lg-7;
-        &::before{
-            content: url('../images/icons/eye.png');
-            position: absolute;
-            top: 25px;
-            right: 25px;
-        }
+        // &::before{
+        //     content: url('../images/icons/eye.png');
+        //     position: absolute;
+        //     top: 25px;
+        //     right: 25px;
+        // }
     }
   
     .sidebar-additional{
         @extend .col-lg-5;
         background: linear-gradient( 180deg, $primary_bg_color 19%, $body_background_color 100%);  
-        &::before{
-            content: url('../images/icons/star.png');
-            position: absolute;
-            top: 25px;
-            right: 25px;
-        }
+        // &::before{
+        //     content: url('../images/icons/star.png');
+        //     position: absolute;
+        //     top: 25px;
+        //     right: 25px;
+        // }
         .block-title{
             strong{
                 font-size: 1.125rem;

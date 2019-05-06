@@ -11,6 +11,11 @@
     <body>
         <referenceContainer name="content">
             <container name="product.buy" htmlTag="div" htmlClass="product-buy">
+                <block class="Magento\Catalog\Block\Product\View" name="product.info" template="Magento_Catalog::product/view/form.phtml" after="alert.urls">
+                    <container name="product.info.form.content" as="product_info_form_content">
+                        <block class="Magento\Catalog\Block\Product\View" name="product.info.addtocart" as="addtocart" template="Magento_Catalog::product/view/addtocart.phtml"/>
+                    </container> 
+                </block>
                 <container name="product.info.price" label="Product info auxiliary container" htmlTag="div" htmlClass="product-info-price">
                     <block class="Magento\Catalog\Pricing\Render" name="product.price.final">
                         <arguments>
@@ -20,12 +25,7 @@
                         </arguments>
                     </block>
                 </container>
-                <block class="Magento\Catalog\Block\Product\View" name="product.info" template="Magento_Catalog::product/view/form.phtml" after="alert.urls">
-                    <container name="product.info.form.content" as="product_info_form_content">
-                        <block class="Magento\Catalog\Block\Product\View" name="product.info.addtocart" as="addtocart" template="Magento_Catalog::product/view/addtocart.phtml"/>
-                    </container>
 
-                </block>
             </container>
         </referenceContainer>
 

@@ -48,6 +48,20 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
 							 <div style="padding: 0 2px;"><?php echo $block->getProductDetailsHtml($_product); ?></div>
 							<?php $_productNameStripped = $block->stripTags($_product->getName(), null, true); ?>
 							<strong class="product name product-item-name"> <a class="product-item-link" href="<?php echo $_product->getProductUrl() ?>"> <?php echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?> </a> </strong>
+							
+							<?php
+                                $size = $_product->getResource()->getAttribute('size')->getFrontend()->getValue($_product);
+                                $alcoholByVolume = $_product->getResource()->getAttribute('alcohol_by_volume')->getFrontend()->getValue($_product);
+                                $isReturnable = $_product->getResource()->getAttribute('returnable_bottle')->getFrontend()->getValue($_product);
+                            ?>
+
+							<div class="attribute-short">
+                                    <?php echo $size; ?>
+                                    <?php echo $alcoholByVolume; ?>
+                                    <?php echo ($isReturnable == "Yes" ? "" : "NRB"); ?>       
+                            </div>
+							
+							
 							<?php echo $block->getReviewsSummaryHtml($_product, $templateType); ?>
 							<?php if($this->getProductsPrice()): ?>
 								<?php echo $block->getProductPrice($_product) ?>
@@ -62,6 +76,8 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
                                             class="input-text qty"
                                             data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
                                     />
+									<button data-bind="click: increaseQty">+</button>
+                                    <button data-bind="click: decreaseQty">-</button>
                                 </div>
                             </div>
 							<div class="product-item-inner">

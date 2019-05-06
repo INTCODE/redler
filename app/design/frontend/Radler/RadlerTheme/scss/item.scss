@@ -41,6 +41,10 @@
         width: 100%;
         display: block;
     }
+    .attribute-short{
+        color: #CFA773;
+        font-size: 0.75rem;
+    }
     .tocart{
     display: none;       
     }
@@ -49,7 +53,7 @@
         width: 50%;
         display: inline-block; 
         float: left;
-        padding-top: 20px;
+        padding-top: 29px;
         .price-label{
             display: none;
         }
@@ -64,6 +68,22 @@
                 color: $gray;
             } 
         }
+    }
+
+    .special-price{ 
+      &:before{
+          content: "";
+          background-image: url("../images/promo.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-color: #1C6441; 
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          position: absolute;
+          top:15px;
+          left: 15px; 
+      }
     }
     .field {
         width: 50%;
