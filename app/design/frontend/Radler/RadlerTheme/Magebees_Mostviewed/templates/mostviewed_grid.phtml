@@ -8,6 +8,7 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
 		<div id="mp_scroll_loading" style="display:none;"><img src="<?php echo $image_url; ?>" alt="Loading..." /></div>
 		<?php if($this->getShowHeading()): ?>
 			<div class="title"><h3><?php echo __($this->getHeading()) ;?></h3></div>
+			<?php $blockNameMv = str_replace(' ', '-', $this->getHeading()); ?>
 		<?php endif; ?>
 		<?php
 			$_products = $this->getProductCollection();		
@@ -66,18 +67,6 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
 							<?php if($this->getProductsPrice()): ?>
 								<?php echo $block->getProductPrice($_product) ?>
 							<?php endif; ?>	
-							<div class="control">
-								<input type="number" 
-									id="cart-<?= /* @escapeNotVerified */ $_product->getId() ?>-qty"
-									name="cart[<?= /* @escapeNotVerified */ $_product->getId() ?>][qty]"
-									value="<?= /* @escapeNotVerified */ $block->getProductDefaultQty() * 1 ?>" 
-									title="<?= /* @escapeNotVerified */ __('Qty') ?>" 
-									class="input-text qty" 
-									data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>" /> 
-
-                                <button type="button"  id="<?= /* @escapeNotVerified */ $_product->getId() ?>-upt" class="increaseQty">+</button>
-                                <button type="button"   id="<?= /* @escapeNotVerified */ $_product->getId() ?>-dec"  class="decreaseQty">-</button>
-                            </div>
 							<div class="product-item-inner">
 								<div class="product actions product-item-actions"<?php echo strpos($pos, $viewMode . '-actions') ? $position : ''; ?>>
 									<?php if($this->getAddToCart()): ?>
@@ -89,6 +78,18 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
 												<input type="hidden" name="product" value="<?php echo $postParams['data']['product']; ?>">
 												<input type="hidden" name="<?php echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php echo        $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
 												 <?php echo $block->getBlockHtml('formkey')?>
+												 <div class="control">
+                                                    <input type="number" 
+                                                        name="qty" 
+                                                        id="<?= /* @escapeNotVerified */  $blockNameMv ?>-qty<?= /* @escapeNotVerified */ $_product->getId() ?>" 
+                                                        maxlength="12" 
+                                                        value="1" 
+                                                        title="<?= /* @escapeNotVerified */ __('Qty') ?>" 
+                                                        class="input-text qty"/>
+
+                                                        <button type="button"  id="<?= /* @escapeNotVerified */  $blockNameMv ?>-qty<?= /* @escapeNotVerified */ $_product->getId() ?>-upt" class="increaseQty">+</button>
+                                                        <button type="button"   id="<?= /* @escapeNotVerified */  $blockNameMv ?>-qty<?= /* @escapeNotVerified */ $_product->getId() ?>-dec"  class="decreaseQty">-</button>
+                                                	</div>
 												<?php if (($_product->isSaleable())&&($this->getAddToCart())) { ?>
 													<button type="submit" title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>" class="action tocart primary"><span><?php echo __('Add to Cart') ?></span></button>
 												<?php } ?>
@@ -177,6 +178,29 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
                 "catalogAddToCart": {}
             }
         }
-        </script>
+		</script>
+		
+		<script type="text/javascript">
+            require(["jquery"],function($){
+                $('.increaseQty, .decreaseQty').on("click",function(){
+                    var $this = $(this);
+                    console.log($this);
+                    
+                    var ctrl = ($(this).attr('id').replace('-upt','')).replace('-dec','');      
+                    console.log(ctrl);  
+                    var currentQty = $("#"+ctrl).val();
+                    console.log(currentQty);
+                    if($this.hasClass('increaseQty')){
+                        var newAdd = parseInt(currentQty)+parseInt(1);
+                        $("#"+ctrl).val(newAdd);
+                    }else{
+                        if(currentQty>1){
+                            var newAdd = parseInt(currentQty)-parseInt(1);
+                            $("#"+ctrl).val(newAdd); 
+                        }
+                    }
+                });
+            });
+</script>
     <?php endif; ?>
 <?php endif; ?>
