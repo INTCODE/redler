@@ -11,5 +11,10 @@
         <remove src="css/styles-m.css" />
         <remove src="css/styles-l.css" />
         <remove src="Magebees_Mostviewed::css/mostviewed.css" /> 
+        <!-- <script src="Magento_Checkout::js/qtyChange.js"/> -->
+        <remove src="RLTSquare_BestSeller::css/slick.css"/>
+        <remove src="RLTSquare_BestSeller::css/slick-theme.css"/>
+        <remove src="RLTSquare_BestSeller::css/custom-slick.css"/>
+        <remove src="RLTSquare_BestSeller::js/slick.js"/>
     </head> 
 </page>

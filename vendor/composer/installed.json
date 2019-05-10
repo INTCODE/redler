@@ -3187,6 +3187,56 @@
         ]
     },
     {
+        "name": "honl/magento2-templatehints",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ho-nl/magento2-Ho_Templatehints.git",
+            "reference": "97ff376b373c623cded1c077f513652291c69607"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ho-nl/magento2-Ho_Templatehints/zipball/97ff376b373c623cded1c077f513652291c69607",
+            "reference": "97ff376b373c623cded1c077f513652291c69607",
+            "shasum": ""
+        },
+        "require": {
+            "php": "7.0.2|7.0.4|~7.0.6|~7.1.0|~7.2.0"
+        },
+        "replace": {
+            "ho-nl/magento2-templatehints": "self.version"
+        },
+        "time": "2019-01-17T13:04:55+00:00",
+        "type": "magento2-module",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "registration.php"
+            ],
+            "psr-4": {
+                "Ho\\Templatehints\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Paul Hachmang - H&O",
+                "email": "paul@h-o.nl"
+            }
+        ],
+        "description": "H&O Magento 2 Advanced Template Hints module",
+        "homepage": "https://github.com/ho-nl/magento2-Ho_Templatehints"
+    },
+    {
         "name": "jms/metadata",
         "version": "1.7.0",
         "version_normalized": "1.7.0.0",
@@ -12453,12 +12503,12 @@
         "version_normalized": "1.6.5.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/mikey179/vfsStream.git",
+            "url": "https://github.com/bovigo/vfsStream.git",
             "reference": "d5fec95f541d4d71c4823bb5e30cf9b9e5b96145"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/mikey179/vfsStream/zipball/d5fec95f541d4d71c4823bb5e30cf9b9e5b96145",
+            "url": "https://api.github.com/repos/bovigo/vfsStream/zipball/d5fec95f541d4d71c4823bb5e30cf9b9e5b96145",
             "reference": "d5fec95f541d4d71c4823bb5e30cf9b9e5b96145",
             "shasum": ""
         },
@@ -14730,6 +14780,76 @@
             "promise",
             "promises"
         ]
+    },
+    {
+        "name": "rltsquare/ajax-shopping-cart-update",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "dist": {
+            "type": "zip",
+            "url": "https://repo.magento.com/archives/rltsquare/ajax-shopping-cart-update/rltsquare-ajax-shopping-cart-update-1.0.1.0.zip",
+            "shasum": "e257fda42c188b29d976c5daa9f089b264d8867a"
+        },
+        "require": {
+            "php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0|~7.2.0"
+        },
+        "type": "magento2-module",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "registration.php"
+            ],
+            "psr-4": {
+                "RLTSquare\\AjaxShoppingCartUpdate\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "authors": [
+            {
+                "name": "Ali",
+                "email": "ali.riaz@rltsquare.com",
+                "homepage": "https://www.rltsquare.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "AJAX Shopping Cart Update with this extension, you can update quantity seamlessly and see total price adjustments on the shopping cart page without having to click 'update to cart' button."
+    },
+    {
+        "name": "rltsquare/best-seller",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "dist": {
+            "type": "zip",
+            "url": "https://repo.magento.com/archives/rltsquare/best-seller/rltsquare-best-seller-1.0.0.0.zip",
+            "shasum": "90e6415251c49d4fc246021147efc63286323c37"
+        },
+        "require": {
+            "php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0|~7.2.0"
+        },
+        "type": "magento2-module",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "registration.php"
+            ],
+            "psr-4": {
+                "RLTSquare\\BestSeller\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "authors": [
+            {
+                "name": "Ali",
+                "email": "ali.riaz@rltsquare.com",
+                "homepage": "https://www.rltsquare.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "This extension allows merchants to display the best-selling products of their store so customers know which products are trending, and bought frequently by other customers."
     },
     {
         "name": "sebastian/code-unit-reverse-lookup",

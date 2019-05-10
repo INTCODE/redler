@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Bartosz Kubicki <bartosz.kubicki@lizardmedia.pl>
+ * @copyright Copyright (C) 2018 Lizard Media (http://lizardmedia.pl)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="catalog_category_view_type_layered"/>
+    <head>
+        <css src="Magento_Swatches::css/swatches.css"/>
+    </head>
+    <body>
+        <referenceBlock name="sidebar.main" remove = "true" />
+        <container name="sidebar" label="sidebar" htmlTag="div" htmlId="sidebar-product-list" htmlClass="sidebar"/>
+        <move element="sidebar" destination="columns" before="-"/>
+        <move element="page.main.title" destination="sidebar" before="-"/>
+        <move element="catalog.leftnav" destination="sidebar" after="page.main.title"/>
+    </body>
+</page>
