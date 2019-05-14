@@ -17,7 +17,7 @@ use Magento\Framework\App\Action\Action;
 
     $image = 'new_products_content_widget_grid';
     $items = $block->getProductCollection()->getItems();
-
+    
     $showWishlist = true;
     $showCompare = true;
     $showCart = true;
@@ -28,6 +28,7 @@ use Magento\Framework\App\Action\Action;
         <?php if ($block->getTitle()): ?>
             <div class="block-title">
                 <strong><?= $block->escapeHtml(__($block->getTitle())) ?></strong>
+                <?php $blockName = str_replace(' ', '-', $block->getTitle()); ?>
             </div>
         <?php endif ?>
         <div class="block-content">
@@ -35,6 +36,7 @@ use Magento\Framework\App\Action\Action;
             <div class="products-<?= /* @noEscape */ $mode ?> <?= /* @noEscape */ $mode ?>">
                 <ol class="product-items <?= /* @noEscape */ $type ?>">
                     <?php $iterator = 1; ?>
+                    
                     <?php foreach ($items as $_item): ?>
                         <?= /* @noEscape */ ($iterator++ == 1) ? '<li class="product-item">' : '</li><li class="product-item">' ?>
                         
@@ -67,7 +69,8 @@ use Magento\Framework\App\Action\Action;
                                 <?= $block->getProductPriceHtml($_item, $type) ?>
 
                                 <?= $block->getProductDetailsHtml($_item) ?>
-
+                                <?php $_product = $block->getProduct(); ?>
+                                
                                 <?php if ($showWishlist || $showCompare || $showCart): ?>
                                     <div class="product-item-inner">
                                         <div class="product-item-actions">
@@ -75,24 +78,24 @@ use Magento\Framework\App\Action\Action;
                                                 <div class="actions-primary">
                                                     <?php if ($_item->isSaleable()): ?>
                                                         <?php $postParams = $block->getAddToCartPostParams($_item); ?>
+                                                        
                                                         <form data-role="tocart-form" data-product-sku="<?= $block->escapeHtml($_item->getSku()) ?>" action="<?= /* @NoEscape */ $postParams['action'] ?>" method="post">
                                                             <input type="hidden" name="product" value="<?= /* @escapeNotVerified */ $postParams['data']['product'] ?>">
                                                             <input type="hidden" name="<?= /* @escapeNotVerified */ Action::PARAM_NAME_URL_ENCODED ?>" value="<?= /* @escapeNotVerified */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
                                                             <?= $block->getBlockHtml('formkey') ?>
-                                                            <div class="field qty">
-                                                                <div class="control">
-                                                                    <input type="number"
-                                                                        name="qty"
-                                                                        id="qty"
-                                                                        value="<?= /* @escapeNotVerified */ $block->getProductDefaultQty() * 1 ?>"
-                                                                        title="<?= /* @escapeNotVerified */ __('Qty') ?>"
-                                                                        class="input-text qty"
-                                                                        data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
-                                                                        />
-                                                                    <button data-bind="click: increaseQty">+</button>
-                                                                    <button data-bind="click: decreaseQty">-</button>
-                                                                </div>
+                                                            <div class="control">
+                                                                <input type="number" 
+                                                                    name="qty" 
+                                                                    id="<?= /* @escapeNotVerified */  $blockName ?>-qty<?= /* @escapeNotVerified */ $_item->getId() ?>" 
+                                                                    maxlength="12" 
+                                                                    value="1" 
+                                                                    title="<?= /* @escapeNotVerified */ __('Qty') ?>" 
+                                                                    class="input-text qty"/>
+
+                                                                    <button type="button"  id="<?= /* @escapeNotVerified */  $blockName ?>-qty<?= /* @escapeNotVerified */ $_item->getId() ?>-upt" class="increaseQty">+</button>
+                                                                    <button type="button"   id="<?= /* @escapeNotVerified */  $blockName ?>-qty<?= /* @escapeNotVerified */ $_item->getId() ?>-dec"  class="decreaseQty">-</button>
                                                             </div>
+
                                                             <button type="submit"
                                                                     title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
                                                                     class="action tocart primary">

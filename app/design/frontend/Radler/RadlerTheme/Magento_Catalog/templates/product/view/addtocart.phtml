@@ -17,14 +17,15 @@
         <div class="field qty">
             <label class="label" for="qty"><span><?= /* @escapeNotVerified */ __('Qty') ?></span></label>
             <div class="control">
-                <input type="number"
-                       name="qty"
-                       id="qty"
-                       value="<?= /* @escapeNotVerified */ $block->getProductDefaultQty() * 1 ?>"
-                       title="<?= /* @escapeNotVerified */ __('Qty') ?>"
-                       class="input-text qty"
-                       data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
-                       />
+                <input type="number" 
+                        name="qty" 
+                        id="qty" 
+                        value="<?= /* @escapeNotVerified */ $block->getProductDefaultQty() * 1 ?>" 
+                        title="<?= /* @escapeNotVerified */ __('Qty') ?>" 
+                        class="input-text qty" 
+                        data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>" /> 
+                <button type="button" id="addQty" value="1">+</button>
+                <button type="button" id="minusQty" value="1">-</button> 
             </div>
         </div>
         <?php endif; ?>
