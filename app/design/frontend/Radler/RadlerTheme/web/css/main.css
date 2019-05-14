@@ -7239,14 +7239,17 @@ input[type="text"], input[type="password"], textarea {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center; }
-  .product-item-actions .number {
+  align-items: center;
+  position: relative;
+  top: 16px; }
+  .product-item-actions .input-text {
     appearance: textfield;
-    width: 48%;
-    height: 100%;
+    width: 40%;
+    height: 40px;
     text-align: center;
     border: 1px solid #efeae6;
-    float: left; }
+    float: left;
+    margin-left: 10px; }
   .product-item-actions input[type=number]::-webkit-inner-spin-button,
   .product-item-actions input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -7269,7 +7272,7 @@ input[type="text"], input[type="password"], textarea {
     color: #CFA773;
     background-color: #efeae6;
     font-weight: 700;
-    width: 25%;
+    width: 20%;
     height: 40px;
     margin-right: 1px;
     font-size: 1.125rem;
@@ -7703,7 +7706,7 @@ input[type="text"], input[type="password"], textarea {
   background-color: #fff;
   display: inline-block;
   text-align: center;
-  padding: 20px 10px;
+  padding: 25px 10px;
   box-shadow: -2.5px 15.8px 68px #B49D7f48;
   position: relative;
   margin: 2px !important;
@@ -7746,7 +7749,9 @@ input[type="text"], input[type="password"], textarea {
     width: 50%;
     display: inline-block;
     float: left;
-    padding-top: 29px; }
+    padding-top: 25px;
+    text-align: center;
+    padding-left: 10px; }
     .product-item .price-box .price-label {
       display: none; }
     .product-item .price-box .price {
@@ -7822,14 +7827,18 @@ input[type="text"], input[type="password"], textarea {
     width: 605px;
     float: right;
     display: block;
-    clear: both; }
+    clear: both;
+    z-index: 4; }
   .know-us-better p {
     font-size: 1rem;
     float: right;
-    clear: both; }
+    clear: both;
+    position: relative; }
   .know-us-better .btn {
     clear: both;
-    float: right; }
+    float: right;
+    position: relative;
+    z-index: 4; }
   .know-us-better h2 {
     font-size: 38px;
     font-weight: 600;
@@ -8101,10 +8110,12 @@ input[type="text"], input[type="password"], textarea {
     padding: 20px 0;
     margin: 15px auto; } }
 
+.page-bottom {
+  margin-top: 50px;
+  background: linear-gradient(90deg, #d5b68f 0%, #e9decd 100%); }
+
 #see_all_products {
-  background: linear-gradient(90deg, #d5b68f 0%, #e9decd 100%);
-  padding: 0;
-  margin-top: 50px; }
+  padding: 0; }
   #see_all_products .wrapper {
     padding: 50px 0;
     background-image: url("../images/bottles.png");

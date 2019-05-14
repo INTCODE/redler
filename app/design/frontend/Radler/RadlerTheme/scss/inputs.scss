@@ -32,13 +32,16 @@ input[type="text"], input[type="password"], textarea{
 .product-item-actions{
     height: 100%; 
     @include flex-row(center,center);
-    .number{
+    position: relative;
+    top: 16px;
+    .input-text{
         appearance: textfield;
-        width: 48%;
-        height:100%;
+        width: 40%;
+        height:40px;
         text-align: center;
         border: 1px solid $third_bg_color;
         float: left;
+        margin-left: 10px;
     }
     input[type=number]::-webkit-inner-spin-button,
     input[type=number]::-webkit-outer-spin-button
@@ -65,7 +68,7 @@ input[type="text"], input[type="password"], textarea{
         color: $primary_text_color;
         background-color: $third_bg_color;
         font-weight: 700;
-        width: 25%;
+        width: 20%;
         height: 40px;
         margin-right: 1px;
         font-size: $f-18;

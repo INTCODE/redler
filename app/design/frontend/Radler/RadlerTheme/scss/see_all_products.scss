@@ -1,7 +1,9 @@
-#see_all_products{
-    background: linear-gradient( 90deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%);
-    padding: 0;
+.page-bottom{
     margin-top: 50px;
+    background: linear-gradient( 90deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%);
+}
+#see_all_products{ 
+    padding: 0; 
     .wrapper{
         @extend .row;
         padding: 50px 0;

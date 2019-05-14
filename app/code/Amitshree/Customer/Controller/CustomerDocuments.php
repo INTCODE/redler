@@ -53,7 +53,7 @@ class CustomerDocuments extends \Magento\Framework\App\Action\Action
     public function uploadFile()
     {
         // this folder will be created inside "pub/media" folder
-        $folderName = 'your-custom-folder/';
+        $folderName = 'test';
  
         // "my_custom_file" is the HTML input file name
         $inputFileName = 'customer_documents';
@@ -63,9 +63,10 @@ class CustomerDocuments extends \Magento\Framework\App\Action\Action
             $fileName = ($file && array_key_exists('name', $file)) ? $file['name'] : null;
  
             if ($file && $fileName) {
-                $target = $this->mediaDirectory->getAbsolutePath($yourFolderName);        
+                $target = $this->mediaDirectory->getAbsolutePath($folderName);        
                 
                 /** @var $uploader \Magento\MediaStorage\Model\File\Uploader */
+             
                 $uploader = $this->fileUploader->create(['fileId' => $inputFileName]);
                 
                 // set allowed file extensions
@@ -87,12 +88,12 @@ class CustomerDocuments extends \Magento\Framework\App\Action\Action
                 // and create nested folders inside the upload directory based on the file name
                 // for example, if uploaded file name is IMG_123.jpg then file will be uploaded in
                 // pub/media/your-upload-directory/i/m/img_123.jpg
-                 $uploader->setFilesDispersion(false);         
+                 $uploader->setFilesDispersion(true);         
  
                 // upload file in the specified folder
                 $result = $uploader->save($target);
  
-                //echo '<pre>'; print_r($result); exit;
+                echo '<pre>'; print_r($result); exit;
  
                 if ($result['file']) {
                     $this->messageManager->addSuccess(__('File has been successfully uploaded.')); 

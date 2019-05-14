@@ -13,7 +13,9 @@
     "require": {
         "absolute_design/absolute-slider": "2.0.1",
         "magebees/module-mostviewed": "1.0.4",
-        "magento/product-community-edition": "2.3.1"
+        "magento/product-community-edition": "2.3.1",
+        "rltsquare/ajax-shopping-cart-update": "1.0.1",
+        "rltsquare/best-seller": "1.0.0"
     },
     "require-dev": {
         "allure-framework/allure-phpunit": "~1.2.0",

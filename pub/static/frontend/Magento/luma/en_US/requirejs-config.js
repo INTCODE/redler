@@ -211,8 +211,14 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            quickSearch: 'Magento_Search/js/form-mini',
-            'Magento_Search/form-mini': 'Magento_Search/js/form-mini'
+            checkoutBalance:    'Magento_Customer/js/checkout-balance',
+            address:            'Magento_Customer/js/address',
+            changeEmailPassword: 'Magento_Customer/js/change-email-password',
+            passwordStrengthIndicator: 'Magento_Customer/js/password-strength-indicator',
+            zxcvbn: 'Magento_Customer/js/zxcvbn',
+            addressValidation: 'Magento_Customer/js/addressValidation',
+            'Magento_Customer/address': 'Magento_Customer/js/address',
+            'Magento_Customer/change-email-password': 'Magento_Customer/js/change-email-password'
         }
     }
 };
@@ -228,14 +234,8 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            checkoutBalance:    'Magento_Customer/js/checkout-balance',
-            address:            'Magento_Customer/js/address',
-            changeEmailPassword: 'Magento_Customer/js/change-email-password',
-            passwordStrengthIndicator: 'Magento_Customer/js/password-strength-indicator',
-            zxcvbn: 'Magento_Customer/js/zxcvbn',
-            addressValidation: 'Magento_Customer/js/addressValidation',
-            'Magento_Customer/address': 'Magento_Customer/js/address',
-            'Magento_Customer/change-email-password': 'Magento_Customer/js/change-email-password'
+            quickSearch: 'Magento_Search/js/form-mini',
+            'Magento_Search/form-mini': 'Magento_Search/js/form-mini'
         }
     }
 };
@@ -269,6 +269,25 @@ var config = {
             'Magento_Theme/js/view/breadcrumbs': {
                 'Magento_Catalog/js/product/breadcrumbs': true
             }
+        }
+    }
+};
+
+require.config(config);
+})();
+(function() {
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+var config = {
+    map: {
+        '*': {
+            bundleOption:   'Magento_Bundle/bundle',
+            priceBundle:    'Magento_Bundle/js/price-bundle',
+            slide:          'Magento_Bundle/js/slide',
+            productSummary: 'Magento_Bundle/js/product-summary'
         }
     }
 };
@@ -535,29 +554,6 @@ require.config(config);
  */
 
 var config = {
-    shim: {
-        acceptjs: {
-            exports: 'Accept'
-        },
-        acceptjssandbox: {
-            exports: 'Accept'
-        }
-    },
-    paths: {
-        acceptjssandbox: 'https://jstest.authorize.net/v1/Accept',
-        acceptjs: 'https://js.authorize.net/v1/Accept'
-    }
-};
-
-require.config(config);
-})();
-(function() {
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
-var config = {
     map: {
         '*': {
             multiShipping: 'Magento_Multishipping/js/multi-shipping',
@@ -580,8 +576,7 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            captcha: 'Magento_Captcha/js/captcha',
-            'Magento_Captcha/captcha': 'Magento_Captcha/js/captcha'
+            pageCache:  'Magento_PageCache/js/page-cache'
         }
     }
 };
@@ -595,10 +590,17 @@ require.config(config);
  */
 
 var config = {
-    map: {
-        '*': {
-            pageCache:  'Magento_PageCache/js/page-cache'
+    shim: {
+        acceptjs: {
+            exports: 'Accept'
+        },
+        acceptjssandbox: {
+            exports: 'Accept'
         }
+    },
+    paths: {
+        acceptjssandbox: 'https://jstest.authorize.net/v1/Accept',
+        acceptjs: 'https://js.authorize.net/v1/Accept'
     }
 };
 
@@ -647,7 +649,8 @@ require.config(config);
 var config = {
     map: {
         '*': {
-            recentlyViewedProducts: 'Magento_Reports/js/recently-viewed'
+            captcha: 'Magento_Captcha/js/captcha',
+            'Magento_Captcha/captcha': 'Magento_Captcha/js/captcha'
         }
     }
 };
@@ -669,6 +672,22 @@ var config = {
     },
     shim: {
         vimeoAPI: {}
+    }
+};
+
+require.config(config);
+})();
+(function() {
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+var config = {
+    map: {
+        '*': {
+            recentlyViewedProducts: 'Magento_Reports/js/recently-viewed'
+        }
     }
 };
 
@@ -765,27 +784,6 @@ require.config(config);
  */
 
 var config = {
-    config: {
-        mixins: {
-            'Magento_Checkout/js/action/place-order': {
-                'Magento_CheckoutAgreements/js/model/place-order-mixin': true
-            },
-            'Magento_Checkout/js/action/set-payment-information': {
-                'Magento_CheckoutAgreements/js/model/set-payment-information-mixin': true
-            }
-        }
-    }
-};
-
-require.config(config);
-})();
-(function() {
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
-
-var config = {
     shim: {
         'Magento_Tinymce3/tiny_mce/tiny_mce_src': {
             'exports': 'tinymce'
@@ -828,12 +826,14 @@ require.config(config);
  */
 
 var config = {
-    map: {
-        '*': {
-            bundleOption:   'Magento_Bundle/bundle',
-            priceBundle:    'Magento_Bundle/js/price-bundle',
-            slide:          'Magento_Bundle/js/slide',
-            productSummary: 'Magento_Bundle/js/product-summary'
+    config: {
+        mixins: {
+            'Magento_Checkout/js/action/place-order': {
+                'Magento_CheckoutAgreements/js/model/place-order-mixin': true
+            },
+            'Magento_Checkout/js/action/set-payment-information': {
+                'Magento_CheckoutAgreements/js/model/set-payment-information-mixin': true
+            }
         }
     }
 };
@@ -893,6 +893,41 @@ var config = {
         }
     }
 }
+require.config(config);
+})();
+(function() {
+var config = {
+    map: {
+        '*': {
+            'AjaxCart': 'RLTSquare_AjaxShoppingCartUpdate/js/cartValueIncDec',
+            'CartQtyUpdate': 'RLTSquare_AjaxShoppingCartUpdate/js/cartQtyUpdate'
+        }
+    },
+    shim: {
+        AjaxCart: {
+            deps: ['jquery']
+        },
+        CartQtyUpdate: {
+            deps: ['jquery']
+        }
+    }
+};
+require.config(config);
+})();
+(function() {
+var config = {
+
+    paths: {
+        'slick':'RLTSquare_BestSeller/js/slick'
+    },
+
+    shim: {
+        'slick': {
+            deps: ['jquery']
+        }
+    }
+};
+
 require.config(config);
 })();
 (function() {

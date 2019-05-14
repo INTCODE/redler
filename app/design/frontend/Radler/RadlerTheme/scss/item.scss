@@ -2,7 +2,7 @@
     background-color: #fff;
     display: inline-block;
     text-align: center;
-    padding: 20px 10px;
+    padding: 25px 10px;
     box-shadow: -2.5px 15.8px 68px #B49D7f48;
     position: relative;
     margin: 2px!important;
@@ -53,7 +53,9 @@
         width: 50%;
         display: inline-block; 
         float: left;
-        padding-top: 29px;
+        padding-top: 25px;
+        text-align: center;
+        padding-left: 10px;
         .price-label{
             display: none;
         }

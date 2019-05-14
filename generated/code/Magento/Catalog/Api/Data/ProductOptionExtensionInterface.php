@@ -18,6 +18,17 @@ interface ProductOptionExtensionInterface extends \Magento\Framework\Api\Extensi
     public function setCustomOptions($customOptions);
 
     /**
+     * @return \Magento\Bundle\Api\Data\BundleOptionInterface[]|null
+     */
+    public function getBundleOptions();
+
+    /**
+     * @param \Magento\Bundle\Api\Data\BundleOptionInterface[] $bundleOptions
+     * @return $this
+     */
+    public function setBundleOptions($bundleOptions);
+
+    /**
      * @return \Magento\ConfigurableProduct\Api\Data\ConfigurableItemOptionValueInterface[]|null
      */
     public function getConfigurableItemOptions();
@@ -38,15 +49,4 @@ interface ProductOptionExtensionInterface extends \Magento\Framework\Api\Extensi
      * @return $this
      */
     public function setDownloadableOption(\Magento\Downloadable\Api\Data\DownloadableOptionInterface $downloadableOption);
-
-    /**
-     * @return \Magento\Bundle\Api\Data\BundleOptionInterface[]|null
-     */
-    public function getBundleOptions();
-
-    /**
-     * @param \Magento\Bundle\Api\Data\BundleOptionInterface[] $bundleOptions
-     * @return $this
-     */
-    public function setBundleOptions($bundleOptions);
 }
