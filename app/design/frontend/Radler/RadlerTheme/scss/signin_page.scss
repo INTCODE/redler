@@ -1,8 +1,14 @@
-.customer-account-create{
+.customer-account-create,
+.customer-account-forgotpassword{
     padding: 0;
-    background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%); 
+    background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%);
+    .page-main{ 
+        max-width: 1460px;
+         width: 98%;
+         margin: auto !important;
+    }
     .columns{
-        @extend .row;
+        @extend .row;   
         .column{ 
             width: 100%;  
             @extend .col-lg-12;
@@ -32,6 +38,8 @@
                 }
                 form{
                     max-width: 525px;
+                    background: transparent;
+                    border:solid rd;
                     @extend .row;
                     >div{
                         @extend .col-lg-6;
@@ -66,10 +74,60 @@
                 top: 80px;
                 left: 0;
                 background-color: $body_background_color;
-                padding: 86px 100px;
+                padding: 86px 100px; 
                 form{
                     max-width: 525px;
                     margin: auto;
+                    .field{ 
+                        padding-bottom: 15px;
+                        position: relative;
+                        .label{
+                            font-size: 14px;
+                            font-weight: 600;
+                            padding-bottom: 15px;
+                            display: inline-block;
+                        }
+                        input{
+                            border: none;
+                            width: 100%;
+                            padding: 7px 15px;
+                            font-weight: 600;
+                            font-size: 0.75rem;
+                        }
+                        .mage-error{
+                            color: red;
+                            font-size: 10px;
+                            position: absolute;
+                            bottom: 0px;
+                            letter-spacing: 1px;
+                        }
+
+                    }
+                    .primary{
+                        .login{
+                            @extend .btn;
+                            @extend .btn-green;
+                        }
+                    }
+                    .secondary{
+                        .remind{
+                            font-size: 12px;
+                            color: $green;
+                            margin-top: 15px;
+                            display: inline-block;
+                            &:hover{
+                                text-decoration: underline;
+                            }
+                        }
+                        .req-label{
+                            color: #a09792;
+                            font-size: 12px;
+                            float: right;
+                            position: relative;
+                            top: 13px; 
+                        }
+                    }
+                    
                 }
                 .block-title{
                     font-size: 32px;
@@ -197,5 +255,163 @@
                 }
             }
         }
+    }
+}
+
+
+.customer-account-forgotpassword{
+    background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%);
+    .page-main{ 
+        max-width: 560px; 
+        padding: 86px 100px;
+        width: 98%;
+        margin: 100px auto !important;
+        background-color: #f6f3f1;
+        .page-title-wrapper{
+            .page-title{
+                display: inline-flex;
+                span{
+                    font-size: 32px;
+                    font-weight: 600;
+                } 
+            } 
+        }
+        .main{
+            padding: 0;
+            form{
+                &.forget{
+                    .note{
+                        color: #a09792;
+                        font-weight: 600;
+                        font-size: 14px; 
+                    }
+                    .primary{
+                        .submit{
+                            @extend .btn;
+                            @extend .btn-green;
+                        }
+                    }
+                    .secondary{
+                        display: block;
+                        margin:15px 0; 
+                    }
+                }
+                .field{ 
+                    padding-bottom: 15px;
+                    position: relative;
+                    .label{
+                        font-size: 14px;
+                        font-weight: 600;
+                        padding-bottom: 15px;
+                        display: inline-block;
+                    }
+                    input{
+                        border: none;
+                        width: 100%;
+                        padding: 7px 15px;
+                        font-weight: 600;
+                        font-size: 0.75rem;
+                    }
+                    .mage-error{
+                        color: red;
+                        font-size: 10px;
+                        position: absolute;
+                        bottom: 0px;
+                        letter-spacing: 1px;
+                    } 
+                }
+            }
+        } 
+    }
+}
+
+.customer-account-login{
+    background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%);
+    .page-main{ 
+        max-width: 560px; 
+        padding: 86px 100px;
+        width: 98%;
+        margin: 100px auto !important;
+        background-color: #f6f3f1;
+        .page-title-wrapper{
+            .page-title{
+                display: inline-flex;
+                span{
+                    font-size: 32px;
+                    font-weight: 600;
+                } 
+            }
+        }
+        .columns{ 
+            .block-customer-login{ 
+                .block-content{
+                    .form-login{
+                        .note{
+                            color: #a09792;
+                            font-weight: 600;
+                            font-size: 14px; 
+                        }
+                        .field{ 
+                            padding-bottom: 15px;
+                            position: relative;
+                            .label{
+                                font-size: 14px;
+                                font-weight: 600;
+                                padding-bottom: 15px;
+                                display: inline-block;
+                            }
+                            input{
+                                border: none;
+                                width: 100%;
+                                padding: 7px 15px;
+                                font-weight: 600;
+                                font-size: 0.75rem;
+                            }
+                            .mage-error{
+                                color: red;
+                                font-size: 10px;
+                                position: absolute;
+                                bottom: 0px;
+                                letter-spacing: 1px;
+                            } 
+                        } 
+                        .primary{
+                            .login{
+                                @extend .btn;
+                                @extend .btn-green;
+                            }
+                        }
+                        .secondary{
+                            .remind{
+                                font-size: 12px;
+                                color: $green;
+                                margin-top: 15px;
+                                display: inline-block;
+                                &:hover{
+                                    text-decoration: underline;
+                                }
+                            }
+                            .req-label{
+                                color: #a09792;
+                                font-size: 12px;
+                                float: right;
+                                position: relative;
+                                top: 13px; 
+                            }
+                        } 
+                    }
+                }
+                .block-new-customer{
+                    margin:15px 0;
+                    .block-content{
+                        p{
+                            color: #a09792;
+                            font-weight: 600;
+                            font-size: 14px;   
+                        }
+                    }
+                }
+            }
+        } 
     }
 }
