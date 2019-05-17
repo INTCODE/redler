@@ -26,11 +26,21 @@
                 @extend  .col-lg-4;
                 float: left;
                 padding-top: 140px;
+                position: relative;
                 p{
                     font-size: $f-16;
                 }
                 a{
                     margin-top: 20px;
+                }
+                &:before{
+                    position: absolute;
+                    content: "";
+                    width: 300px;
+                    height: 300px;
+                    top:50px;
+                    left: 100%;
+                    background: url('../../web/images/slider/slide1_2.png')no-repeat; 
                 }
             }
 

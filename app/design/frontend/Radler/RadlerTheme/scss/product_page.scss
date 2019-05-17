@@ -1,4 +1,13 @@
 .catalog-product-view{  
+    background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%); 
+    padding: 40px 0 0 0;
+    position: relative;
+    margin-top: -40px;
+    .page-main{ 
+        max-width: 1460px;
+         width: 98%;
+         margin: auto !important;
+    }
     .columns{
         background-color: #f6f3f1;
         @extend .row; 
@@ -190,10 +199,7 @@
         }
     }
     .page-main{
-        background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%); 
-        padding: 40px 0 0 0;
-        position: relative;
-        margin-top: -40px;
+      
         .product-body{
             position: relative;
             background-color: $body_background_color;
