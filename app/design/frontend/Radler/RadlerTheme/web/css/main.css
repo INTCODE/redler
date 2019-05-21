@@ -7838,6 +7838,8 @@ input[type="text"], input[type="password"], textarea {
         list-style: none; }
         .page-header .content .links li a {
           font-size: 12px; }
+        .page-header .content .links li ul {
+          display: none; }
 
 @media (max-width: 1180px) {
   header .wrapper #account {
@@ -9003,6 +9005,57 @@ input[type="text"], input[type="password"], textarea {
         margin-top: 30px;
         width: 100%; } }
 
+.form-create-account {
+  border: solid red; }
+  .form-create-account .legend {
+    line-height: 1.2; }
+  .form-create-account .field {
+    padding-bottom: 15px;
+    position: relative; }
+    .form-create-account .field .label {
+      font-size: 14px;
+      font-weight: 600;
+      padding-bottom: 15px;
+      display: inline-block;
+      color: #000; }
+    .form-create-account .field input {
+      border: none;
+      width: 100%;
+      padding: 7px 15px;
+      font-weight: 600;
+      font-size: 0.75rem; }
+    .form-create-account .field .mage-error {
+      color: red;
+      font-size: 10px;
+      position: absolute;
+      bottom: 0px;
+      letter-spacing: 1px; }
+  .form-create-account #customer_documents {
+    position: relative;
+    background-color: #e7e1dc;
+    cursor: pointer;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; }
+    .form-create-account #customer_documents span {
+      color: #a09792;
+      position: relative;
+      padding-left: 50px;
+      padding-bottom: 0 !important; }
+      .form-create-account #customer_documents span::before {
+        content: url("../../assets/img/icons/upload.png");
+        position: absolute;
+        top: -3px;
+        left: 0; }
+    .form-create-account #customer_documents input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0; }
+
 .customer-account-forgotpassword {
   background: linear-gradient(0deg, #d5b68f 0%, #e9decd 100%); }
   .customer-account-forgotpassword .page-main {
@@ -9025,6 +9078,20 @@ input[type="text"], input[type="password"], textarea {
       .customer-account-forgotpassword .page-main .main form.forget .secondary {
         display: block;
         margin: 15px 0; }
+        .customer-account-forgotpassword .page-main .main form.forget .secondary .back {
+          padding-left: 22px;
+          font-size: 14px;
+          position: relative; }
+          .customer-account-forgotpassword .page-main .main form.forget .secondary .back::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 3px;
+            width: 30px;
+            height: 30px;
+            background: url("../images/icons/arrow-left.png") no-repeat; }
+          .customer-account-forgotpassword .page-main .main form.forget .secondary .back:hover {
+            text-decoration: underline; }
       .customer-account-forgotpassword .page-main .main form .field {
         padding-bottom: 15px;
         position: relative; }

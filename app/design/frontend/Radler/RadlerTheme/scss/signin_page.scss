@@ -258,6 +258,63 @@
     }
 }
 
+.form-create-account{
+    border:solid red;
+    .legend{
+        line-height: 1.2;
+    }
+    .field{ 
+        padding-bottom: 15px;
+        position: relative;
+        .label{
+            font-size: 14px;
+            font-weight: 600;
+            padding-bottom: 15px;
+            display: inline-block;
+            color:#000;
+        }
+        input{
+            border: none;
+            width: 100%;
+            padding: 7px 15px;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+        .mage-error{
+            color: red;
+            font-size: 10px;
+            position: absolute;
+            bottom: 0px;
+            letter-spacing: 1px;
+        } 
+    }
+    #customer_documents{
+        position: relative;
+        background-color: #e7e1dc;
+        cursor: pointer;
+        height: 70px;
+        width: 100%;
+        @include flex-row(center, center);
+        span{
+            color: $opacity-color;
+            position: relative;
+            padding-left: 50px;
+            padding-bottom: 0!important;
+            &::before{
+                content: url('../../assets/img/icons/upload.png');
+                position: absolute;
+                top: -3px;
+                left: 0;
+            }
+        }
+        input{
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+    }
+}
 
 .customer-account-forgotpassword{
     background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%);
@@ -294,6 +351,23 @@
                     .secondary{
                         display: block;
                         margin:15px 0; 
+                        .back{ 
+                            padding-left: 22px;
+                            font-size: 14px;
+                            position: relative;
+                            &::after{
+                                content: "";
+                                position: absolute;
+                                left:0;
+                                top:3px;
+                                width: 30px;
+                                height: 30px;
+                                background: url("../images/icons/arrow-left.png")no-repeat;
+                            }
+                            &:hover{
+                                text-decoration: underline;
+                            }
+                        }
                     }
                 }
                 .field{ 
