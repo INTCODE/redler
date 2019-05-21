@@ -18,7 +18,7 @@
  
    <referenceBlock name="register-link">
         <arguments>
-            <argument name="label" xsi:type="string" translate="true">Sign In</argument>
+            <argument name="label" xsi:type="string" translate="true"> My Account</argument>
         </arguments>
     </referenceBlock>
 
@@ -35,5 +35,6 @@
     <referenceBlock name="copyright" remove="true" />
     <referenceBlock name="footer_links" remove="true" />
     <referenceBlock name="breadcrumbs" remove="true" />
+    
     </body>
 </page>

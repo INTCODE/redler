@@ -216,16 +216,28 @@ section{
     }
 }
 
-.messages{
+.messages{ 
     position: fixed;
-    right: 25px;
-    bottom: 50px;
+    top: 155px;
+    right: 22px;
+    font-size: 16px;
+    z-index: 111;
     .message-error{
-        padding: 20px;
-        background: #ce6f6f;
-        border-left: 4px solid #b10e0e;
+        padding: 10px;
+        background: #ce6f6f; 
+        color: #fff; 
+    }
+    .message-success{
+        padding: 10px;
+        background: #598756;
+        margin: 10px auto; 
         color: #fff;
-        font-weight: bold; 
+        font-weight: 500; 
+        width: auto; 
+        a{
+            text-decoration: underline;
+            color: #fff;
+        }
     }
 }
  

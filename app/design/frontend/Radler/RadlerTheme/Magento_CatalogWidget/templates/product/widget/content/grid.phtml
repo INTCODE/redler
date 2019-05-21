@@ -31,7 +31,10 @@ use Magento\Framework\App\Action\Action;
                 <?php $blockName = str_replace(' ', '-', $block->getTitle()); ?>
             </div>
         <?php endif ?>
-        <div class="block-content">
+
+
+        
+        <div class="block-content">  
             <?= /* @noEscape */ '<!-- ' . $image . '-->' ?>
             <div class="products-<?= /* @noEscape */ $mode ?> <?= /* @noEscape */ $mode ?>">
                 <ol class="product-items <?= /* @noEscape */ $type ?>">
