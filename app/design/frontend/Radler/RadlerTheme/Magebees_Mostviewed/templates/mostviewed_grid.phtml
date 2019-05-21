@@ -183,23 +183,18 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
 		<script type="text/javascript">
             require(["jquery"],function($){
                 $('.increaseQty, .decreaseQty').on("click",function(){
-                    var $this = $(this);
-                    console.log($this);
                     
-                    var ctrl = ($(this).attr('id').replace('-upt','')).replace('-dec','');      
-                    console.log(ctrl);  
-                    var currentQty = $("#"+ctrl).val();
-                    console.log(currentQty);
-                    if($this.hasClass('increaseQty')){
-                        var newAdd = parseInt(currentQty)+parseInt(1);
-                        $("#"+ctrl).val(newAdd);
-                    }else{
-                        if(currentQty>1){
-                            var newAdd = parseInt(currentQty)-parseInt(1);
-                            $("#"+ctrl).val(newAdd); 
-                        }
-                    }
-                });
+					switch($(this).attr("data-action")){
+						case "-": if($("#"+$(this).attr("data-target")).val() > 0) $("#"+$(this).attr("data-target")).val(parseInt($("#"+$(this).attr("data-target")).val()) - 1); break;
+						case "+": $("#"+$(this).attr("data-target")).val(parseInt($("#"+$(this).attr("data-target")).val()) + 1); break;
+					}
+					
+					$("#addToCart_"+$(this).attr("data-target")).click();
+					
+				});
+				$(".inputProductQty").on("change",function(){
+					$("#addToCart_"+$(this).attr("data-target")).click();
+				});
             });
 </script>
     <?php endif; ?>

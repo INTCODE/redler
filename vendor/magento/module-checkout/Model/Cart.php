@@ -586,7 +586,15 @@ class Cart extends DataObject implements CartInterface
         $this->getQuote()->getBillingAddress();
         $this->getQuote()->getShippingAddress()->setCollectShippingRates(true);
         $this->getQuote()->collectTotals();
+
+        //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n".print_r($this->getQuote()->collectTotals()->debug(), true));
+
+
         $this->quoteRepository->save($this->getQuote());
+
+
+
+
         $this->_checkoutSession->setQuoteId($this->getQuote()->getId());
         /**
          * Cart save usually called after changes with cart items.

@@ -9,7 +9,7 @@ define([
     'underscore',
     'Magento_Catalog/js/product/view/product-ids-resolver',
     'jquery/ui'
-], function ($, $t, _, idsResolver) {
+], function($, $t, _, idsResolver) {
     'use strict';
 
     $.widget('mage.catalogAddToCart', {
@@ -28,7 +28,7 @@ define([
         },
 
         /** @inheritdoc */
-        _create: function () {
+        _create: function() {
             if (this.options.bindSubmit) {
                 this._bindSubmit();
             }
@@ -37,7 +37,7 @@ define([
         /**
          * @private
          */
-        _bindSubmit: function () {
+        _bindSubmit: function() {
             var self = this;
 
             if (this.element.data('catalog-addtocart-initialized')) {
@@ -45,7 +45,7 @@ define([
             }
 
             this.element.data('catalog-addtocart-initialized', 1);
-            this.element.on('submit', function (e) {
+            this.element.on('submit', function(e) {
                 e.preventDefault();
                 self.submitForm($(this));
             });
@@ -54,7 +54,7 @@ define([
         /**
          * @private
          */
-        _redirect: function (url) {
+        _redirect: function(url) {
             var urlParts, locationParts, forceReload;
 
             urlParts = url.split('#');
@@ -71,7 +71,7 @@ define([
         /**
          * @return {Boolean}
          */
-        isLoaderEnabled: function () {
+        isLoaderEnabled: function() {
             return this.options.processStart && this.options.processStop;
         },
 
@@ -80,14 +80,14 @@ define([
          *
          * @param {jQuery} form
          */
-        submitForm: function (form) {
+        submitForm: function(form) {
             this.ajaxSubmit(form);
         },
 
         /**
          * @param {jQuery} form
          */
-        ajaxSubmit: function (form) {
+        ajaxSubmit: function(form) {
             var self = this,
                 productIds = idsResolver(form),
                 formData;
@@ -106,14 +106,14 @@ define([
                 processData: false,
 
                 /** @inheritdoc */
-                beforeSend: function () {
+                beforeSend: function() {
                     if (self.isLoaderEnabled()) {
                         $('body').trigger(self.options.processStart);
                     }
                 },
 
                 /** @inheritdoc */
-                success: function (res) {
+                success: function(res) {
                     var eventData, parameters;
 
                     $(document).trigger('ajax:addToCart', {
@@ -166,7 +166,7 @@ define([
                 },
 
                 /** @inheritdoc */
-                error: function (res) {
+                error: function(res) {
                     $(document).trigger('ajax:addToCart:error', {
                         'sku': form.data().productSku,
                         'productIds': productIds,
@@ -176,7 +176,7 @@ define([
                 },
 
                 /** @inheritdoc */
-                complete: function (res) {
+                complete: function(res) {
                     if (res.state() === 'rejected') {
                         location.reload();
                     }
@@ -187,7 +187,7 @@ define([
         /**
          * @param {String} form
          */
-        disableAddToCartButton: function (form) {
+        disableAddToCartButton: function(form) {
             var addToCartButtonTextWhileAdding = this.options.addToCartButtonTextWhileAdding || $t('Adding...'),
                 addToCartButton = $(form).find(this.options.addToCartButtonSelector);
 
@@ -199,7 +199,7 @@ define([
         /**
          * @param {String} form
          */
-        enableAddToCartButton: function (form) {
+        enableAddToCartButton: function(form) {
             var addToCartButtonTextAdded = this.options.addToCartButtonTextAdded || $t('Added'),
                 self = this,
                 addToCartButton = $(form).find(this.options.addToCartButtonSelector);
@@ -207,7 +207,7 @@ define([
             addToCartButton.find('span').text(addToCartButtonTextAdded);
             addToCartButton.attr('title', addToCartButtonTextAdded);
 
-            setTimeout(function () {
+            setTimeout(function() {
                 var addToCartButtonTextDefault = self.options.addToCartButtonTextDefault || $t('Add to Cart');
 
                 addToCartButton.removeClass(self.options.addToCartButtonDisabledClass);

@@ -86,17 +86,38 @@ use Magento\Framework\App\Action\Action;
                                                             <div class="control">
                                                                 <input type="number" 
                                                                     name="qty" 
-                                                                    id="<?= /* @escapeNotVerified */  $blockName ?>-qty<?= /* @escapeNotVerified */ $_item->getId() ?>" 
+                                                                    id="product-qty-<?= $_item->getId() ?>" 
                                                                     maxlength="12" 
-                                                                    value="1" 
+                                                                    data-target="product-qty-<?= $_item->getId() ?>" 
+                                                                    value="<?php
+                                                                    // GET COUNT IN CART
+                                                                    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                                                                    $cart = $objectManager->get('\Magento\Checkout\Model\Cart'); 
+                                                                    $items = $cart->getQuote()->getAllItems();
+                                                                    $count = 0;
+                                                                    foreach($items as $item) {
+                                                                        if($_item->getId() == $item->getProductId()) {
+                                                                            $count = $item->getQty();
+                                                                            break;
+                                                                        }   
+                                                                    }
+                                                                    echo $count;
+                                                                    ?>" 
                                                                     title="<?= /* @escapeNotVerified */ __('Qty') ?>" 
-                                                                    class="input-text qty"/>
+                                                                    class="input-text qty inputProductQty"/>
 
-                                                                    <button type="button"  id="<?= /* @escapeNotVerified */  $blockName ?>-qty<?= /* @escapeNotVerified */ $_item->getId() ?>-upt" class="increaseQty">+</button>
-                                                                    <button type="button"   id="<?= /* @escapeNotVerified */  $blockName ?>-qty<?= /* @escapeNotVerified */ $_item->getId() ?>-dec"  class="decreaseQty">-</button>
+                                                                    <button type="button" 
+                                                                    data-target="product-qty-<?= $_item->getId() ?>" 
+                                                                    data-action="+" 
+                                                                    class="increaseQty">+</button>
+                                                                    <button type="button" 
+                                                                    data-target="product-qty-<?= $_item->getId() ?>" 
+                                                                    data-action="-" 
+                                                                    class="decreaseQty">-</button>
                                                             </div>
 
-                                                            <button type="submit"
+
+                                                            <button id="addToCart_product-qty-<?= $_item->getId() ?>" type="submit"
                                                                     title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
                                                                     class="action tocart primary">
                                                                 <span><?= /* @escapeNotVerified */ __('Add to Cart') ?></span>

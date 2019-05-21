@@ -74,6 +74,7 @@ class Updater
         if (!isset($info['qty'])) {
             throw new InvalidArgumentException(__('The qty value is required to update quote item.'));
         }
+
         $itemQty = $info['qty'];
         if ($item->getProduct()->getStockItem()) {
             if (!$item->getProduct()->getStockItem()->getIsQtyDecimal()) {
