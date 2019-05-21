@@ -7,7 +7,7 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head> 
-        <css src="css/main.css" />
+        <css src="css/main.css" /> 
         <remove src="css/styles-m.css" />
         <remove src="css/styles-l.css" />
         <remove src="Magebees_Mostviewed::css/mostviewed.css" /> 
@@ -16,5 +16,9 @@
         <remove src="RLTSquare_BestSeller::css/slick-theme.css"/>
         <remove src="RLTSquare_BestSeller::css/custom-slick.css"/>
         <remove src="RLTSquare_BestSeller::js/slick.js"/>
+        
+ 
+  
+
     </head> 
 </page>
