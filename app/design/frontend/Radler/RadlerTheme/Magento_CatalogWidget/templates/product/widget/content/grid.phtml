@@ -89,7 +89,7 @@ use Magento\Framework\App\Action\Action;
                                                             <div class="control">
                                                                 <input type="number" 
                                                                     name="qty" 
-                                                                    id="product-qty-<?= $_item->getId() ?>" 
+                                                                    data-id="product-qty-<?= $_item->getId() ?>" 
                                                                     maxlength="12" 
                                                                     data-target="product-qty-<?= $_item->getId() ?>" 
                                                                     value="<?php
@@ -120,7 +120,7 @@ use Magento\Framework\App\Action\Action;
                                                             </div>
 
 
-                                                            <button id="addToCart_product-qty-<?= $_item->getId() ?>" type="submit"
+                                                            <button data-id="addToCart_product-qty-<?= $_item->getId() ?>" type="submit"
                                                                     title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
                                                                     class="action tocart primary">
                                                                 <span><?= /* @escapeNotVerified */ __('Add to Cart') ?></span>

@@ -82,7 +82,7 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
 												 <div class="control">
                                                                 <input type="number" 
                                                                     name="qty" 
-                                                                    id="xxxproduct-qty-<?= $_product->getId() ?>" 
+                                                                    data-id="product-qty-<?= $_product->getId() ?>" 
                                                                     maxlength="12" 
                                                                     data-target="product-qty-<?= $_product->getId() ?>" 
                                                                     value="<?php
@@ -111,6 +111,7 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
                                                                     data-action="-" 
                                                                     class="decreaseQty">-</button>
                                                             </div>
+															<button type="submit" data-id="addToCart_product-qty-<?= $_product->getId() ?>" title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>" class="action tocart primary"><span><?php echo __('Add to Cart') ?></span></button>
 
 												<?php if (($_product->isSaleable())&&($this->getAddToCart())) { ?>
 													<button type="submit" title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>" class="action tocart primary"><span><?php echo __('Add to Cart') ?></span></button>
@@ -205,19 +206,20 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
 		<script type="text/javascript">
             require(["jquery"],function($){
                 $('.increaseQty, .decreaseQty').on("click",function(){
-                    
 					switch($(this).attr("data-action")){
-						case "-": if($("#"+$(this).attr("data-target")).val() > 0) $("#"+$(this).attr("data-target")).val(parseInt($("#"+$(this).attr("data-target")).val()) - 1); break;
-						case "+": $("#"+$(this).attr("data-target")).val(parseInt($("#"+$(this).attr("data-target")).val()) + 1); break;
+						case "-": if($("[data-id="+$(this).attr("data-target")+"]").val() > 0) $("[data-id="+$(this).attr("data-target")+"]").val(parseInt($("[data-id="+$(this).attr("data-target")+"]").val()) - 1); break;
+						case "+": $("[data-id="+$(this).attr("data-target")+"]").val(parseInt($("[data-id="+$(this).attr("data-target")).val()+"]") + 1); break;
 					}
-					
-					$("#addToCart_"+$(this).attr("data-target")).click();
-					
 				});
-				$(".inputProductQty").on("change",function(){
-					$("#addToCart_"+$(this).attr("data-target")).click();
+
+				$(".inputProductQty").on("blur",function(){
+					$("[data-id=addToCart_"+$(this).attr("data-target")+"]").click();
+				});
+				$('.increaseQty, .decreaseQty').on("mouseleave",function(){
+					$("[data-id=addToCart_"+$(this).attr("data-target")+"]").click();
 				});
             });
+
 </script>
     <?php endif; ?>
 <?php endif; ?>

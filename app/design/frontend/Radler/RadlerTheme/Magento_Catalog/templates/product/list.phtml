@@ -98,9 +98,9 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                                             <div class="control">
                                                                 <input type="number" 
                                                                     name="qty" 
-                                                                    id="product-qty-<?= $_item->getId() ?>" 
+                                                                    id="product-qty-<?= $_product->getId() ?>" 
                                                                     maxlength="12" 
-                                                                    data-target="product-qty-<?= $_item->getId() ?>" 
+                                                                    data-target="product-qty-<?= $_product->getId() ?>" 
                                                                     value="<?php
                                                                     // GET COUNT IN CART
                                                                     $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
@@ -108,7 +108,7 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                                                                     $items = $cart->getQuote()->getAllItems();
                                                                     $count = 0;
                                                                     foreach($items as $item) {
-                                                                        if($_item->getId() == $item->getProductId()) {
+                                                                        if($_product->getId() == $item->getProductId()) {
                                                                             $count = $item->getQty();
                                                                             break;
                                                                         }   
@@ -119,11 +119,11 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                                                                     class="input-text qty inputProductQty"/>
 
                                                                     <button type="button" 
-                                                                    data-target="product-qty-<?= $_item->getId() ?>" 
+                                                                    data-target="product-qty-<?= $_product->getId() ?>" 
                                                                     data-action="+" 
                                                                     class="increaseQty">+</button>
                                                                     <button type="button" 
-                                                                    data-target="product-qty-<?= $_item->getId() ?>" 
+                                                                    data-target="product-qty-<?= $_product->getId() ?>" 
                                                                     data-action="-" 
                                                                     class="decreaseQty">-</button>
                                                 </div>
