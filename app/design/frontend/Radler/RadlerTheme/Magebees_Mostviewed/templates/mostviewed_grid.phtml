@@ -82,6 +82,8 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
 												 <div class="control">
                                                                 <input type="number" 
                                                                     name="qty" 
+																	min="0"
+																	data-changed="false" 
                                                                     data-id="product-qty-<?= $_product->getId() ?>" 
                                                                     maxlength="12" 
                                                                     data-target="product-qty-<?= $_product->getId() ?>" 
@@ -203,23 +205,6 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
         }
 		</script>
 		
-		<script type="text/javascript">
-            require(["jquery"],function($){
-                $('.increaseQty, .decreaseQty').on("click",function(){
-					switch($(this).attr("data-action")){
-						case "-": if($("[data-id="+$(this).attr("data-target")+"]").val() > 0) $("[data-id="+$(this).attr("data-target")+"]").val(parseInt($("[data-id="+$(this).attr("data-target")+"]").val()) - 1); break;
-						case "+": $("[data-id="+$(this).attr("data-target")+"]").val(parseInt($("[data-id="+$(this).attr("data-target")).val()+"]") + 1); break;
-					}
-				});
 
-				$(".inputProductQty").on("blur",function(){
-					$("[data-id=addToCart_"+$(this).attr("data-target")+"]").click();
-				});
-				$('.increaseQty, .decreaseQty').on("mouseleave",function(){
-					$("[data-id=addToCart_"+$(this).attr("data-target")+"]").click();
-				});
-            });
-
-</script>
     <?php endif; ?>
 <?php endif; ?>

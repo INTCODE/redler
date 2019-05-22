@@ -89,6 +89,8 @@ use Magento\Framework\App\Action\Action;
                                                             <div class="control">
                                                                 <input type="number" 
                                                                     name="qty" 
+                                                                    min="0"
+                                                                    data-changed="false" 
                                                                     data-id="product-qty-<?= $_item->getId() ?>" 
                                                                     maxlength="12" 
                                                                     data-target="product-qty-<?= $_item->getId() ?>" 

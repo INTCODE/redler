@@ -98,7 +98,9 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                                             <div class="control">
                                                                 <input type="number" 
                                                                     name="qty" 
-                                                                    id="product-qty-<?= $_product->getId() ?>" 
+                                                                    min="0"
+                                                                    data-changed="false" 
+                                                                    data-id="product-qty-<?= $_product->getId() ?>" 
                                                                     maxlength="12" 
                                                                     data-target="product-qty-<?= $_product->getId() ?>" 
                                                                     value="<?php
@@ -128,7 +130,7 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                                                                     class="decreaseQty">-</button>
                                                 </div>
 
-                                            <button type="submit"
+                                            <button data-id="addToCart_product-qty-<?= $_product->getId() ?>" type="submit"
                                                     title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
                                                     class="action tocart primary">
                                                 <span><?= /* @escapeNotVerified */ __('Add to Cart') ?></span>
