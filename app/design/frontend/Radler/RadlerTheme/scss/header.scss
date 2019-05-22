@@ -98,6 +98,8 @@
                 .minicart-items-wrapper{
                     height: auto; 
                     .minicart-items{
+                        min-height: auto!important;
+                        height: 300px;
                         .product-item{
                             padding: 8px 0px;
                             .product-item-details{

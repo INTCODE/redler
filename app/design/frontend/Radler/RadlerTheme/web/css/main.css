@@ -7979,12 +7979,15 @@ input[type="text"], input[type="password"], textarea {
           display: block; }
         .page-header .content .minicart-wrapper .ui-dialog .minicart-items-wrapper {
           height: auto; }
-          .page-header .content .minicart-wrapper .ui-dialog .minicart-items-wrapper .minicart-items .product-item {
-            padding: 8px 0px; }
-            .page-header .content .minicart-wrapper .ui-dialog .minicart-items-wrapper .minicart-items .product-item .product-item-details .product-item-name {
-              font-size: 14px; }
-            .page-header .content .minicart-wrapper .ui-dialog .minicart-items-wrapper .minicart-items .product-item .product-item-details .price {
-              font-weight: bold; }
+          .page-header .content .minicart-wrapper .ui-dialog .minicart-items-wrapper .minicart-items {
+            min-height: auto !important;
+            height: 300px; }
+            .page-header .content .minicart-wrapper .ui-dialog .minicart-items-wrapper .minicart-items .product-item {
+              padding: 8px 0px; }
+              .page-header .content .minicart-wrapper .ui-dialog .minicart-items-wrapper .minicart-items .product-item .product-item-details .product-item-name {
+                font-size: 14px; }
+              .page-header .content .minicart-wrapper .ui-dialog .minicart-items-wrapper .minicart-items .product-item .product-item-details .price {
+                font-weight: bold; }
         .page-header .content .minicart-wrapper .ui-dialog #top-cart-btn-checkout {
           margin: 15px auto;
           display: block; }
