@@ -65,12 +65,20 @@
     },
     "version": "2.3.1",
     "minimum-stability": "stable",
-    "repositories": [
-        {
+    "repositories": {
+        "0": {
             "type": "composer",
             "url": "https://repo.magento.com/"
+        },
+        "mageworx": {
+            "type": "artifact",
+            "url": "C:/xampp/htdocs/projekty/blm/redler/app/code/CustomerPrice"
+        },
+        "mageworx_packages": {
+            "type": "composer",
+            "url": "https://packages.mageworx.com"
         }
-    ],
+    },
     "extra": {
         "magento-force": "override"
     }

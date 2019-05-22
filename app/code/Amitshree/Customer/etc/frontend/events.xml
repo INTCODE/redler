@@ -3,4 +3,17 @@
     <event name="customer_register_success">
         <observer name="checkcustomer" instance="Amitshree\Customer\Observer\CheckCustomer" />
     </event>
+
+    <event name="catalog_product_is_salable_after">
+		<observer name="product_hide_add_price" instance="Amitshree\Customer\Observer\SalableObserver" />
+	</event>
+	<event name="sales_quote_product_add_after">
+		<observer name="product_hide_add_price" instance="Amitshree\Customer\Observer\QuoteObserver" />
+	</event>
+	<event name="catalog_product_collection_load_after">
+		<observer name="product_hide_add_price" instance="Amitshree\Customer\Observer\CollectionObserver" />
+	</event>
+	<event name="catalog_product_load_after">
+		<observer name="product_hide_add_price" instance="Amitshree\Customer\Observer\ProductObserver" />
+	</event>
 </config>

@@ -9,6 +9,11 @@
     <body>
 
         <referenceBlock name="page.main.title" remove="true" />
+        <referenceBlock name="customer_form_register">
+            <arguments>
+                <argument name="show_address_fields" xsi:type="boolean">true</argument>
+            </arguments>
+        </referenceBlock>
 
         <referenceBlock name="head.components">
             <block class="Magento\Framework\View\Element\Js\Components" name="customer_account_create_head_components" template="Magento_Customer::js/components.phtml"/>

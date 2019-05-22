@@ -5,12 +5,10 @@
  * See COPYING.txt for license details.
  */
 namespace Magento\Checkout\Controller\Cart;
-
 use Magento\Framework\App\Action\HttpPostActionInterface as HttpPostActionInterface;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Checkout\Model\Cart as CustomerCart;
 use Magento\Framework\Exception\NoSuchEntityException;
-
 /**
  * Controller for processing add to cart action.
  *
@@ -22,7 +20,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
      * @var ProductRepositoryInterface
      */
     protected $productRepository;
-
     /**
      * @param \Magento\Framework\App\Action\Context $context
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
@@ -52,7 +49,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
         );
         $this->productRepository = $productRepository;
     }
-
     /**
      * Initialize product instance from request data
      *
@@ -73,7 +69,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
         }
         return false;
     }
-
     /**
      * Add product to shopping cart action
      *
@@ -88,74 +83,29 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
             );
             return $this->resultRedirectFactory->create()->setPath('*/*/');
         }
-
         $params = $this->getRequest()->getParams();
-
         try {
-            
             if (isset($params['qty'])) {
                 $filter = new \Zend_Filter_LocalizedToNormalized(
                     ['locale' => $this->_objectManager->get(
                         \Magento\Framework\Locale\ResolverInterface::class
                     )->getLocale()]
                 );
-               $params['qty'] = $filter->filter($params['qty']);
-            }else{
-                $params['qty'] = 0;
+                $params['qty'] = $filter->filter($params['qty']);
             }
-
             $product = $this->_initProduct();
             $related = $this->getRequest()->getParam('related_product');
-        
-            // DELETE ITEM FROM CART
-
-            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($product->getId(), true));
-            //$debugContent = "";
-            $items = $this->cart->getQuote()->getAllItems();
-            foreach($items as $item) {
-                if($item->getProductId() == $product->getId()){
-                    //$debugContent .= "?? ".$item->getProductId()." == ".$product->getId()." >>> ".$item->getItemId();
-                    $idToDelete = (int)$item->getItemId();
-                    if ($idToDelete) {
-                        //$debugContent .= " :) deleting...\n";
-                        try {
-                            $this->cart->removeItem($idToDelete);
-                            $this->cart->getQuote()->setTotalsCollectedFlag(false);
-                            //$this->cart->save();
-                            break;
-                        } catch (\Exception $e) {
-                           // $this->messageManager->addErrorMessage(__('We can\'t remove the item.'));
-                           // $this->_objectManager->get(\Psr\Log\LoggerInterface::class)->critical($e);
-                        }
-                    }
-                }
-                /*
-                $debugContent .= "ID: ".$item->getProductId()."\n";
-                $debugContent .= "Name: ".$item->getName()."\n";
-                $debugContent .= "ITEM ID: ".$item->getItemId()."\n";
-                $debugContent .= "Quantity: ".$item->getQty()."\n";
-                $debugContent .= "\n---------------\n";
-                */            
-            }
-            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($debugContent, true));
-
             /**
              * Check product availability
              */
             if (!$product) {
                 return $this->goBack();
             }
-
-            if($params['qty'] > 0){
-                $this->cart->addProduct($product, $params);
-                if (!empty($related)) {
-                    $this->cart->addProductsByIds(explode(',', $related));
-                }
+            $this->cart->addProduct($product, $params);
+            if (!empty($related)) {
+                $this->cart->addProductsByIds(explode(',', $related));
             }
-
-            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($this->cart->debug(), true));
             $this->cart->save();
-
             /**
              * @todo remove wishlist observer \Magento\Wishlist\Observer\AddToCart
              */
@@ -163,7 +113,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                 'checkout_cart_add_product_complete',
                 ['product' => $product, 'request' => $this->getRequest(), 'response' => $this->getResponse()]
             );
-
             if (!$this->_checkoutSession->getNoCartRedirect(true)) {
                 if (!$this->cart->getQuote()->getHasError()) {
                     if ($this->shouldRedirectToCart()) {
@@ -171,15 +120,15 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                             'You added %1 to your shopping cart.',
                             $product->getName()
                         );
-                       // $this->messageManager->addSuccessMessage($message);
+                        $this->messageManager->addSuccessMessage($message);
                     } else {
-                      /*  $this->messageManager->addComplexSuccessMessage(
+                        $this->messageManager->addComplexSuccessMessage(
                             'addCartSuccessMessage',
                             [
                                 'product_name' => $product->getName(),
                                 'cart_url' => $this->getCartUrl(),
                             ]
-                        );*/
+                        );
                     }
                 }
                 return $this->goBack(null, $product);
@@ -197,13 +146,10 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                     );
                 }
             }
-
             $url = $this->_checkoutSession->getRedirectUrl(true);
-
             if (!$url) {
                 $url = $this->_redirect->getRedirectUrl($this->getCartUrl());
             }
-
             return $this->goBack($url);
         } catch (\Exception $e) {
             $this->messageManager->addExceptionMessage(
@@ -214,7 +160,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
             return $this->goBack();
         }
     }
-
     /**
      * Resolve response
      *
@@ -227,9 +172,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
         if (!$this->getRequest()->isAjax()) {
             return parent::_goBack($backUrl);
         }
-
         $result = [];
-
         if ($backUrl || $backUrl = $this->getBackUrl()) {
             $result['backUrl'] = $backUrl;
         } else {
@@ -239,12 +182,10 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                 ];
             }
         }
-
         $this->getResponse()->representJson(
             $this->_objectManager->get(\Magento\Framework\Json\Helper\Data::class)->jsonEncode($result)
         );
     }
-
     /**
      * Returns cart url
      *
@@ -254,7 +195,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
     {
         return $this->_url->getUrl('checkout/cart', ['_secure' => true]);
     }
-
     /**
      * Is redirect should be performed after the product was added to cart.
      *
