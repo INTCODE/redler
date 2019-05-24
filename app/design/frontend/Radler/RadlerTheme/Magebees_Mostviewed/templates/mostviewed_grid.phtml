@@ -78,18 +78,43 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
 												<input type="hidden" name="product" value="<?php echo $postParams['data']['product']; ?>">
 												<input type="hidden" name="<?php echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php echo        $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
 												 <?php echo $block->getBlockHtml('formkey')?>
+												 
 												 <div class="control">
-                                                    <input type="number" 
-                                                        name="qty" 
-                                                        id="<?= /* @escapeNotVerified */  $blockNameMv ?>-qty<?= /* @escapeNotVerified */ $_product->getId() ?>" 
-                                                        maxlength="12" 
-                                                        value="1" 
-                                                        title="<?= /* @escapeNotVerified */ __('Qty') ?>" 
-                                                        class="input-text qty"/>
+                                                                <input type="number" 
+                                                                    name="qty" 
+																	min="0"
+																	data-changed="false" 
+                                                                    data-id="product-qty-<?= $_product->getId() ?>" 
+                                                                    maxlength="12" 
+                                                                    data-target="product-qty-<?= $_product->getId() ?>" 
+                                                                    value="<?php
+                                                                    // GET COUNT IN CART
+                                                                    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                                                                    $cart = $objectManager->get('\Magento\Checkout\Model\Cart'); 
+                                                                    $items = $cart->getQuote()->getAllItems();
+                                                                    $count = 0;
+                                                                    foreach($items as $item) {
+                                                                        if($_product->getId() == $item->getProductId()) {
+                                                                            $count = $item->getQty();
+                                                                            break;
+                                                                        }   
+                                                                    }
+                                                                    echo $count;
+                                                                    ?>" 
+                                                                    title="<?= /* @escapeNotVerified */ __('Qty') ?>" 
+                                                                    class="input-text qty inputProductQty"/>
 
-                                                        <button type="button"  id="<?= /* @escapeNotVerified */  $blockNameMv ?>-qty<?= /* @escapeNotVerified */ $_product->getId() ?>-upt" class="increaseQty">+</button>
-                                                        <button type="button"   id="<?= /* @escapeNotVerified */  $blockNameMv ?>-qty<?= /* @escapeNotVerified */ $_product->getId() ?>-dec"  class="decreaseQty">-</button>
-                                                	</div>
+                                                                    <button type="button" 
+                                                                    data-target="product-qty-<?= $_product->getId() ?>" 
+                                                                    data-action="+" 
+                                                                    class="increaseQty">+</button>
+                                                                    <button type="button" 
+                                                                    data-target="product-qty-<?= $_product->getId() ?>" 
+                                                                    data-action="-" 
+                                                                    class="decreaseQty">-</button>
+                                                            </div>
+															<button type="submit" data-id="addToCart_product-qty-<?= $_product->getId() ?>" title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>" class="action tocart primary"><span><?php echo __('Add to Cart') ?></span></button>
+
 												<?php if (($_product->isSaleable())&&($this->getAddToCart())) { ?>
 													<button type="submit" title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>" class="action tocart primary"><span><?php echo __('Add to Cart') ?></span></button>
 												<?php } ?>
@@ -180,22 +205,6 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
         }
 		</script>
 		
-		<script type="text/javascript">
-            require(["jquery"],function($){
-                $('.increaseQty, .decreaseQty').on("click",function(){
-                    
-					switch($(this).attr("data-action")){
-						case "-": if($("#"+$(this).attr("data-target")).val() > 0) $("#"+$(this).attr("data-target")).val(parseInt($("#"+$(this).attr("data-target")).val()) - 1); break;
-						case "+": $("#"+$(this).attr("data-target")).val(parseInt($("#"+$(this).attr("data-target")).val()) + 1); break;
-					}
-					
-					$("#addToCart_"+$(this).attr("data-target")).click();
-					
-				});
-				$(".inputProductQty").on("change",function(){
-					$("#addToCart_"+$(this).attr("data-target")).click();
-				});
-            });
-</script>
+
     <?php endif; ?>
 <?php endif; ?>

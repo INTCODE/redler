@@ -17,23 +17,47 @@
         <div class="field qty">
             <label class="label" for="qty"><span><?= /* @escapeNotVerified */ __('Qty') ?></span></label>
             <div class="control">
-                <input type="number" 
-                        name="qty" 
-                        id="qty" 
-                        value="<?= /* @escapeNotVerified */ $block->getProductDefaultQty() * 1 ?>" 
-                        title="<?= /* @escapeNotVerified */ __('Qty') ?>" 
-                        class="input-text qty" 
-                        data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>" /> 
-                <button type="button" id="addQty" value="1">+</button>
-                <button type="button" id="minusQty" value="1">-</button> 
+            <input type="number" 
+                name="qty" 
+                min="0"
+                data-changed="false" 
+                data-id="product-qty-<?= $_product->getId() ?>" 
+                maxlength="12" 
+                data-target="product-qty-<?= $_product->getId() ?>" 
+                value="<?php
+                // GET COUNT IN CART
+                $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                $cart = $objectManager->get('\Magento\Checkout\Model\Cart'); 
+                $items = $cart->getQuote()->getAllItems();
+                $count = 0;
+                foreach($items as $item) {
+                    if($_product->getId() == $item->getProductId()) {
+                        $count = $item->getQty();
+                        break;
+                    }   
+                }
+                echo $count;
+                ?>" 
+                title="<?= /* @escapeNotVerified */ __('Qty') ?>" 
+                class="input-text qty inputProductQty"/>
+
+                <button type="button" 
+                data-target="product-qty-<?= $_product->getId() ?>" 
+                data-action="+" 
+                class="increaseQty">+</button>
+                <button type="button" 
+                data-target="product-qty-<?= $_product->getId() ?>" 
+                data-action="-" 
+                class="decreaseQty">-</button>
             </div>
         </div>
         <?php endif; ?>
         <div class="actions">
-            <button type="submit"
+            <button data-id="addToCart_product-qty-<?= $_product->getId() ?>" type="submit"
                     title="<?= /* @escapeNotVerified */ $buttonTitle ?>"
                     class="action primary tocart"
-                    id="product-addtocart-button">
+                    id="product-addtocart-button"
+                    style="display: none">
                 <span><?= /* @escapeNotVerified */ $buttonTitle ?></span>
             </button>
             <?= $block->getChildHtml('', true) ?>

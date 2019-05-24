@@ -16,7 +16,6 @@ require([
         $(data.form).find('[name*="super"]').each(function (index, item) {
             var $item = $(item),
                 attr;
-
             if ($item.attr('data-attr-name')) {
                 attr = $item.attr('data-attr-name');
             } else {

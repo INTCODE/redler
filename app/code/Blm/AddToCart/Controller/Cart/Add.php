@@ -106,38 +106,100 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
 
             $product = $this->_initProduct();
             $related = $this->getRequest()->getParam('related_product');
-        
-            // DELETE ITEM FROM CART
 
-            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($product->getId(), true));
-            //$debugContent = "";
+            $idAttribute = 0;
+            if(isset($params['super_attribute'])){
+                foreach($params['super_attribute'] as $attr){
+                    $idAttribute = $attr;
+                }
+            }
+ 
+
+            $elo = "";
+            
+
+              /*  $childProducts = $product->getTypeInstance(true)->getUsedProducts(null, $product);
+                foreach ($childProducts as $child) {
+                    $elo .= $child->getData($attributeData[0]['attribute_code']);
+                    //$elo .= $child->getPrice();
+                }  
+*/
+
+            $optionsData = $product->getTypeInstance()->getConfigurableAttributesAsArray($product);
+
+            foreach ($optionsData as $option) {
+                $elo .= $option['frontend_label'];
+               // $elo .= $option['attribute_code'];
+               // $elo .= $option['attribute_id'];
+               // $elo .= $option['options'];
+
+            
+            }
+
+
+
+
+
+
+
+            $attributes = $product->getTypeInstance(true)->getConfigurableAttributesAsArray($product); 
+           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========attributes===========\n".print_r($attributes, true));
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========test===========\n".print_r($optionsData, true));
+
+          //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($params, true));
+            
+            $debugContent = "";
             $items = $this->cart->getQuote()->getAllItems();
             foreach($items as $item) {
                 if($item->getProductId() == $product->getId()){
-                    //$debugContent .= "?? ".$item->getProductId()." == ".$product->getId()." >>> ".$item->getItemId();
-                    $idToDelete = (int)$item->getItemId();
-                    if ($idToDelete) {
-                        //$debugContent .= " :) deleting...\n";
-                        try {
-                            $this->cart->removeItem($idToDelete);
-                            $this->cart->getQuote()->setTotalsCollectedFlag(false);
-                            //$this->cart->save();
-                            break;
-                        } catch (\Exception $e) {
-                           // $this->messageManager->addErrorMessage(__('We can\'t remove the item.'));
-                           // $this->_objectManager->get(\Psr\Log\LoggerInterface::class)->critical($e);
+                    $debugContent .= "?? ".$item->getProductId()." == ".$product->getId()." >>> ".$item->getItemId()."\n";
+                    $debugContent .= "ID: ".$item->getProductId()."\n";
+                    $debugContent .= "Name: ".$item->getName()."\n";
+                    $debugContent .= "ITEM ID: ".$item->getItemId()."\n";
+                    $debugContent .= "Quantity: ".$item->getQty()."\n";
+                    
+                    $delete = false;
+                    if($idAttribute != 0){
+                        foreach ($item->getOptions() as $option) {
+                            if (is_object($option->getProduct()) && $option->getProduct()->getId() != $item->getProduct()->getId()) {
+                                $debugContent .= "ID KOMBINACJI: ".$option->getProduct()->getId()."\n";
+                                $debugContent .= "ID ATTRYBUTU Z KOSZYKA: ".$idAttribute."\n";
+                                
+                                if($option->getProduct()->getId() == $idAttribute){
+                                    
+                                    $delete = true;
+                                }
+                                break;
+                            }
                         }
                     }
+
+                    if($delete || $idAttribute == 0){
+                        $idToDelete = (int)$item->getItemId();
+                        if ($idToDelete) {
+                            $debugContent .= " :) deleting...\n";
+                            try {
+                                $this->cart->removeItem($idToDelete);
+                                $this->cart->getQuote()->setTotalsCollectedFlag(false);
+                                break;
+                            } catch (\Exception $e) {
+                            // $this->messageManager->addErrorMessage(__('We can\'t remove the item.'));
+                            // $this->_objectManager->get(\Psr\Log\LoggerInterface::class)->critical($e);
+                            }
+                        }
+                    }
+
+                    $debugContent .= "\n---------------\n";
+            
                 }
-                /*
-                $debugContent .= "ID: ".$item->getProductId()."\n";
-                $debugContent .= "Name: ".$item->getName()."\n";
-                $debugContent .= "ITEM ID: ".$item->getItemId()."\n";
-                $debugContent .= "Quantity: ".$item->getQty()."\n";
-                $debugContent .= "\n---------------\n";
-                */            
+                            
             }
-            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($debugContent, true));
+
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($debugContent, true));
+
+           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========product============\n".print_r($product->debug(), true));
+
+
 
             /**
              * Check product availability
@@ -153,7 +215,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                 }
             }
 
-            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($this->cart->debug(), true));
+           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($this->cart->debug(), true));
             $this->cart->save();
 
             /**
