@@ -15,3 +15,555 @@ Array
 
     [qty] => 33
 )
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
+    [product] => 33
+    [form_key] => JU6eOqABPdYbvmbS
+    [qty] => 4
+    [super_attribute] => Array
+        (
+            [151] => 
+        )
+
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
+    [product] => 33
+    [form_key] => JU6eOqABPdYbvmbS
+    [qty] => 0
+    [super_attribute] => Array
+        (
+            [151] => 
+        )
+
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
+    [product] => 33
+    [form_key] => JU6eOqABPdYbvmbS
+    [qty] => 1
+    [super_attribute] => Array
+        (
+            [151] => 
+        )
+
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
+    [product] => 33
+    [form_key] => JU6eOqABPdYbvmbS
+    [qty] => 0
+    [super_attribute] => Array
+        (
+            [151] => 
+        )
+
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS5odG1s
+    [product] => 33
+    [selected_configurable_option] => 
+    [related_product] => 
+    [item] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [super_attribute] => Array
+        (
+            [151] => 
+        )
+
+    [qty] => 1
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
+    [product] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [qty] => 2
+    [super_attribute] => Array
+        (
+            [151] => 22
+        )
+
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
+    [product] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [qty] => 5
+    [super_attribute] => Array
+        (
+            [151] => 21
+        )
+
+)
+
+=========================
+?? 33 == 33 >>> 356ID: 33
+Name: Configurable
+ITEM ID: 356
+Quantity: 2
+ID KOMBINACJI: 32
+ID ATTRYBUTU Z KOSZYKA: 21
+
+---------------
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
+    [product] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [qty] => 6
+    [super_attribute] => Array
+        (
+            [151] => 21
+        )
+
+)
+
+=========================
+?? 33 == 33 >>> 356ID: 33
+Name: Configurable
+ITEM ID: 356
+Quantity: 2
+ID KOMBINACJI: 32
+ID ATTRYBUTU Z KOSZYKA: 21
+
+---------------
+?? 33 == 33 >>> 358ID: 33
+Name: Configurable
+ITEM ID: 358
+Quantity: 5
+ID KOMBINACJI: 31
+ID ATTRYBUTU Z KOSZYKA: 21
+
+---------------
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
+    [product] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [qty] => 7
+    [super_attribute] => Array
+        (
+            [151] => 
+        )
+
+)
+
+=========================
+?? 33 == 33 >>> 356ID: 33
+Name: Configurable
+ITEM ID: 356
+Quantity: 2
+ :) deleting...
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+    [product] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [qty] => 4
+    [super_attribute] => Array
+        (
+            [151] => 
+        )
+
+)
+
+=========================
+?? 33 == 33 >>> 356ID: 33
+Name: Configurable
+ITEM ID: 356
+Quantity: 2
+ :) deleting...
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+    [product] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [qty] => 21
+    [super_attribute] => Array
+        (
+            [151] => 22
+        )
+
+)
+
+=========================
+?? 33 == 33 >>> 356ID: 33
+Name: Configurable
+ITEM ID: 356
+Quantity: 2
+ID KOMBINACJI: 32
+ID ATTRYBUTU Z KOSZYKA: 22
+
+---------------
+?? 33 == 33 >>> 358ID: 33
+Name: Configurable
+ITEM ID: 358
+Quantity: 11
+ID KOMBINACJI: 31
+ID ATTRYBUTU Z KOSZYKA: 22
+
+---------------
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+    [product] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [qty] => 22
+    [super_attribute] => Array
+        (
+            [151] => 22
+        )
+
+)
+
+=========================
+?? 33 == 33 >>> 356ID: 33
+Name: Configurable
+ITEM ID: 356
+Quantity: 23
+ID KOMBINACJI: 32
+ID ATTRYBUTU Z KOSZYKA: 22
+
+---------------
+?? 33 == 33 >>> 358ID: 33
+Name: Configurable
+ITEM ID: 358
+Quantity: 11
+ID KOMBINACJI: 31
+ID ATTRYBUTU Z KOSZYKA: 22
+
+---------------
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+    [product] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [qty] => 6
+    [super_attribute] => Array
+        (
+            [151] => 21
+        )
+
+)
+
+=========================
+?? 33 == 33 >>> 356ID: 33
+Name: Configurable
+ITEM ID: 356
+Quantity: 45
+ID KOMBINACJI: 32
+ID ATTRYBUTU Z KOSZYKA: 21
+
+---------------
+?? 33 == 33 >>> 358ID: 33
+Name: Configurable
+ITEM ID: 358
+Quantity: 11
+ID KOMBINACJI: 31
+ID ATTRYBUTU Z KOSZYKA: 21
+
+---------------
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+    [product] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [qty] => 3
+    [super_attribute] => Array
+        (
+            [151] => 21
+        )
+
+)
+
+=========================
+?? 33 == 33 >>> 356ID: 33
+Name: Configurable
+ITEM ID: 356
+Quantity: 45
+ID KOMBINACJI: 32
+ID ATTRYBUTU Z KOSZYKA: 21
+
+---------------
+?? 33 == 33 >>> 358ID: 33
+Name: Configurable
+ITEM ID: 358
+Quantity: 17
+ID KOMBINACJI: 31
+ID ATTRYBUTU Z KOSZYKA: 21
+
+---------------
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+    [product] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [qty] => 10
+    [super_attribute] => Array
+        (
+            [151] => 
+        )
+
+)
+
+=========================
+?? 33 == 33 >>> 312ID: 33
+Name: Configurable
+ITEM ID: 312
+Quantity: 25
+ :) deleting...
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+    [product] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [qty] => 26
+    [super_attribute] => Array
+        (
+            [151] => 
+        )
+
+)
+
+=========================
+?? 33 == 33 >>> 312ID: 33
+Name: Configurable
+ITEM ID: 312
+Quantity: 25
+ :) deleting...
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+    [product] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [qty] => 1
+    [super_attribute] => Array
+        (
+            [151] => 22
+        )
+
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS5odG1s
+    [product] => 33
+    [selected_configurable_option] => 
+    [related_product] => 
+    [item] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [super_attribute] => Array
+        (
+            [151] => 21
+        )
+
+    [qty] => 2
+)
+
+=========================
+?? 33 == 33 >>> 369ID: 33
+Name: Configurable
+ITEM ID: 369
+Quantity: 1
+ID KOMBINACJI: 32
+ID ATTRYBUTU Z KOSZYKA: 21
+
+---------------
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS5odG1s
+    [product] => 33
+    [selected_configurable_option] => 
+    [related_product] => 
+    [item] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [super_attribute] => Array
+        (
+            [151] => 22
+        )
+
+    [qty] => 5
+)
+
+=========================
+?? 33 == 33 >>> 369ID: 33
+Name: Configurable
+ITEM ID: 369
+Quantity: 1
+ID KOMBINACJI: 32
+ID ATTRYBUTU Z KOSZYKA: 22
+
+---------------
+?? 33 == 33 >>> 371ID: 33
+Name: Configurable
+ITEM ID: 371
+Quantity: 2
+ID KOMBINACJI: 31
+ID ATTRYBUTU Z KOSZYKA: 22
+
+---------------
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+    [product] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [qty] => 42
+    [super_attribute] => Array
+        (
+            [151] => 22
+        )
+
+)
+
+=========================
+?? 33 == 33 >>> 369ID: 33
+Name: Configurable
+ITEM ID: 369
+Quantity: 41
+ID KOMBINACJI: 32
+ID ATTRYBUTU Z KOSZYKA: 22
+
+---------------
+?? 33 == 33 >>> 371ID: 33
+Name: Configurable
+ITEM ID: 371
+Quantity: 27
+ID KOMBINACJI: 31
+ID ATTRYBUTU Z KOSZYKA: 22
+
+---------------
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+    [product] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [qty] => 41
+    [super_attribute] => Array
+        (
+            [151] => 22
+        )
+
+)
+
+=========================
+?? 33 == 33 >>> 369ID: 33
+Name: Configurable
+ITEM ID: 369
+Quantity: 83
+ID KOMBINACJI: 32
+ID ATTRYBUTU Z KOSZYKA: 22
+
+---------------
+?? 33 == 33 >>> 371ID: 33
+Name: Configurable
+ITEM ID: 371
+Quantity: 27
+ID KOMBINACJI: 31
+ID ATTRYBUTU Z KOSZYKA: 22
+
+---------------
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+    [product] => 33
+    [form_key] => AbEt9roTk49UuC6p
+    [qty] => 35
+    [super_attribute] => Array
+        (
+            [151] => 22
+        )
+
+)
+
+=========================
+?? 33 == 33 >>> 369ID: 33
+Name: Configurable
+ITEM ID: 369
+Quantity: 124
+ID KOMBINACJI: 32
+ID ATTRYBUTU Z KOSZYKA: 22
+
+---------------
+?? 33 == 33 >>> 371ID: 33
+Name: Configurable
+ITEM ID: 371
+Quantity: 27
+ID KOMBINACJI: 31
+ID ATTRYBUTU Z KOSZYKA: 22
+
+---------------
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+    [product] => 27
+    [form_key] => AbEt9roTk49UuC6p
+    [qty] => 1
+)
+
+=========================
