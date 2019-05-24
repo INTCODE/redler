@@ -42,21 +42,21 @@ return [
         ]
     ],
     'cache_types' => [
-        'config' => 1,
+        'config' => 0,
         'layout' => 0,
         'block_html' => 0,
-        'collections' => 1,
-        'reflection' => 1,
+        'collections' => 0,
+        'reflection' => 0,
         'db_ddl' => 0,
         'compiled_config' => 1,
-        'eav' => 1,
-        'customer_notification' => 1,
-        'config_integration' => 1,
-        'config_integration_api' => 1,
+        'eav' => 0,
+        'customer_notification' => 0,
+        'config_integration' => 0,
+        'config_integration_api' => 0,
         'full_page' => 0,
-        'config_webservice' => 1,
-        'translate' => 1,
-        'vertex' => 1
+        'config_webservice' => 0,
+        'translate' => 0,
+        'vertex' => 0
     ],
     'install' => [
         'date' => 'Wed, 27 Mar 2019 11:07:18 +0000'
