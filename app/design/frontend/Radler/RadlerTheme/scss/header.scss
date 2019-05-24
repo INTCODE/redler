@@ -21,7 +21,7 @@
         .minicart-wrapper{
             float: right;
             position: relative;
-            width: 40px;
+            width: 100px;
             height: 40px;
             border-radius: 100px;
             background-color: #f6f3f1;
@@ -41,10 +41,10 @@
                 }
             }
            
-            
-            .qty,.text{
-                display: none;
-            }
+            .counter-number,
+             .text{
+                 display: none;
+             }
             .ui-dialog{
                 position: absolute;
                 width: 300px; 
@@ -63,10 +63,7 @@
                 }
                 #btn-minicart-close{
                     display: none;
-                }
-                .items-total{
-
-                }
+                } 
                 .subtotal{
                     display: block;
                     float: left;
@@ -95,11 +92,13 @@
                     margin:10px 0;
                     display: block;
                 }
-                .minicart-items-wrapper{
-                    height: auto; 
+                .minicart-items-wrapper{ 
+                    height: 306px !important; 
+                    overflow-y: hidden; 
+                    overflow-y: scroll;
+                    
                     .minicart-items{
-                        min-height: auto!important;
-                        height: 300px;
+                        min-height: auto!important; 
                         .product-item{
                             padding: 8px 0px;
                             .product-item-details{
@@ -219,11 +218,12 @@
             .customer-name{
                 cursor: pointer;
                 &:hover{
-                    .customer-menu{
-                        display: none;
-                    }
+                   
                 }
             } 
+            .customer-menu{
+                display: none;
+            }
             li{
                 list-style: none;
                 a{
