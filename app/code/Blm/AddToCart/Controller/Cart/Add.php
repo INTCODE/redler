@@ -113,16 +113,46 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                     $idAttribute = $attr;
                 }
             }
-            
-        
-            // DELETE ITEM FROM CART
+ 
 
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($params, true));
+            $elo = "";
+            
+
+              /*  $childProducts = $product->getTypeInstance(true)->getUsedProducts(null, $product);
+                foreach ($childProducts as $child) {
+                    $elo .= $child->getData($attributeData[0]['attribute_code']);
+                    //$elo .= $child->getPrice();
+                }  
+*/
+
+            $optionsData = $product->getTypeInstance()->getConfigurableAttributesAsArray($product);
+
+            foreach ($optionsData as $option) {
+                $elo .= $option['frontend_label'];
+               // $elo .= $option['attribute_code'];
+               // $elo .= $option['attribute_id'];
+               // $elo .= $option['options'];
+
+            
+            }
+
+
+
+
+
+
+
+            $attributes = $product->getTypeInstance(true)->getConfigurableAttributesAsArray($product); 
+           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========attributes===========\n".print_r($attributes, true));
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========test===========\n".print_r($optionsData, true));
+
+          //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($params, true));
+            
             $debugContent = "";
             $items = $this->cart->getQuote()->getAllItems();
             foreach($items as $item) {
                 if($item->getProductId() == $product->getId()){
-                    $debugContent .= "?? ".$item->getProductId()." == ".$product->getId()." >>> ".$item->getItemId();
+                    $debugContent .= "?? ".$item->getProductId()." == ".$product->getId()." >>> ".$item->getItemId()."\n";
                     $debugContent .= "ID: ".$item->getProductId()."\n";
                     $debugContent .= "Name: ".$item->getName()."\n";
                     $debugContent .= "ITEM ID: ".$item->getItemId()."\n";
@@ -164,7 +194,12 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                 }
                             
             }
+
             file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($debugContent, true));
+
+           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========product============\n".print_r($product->debug(), true));
+
+
 
             /**
              * Check product availability
@@ -180,7 +215,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                 }
             }
 
-            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($this->cart->debug(), true));
+           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($this->cart->debug(), true));
             $this->cart->save();
 
             /**
