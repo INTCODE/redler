@@ -138,6 +138,29 @@
     }
 }
 
+.cart-empty{ 
+    min-height: 550px;
+    p{
+        &:first-child{
+            background-color: #EADFCF;
+            padding: 10px 20px;
+            font-weight: 600;
+            font-size: 14px;
+            border-left: 3px #dabd99 solid;
+        }
+        &:nth-child(2){ 
+            text-align: left;
+            padding: 10px 0;
+            a{  
+                border-radius: 30px;
+                color: #d2ac7d;
+                font-weight: bold;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
 #shipping_page{
     .shipping-container{
         @extend .row;

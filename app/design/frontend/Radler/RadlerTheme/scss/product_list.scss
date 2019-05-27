@@ -14,7 +14,7 @@
         min-height: 800px;
         &:after{
             content: "";
-            width: calc((100vw - 100% - -195px) / 4);
+            width: calc((100vw - 100% -195px) / 4);
             height: calc(100% - 0px);
             background-color: #f6f3f1;
             position: absolute;

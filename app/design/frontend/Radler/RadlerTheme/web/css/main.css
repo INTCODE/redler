@@ -8182,6 +8182,8 @@ input[type="text"], input[type="password"], textarea {
       border-radius: 100px;
       background-color: #f6f3f1;
       margin-left: 15px; }
+      .page-header .content .minicart-wrapper .block-title {
+        display: none; }
       .page-header .content .minicart-wrapper .icon {
         display: inline-block;
         background-color: #EADFCF;
@@ -8205,6 +8207,13 @@ input[type="text"], input[type="password"], textarea {
       .page-header .content .minicart-wrapper .counter-number,
       .page-header .content .minicart-wrapper .text {
         display: none; }
+      .page-header .content .minicart-wrapper .counter-label {
+        position: absolute;
+        top: 11px;
+        right: 13px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #cfa773; }
       .page-header .content .minicart-wrapper .ui-dialog {
         position: absolute;
         width: 300px;
@@ -8226,7 +8235,7 @@ input[type="text"], input[type="password"], textarea {
           display: block;
           float: left;
           width: 100%;
-          margin: 15px 0;
+          margin: 0 0 15px 0;
           border-bottom: 1px solid #e6d9c5; }
           .page-header .content .minicart-wrapper .ui-dialog .subtotal .label {
             display: inline-block;
@@ -8468,7 +8477,8 @@ input[type="text"], input[type="password"], textarea {
   .product-item .product-image-container {
     float: left;
     display: table;
-    min-height: 240px; }
+    min-height: 240px;
+    height: 200px; }
   .product-item .product-image-wrapper {
     margin-left: 0;
     width: 100%;
@@ -8505,6 +8515,8 @@ input[type="text"], input[type="password"], textarea {
       text-decoration: line-through;
       font-size: 0.75rem;
       color: #929292; }
+  .product-item .weee .price-label {
+    display: none; }
   .product-item .special-price:before {
     content: "";
     background-image: url("../images/promo.png");
@@ -8542,6 +8554,36 @@ input[type="text"], input[type="password"], textarea {
   .product-item .actions-secondary {
     display: none; }
   .product-item .pager {
+    display: none; }
+  .product-item .package_type {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 60px;
+    height: 30px;
+    background-color: #EFE9E6;
+    border-radius: 25px; }
+    .product-item .package_type .swatch-option {
+      text-indent: -10000px;
+      width: 29px;
+      border: solid red 1px;
+      float: left;
+      margin-top: 4px;
+      cursor: pointer; }
+      .product-item .package_type .swatch-option.selected {
+        position: relative; }
+        .product-item .package_type .swatch-option.selected:before {
+          content: "";
+          height: 100%;
+          width: 50%;
+          position: absolute;
+          top: 0;
+          left: 0%;
+          -webkit-transition: 300ms;
+          transition: 300ms;
+          background-color: #fff;
+          border-radius: 50%; }
+  .product-item .super-attribute-select {
     display: none; }
 
 .know-us-better {
@@ -8894,7 +8936,7 @@ input[type="text"], input[type="password"], textarea {
   min-height: 800px; }
   .page-products .columns .main:after {
     content: "";
-    width: calc((100vw - 100% - -195px) / 4);
+    width: calc((100vw - 100% -195px) / 4);
     height: calc(100% - 0px);
     background-color: #f6f3f1;
     position: absolute;
@@ -9399,6 +9441,23 @@ input[type="text"], input[type="password"], textarea {
     .checkout-cart-index .page-main .cart-discount {
       order: 4;
       display: none; }
+
+.cart-empty {
+  min-height: 550px; }
+  .cart-empty p:first-child {
+    background-color: #EADFCF;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    border-left: 3px #dabd99 solid; }
+  .cart-empty p:nth-child(2) {
+    text-align: left;
+    padding: 10px 0; }
+    .cart-empty p:nth-child(2) a {
+      border-radius: 30px;
+      color: #d2ac7d;
+      font-weight: bold;
+      text-decoration: underline; }
 
 #shipping_page .shipping-container .shipping {
   padding: 0 120px 0 0; }
