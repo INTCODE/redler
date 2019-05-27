@@ -125,28 +125,30 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                 }  
 */
 
-            $optionsData = $product->getTypeInstance()->getConfigurableAttributesAsArray($product);
+            // $optionsData = $product->getTypeInstance()->getConfigurableAttributesAsArray($product);
 
-            foreach ($optionsData as $option) {
-                $elo .= $option['frontend_label'];
-               // $elo .= $option['attribute_code'];
-               // $elo .= $option['attribute_id'];
-               // $elo .= $option['options'];
+            // foreach ($optionsData as $option) {
+            //     $elo .= $option['frontend_label'];
+            //    // $elo .= $option['attribute_code'];
+            //    // $elo .= $option['attribute_id'];
+            //    // $elo .= $option['options'];
 
             
-            }
+            // }
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 
+            $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load(31);
 
+            //$objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of object manager
+            $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+            
+    // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========attributes===========\n".print_r($result, true));
 
+          //  $attributes = $product->getTypeInstance(true)->getConfigurableAttributesAsArray($product); 
+          //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========attributes===========\n".print_r($attributes, true));
+         //   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========test===========\n".print_r($optionsData, true));
 
-
-
-
-            $attributes = $product->getTypeInstance(true)->getConfigurableAttributesAsArray($product); 
-           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========attributes===========\n".print_r($attributes, true));
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========test===========\n".print_r($optionsData, true));
-
-          //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($params, true));
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========Dokoszyk=============\n".print_r($params, true));
             
             $debugContent = "";
             $items = $this->cart->getQuote()->getAllItems();
@@ -162,11 +164,18 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                     if($idAttribute != 0){
                         foreach ($item->getOptions() as $option) {
                             if (is_object($option->getProduct()) && $option->getProduct()->getId() != $item->getProduct()->getId()) {
+
                                 $debugContent .= "ID KOMBINACJI: ".$option->getProduct()->getId()."\n";
                                 $debugContent .= "ID ATTRYBUTU Z KOSZYKA: ".$idAttribute."\n";
+                              
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($product->getTypeId(), true));
+                                if($product->getTypeId()=='configurable'){
+                                    $productType=$option->getProduct()->getId()-10;
+                                }else{
+                                    $productType=$option->getProduct()->getId();
+                                }
                                 
-                                if($option->getProduct()->getId() == $idAttribute){
-                                    
+                                if($productType == $idAttribute){
                                     $delete = true;
                                 }
                                 break;
@@ -197,7 +206,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
 
             file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($debugContent, true));
 
-           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========product============\n".print_r($product->debug(), true));
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========product============\n".print_r($product->debug(), true));
 
 
 
@@ -215,8 +224,9 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                 }
             }
 
-           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($this->cart->debug(), true));
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($this->cart->debug(), true));
             $this->cart->save();
+
 
             /**
              * @todo remove wishlist observer \Magento\Wishlist\Observer\AddToCart

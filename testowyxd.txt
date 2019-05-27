@@ -1083,3 +1083,121 @@ ITEM ID: 420
 Quantity: 3
  :) deleting...
 >>>>>>> 5c6e5ef2cf8824e9ecd022040c47fae395352147
+
+=========test===========
+Array
+(
+    [151] => Array
+        (
+            [id] => 5
+            [label] => Package Type
+            [use_default] => 0
+            [position] => 0
+            [values] => Array
+                (
+                    [0] => Array
+                        (
+                            [value_index] => 21
+                            [label] => Box
+                            [product_super_attribute_id] => 5
+                            [default_label] => Box
+                            [store_label] => Box
+                            [use_default_value] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [value_index] => 22
+                            [label] => Palette
+                            [product_super_attribute_id] => 5
+                            [default_label] => Palette
+                            [store_label] => Palette
+                            [use_default_value] => 1
+                        )
+
+                )
+
+            [attribute_id] => 151
+            [attribute_code] => package_type
+            [frontend_label] => Package Type
+            [store_label] => Package Type
+            [options] => Array
+                (
+                    [0] => Array
+                        (
+                            [value] => 21
+                            [label] => Box
+                        )
+
+                    [1] => Array
+                        (
+                            [value] => 22
+                            [label] => Palette
+                        )
+
+                )
+
+        )
+
+)
+
+=========================
+
+=========test===========
+Array
+(
+    [151] => Array
+        (
+            [id] => 6
+            [label] => Package Type
+            [use_default] => 0
+            [position] => 0
+            [values] => Array
+                (
+                    [0] => Array
+                        (
+                            [value_index] => 21
+                            [label] => Box
+                            [product_super_attribute_id] => 6
+                            [default_label] => Box
+                            [store_label] => Box
+                            [use_default_value] => 1
+                        )
+
+                    [1] => Array
+                        (
+                            [value_index] => 22
+                            [label] => Palette
+                            [product_super_attribute_id] => 6
+                            [default_label] => Palette
+                            [store_label] => Palette
+                            [use_default_value] => 1
+                        )
+
+                )
+
+            [attribute_id] => 151
+            [attribute_code] => package_type
+            [frontend_label] => Package Type
+            [store_label] => Package Type
+            [options] => Array
+                (
+                    [0] => Array
+                        (
+                            [value] => 21
+                            [label] => Box
+                        )
+
+                    [1] => Array
+                        (
+                            [value] => 22
+                            [label] => Palette
+                        )
+
+                )
+
+        )
+
+)
+
+=========================
