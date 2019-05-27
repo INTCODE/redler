@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb87eecde5cbae00b2ad75cc8fc882b41
+class ComposerStaticInit6e785dc3b44d1bc29652879509b29179
 {
     public static $files = array (
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
@@ -256,11 +256,11 @@ class ComposerStaticInitb87eecde5cbae00b2ad75cc8fc882b41
         'aa75ea0761a2f40c1f3b32ad314f86c4' => __DIR__ . '/..' . '/phpseclib/mcrypt_compat/lib/mcrypt.php',
         '153a7817726e1caca4e6c3b7bc76f329' => __DIR__ . '/..' . '/temando/module-shipping-m2/registration.php',
         '9204c9af8c177116765a39f38156b57d' => __DIR__ . '/..' . '/absolute_design/absolute-slider/registration.php',
-        '0bd54e447b74957219be7d8540c9ff65' => __DIR__ . '/..' . '/honl/magento2-templatehints/registration.php',
         '6db6653f02963b2e83c8e6f7ddffaedf' => __DIR__ . '/..' . '/magebees/module-mostviewed/registration.php',
         'eda65932675b68b5aee4503e0762d64d' => __DIR__ . '/..' . '/magento/magento2-functional-testing-framework/src/Magento/FunctionalTestingFramework/_bootstrap.php',
         '826a7b542c39d193330d658e32b8d28d' => __DIR__ . '/..' . '/rltsquare/ajax-shopping-cart-update/registration.php',
         '3de01a71e6a6e28cae034727d306007e' => __DIR__ . '/..' . '/rltsquare/best-seller/registration.php',
+        '0bd54e447b74957219be7d8540c9ff65' => __DIR__ . '/..' . '/honl/magento2-templatehints/registration.php',
         'b4cf39431a4b949eea8aa69ebb3d39da' => __DIR__ . '/../..' . '/app/etc/NonComposerComponentRegistration.php',
     );
 
@@ -2867,11 +2867,11 @@ class ComposerStaticInitb87eecde5cbae00b2ad75cc8fc882b41
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitb87eecde5cbae00b2ad75cc8fc882b41::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitb87eecde5cbae00b2ad75cc8fc882b41::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitb87eecde5cbae00b2ad75cc8fc882b41::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInitb87eecde5cbae00b2ad75cc8fc882b41::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInitb87eecde5cbae00b2ad75cc8fc882b41::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit6e785dc3b44d1bc29652879509b29179::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit6e785dc3b44d1bc29652879509b29179::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit6e785dc3b44d1bc29652879509b29179::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit6e785dc3b44d1bc29652879509b29179::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInit6e785dc3b44d1bc29652879509b29179::$classMap;
 
         }, null, ClassLoader::class);
     }

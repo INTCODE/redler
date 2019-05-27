@@ -1,954 +1,345 @@
 
-=========================
+=========Dokoszyk=============
 Array
 (
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS5odG1s
-    [product] => 33
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 34
     [selected_configurable_option] => 
     [related_product] => 
-    [item] => 33
-    [form_key] => oYenP89mKq3W9jXF
+    [item] => 34
+    [form_key] => YslLJP3L5ZbOvhyt
     [super_attribute] => Array
         (
             [151] => 21
         )
 
-    [qty] => 33
-)
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
-    [product] => 33
-    [form_key] => JU6eOqABPdYbvmbS
-    [qty] => 4
-    [super_attribute] => Array
-        (
-            [151] => 
-        )
-
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
-    [product] => 33
-    [form_key] => JU6eOqABPdYbvmbS
-    [qty] => 0
-    [super_attribute] => Array
-        (
-            [151] => 
-        )
-
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
-    [product] => 33
-    [form_key] => JU6eOqABPdYbvmbS
-    [qty] => 1
-    [super_attribute] => Array
-        (
-            [151] => 
-        )
-
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
-    [product] => 33
-    [form_key] => JU6eOqABPdYbvmbS
-    [qty] => 0
-    [super_attribute] => Array
-        (
-            [151] => 
-        )
-
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS5odG1s
-    [product] => 33
-    [selected_configurable_option] => 
-    [related_product] => 
-    [item] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [super_attribute] => Array
-        (
-            [151] => 
-        )
-
-    [qty] => 1
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
-    [product] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [qty] => 2
-    [super_attribute] => Array
-        (
-            [151] => 22
-        )
-
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
-    [product] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [qty] => 5
-    [super_attribute] => Array
-        (
-            [151] => 21
-        )
-
-)
-
-=========================
-?? 33 == 33 >>> 356ID: 33
-Name: Configurable
-ITEM ID: 356
-Quantity: 2
-ID KOMBINACJI: 32
-ID ATTRYBUTU Z KOSZYKA: 21
-
----------------
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
-    [product] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [qty] => 6
-    [super_attribute] => Array
-        (
-            [151] => 21
-        )
-
-)
-
-=========================
-?? 33 == 33 >>> 356ID: 33
-Name: Configurable
-ITEM ID: 356
-Quantity: 2
-ID KOMBINACJI: 32
-ID ATTRYBUTU Z KOSZYKA: 21
-
----------------
-?? 33 == 33 >>> 358ID: 33
-Name: Configurable
-ITEM ID: 358
-Quantity: 5
-ID KOMBINACJI: 31
-ID ATTRYBUTU Z KOSZYKA: 21
-
----------------
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
-    [product] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [qty] => 7
-    [super_attribute] => Array
-        (
-            [151] => 
-        )
-
-)
-
-=========================
-?? 33 == 33 >>> 356ID: 33
-Name: Configurable
-ITEM ID: 356
-Quantity: 2
- :) deleting...
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
-    [product] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [qty] => 4
-    [super_attribute] => Array
-        (
-            [151] => 
-        )
-
-)
-
-=========================
-?? 33 == 33 >>> 356ID: 33
-Name: Configurable
-ITEM ID: 356
-Quantity: 2
- :) deleting...
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
-    [product] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [qty] => 21
-    [super_attribute] => Array
-        (
-            [151] => 22
-        )
-
-)
-
-=========================
-?? 33 == 33 >>> 356ID: 33
-Name: Configurable
-ITEM ID: 356
-Quantity: 2
-ID KOMBINACJI: 32
-ID ATTRYBUTU Z KOSZYKA: 22
-
----------------
-?? 33 == 33 >>> 358ID: 33
-Name: Configurable
-ITEM ID: 358
-Quantity: 11
-ID KOMBINACJI: 31
-ID ATTRYBUTU Z KOSZYKA: 22
-
----------------
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
-    [product] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [qty] => 22
-    [super_attribute] => Array
-        (
-            [151] => 22
-        )
-
-)
-
-=========================
-?? 33 == 33 >>> 356ID: 33
-Name: Configurable
-ITEM ID: 356
-Quantity: 23
-ID KOMBINACJI: 32
-ID ATTRYBUTU Z KOSZYKA: 22
-
----------------
-?? 33 == 33 >>> 358ID: 33
-Name: Configurable
-ITEM ID: 358
-Quantity: 11
-ID KOMBINACJI: 31
-ID ATTRYBUTU Z KOSZYKA: 22
-
----------------
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
-    [product] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [qty] => 6
-    [super_attribute] => Array
-        (
-            [151] => 21
-        )
-
-)
-
-=========================
-?? 33 == 33 >>> 356ID: 33
-Name: Configurable
-ITEM ID: 356
-Quantity: 45
-ID KOMBINACJI: 32
-ID ATTRYBUTU Z KOSZYKA: 21
-
----------------
-?? 33 == 33 >>> 358ID: 33
-Name: Configurable
-ITEM ID: 358
-Quantity: 11
-ID KOMBINACJI: 31
-ID ATTRYBUTU Z KOSZYKA: 21
-
----------------
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
-    [product] => 33
-    [form_key] => AbEt9roTk49UuC6p
     [qty] => 3
-    [super_attribute] => Array
-        (
-            [151] => 21
-        )
-
 )
 
+=========typeID===========
+configurable
 =========================
-?? 33 == 33 >>> 356ID: 33
-Name: Configurable
-ITEM ID: 356
-Quantity: 45
-ID KOMBINACJI: 32
-ID ATTRYBUTU Z KOSZYKA: 21
-
----------------
-?? 33 == 33 >>> 358ID: 33
-Name: Configurable
-ITEM ID: 358
-Quantity: 17
-ID KOMBINACJI: 31
-ID ATTRYBUTU Z KOSZYKA: 21
-
----------------
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
-    [product] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [qty] => 10
-    [super_attribute] => Array
-        (
-            [151] => 
-        )
-
-)
-
-=========================
-?? 33 == 33 >>> 312ID: 33
-Name: Configurable
-ITEM ID: 312
-Quantity: 25
- :) deleting...
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
-    [product] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [qty] => 26
-    [super_attribute] => Array
-        (
-            [151] => 
-        )
-
-)
-
-=========================
-?? 33 == 33 >>> 312ID: 33
-Name: Configurable
-ITEM ID: 312
-Quantity: 25
- :) deleting...
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
-    [product] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [qty] => 1
-    [super_attribute] => Array
-        (
-            [151] => 22
-        )
-
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS5odG1s
-    [product] => 33
-    [selected_configurable_option] => 
-    [related_product] => 
-    [item] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [super_attribute] => Array
-        (
-            [151] => 21
-        )
-
-    [qty] => 2
-)
-
-=========================
-?? 33 == 33 >>> 369ID: 33
-Name: Configurable
-ITEM ID: 369
-Quantity: 1
-ID KOMBINACJI: 32
-ID ATTRYBUTU Z KOSZYKA: 21
-
----------------
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS5odG1s
-    [product] => 33
-    [selected_configurable_option] => 
-    [related_product] => 
-    [item] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [super_attribute] => Array
-        (
-            [151] => 22
-        )
-
-    [qty] => 5
-)
-
-=========================
-?? 33 == 33 >>> 369ID: 33
-Name: Configurable
-ITEM ID: 369
-Quantity: 1
-ID KOMBINACJI: 32
-ID ATTRYBUTU Z KOSZYKA: 22
-
----------------
-?? 33 == 33 >>> 371ID: 33
-Name: Configurable
-ITEM ID: 371
-Quantity: 2
-ID KOMBINACJI: 31
-ID ATTRYBUTU Z KOSZYKA: 22
-
----------------
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
-    [product] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [qty] => 42
-    [super_attribute] => Array
-        (
-            [151] => 22
-        )
-
-)
-
-=========================
-?? 33 == 33 >>> 369ID: 33
-Name: Configurable
-ITEM ID: 369
-Quantity: 41
-ID KOMBINACJI: 32
-ID ATTRYBUTU Z KOSZYKA: 22
-
----------------
-?? 33 == 33 >>> 371ID: 33
-Name: Configurable
-ITEM ID: 371
-Quantity: 27
-ID KOMBINACJI: 31
-ID ATTRYBUTU Z KOSZYKA: 22
-
----------------
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
-    [product] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [qty] => 41
-    [super_attribute] => Array
-        (
-            [151] => 22
-        )
-
-)
-
-=========================
-?? 33 == 33 >>> 369ID: 33
-Name: Configurable
-ITEM ID: 369
-Quantity: 83
-ID KOMBINACJI: 32
-ID ATTRYBUTU Z KOSZYKA: 22
-
----------------
-?? 33 == 33 >>> 371ID: 33
-Name: Configurable
-ITEM ID: 371
-Quantity: 27
-ID KOMBINACJI: 31
-ID ATTRYBUTU Z KOSZYKA: 22
-
----------------
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
-    [product] => 33
-    [form_key] => AbEt9roTk49UuC6p
-    [qty] => 35
-    [super_attribute] => Array
-        (
-            [151] => 22
-        )
-
-)
-
-=========================
-?? 33 == 33 >>> 369ID: 33
-Name: Configurable
-ITEM ID: 369
-Quantity: 124
-ID KOMBINACJI: 32
-ID ATTRYBUTU Z KOSZYKA: 22
-
----------------
-?? 33 == 33 >>> 371ID: 33
-Name: Configurable
-ITEM ID: 371
-Quantity: 27
-ID KOMBINACJI: 31
-ID ATTRYBUTU Z KOSZYKA: 22
-
----------------
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
-    [product] => 27
-    [form_key] => AbEt9roTk49UuC6p
-    [qty] => 1
-)
-
-=========================
-
-<<<<<<< HEAD
-=========test===========
-Array
-(
-    [151] => Array
-        (
-            [id] => 6
-            [label] => Package Type
-            [use_default] => 0
-            [position] => 0
-            [values] => Array
-                (
-                    [0] => Array
-                        (
-                            [value_index] => 21
-                            [label] => Box
-                            [product_super_attribute_id] => 6
-                            [default_label] => Box
-                            [store_label] => Box
-                            [use_default_value] => 1
-                        )
-
-                    [1] => Array
-                        (
-                            [value_index] => 22
-                            [label] => Palette
-                            [product_super_attribute_id] => 6
-                            [default_label] => Palette
-                            [store_label] => Palette
-                            [use_default_value] => 1
-                        )
-
-                )
-
-            [attribute_id] => 151
-            [attribute_code] => package_type
-            [frontend_label] => Package Type
-            [store_label] => Package Type
-            [options] => Array
-                (
-                    [0] => Array
-                        (
-                            [value] => 21
-                            [label] => Box
-                        )
-
-                    [1] => Array
-                        (
-                            [value] => 22
-                            [label] => Palette
-                        )
-
-                )
-
-=======
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
-    [product] => 34
-    [selected_configurable_option] => 
-    [related_product] => 
-    [item] => 34
-    [form_key] => fy8NJnJdbhBA2cQE
-    [super_attribute] => Array
-        (
-            [151] => 21
-        )
-
-    [qty] => 2
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
-    [product] => 33
-    [form_key] => fy8NJnJdbhBA2cQE
-    [qty] => 9
-    [super_attribute] => Array
-        (
-            [151] => 21
->>>>>>> 5c6e5ef2cf8824e9ecd022040c47fae395352147
-        )
-
-)
-
-=========================
-
-<<<<<<< HEAD
-=========test===========
-Array
-(
-    [151] => Array
-        (
-            [id] => 5
-            [label] => Package Type
-            [use_default] => 0
-            [position] => 0
-            [values] => Array
-                (
-                    [0] => Array
-                        (
-                            [value_index] => 21
-                            [label] => Box
-                            [product_super_attribute_id] => 5
-                            [default_label] => Box
-                            [store_label] => Box
-                            [use_default_value] => 1
-                        )
-
-                    [1] => Array
-                        (
-                            [value_index] => 22
-                            [label] => Palette
-                            [product_super_attribute_id] => 5
-                            [default_label] => Palette
-                            [store_label] => Palette
-                            [use_default_value] => 1
-                        )
-
-                )
-
-            [attribute_id] => 151
-            [attribute_code] => package_type
-            [frontend_label] => Package Type
-            [store_label] => Package Type
-            [options] => Array
-                (
-                    [0] => Array
-                        (
-                            [value] => 21
-                            [label] => Box
-                        )
-
-                    [1] => Array
-                        (
-                            [value] => 22
-                            [label] => Palette
-                        )
-
-                )
-
-        )
-
-)
-
-=========================
-
-=========test===========
-Array
-(
-    [151] => Array
-        (
-            [id] => 6
-            [label] => Package Type
-            [use_default] => 0
-            [position] => 0
-            [values] => Array
-                (
-                    [0] => Array
-                        (
-                            [value_index] => 21
-                            [label] => Box
-                            [product_super_attribute_id] => 6
-                            [default_label] => Box
-                            [store_label] => Box
-                            [use_default_value] => 1
-                        )
-
-                    [1] => Array
-                        (
-                            [value_index] => 22
-                            [label] => Palette
-                            [product_super_attribute_id] => 6
-                            [default_label] => Palette
-                            [store_label] => Palette
-                            [use_default_value] => 1
-                        )
-
-                )
-
-            [attribute_id] => 151
-            [attribute_code] => package_type
-            [frontend_label] => Package Type
-            [store_label] => Package Type
-            [options] => Array
-                (
-                    [0] => Array
-                        (
-                            [value] => 21
-                            [label] => Box
-                        )
-
-                    [1] => Array
-                        (
-                            [value] => 22
-                            [label] => Palette
-                        )
-
-                )
-
-        )
-
-)
-
-=========================
-=======
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
-    [product] => 33
-    [form_key] => fy8NJnJdbhBA2cQE
-    [qty] => 16
-    [super_attribute] => Array
-        (
-            [151] => 21
-        )
-
-)
-
-=========================
-?? 33 == 33 >>> 407ID: 33
-Name: Configurable
-ITEM ID: 407
-Quantity: 9
-ID KOMBINACJI: 31
-ID ATTRYBUTU Z KOSZYKA: 21
-
----------------
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
-    [product] => 34
-    [selected_configurable_option] => 
-    [related_product] => 
-    [item] => 34
-    [form_key] => fy8NJnJdbhBA2cQE
-    [super_attribute] => Array
-        (
-            [151] => 21
-        )
-
-    [qty] => 10
-)
-
-=========================
-?? 34 == 34 >>> 405ID: 34
+?? 34 == 34 >>> 470
+ID: 34
 Name: Configurable-2
-ITEM ID: 405
-Quantity: 2
+ITEM ID: 470
+Quantity: 6
 ID KOMBINACJI: 31
 ID ATTRYBUTU Z KOSZYKA: 21
-
----------------
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
-    [product] => 1
-    [form_key] => uZqg5JziCM4MDIcz
-    [qty] => 1
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
-    [product] => 1
-    [form_key] => ChFDTFYuuARE7ezL
-    [qty] => 3
-)
-
-=========================
-?? 1 == 1 >>> 415ID: 1
-Name: Perla Chmielowa Plis
-ITEM ID: 415
-Quantity: 1
  :) deleting...
 
-=========================
+=========product============
 Array
 (
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
-    [product] => 2
-    [form_key] => ChFDTFYuuARE7ezL
-    [qty] => 2
+    [store_id] => 1
+    [entity_id] => 34
+    [attribute_set_id] => 4
+    [type_id] => configurable
+    [sku] => Configurable-1
+    [has_options] => 1
+    [required_options] => 1
+    [created_at] => 2019-05-24 06:38:21
+    [updated_at] => 2019-05-24 07:05:11
+    [status] => 1
+    [visibility] => 4
+    [quantity_and_stock_status] => Array
+        (
+            [is_in_stock] => 1
+            [qty] => 0
+        )
+
+    [tax_class_id] => 2
+    [meta_keyword] => Configurable
+    [name] => Configurable-2
+    [meta_title] => Configurable
+    [meta_description] => Configurable 
+    [options_container] => container2
+    [msrp_display_actual_price_type] => 0
+    [url_key] => configurable-1
+    [gift_message_available] => 2
+    [options] => Array
+        (
+        )
+
+    [media_gallery] => Array
+        (
+            [images] => Array
+                (
+                )
+
+            [values] => Array
+                (
+                )
+
+        )
+
+    [category_ids] => Array
+        (
+            [0] => 2
+            [1] => 3
+            [2] => 5
+            [3] => 6
+        )
+
+    [is_salable] => 1
 )
 
-=========================
-
-=========================
+=========koszyk=============
 Array
 (
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
-    [product] => 3
-    [form_key] => ChFDTFYuuARE7ezL
-    [qty] => 2
+    [quote (Magento\Quote\Model\Quote\Interceptor)] => Array
+        (
+            [entity_id] => 58
+            [store_id] => 1
+            [created_at] => 2019-05-27 08:00:36
+            [updated_at] => 2019-05-27 11:01:13
+            [is_active] => 1
+            [is_virtual] => 0
+            [is_multi_shipping] => 
+            [items_count] => 3
+            [items_qty] => 10.0000
+            [orig_order_id] => 0
+            [store_to_base_rate] => 0.0000
+            [store_to_quote_rate] => 0.0000
+            [base_currency_code] => GBP
+            [store_currency_code] => GBP
+            [quote_currency_code] => GBP
+            [grand_total] => 444.9800
+            [base_grand_total] => 444.9800
+            [customer_tax_class_id] => 3
+            [customer_group_id] => 0
+            [customer_note_notify] => 1
+            [customer_is_guest] => 0
+            [remote_ip] => ::1
+            [global_currency_code] => GBP
+            [base_to_global_rate] => 1.0000
+            [base_to_quote_rate] => 1.0000
+            [subtotal] => 444.9800
+            [base_subtotal] => 444.9800
+            [subtotal_with_discount] => 444.9800
+            [base_subtotal_with_discount] => 444.9800
+            [is_changed] => 1
+            [trigger_recollect] => 0
+            [is_persistent] => 0
+            [items] => Array
+                (
+                    [0 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 470
+                            [quote_id] => 58
+                            [created_at] => 2019-05-27 10:54:29
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 34
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable-2
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 6
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 60.0000
+                            [base_row_total] => 60.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 60.0000
+                            [base_row_total_incl_tax] => 60.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 740
+                                            [item_id] => 470
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 34
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable-1
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-24 06:38:21
+                                    [updated_at] => 2019-05-24 07:05:11
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable-2
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable-1
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable-1.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                    [1 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 472
+                            [quote_id] => 58
+                            [created_at] => 2019-05-27 10:57:53
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 3
+                            [store_id] => 1
+                            [is_virtual] => 0
+                            [sku] => Tyskie Gronie
+                            [name] => Tyskie Gronie
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 42.4900
+                            [base_price] => 42.4900
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 84.9800
+                            [base_row_total] => 84.9800
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => simple
+                            [price_incl_tax] => 42.4900
+                            [base_price_incl_tax] => 42.4900
+                            [row_total_incl_tax] => 84.9800
+                            [base_row_total_incl_tax] => 84.9800
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [qty_options] => Array
+                                (
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 3
+                                    [attribute_set_id] => 9
+                                    [type_id] => simple
+                                    [sku] => Tyskie Gronie
+                                    [has_options] => 0
+                                    [required_options] => 0
+                                    [created_at] => 2019-03-27 11:55:39
+                                    [updated_at] => 2019-03-28 10:32:51
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [price] => 42.4900
+                                    [name] => Tyskie Gronie
+                                    [small_image] => //1/6/162px-butelka_tyskie_bez_cienia.png
+                                    [thumbnail] => //1/6/162px-butelka_tyskie_bez_cienia.png
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => tyskie-gronie
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => tyskie-gronie.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                (
+                                    [has_error] => 
+                                )
+
+                        )
+
+                    [2 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 473
+                            [quote_id] => 58
+                            [created_at] => 2019-05-27 11:01:14
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 34
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Palette
+                            [name] => Configurable-2
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 150.0000
+                            [base_price] => 150.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 300.0000
+                            [base_row_total] => 300.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 150.0000
+                            [base_price_incl_tax] => 150.0000
+                            [row_total_incl_tax] => 300.0000
+                            [base_row_total_incl_tax] => 300.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [32 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 747
+                                            [item_id] => 473
+                                            [product_id] => 32
+                                            [code] => product_qty_32
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => *** RECURSION ***
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                )
+
+            [totals_collected_flag] => 
+        )
+
 )
 
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
-    [product] => 3
-    [form_key] => ChFDTFYuuARE7ezL
-    [qty] => 2
-)
-
-=========================
-?? 3 == 3 >>> 418ID: 3
-Name: Tyskie Gronie
-ITEM ID: 418
-Quantity: 2
- :) deleting...
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
-    [product] => 3
-    [form_key] => ChFDTFYuuARE7ezL
-    [qty] => 3
-)
-
-=========================
-?? 3 == 3 >>> 419ID: 3
-Name: Tyskie Gronie
-ITEM ID: 419
-Quantity: 2
- :) deleting...
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
-    [product] => 4
-    [form_key] => ChFDTFYuuARE7ezL
-    [qty] => 1
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
-    [product] => 27
-    [form_key] => ChFDTFYuuARE7ezL
-    [qty] => 1
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
-    [product] => 4
-    [form_key] => ChFDTFYuuARE7ezL
-    [qty] => 2
-)
-
-=========================
-?? 4 == 4 >>> 421ID: 4
-Name: Zywiec Lager
-ITEM ID: 421
-Quantity: 1
- :) deleting...
-
-=========================
+=========Dokoszyk=============
 Array
 (
     [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
@@ -956,130 +347,345 @@ Array
     [selected_configurable_option] => 
     [related_product] => 
     [item] => 34
-    [form_key] => ChFDTFYuuARE7ezL
+    [form_key] => YslLJP3L5ZbOvhyt
     [super_attribute] => Array
         (
             [151] => 21
         )
 
-    [qty] => 1
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
-    [product] => 34
-    [selected_configurable_option] => 
-    [related_product] => 
-    [item] => 34
-    [form_key] => ChFDTFYuuARE7ezL
-    [super_attribute] => Array
-        (
-            [151] => 21
-        )
-
-    [qty] => 2
-)
-
-=========================
-?? 34 == 34 >>> 424ID: 34
-Name: Configurable-2
-ITEM ID: 424
-Quantity: 1
-ID KOMBINACJI: 31
-ID ATTRYBUTU Z KOSZYKA: 21
-
----------------
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
-    [product] => 33
-    [form_key] => ChFDTFYuuARE7ezL
-    [qty] => 3
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
-    [product] => 33
-    [form_key] => ChFDTFYuuARE7ezL
-    [qty] => 3
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NoZWNrb3V0L2NhcnQv
-    [product] => 7
-    [in_cart] => 1
-    [form_key] => ChFDTFYuuARE7ezL
-    [qty] => 1
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
-    [product] => 4
-    [form_key] => ChFDTFYuuARE7ezL
-    [qty] => 3
-)
-
-=========================
-?? 4 == 4 >>> 423ID: 4
-Name: Zywiec Lager
-ITEM ID: 423
-Quantity: 2
- :) deleting...
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NoZWNrb3V0L2NhcnQv
-    [product] => 8
-    [in_cart] => 1
-    [form_key] => ChFDTFYuuARE7ezL
-    [qty] => 1
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
-    [product] => 5
-    [form_key] => ChFDTFYuuARE7ezL
-    [qty] => 1
-)
-
-=========================
-
-=========================
-Array
-(
-    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
-    [product] => 3
-    [form_key] => ChFDTFYuuARE7ezL
     [qty] => 4
 )
 
+=========typeID===========
+configurable
+=========typeID===========
+configurable
 =========================
-?? 3 == 3 >>> 420ID: 3
-Name: Tyskie Gronie
-ITEM ID: 420
+?? 34 == 34 >>> 473
+ID: 34
+Name: Configurable-2
+ITEM ID: 473
+Quantity: 2
+ID KOMBINACJI: 32
+ID ATTRYBUTU Z KOSZYKA: 21
+
+---------------
+?? 34 == 34 >>> 475
+ID: 34
+Name: Configurable-2
+ITEM ID: 475
 Quantity: 3
+ID KOMBINACJI: 31
+ID ATTRYBUTU Z KOSZYKA: 21
  :) deleting...
->>>>>>> 5c6e5ef2cf8824e9ecd022040c47fae395352147
+
+=========product============
+Array
+(
+    [store_id] => 1
+    [entity_id] => 34
+    [attribute_set_id] => 4
+    [type_id] => configurable
+    [sku] => Configurable-1
+    [has_options] => 1
+    [required_options] => 1
+    [created_at] => 2019-05-24 06:38:21
+    [updated_at] => 2019-05-24 07:05:11
+    [status] => 1
+    [visibility] => 4
+    [quantity_and_stock_status] => Array
+        (
+            [is_in_stock] => 1
+            [qty] => 0
+        )
+
+    [tax_class_id] => 2
+    [meta_keyword] => Configurable
+    [name] => Configurable-2
+    [meta_title] => Configurable
+    [meta_description] => Configurable 
+    [options_container] => container2
+    [msrp_display_actual_price_type] => 0
+    [url_key] => configurable-1
+    [gift_message_available] => 2
+    [options] => Array
+        (
+        )
+
+    [media_gallery] => Array
+        (
+            [images] => Array
+                (
+                )
+
+            [values] => Array
+                (
+                )
+
+        )
+
+    [category_ids] => Array
+        (
+            [0] => 2
+            [1] => 3
+            [2] => 5
+            [3] => 6
+        )
+
+    [is_salable] => 1
+)
+
+=========koszyk=============
+Array
+(
+    [quote (Magento\Quote\Model\Quote\Interceptor)] => Array
+        (
+            [entity_id] => 58
+            [store_id] => 1
+            [created_at] => 2019-05-27 08:00:36
+            [updated_at] => 2019-05-27 11:03:24
+            [is_active] => 1
+            [is_virtual] => 0
+            [is_multi_shipping] => 
+            [items_count] => 3
+            [items_qty] => 7.0000
+            [orig_order_id] => 0
+            [store_to_base_rate] => 0.0000
+            [store_to_quote_rate] => 0.0000
+            [base_currency_code] => GBP
+            [store_currency_code] => GBP
+            [quote_currency_code] => GBP
+            [grand_total] => 414.9800
+            [base_grand_total] => 414.9800
+            [customer_tax_class_id] => 3
+            [customer_group_id] => 0
+            [customer_note_notify] => 1
+            [customer_is_guest] => 0
+            [remote_ip] => ::1
+            [global_currency_code] => GBP
+            [base_to_global_rate] => 1.0000
+            [base_to_quote_rate] => 1.0000
+            [subtotal] => 414.9800
+            [base_subtotal] => 414.9800
+            [subtotal_with_discount] => 414.9800
+            [base_subtotal_with_discount] => 414.9800
+            [is_changed] => 1
+            [trigger_recollect] => 0
+            [is_persistent] => 0
+            [items] => Array
+                (
+                    [0 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 472
+                            [quote_id] => 58
+                            [created_at] => 2019-05-27 10:57:53
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 3
+                            [store_id] => 1
+                            [is_virtual] => 0
+                            [sku] => Tyskie Gronie
+                            [name] => Tyskie Gronie
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 42.4900
+                            [base_price] => 42.4900
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 84.9800
+                            [base_row_total] => 84.9800
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => simple
+                            [price_incl_tax] => 42.4900
+                            [base_price_incl_tax] => 42.4900
+                            [row_total_incl_tax] => 84.9800
+                            [base_row_total_incl_tax] => 84.9800
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [qty_options] => Array
+                                (
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 3
+                                    [attribute_set_id] => 9
+                                    [type_id] => simple
+                                    [sku] => Tyskie Gronie
+                                    [has_options] => 0
+                                    [required_options] => 0
+                                    [created_at] => 2019-03-27 11:55:39
+                                    [updated_at] => 2019-03-28 10:32:51
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [price] => 42.4900
+                                    [name] => Tyskie Gronie
+                                    [small_image] => //1/6/162px-butelka_tyskie_bez_cienia.png
+                                    [thumbnail] => //1/6/162px-butelka_tyskie_bez_cienia.png
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => tyskie-gronie
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => tyskie-gronie.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                (
+                                    [has_error] => 
+                                )
+
+                        )
+
+                    [1 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 473
+                            [quote_id] => 58
+                            [created_at] => 2019-05-27 11:01:14
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 34
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Palette
+                            [name] => Configurable-2
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 150.0000
+                            [base_price] => 150.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 300.0000
+                            [base_row_total] => 300.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 150.0000
+                            [base_price_incl_tax] => 150.0000
+                            [row_total_incl_tax] => 300.0000
+                            [base_row_total_incl_tax] => 300.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [32 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 747
+                                            [item_id] => 473
+                                            [product_id] => 32
+                                            [code] => product_qty_32
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 34
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable-1
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-24 06:38:21
+                                    [updated_at] => 2019-05-24 07:05:11
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable-2
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable-1
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable-1.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                    [2 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 475
+                            [quote_id] => 58
+                            [created_at] => 2019-05-27 11:03:24
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 34
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable-2
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 3
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 30.0000
+                            [base_row_total] => 30.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 30.0000
+                            [base_row_total_incl_tax] => 30.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 753
+                                            [item_id] => 475
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => *** RECURSION ***
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                )
+
+            [totals_collected_flag] => 
+        )
+
+)
