@@ -23,9 +23,8 @@ switch ($type = $block->getType()) {
             $limit = $block->getPositionLimit();
             $shuffle = (int) $block->isShuffled();
             $canItemsAddToCart = $block->canItemsAddToCart();
-
             $showAddTo = true;
-            $showCart = false;
+            $showCart = true;
             $templateType = null;
             $description = false;
         }
@@ -43,9 +42,8 @@ switch ($type = $block->getType()) {
             $limit = 0;
             $shuffle = 0;
             $canItemsAddToCart = $block->canItemsAddToCart();
-
             $showAddTo = true;
-            $showCart = false;
+            $showCart = true;
             $templateType = null;
             $description = false;
         }
@@ -62,11 +60,11 @@ switch ($type = $block->getType()) {
             $limit = $block->getPositionLimit();
             $shuffle = (int) $block->isShuffled();
 
-            $showAddTo = false;
-            $showCart = false;
+            $showAddTo = true;
+            $showCart = true;
             $templateType = null;
             $description = false;
-            $canItemsAddToCart = false;
+            $canItemsAddToCart = true;
         }
     break;
 
@@ -82,11 +80,11 @@ switch ($type = $block->getType()) {
             $limit = $block->getItemLimit('upsell');
             $shuffle = 0;
 
-            $showAddTo = false;
-            $showCart = false;
+            $showAddTo = true;
+            $showCart = true;
             $templateType = null;
             $description = false;
-            $canItemsAddToCart = false;
+            $canItemsAddToCart = true;
         }
     break;
 
@@ -104,7 +102,7 @@ switch ($type = $block->getType()) {
             $showCart = true;
             $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
             $description = false;
-            $canItemsAddToCart = false;
+            $canItemsAddToCart = true;
         }
     break;
 
@@ -122,7 +120,7 @@ switch ($type = $block->getType()) {
             $showCart = true;
             $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
             $description = false;
-            $canItemsAddToCart = false;
+            $canItemsAddToCart = true;
         }
     break;
 
@@ -142,7 +140,7 @@ switch ($type = $block->getType()) {
             $showCart = true;
             $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
             $description = ($mode == 'list') ? true : false;
-            $canItemsAddToCart = false;
+            $canItemsAddToCart = true;
         }
     break;
 
@@ -175,6 +173,14 @@ switch ($type = $block->getType()) {
         <div class="products wrapper grid products-grid products-<?= /* @escapeNotVerified */ $type ?>">
             <ol class="products list items product-items">
                 <?php foreach ($items as $_item): ?>
+                <?php
+                //-------
+                    $size = $_item->getResource()->getAttribute('size')->getFrontend()->getValue($_item);
+                    $alcoholByVolume = $_item->getResource()->getAttribute('alcohol_by_volume')->getFrontend()->getValue($_item);
+                    $isReturnable = $_item->getResource()->getAttribute('returnable_bottle')->getFrontend()->getValue($_item);
+                //------
+                ?>
+
                 <?php $available = ''; ?>
                 <?php if (!$_item->isComposite() && $_item->isSaleable() && $type == 'related'): ?>
                     <?php if (!$_item->getRequiredOptions()): ?>
@@ -187,21 +193,77 @@ switch ($type = $block->getType()) {
                     <li class="item product product-item">
                 <?php endif; ?>
                 <div class="product-item-info <?= /* @escapeNotVerified */ $available ?>">
+                    <div class="product details product-item-details">
                     <?= /* @escapeNotVerified */ '<!-- ' . $image . '-->' ?>
                     <a href="<?= /* @escapeNotVerified */ $block->getProductUrl($_item) ?>" class="product photo product-item-photo">
                         <?= $block->getImage($_item, $image)->toHtml() ?>
                     </a>
-                    <div class="product details product-item-details">
                         <strong class="product name product-item-name"><a class="product-item-link" title="<?= $block->escapeHtml($_item->getName()) ?>" href="<?= /* @escapeNotVerified */ $block->getProductUrl($_item) ?>">
                             <?= $block->escapeHtml($_item->getName()) ?></a>
                         </strong>
-
+                        <div class="attribute-short">
+                            <?php echo $size; ?>
+                            <?php echo $alcoholByVolume; ?>
+                            <?php echo ($isReturnable == "Yes" ? "" : "NRB"); ?>       
+                        </div>
                         <?= /* @escapeNotVerified */ $block->getProductPrice($_item) ?>
+
+                        <?php
+                            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                            $listBlock = $objectManager->get('\Magento\Catalog\Block\Product\ListProduct');
+                            $addToCartUrl =  $listBlock->getAddToCartUrl($_item);
+                        ?>
+ 
+                                    <form data-role="tocart-form" action="<?php echo $addToCartUrl; ?>" method="post"> 
+                                            <?= $block->getBlockHtml('formkey') ?>
+
+                                                <div class="control">
+                                                                <input type="number" 
+                                                                    name="qty" 
+                                                                    min="0"
+                                                                    data-changed="false" 
+                                                                    data-id="product-qty-<?= $_item->getId() ?>" 
+                                                                    maxlength="12" 
+                                                                    data-target="product-qty-<?= $_item->getId() ?>" 
+                                                                    value="<?php
+                                                                    // GET COUNT IN CART
+                                                                    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                                                                    $cart = $objectManager->get('\Magento\Checkout\Model\Cart'); 
+                                                                    $items = $cart->getQuote()->getAllItems();
+                                                                    $count = 0;
+                                                                    foreach($items as $item) {
+                                                                        if($_item->getId() == $item->getProductId()) {
+                                                                            $count = $item->getQty();
+                                                                            break;
+                                                                        }   
+                                                                    }
+                                                                    echo $count;
+                                                                    ?>" 
+                                                                    title="<?= /* @escapeNotVerified */ __('Qty') ?>" 
+                                                                    class="input-text qty inputProductQty"/>
+
+                                                                    <button type="button" 
+                                                                    data-target="product-qty-<?= $_item->getId() ?>" 
+                                                                    data-action="+" 
+                                                                    class="increaseQty">+</button>
+                                                                    <button type="button" 
+                                                                    data-target="product-qty-<?= $_item->getId() ?>" 
+                                                                    data-action="-" 
+                                                                    class="decreaseQty">-</button>
+                                                </div>
+
+                                            <button data-id="addToCart_product-qty-<?= $_item->getId() ?>" type="submit"
+                                                    title="<?= $block->escapeHtml(__('Add to Cart')) ?>"
+                                                    class="action tocart primary">
+                                                <span><?= /* @escapeNotVerified */ __('Add to Cart') ?></span>
+                                            </button>
+                                        </form>
+
+
 
                             <?php if ($templateType): ?>
                                 <?= $block->getReviewsSummaryHtml($_item, $templateType) ?>
                             <?php endif; ?>
-
                             <?php if ($canItemsAddToCart && !$_item->isComposite() && $_item->isSaleable() && $type == 'related'): ?>
                                 <?php if (!$_item->getRequiredOptions()): ?>
                                     <div class="field choice related">
@@ -210,7 +272,6 @@ switch ($type = $block->getType()) {
                                     </div>
                                 <?php endif; ?>
                             <?php endif; ?>
-
                             <?php if ($showAddTo || $showCart): ?>
                                 <div class="product actions product-item-actions">
                                     <?php if ($showCart): ?>

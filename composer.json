@@ -11,11 +11,10 @@
         "sort-packages": true
     },
     "require": {
-        "absolute_design/absolute-slider": "2.0.1",
-        "magebees/module-mostviewed": "1.0.4",
-        "magento/product-community-edition": "2.3.1",
-        "rltsquare/ajax-shopping-cart-update": "1.0.1",
-        "rltsquare/best-seller": "1.0.0"
+        
+        
+        "magento/product-community-edition": "2.3.1"
+
     },
     "require-dev": {
         "allure-framework/allure-phpunit": "~1.2.0",
@@ -62,24 +61,5 @@
             "Magento\\TestFramework\\Inspection\\": "dev/tests/static/framework/Magento/TestFramework/Inspection/",
             "Magento\\TestFramework\\Utility\\": "dev/tests/static/framework/Magento/TestFramework/Utility/"
         }
-    },
-    "version": "2.3.1",
-    "minimum-stability": "stable",
-    "repositories": {
-        "0": {
-            "type": "composer",
-            "url": "https://repo.magento.com/"
-        },
-        "mageworx": {
-            "type": "artifact",
-            "url": "C:/xampp/htdocs/projekty/blm/redler/app/code/CustomerPrice"
-        },
-        "mageworx_packages": {
-            "type": "composer",
-            "url": "https://packages.mageworx.com"
-        }
-    },
-    "extra": {
-        "magento-force": "override"
     }
 }

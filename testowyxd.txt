@@ -568,6 +568,7 @@ Array
 
 =========================
 
+<<<<<<< HEAD
 =========test===========
 Array
 (
@@ -621,12 +622,44 @@ Array
 
                 )
 
+=======
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 34
+    [selected_configurable_option] => 
+    [related_product] => 
+    [item] => 34
+    [form_key] => fy8NJnJdbhBA2cQE
+    [super_attribute] => Array
+        (
+            [151] => 21
+        )
+
+    [qty] => 2
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+    [product] => 33
+    [form_key] => fy8NJnJdbhBA2cQE
+    [qty] => 9
+    [super_attribute] => Array
+        (
+            [151] => 21
+>>>>>>> 5c6e5ef2cf8824e9ecd022040c47fae395352147
         )
 
 )
 
 =========================
 
+<<<<<<< HEAD
 =========test===========
 Array
 (
@@ -744,3 +777,309 @@ Array
 )
 
 =========================
+=======
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+    [product] => 33
+    [form_key] => fy8NJnJdbhBA2cQE
+    [qty] => 16
+    [super_attribute] => Array
+        (
+            [151] => 21
+        )
+
+)
+
+=========================
+?? 33 == 33 >>> 407ID: 33
+Name: Configurable
+ITEM ID: 407
+Quantity: 9
+ID KOMBINACJI: 31
+ID ATTRYBUTU Z KOSZYKA: 21
+
+---------------
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 34
+    [selected_configurable_option] => 
+    [related_product] => 
+    [item] => 34
+    [form_key] => fy8NJnJdbhBA2cQE
+    [super_attribute] => Array
+        (
+            [151] => 21
+        )
+
+    [qty] => 10
+)
+
+=========================
+?? 34 == 34 >>> 405ID: 34
+Name: Configurable-2
+ITEM ID: 405
+Quantity: 2
+ID KOMBINACJI: 31
+ID ATTRYBUTU Z KOSZYKA: 21
+
+---------------
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 1
+    [form_key] => uZqg5JziCM4MDIcz
+    [qty] => 1
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 1
+    [form_key] => ChFDTFYuuARE7ezL
+    [qty] => 3
+)
+
+=========================
+?? 1 == 1 >>> 415ID: 1
+Name: Perla Chmielowa Plis
+ITEM ID: 415
+Quantity: 1
+ :) deleting...
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 2
+    [form_key] => ChFDTFYuuARE7ezL
+    [qty] => 2
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 3
+    [form_key] => ChFDTFYuuARE7ezL
+    [qty] => 2
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 3
+    [form_key] => ChFDTFYuuARE7ezL
+    [qty] => 2
+)
+
+=========================
+?? 3 == 3 >>> 418ID: 3
+Name: Tyskie Gronie
+ITEM ID: 418
+Quantity: 2
+ :) deleting...
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 3
+    [form_key] => ChFDTFYuuARE7ezL
+    [qty] => 3
+)
+
+=========================
+?? 3 == 3 >>> 419ID: 3
+Name: Tyskie Gronie
+ITEM ID: 419
+Quantity: 2
+ :) deleting...
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 4
+    [form_key] => ChFDTFYuuARE7ezL
+    [qty] => 1
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2JlZXItY2lkZXIuaHRtbA,,
+    [product] => 27
+    [form_key] => ChFDTFYuuARE7ezL
+    [qty] => 1
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 4
+    [form_key] => ChFDTFYuuARE7ezL
+    [qty] => 2
+)
+
+=========================
+?? 4 == 4 >>> 421ID: 4
+Name: Zywiec Lager
+ITEM ID: 421
+Quantity: 1
+ :) deleting...
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 34
+    [selected_configurable_option] => 
+    [related_product] => 
+    [item] => 34
+    [form_key] => ChFDTFYuuARE7ezL
+    [super_attribute] => Array
+        (
+            [151] => 21
+        )
+
+    [qty] => 1
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 34
+    [selected_configurable_option] => 
+    [related_product] => 
+    [item] => 34
+    [form_key] => ChFDTFYuuARE7ezL
+    [super_attribute] => Array
+        (
+            [151] => 21
+        )
+
+    [qty] => 2
+)
+
+=========================
+?? 34 == 34 >>> 424ID: 34
+Name: Configurable-2
+ITEM ID: 424
+Quantity: 1
+ID KOMBINACJI: 31
+ID ATTRYBUTU Z KOSZYKA: 21
+
+---------------
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 33
+    [form_key] => ChFDTFYuuARE7ezL
+    [qty] => 3
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 33
+    [form_key] => ChFDTFYuuARE7ezL
+    [qty] => 3
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NoZWNrb3V0L2NhcnQv
+    [product] => 7
+    [in_cart] => 1
+    [form_key] => ChFDTFYuuARE7ezL
+    [qty] => 1
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 4
+    [form_key] => ChFDTFYuuARE7ezL
+    [qty] => 3
+)
+
+=========================
+?? 4 == 4 >>> 423ID: 4
+Name: Zywiec Lager
+ITEM ID: 423
+Quantity: 2
+ :) deleting...
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NoZWNrb3V0L2NhcnQv
+    [product] => 8
+    [in_cart] => 1
+    [form_key] => ChFDTFYuuARE7ezL
+    [qty] => 1
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 5
+    [form_key] => ChFDTFYuuARE7ezL
+    [qty] => 1
+)
+
+=========================
+
+=========================
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 3
+    [form_key] => ChFDTFYuuARE7ezL
+    [qty] => 4
+)
+
+=========================
+?? 3 == 3 >>> 420ID: 3
+Name: Tyskie Gronie
+ITEM ID: 420
+Quantity: 3
+ :) deleting...
+>>>>>>> 5c6e5ef2cf8824e9ecd022040c47fae395352147
