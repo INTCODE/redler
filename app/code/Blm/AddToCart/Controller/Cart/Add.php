@@ -141,8 +141,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
 
             //$objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of object manager
             $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
-             	
-            $customOptions = $objectManager->get('Magento\Catalog\Model\Product\Option')->getProductOptionCollection($product);
+            
     // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========attributes===========\n".print_r($result, true));
 
           //  $attributes = $product->getTypeInstance(true)->getConfigurableAttributesAsArray($product); 
@@ -169,7 +168,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                                 $debugContent .= "ID KOMBINACJI: ".$option->getProduct()->getId()."\n";
                                 $debugContent .= "ID ATTRYBUTU Z KOSZYKA: ".$idAttribute."\n";
                               
-           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($product->getTypeId(), true));
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($product->getTypeId(), true));
                                 if($product->getTypeId()=='configurable'){
                                     $productType=$option->getProduct()->getId()-10;
                                 }else{

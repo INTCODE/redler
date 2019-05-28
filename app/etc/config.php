@@ -7,7 +7,7 @@ return [
         'Magento_Theme' => 1,
         'Amitshree_Customer' => 1,
         'Blm_AddToCart' => 1,
-        'Blm_CustomerDocuments' => 1,
+        'Company_CustomerDocuments' => 1,
         'Magento_Backend' => 1,
         'Ho_Templatehints' => 0,
         'Magento_Variable' => 1,
