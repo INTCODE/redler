@@ -1201,3 +1201,3176 @@ Array
 )
 
 =========================
+
+=========Dokoszyk=============
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 34
+    [selected_configurable_option] => 
+    [related_product] => 
+    [item] => 34
+    [form_key] => IlHbgX4LreH7l4Tf
+    [super_attribute] => Array
+        (
+            [151] => 21
+        )
+
+    [qty] => 2
+)
+
+=========================
+
+=========product============
+Array
+(
+    [store_id] => 1
+    [entity_id] => 34
+    [attribute_set_id] => 4
+    [type_id] => configurable
+    [sku] => Configurable-1
+    [has_options] => 1
+    [required_options] => 1
+    [created_at] => 2019-05-24 06:38:21
+    [updated_at] => 2019-05-24 07:05:11
+    [status] => 1
+    [visibility] => 4
+    [quantity_and_stock_status] => Array
+        (
+            [is_in_stock] => 1
+            [qty] => 0
+        )
+
+    [tax_class_id] => 2
+    [meta_keyword] => Configurable
+    [name] => Configurable-2
+    [meta_title] => Configurable
+    [meta_description] => Configurable 
+    [options_container] => container2
+    [msrp_display_actual_price_type] => 0
+    [url_key] => configurable-1
+    [gift_message_available] => 2
+    [options] => Array
+        (
+        )
+
+    [media_gallery] => Array
+        (
+            [images] => Array
+                (
+                )
+
+            [values] => Array
+                (
+                )
+
+        )
+
+    [category_ids] => Array
+        (
+            [0] => 2
+            [1] => 3
+            [2] => 5
+            [3] => 6
+        )
+
+    [is_salable] => 1
+)
+
+=========koszyk=============
+Array
+(
+    [quote (Magento\Quote\Model\Quote\Interceptor)] => Array
+        (
+            [entity_id] => 60
+            [store_id] => 1
+            [created_at] => 2019-05-28 11:55:06
+            [updated_at] => 2019-05-28 11:55:06
+            [is_active] => 1
+            [is_virtual] => 1
+            [is_multi_shipping] => 0
+            [items_count] => 1
+            [items_qty] => 1.0000
+            [orig_order_id] => 0
+            [store_to_base_rate] => 0.0000
+            [store_to_quote_rate] => 0.0000
+            [base_currency_code] => GBP
+            [store_currency_code] => GBP
+            [quote_currency_code] => GBP
+            [grand_total] => 10.0000
+            [base_grand_total] => 10.0000
+            [customer_tax_class_id] => 3
+            [customer_group_id] => 0
+            [customer_note_notify] => 1
+            [customer_is_guest] => 0
+            [remote_ip] => ::1
+            [global_currency_code] => GBP
+            [base_to_global_rate] => 1.0000
+            [base_to_quote_rate] => 1.0000
+            [subtotal] => 10.0000
+            [base_subtotal] => 10.0000
+            [subtotal_with_discount] => 10.0000
+            [base_subtotal_with_discount] => 10.0000
+            [is_changed] => 1
+            [trigger_recollect] => 0
+            [is_persistent] => 0
+            [items] => Array
+                (
+                    [0 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 486
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 11:55:06
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 33
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 1
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 10.0000
+                            [base_row_total] => 10.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 10.0000
+                            [base_row_total_incl_tax] => 10.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 784
+                                            [item_id] => 486
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 33
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-22 13:43:09
+                                    [updated_at] => 2019-05-24 06:38:06
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                )
+
+        )
+
+)
+
+=========Dokoszyk=============
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 2
+    [form_key] => IlHbgX4LreH7l4Tf
+    [qty] => 7
+)
+
+=========================
+
+=========product============
+Array
+(
+    [store_id] => 1
+    [entity_id] => 2
+    [attribute_set_id] => 9
+    [type_id] => simple
+    [sku] => Perla Chmielowa Strong
+    [has_options] => 0
+    [required_options] => 0
+    [created_at] => 2019-03-27 11:53:19
+    [updated_at] => 2019-03-28 10:41:55
+    [status] => 1
+    [visibility] => 4
+    [quantity_and_stock_status] => Array
+        (
+            [is_in_stock] => 1
+            [qty] => 100
+        )
+
+    [tax_class_id] => 2
+    [description] => Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere et nisi nec aliquet. Nam egestas, mi in volutpat iaculis, quam risus blandit erat, sit amet efficitur magna ante sed elit. Aliquam id dolor leo. Quisque pulvinar neque a tempor tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ut accumsan odio. Ut in velit eget leo accumsan volutpat id at leo. Suspendisse enim metus, varius ac rhoncus in, pretium et ligula. Cras id felis ut dui consectetur interdum. Proin vestibulum mattis fringilla. 
+    [short_description] => Praesent pretium, eros non elementum consectetur, elit elit mattis nunc, sit amet lobortis nulla mi vitae arcu.
+    [meta_keyword] => Perla Chmielowa Plis
+    [name] => Perla Chmielowa Strong
+    [meta_title] => Perla Chmielowa Plis
+    [meta_description] => Perla Chmielowa Plis 
+    [image] => //p/e/perla-mocna.jpg
+    [small_image] => //p/e/perla-mocna.jpg
+    [thumbnail] => //p/e/perla-mocna.jpg
+    [options_container] => container2
+    [msrp_display_actual_price_type] => 0
+    [url_key] => perla-chmielowa-plis-1
+    [gift_message_available] => 2
+    [swatch_image] => //p/e/perla-mocna.jpg
+    [brand] => 7
+    [size] => 14
+    [alcohol_by_volume] => 4.0
+    [price] => 18.9900
+    [options] => Array
+        (
+        )
+
+    [media_gallery] => Array
+        (
+            [images] => Array
+                (
+                    [4] => Array
+                        (
+                            [value_id] => 4
+                            [file] => //p/e/perla-mocna.jpg
+                            [media_type] => image
+                            [entity_id] => 2
+                            [position] => 1
+                            [disabled] => 0
+                            [position_default] => 1
+                            [disabled_default] => 0
+                        )
+
+                )
+
+            [values] => Array
+                (
+                )
+
+        )
+
+    [tier_price] => Array
+        (
+        )
+
+    [tier_price_changed] => 0
+    [category_ids] => Array
+        (
+            [0] => 2
+            [1] => 3
+        )
+
+    [is_salable] => 1
+)
+
+=========koszyk=============
+Array
+(
+    [quote (Magento\Quote\Model\Quote\Interceptor)] => Array
+        (
+            [entity_id] => 60
+            [store_id] => 1
+            [created_at] => 2019-05-28 11:55:06
+            [updated_at] => 2019-05-28 12:28:14
+            [is_active] => 1
+            [is_virtual] => 1
+            [is_multi_shipping] => 0
+            [items_count] => 2
+            [items_qty] => 3.0000
+            [orig_order_id] => 0
+            [store_to_base_rate] => 0.0000
+            [store_to_quote_rate] => 0.0000
+            [base_currency_code] => GBP
+            [store_currency_code] => GBP
+            [quote_currency_code] => GBP
+            [grand_total] => 30.0000
+            [base_grand_total] => 30.0000
+            [customer_tax_class_id] => 3
+            [customer_group_id] => 0
+            [customer_note_notify] => 1
+            [customer_is_guest] => 0
+            [remote_ip] => ::1
+            [global_currency_code] => GBP
+            [base_to_global_rate] => 1.0000
+            [base_to_quote_rate] => 1.0000
+            [subtotal] => 30.0000
+            [base_subtotal] => 30.0000
+            [subtotal_with_discount] => 30.0000
+            [base_subtotal_with_discount] => 30.0000
+            [is_changed] => 1
+            [trigger_recollect] => 0
+            [is_persistent] => 0
+            [items] => Array
+                (
+                    [0 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 486
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 11:55:06
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 33
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 1
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 10.0000
+                            [base_row_total] => 10.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 10.0000
+                            [base_row_total_incl_tax] => 10.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 784
+                                            [item_id] => 486
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 33
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-22 13:43:09
+                                    [updated_at] => 2019-05-24 06:38:06
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                    [1 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 488
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:28:14
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 34
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable-2
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 20.0000
+                            [base_row_total] => 20.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 20.0000
+                            [base_row_total_incl_tax] => 20.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 790
+                                            [item_id] => 488
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 34
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable-1
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-24 06:38:21
+                                    [updated_at] => 2019-05-24 07:05:11
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable-2
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable-1
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable-1.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                )
+
+        )
+
+)
+
+=========Dokoszyk=============
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 2
+    [form_key] => IlHbgX4LreH7l4Tf
+    [qty] => 2
+)
+
+=========================
+?? 2 == 2 >>> 490
+ID: 2
+Name: Perla Chmielowa Strong
+ITEM ID: 490
+Quantity: 7
+ :) deleting...
+
+=========product============
+Array
+(
+    [store_id] => 1
+    [entity_id] => 2
+    [attribute_set_id] => 9
+    [type_id] => simple
+    [sku] => Perla Chmielowa Strong
+    [has_options] => 0
+    [required_options] => 0
+    [created_at] => 2019-03-27 11:53:19
+    [updated_at] => 2019-03-28 10:41:55
+    [status] => 1
+    [visibility] => 4
+    [quantity_and_stock_status] => Array
+        (
+            [is_in_stock] => 1
+            [qty] => 100
+        )
+
+    [tax_class_id] => 2
+    [description] => Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere et nisi nec aliquet. Nam egestas, mi in volutpat iaculis, quam risus blandit erat, sit amet efficitur magna ante sed elit. Aliquam id dolor leo. Quisque pulvinar neque a tempor tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ut accumsan odio. Ut in velit eget leo accumsan volutpat id at leo. Suspendisse enim metus, varius ac rhoncus in, pretium et ligula. Cras id felis ut dui consectetur interdum. Proin vestibulum mattis fringilla. 
+    [short_description] => Praesent pretium, eros non elementum consectetur, elit elit mattis nunc, sit amet lobortis nulla mi vitae arcu.
+    [meta_keyword] => Perla Chmielowa Plis
+    [name] => Perla Chmielowa Strong
+    [meta_title] => Perla Chmielowa Plis
+    [meta_description] => Perla Chmielowa Plis 
+    [image] => //p/e/perla-mocna.jpg
+    [small_image] => //p/e/perla-mocna.jpg
+    [thumbnail] => //p/e/perla-mocna.jpg
+    [options_container] => container2
+    [msrp_display_actual_price_type] => 0
+    [url_key] => perla-chmielowa-plis-1
+    [gift_message_available] => 2
+    [swatch_image] => //p/e/perla-mocna.jpg
+    [brand] => 7
+    [size] => 14
+    [alcohol_by_volume] => 4.0
+    [price] => 18.9900
+    [options] => Array
+        (
+        )
+
+    [media_gallery] => Array
+        (
+            [images] => Array
+                (
+                    [4] => Array
+                        (
+                            [value_id] => 4
+                            [file] => //p/e/perla-mocna.jpg
+                            [media_type] => image
+                            [entity_id] => 2
+                            [position] => 1
+                            [disabled] => 0
+                            [position_default] => 1
+                            [disabled_default] => 0
+                        )
+
+                )
+
+            [values] => Array
+                (
+                )
+
+        )
+
+    [tier_price] => Array
+        (
+        )
+
+    [tier_price_changed] => 0
+    [category_ids] => Array
+        (
+            [0] => 2
+            [1] => 3
+        )
+
+    [is_salable] => 1
+)
+
+=========koszyk=============
+Array
+(
+    [quote (Magento\Quote\Model\Quote\Interceptor)] => Array
+        (
+            [entity_id] => 60
+            [store_id] => 1
+            [created_at] => 2019-05-28 11:55:06
+            [updated_at] => 2019-05-28 12:29:33
+            [is_active] => 1
+            [is_virtual] => 0
+            [is_multi_shipping] => 
+            [items_count] => 3
+            [items_qty] => 10.0000
+            [orig_order_id] => 0
+            [store_to_base_rate] => 0.0000
+            [store_to_quote_rate] => 0.0000
+            [base_currency_code] => GBP
+            [store_currency_code] => GBP
+            [quote_currency_code] => GBP
+            [grand_total] => 162.9300
+            [base_grand_total] => 162.9300
+            [customer_tax_class_id] => 3
+            [customer_group_id] => 0
+            [customer_note_notify] => 1
+            [customer_is_guest] => 0
+            [remote_ip] => ::1
+            [global_currency_code] => GBP
+            [base_to_global_rate] => 1.0000
+            [base_to_quote_rate] => 1.0000
+            [subtotal] => 162.9300
+            [base_subtotal] => 162.9300
+            [subtotal_with_discount] => 162.9300
+            [base_subtotal_with_discount] => 162.9300
+            [is_changed] => 1
+            [trigger_recollect] => 0
+            [is_persistent] => 0
+            [items] => Array
+                (
+                    [0 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 486
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 11:55:06
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 33
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 1
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 10.0000
+                            [base_row_total] => 10.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 10.0000
+                            [base_row_total_incl_tax] => 10.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 784
+                                            [item_id] => 486
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 33
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-22 13:43:09
+                                    [updated_at] => 2019-05-24 06:38:06
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                    [1 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 488
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:28:14
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 34
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable-2
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 20.0000
+                            [base_row_total] => 20.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 20.0000
+                            [base_row_total_incl_tax] => 20.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 790
+                                            [item_id] => 488
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 34
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable-1
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-24 06:38:21
+                                    [updated_at] => 2019-05-24 07:05:11
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable-2
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable-1
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable-1.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                    [2 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 490
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:29:33
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 2
+                            [store_id] => 1
+                            [is_virtual] => 0
+                            [sku] => Perla Chmielowa Strong
+                            [name] => Perla Chmielowa Strong
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 7
+                            [price] => 18.9900
+                            [base_price] => 18.9900
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 132.9300
+                            [base_row_total] => 132.9300
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => simple
+                            [price_incl_tax] => 18.9900
+                            [base_price_incl_tax] => 18.9900
+                            [row_total_incl_tax] => 132.9300
+                            [base_row_total_incl_tax] => 132.9300
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [qty_options] => Array
+                                (
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 2
+                                    [attribute_set_id] => 9
+                                    [type_id] => simple
+                                    [sku] => Perla Chmielowa Strong
+                                    [has_options] => 0
+                                    [required_options] => 0
+                                    [created_at] => 2019-03-27 11:53:19
+                                    [updated_at] => 2019-03-28 10:41:55
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [price] => 18.9900
+                                    [name] => Perla Chmielowa Strong
+                                    [small_image] => //p/e/perla-mocna.jpg
+                                    [thumbnail] => //p/e/perla-mocna.jpg
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => perla-chmielowa-plis-1
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => perla-chmielowa-plis-1.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                (
+                                    [has_error] => 
+                                )
+
+                        )
+
+                )
+
+            [totals_collected_flag] => 
+        )
+
+)
+
+=========Dokoszyk=============
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 3
+    [form_key] => IlHbgX4LreH7l4Tf
+    [qty] => 2
+)
+
+=========================
+
+=========product============
+Array
+(
+    [store_id] => 1
+    [entity_id] => 3
+    [attribute_set_id] => 9
+    [type_id] => simple
+    [sku] => Tyskie Gronie
+    [has_options] => 0
+    [required_options] => 0
+    [created_at] => 2019-03-27 11:55:39
+    [updated_at] => 2019-03-28 10:32:51
+    [status] => 1
+    [visibility] => 4
+    [tax_class_id] => 2
+    [description] => Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere et nisi nec aliquet. Nam egestas, mi in volutpat iaculis, quam risus blandit erat, sit amet efficitur magna ante sed elit. Aliquam id dolor leo. Quisque pulvinar neque a tempor tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ut accumsan odio. Ut in velit eget leo accumsan volutpat id at leo. Suspendisse enim metus, varius ac rhoncus in, pretium et ligula. Cras id felis ut dui consectetur interdum. Proin vestibulum mattis fringilla. 
+    [short_description] => Praesent pretium, eros non elementum consectetur, elit elit mattis nunc, sit amet lobortis nulla mi vitae arcu.
+    [meta_keyword] => Tyskie Gronie
+    [name] => Tyskie Gronie
+    [meta_title] => Tyskie Gronie
+    [meta_description] => Tyskie Gronie 
+    [image] => //1/6/162px-butelka_tyskie_bez_cienia.png
+    [small_image] => //1/6/162px-butelka_tyskie_bez_cienia.png
+    [thumbnail] => //1/6/162px-butelka_tyskie_bez_cienia.png
+    [options_container] => container2
+    [msrp_display_actual_price_type] => 0
+    [url_key] => tyskie-gronie
+    [gift_message_available] => 2
+    [swatch_image] => //1/6/162px-butelka_tyskie_bez_cienia.png
+    [brand] => 7
+    [size] => 14
+    [alcohol_by_volume] => 4.0
+    [price] => 42.4900
+    [options] => Array
+        (
+        )
+
+    [media_gallery] => Array
+        (
+            [images] => Array
+                (
+                    [3] => Array
+                        (
+                            [value_id] => 3
+                            [file] => //1/6/162px-butelka_tyskie_bez_cienia.png
+                            [media_type] => image
+                            [entity_id] => 3
+                            [position] => 1
+                            [disabled] => 0
+                            [position_default] => 1
+                            [disabled_default] => 0
+                        )
+
+                )
+
+            [values] => Array
+                (
+                )
+
+        )
+
+    [tier_price] => Array
+        (
+        )
+
+    [tier_price_changed] => 0
+    [quantity_and_stock_status] => Array
+        (
+            [is_in_stock] => 1
+            [qty] => 100
+        )
+
+    [category_ids] => Array
+        (
+            [0] => 2
+            [1] => 3
+        )
+
+    [is_salable] => 1
+)
+
+=========koszyk=============
+Array
+(
+    [quote (Magento\Quote\Model\Quote\Interceptor)] => Array
+        (
+            [entity_id] => 60
+            [store_id] => 1
+            [created_at] => 2019-05-28 11:55:06
+            [updated_at] => 2019-05-28 12:29:57
+            [is_active] => 1
+            [is_virtual] => 0
+            [is_multi_shipping] => 0
+            [items_count] => 3
+            [items_qty] => 5.0000
+            [orig_order_id] => 0
+            [store_to_base_rate] => 0.0000
+            [store_to_quote_rate] => 0.0000
+            [base_currency_code] => GBP
+            [store_currency_code] => GBP
+            [quote_currency_code] => GBP
+            [grand_total] => 67.9800
+            [base_grand_total] => 67.9800
+            [customer_tax_class_id] => 3
+            [customer_group_id] => 0
+            [customer_note_notify] => 1
+            [customer_is_guest] => 0
+            [remote_ip] => 127.0.0.1
+            [global_currency_code] => GBP
+            [base_to_global_rate] => 1.0000
+            [base_to_quote_rate] => 1.0000
+            [subtotal] => 67.9800
+            [base_subtotal] => 67.9800
+            [subtotal_with_discount] => 67.9800
+            [base_subtotal_with_discount] => 67.9800
+            [is_changed] => 1
+            [trigger_recollect] => 0
+            [is_persistent] => 0
+            [items] => Array
+                (
+                    [0 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 486
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 11:55:06
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 33
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 1
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 10.0000
+                            [base_row_total] => 10.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 10.0000
+                            [base_row_total_incl_tax] => 10.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 784
+                                            [item_id] => 486
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 33
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-22 13:43:09
+                                    [updated_at] => 2019-05-24 06:38:06
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                    [1 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 488
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:28:14
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 34
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable-2
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 20.0000
+                            [base_row_total] => 20.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 20.0000
+                            [base_row_total_incl_tax] => 20.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 790
+                                            [item_id] => 488
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 34
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable-1
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-24 06:38:21
+                                    [updated_at] => 2019-05-24 07:05:11
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable-2
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable-1
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable-1.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                    [2 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 491
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:29:57
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 2
+                            [store_id] => 1
+                            [is_virtual] => 0
+                            [sku] => Perla Chmielowa Strong
+                            [name] => Perla Chmielowa Strong
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 18.9900
+                            [base_price] => 18.9900
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 37.9800
+                            [base_row_total] => 37.9800
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => simple
+                            [price_incl_tax] => 18.9900
+                            [base_price_incl_tax] => 18.9900
+                            [row_total_incl_tax] => 37.9800
+                            [base_row_total_incl_tax] => 37.9800
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [qty_options] => Array
+                                (
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 2
+                                    [attribute_set_id] => 9
+                                    [type_id] => simple
+                                    [sku] => Perla Chmielowa Strong
+                                    [has_options] => 0
+                                    [required_options] => 0
+                                    [created_at] => 2019-03-27 11:53:19
+                                    [updated_at] => 2019-03-28 10:41:55
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [price] => 18.9900
+                                    [name] => Perla Chmielowa Strong
+                                    [small_image] => //p/e/perla-mocna.jpg
+                                    [thumbnail] => //p/e/perla-mocna.jpg
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => perla-chmielowa-plis-1
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => perla-chmielowa-plis-1.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                (
+                                    [has_error] => 
+                                )
+
+                        )
+
+                )
+
+        )
+
+)
+
+=========Dokoszyk=============
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 3
+    [form_key] => IlHbgX4LreH7l4Tf
+    [qty] => 2
+)
+
+=========================
+?? 3 == 3 >>> 492
+ID: 3
+Name: Tyskie Gronie
+ITEM ID: 492
+Quantity: 2
+ :) deleting...
+
+=========product============
+Array
+(
+    [store_id] => 1
+    [entity_id] => 3
+    [attribute_set_id] => 9
+    [type_id] => simple
+    [sku] => Tyskie Gronie
+    [has_options] => 0
+    [required_options] => 0
+    [created_at] => 2019-03-27 11:55:39
+    [updated_at] => 2019-03-28 10:32:51
+    [status] => 1
+    [visibility] => 4
+    [tax_class_id] => 2
+    [description] => Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere et nisi nec aliquet. Nam egestas, mi in volutpat iaculis, quam risus blandit erat, sit amet efficitur magna ante sed elit. Aliquam id dolor leo. Quisque pulvinar neque a tempor tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ut accumsan odio. Ut in velit eget leo accumsan volutpat id at leo. Suspendisse enim metus, varius ac rhoncus in, pretium et ligula. Cras id felis ut dui consectetur interdum. Proin vestibulum mattis fringilla. 
+    [short_description] => Praesent pretium, eros non elementum consectetur, elit elit mattis nunc, sit amet lobortis nulla mi vitae arcu.
+    [meta_keyword] => Tyskie Gronie
+    [name] => Tyskie Gronie
+    [meta_title] => Tyskie Gronie
+    [meta_description] => Tyskie Gronie 
+    [image] => //1/6/162px-butelka_tyskie_bez_cienia.png
+    [small_image] => //1/6/162px-butelka_tyskie_bez_cienia.png
+    [thumbnail] => //1/6/162px-butelka_tyskie_bez_cienia.png
+    [options_container] => container2
+    [msrp_display_actual_price_type] => 0
+    [url_key] => tyskie-gronie
+    [gift_message_available] => 2
+    [swatch_image] => //1/6/162px-butelka_tyskie_bez_cienia.png
+    [brand] => 7
+    [size] => 14
+    [alcohol_by_volume] => 4.0
+    [price] => 42.4900
+    [options] => Array
+        (
+        )
+
+    [media_gallery] => Array
+        (
+            [images] => Array
+                (
+                    [3] => Array
+                        (
+                            [value_id] => 3
+                            [file] => //1/6/162px-butelka_tyskie_bez_cienia.png
+                            [media_type] => image
+                            [entity_id] => 3
+                            [position] => 1
+                            [disabled] => 0
+                            [position_default] => 1
+                            [disabled_default] => 0
+                        )
+
+                )
+
+            [values] => Array
+                (
+                )
+
+        )
+
+    [tier_price] => Array
+        (
+        )
+
+    [tier_price_changed] => 0
+    [quantity_and_stock_status] => Array
+        (
+            [is_in_stock] => 1
+            [qty] => 100
+        )
+
+    [category_ids] => Array
+        (
+            [0] => 2
+            [1] => 3
+        )
+
+    [is_salable] => 1
+)
+
+=========koszyk=============
+Array
+(
+    [quote (Magento\Quote\Model\Quote\Interceptor)] => Array
+        (
+            [entity_id] => 60
+            [store_id] => 1
+            [created_at] => 2019-05-28 11:55:06
+            [updated_at] => 2019-05-28 12:43:55
+            [is_active] => 1
+            [is_virtual] => 0
+            [is_multi_shipping] => 
+            [items_count] => 4
+            [items_qty] => 7.0000
+            [orig_order_id] => 0
+            [store_to_base_rate] => 0.0000
+            [store_to_quote_rate] => 0.0000
+            [base_currency_code] => GBP
+            [store_currency_code] => GBP
+            [quote_currency_code] => GBP
+            [grand_total] => 152.9600
+            [base_grand_total] => 152.9600
+            [customer_tax_class_id] => 3
+            [customer_group_id] => 0
+            [customer_note_notify] => 1
+            [customer_is_guest] => 0
+            [remote_ip] => 127.0.0.1
+            [global_currency_code] => GBP
+            [base_to_global_rate] => 1.0000
+            [base_to_quote_rate] => 1.0000
+            [subtotal] => 152.9600
+            [base_subtotal] => 152.9600
+            [subtotal_with_discount] => 152.9600
+            [base_subtotal_with_discount] => 152.9600
+            [is_changed] => 1
+            [trigger_recollect] => 0
+            [is_persistent] => 0
+            [items] => Array
+                (
+                    [0 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 486
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 11:55:06
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 33
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 1
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 10.0000
+                            [base_row_total] => 10.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 10.0000
+                            [base_row_total_incl_tax] => 10.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 784
+                                            [item_id] => 486
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 33
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-22 13:43:09
+                                    [updated_at] => 2019-05-24 06:38:06
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                    [1 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 488
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:28:14
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 34
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable-2
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 20.0000
+                            [base_row_total] => 20.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 20.0000
+                            [base_row_total_incl_tax] => 20.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 790
+                                            [item_id] => 488
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 34
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable-1
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-24 06:38:21
+                                    [updated_at] => 2019-05-24 07:05:11
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable-2
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable-1
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable-1.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                    [2 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 491
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:29:57
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 2
+                            [store_id] => 1
+                            [is_virtual] => 0
+                            [sku] => Perla Chmielowa Strong
+                            [name] => Perla Chmielowa Strong
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 18.9900
+                            [base_price] => 18.9900
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 37.9800
+                            [base_row_total] => 37.9800
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => simple
+                            [price_incl_tax] => 18.9900
+                            [base_price_incl_tax] => 18.9900
+                            [row_total_incl_tax] => 37.9800
+                            [base_row_total_incl_tax] => 37.9800
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [qty_options] => Array
+                                (
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 2
+                                    [attribute_set_id] => 9
+                                    [type_id] => simple
+                                    [sku] => Perla Chmielowa Strong
+                                    [has_options] => 0
+                                    [required_options] => 0
+                                    [created_at] => 2019-03-27 11:53:19
+                                    [updated_at] => 2019-03-28 10:41:55
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [price] => 18.9900
+                                    [name] => Perla Chmielowa Strong
+                                    [small_image] => //p/e/perla-mocna.jpg
+                                    [thumbnail] => //p/e/perla-mocna.jpg
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => perla-chmielowa-plis-1
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => perla-chmielowa-plis-1.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                (
+                                    [has_error] => 
+                                )
+
+                        )
+
+                    [3 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 492
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:43:55
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 3
+                            [store_id] => 1
+                            [is_virtual] => 0
+                            [sku] => Tyskie Gronie
+                            [name] => Tyskie Gronie
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 42.4900
+                            [base_price] => 42.4900
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 84.9800
+                            [base_row_total] => 84.9800
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => simple
+                            [price_incl_tax] => 42.4900
+                            [base_price_incl_tax] => 42.4900
+                            [row_total_incl_tax] => 84.9800
+                            [base_row_total_incl_tax] => 84.9800
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [qty_options] => Array
+                                (
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 3
+                                    [attribute_set_id] => 9
+                                    [type_id] => simple
+                                    [sku] => Tyskie Gronie
+                                    [has_options] => 0
+                                    [required_options] => 0
+                                    [created_at] => 2019-03-27 11:55:39
+                                    [updated_at] => 2019-03-28 10:32:51
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [price] => 42.4900
+                                    [name] => Tyskie Gronie
+                                    [small_image] => //1/6/162px-butelka_tyskie_bez_cienia.png
+                                    [thumbnail] => //1/6/162px-butelka_tyskie_bez_cienia.png
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => tyskie-gronie
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => tyskie-gronie.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                (
+                                    [has_error] => 
+                                )
+
+                        )
+
+                )
+
+            [totals_collected_flag] => 
+        )
+
+)
+
+=========Dokoszyk=============
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 5
+    [form_key] => IlHbgX4LreH7l4Tf
+    [qty] => 1
+)
+
+=========================
+
+=========product============
+Array
+(
+    [store_id] => 1
+    [entity_id] => 5
+    [attribute_set_id] => 9
+    [type_id] => simple
+    [sku] => Perla Chmielowa Plis-1
+    [has_options] => 0
+    [required_options] => 0
+    [created_at] => 2019-04-10 12:58:53
+    [updated_at] => 2019-04-25 15:43:49
+    [status] => 1
+    [visibility] => 4
+    [quantity_and_stock_status] => Array
+        (
+            [is_in_stock] => 1
+            [qty] => 100
+        )
+
+    [tax_class_id] => 2
+    [returnable_bottle] => 0
+    [description] => Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere et nisi nec aliquet. Nam egestas, mi in volutpat iaculis, quam risus blandit erat, sit amet efficitur magna ante sed elit. Aliquam id dolor leo. Quisque pulvinar neque a tempor tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ut accumsan odio. Ut in velit eget leo accumsan volutpat id at leo. Suspendisse enim metus, varius ac rhoncus in, pretium et ligula. Cras id felis ut dui consectetur interdum. Proin vestibulum mattis fringilla. 
+    [short_description] => Praesent pretium, eros non elementum consectetur, elit elit mattis nunc, sit amet lobortis nulla mi vitae arcu.
+    [meta_keyword] => Perla Chmielowa Plis
+    [name] => Perla Chmielowa Plis
+    [meta_title] => Perla Chmielowa Plis
+    [meta_description] => Perla Chmielowa Plis 
+    [image] => /p/r/product_img_6.png
+    [small_image] => /p/r/product_img_6.png
+    [thumbnail] => /p/r/product_img_6.png
+    [options_container] => container2
+    [country_of_manufacture] => PL
+    [msrp_display_actual_price_type] => 0
+    [url_key] => perla-chmielowa-plis-2
+    [gift_message_available] => 2
+    [swatch_image] => /p/r/product_img_6.png
+    [brand] => 7
+    [unit_type] => 12
+    [size] => 13
+    [alcohol_by_volume] => 3.33
+    [price] => 21.9900
+    [weight] => 12.0000
+    [ts_dimensions_length] => 12.0000
+    [ts_dimensions_width] => 12.0000
+    [ts_dimensions_height] => 12.0000
+    [options] => Array
+        (
+        )
+
+    [media_gallery] => Array
+        (
+            [images] => Array
+                (
+                    [26] => Array
+                        (
+                            [value_id] => 26
+                            [file] => /p/r/product_img_6.png
+                            [media_type] => image
+                            [entity_id] => 5
+                            [position] => 2
+                            [disabled] => 0
+                            [position_default] => 2
+                            [disabled_default] => 0
+                        )
+
+                )
+
+            [values] => Array
+                (
+                )
+
+        )
+
+    [tier_price] => Array
+        (
+        )
+
+    [tier_price_changed] => 0
+    [category_ids] => Array
+        (
+            [0] => 2
+            [1] => 3
+        )
+
+    [is_salable] => 1
+)
+
+=========koszyk=============
+Array
+(
+    [quote (Magento\Quote\Model\Quote\Interceptor)] => Array
+        (
+            [entity_id] => 60
+            [store_id] => 1
+            [created_at] => 2019-05-28 11:55:06
+            [updated_at] => 2019-05-28 12:43:55
+            [is_active] => 1
+            [is_virtual] => 0
+            [is_multi_shipping] => 0
+            [items_count] => 4
+            [items_qty] => 7.0000
+            [orig_order_id] => 0
+            [store_to_base_rate] => 0.0000
+            [store_to_quote_rate] => 0.0000
+            [base_currency_code] => GBP
+            [store_currency_code] => GBP
+            [quote_currency_code] => GBP
+            [grand_total] => 152.9600
+            [base_grand_total] => 152.9600
+            [customer_tax_class_id] => 3
+            [customer_group_id] => 0
+            [customer_note_notify] => 1
+            [customer_is_guest] => 0
+            [remote_ip] => 127.0.0.1
+            [global_currency_code] => GBP
+            [base_to_global_rate] => 1.0000
+            [base_to_quote_rate] => 1.0000
+            [subtotal] => 152.9600
+            [base_subtotal] => 152.9600
+            [subtotal_with_discount] => 152.9600
+            [base_subtotal_with_discount] => 152.9600
+            [is_changed] => 1
+            [trigger_recollect] => 0
+            [is_persistent] => 0
+            [items] => Array
+                (
+                    [0 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 486
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 11:55:06
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 33
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 1
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 10.0000
+                            [base_row_total] => 10.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 10.0000
+                            [base_row_total_incl_tax] => 10.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 784
+                                            [item_id] => 486
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 33
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-22 13:43:09
+                                    [updated_at] => 2019-05-24 06:38:06
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                    [1 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 488
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:28:14
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 34
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable-2
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 20.0000
+                            [base_row_total] => 20.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 20.0000
+                            [base_row_total_incl_tax] => 20.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 790
+                                            [item_id] => 488
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 34
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable-1
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-24 06:38:21
+                                    [updated_at] => 2019-05-24 07:05:11
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable-2
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable-1
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable-1.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                    [2 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 491
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:29:57
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 2
+                            [store_id] => 1
+                            [is_virtual] => 0
+                            [sku] => Perla Chmielowa Strong
+                            [name] => Perla Chmielowa Strong
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 18.9900
+                            [base_price] => 18.9900
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 37.9800
+                            [base_row_total] => 37.9800
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => simple
+                            [price_incl_tax] => 18.9900
+                            [base_price_incl_tax] => 18.9900
+                            [row_total_incl_tax] => 37.9800
+                            [base_row_total_incl_tax] => 37.9800
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [qty_options] => Array
+                                (
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 2
+                                    [attribute_set_id] => 9
+                                    [type_id] => simple
+                                    [sku] => Perla Chmielowa Strong
+                                    [has_options] => 0
+                                    [required_options] => 0
+                                    [created_at] => 2019-03-27 11:53:19
+                                    [updated_at] => 2019-03-28 10:41:55
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [price] => 18.9900
+                                    [name] => Perla Chmielowa Strong
+                                    [small_image] => //p/e/perla-mocna.jpg
+                                    [thumbnail] => //p/e/perla-mocna.jpg
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => perla-chmielowa-plis-1
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => perla-chmielowa-plis-1.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                (
+                                    [has_error] => 
+                                )
+
+                        )
+
+                    [3 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 493
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:44:21
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 3
+                            [store_id] => 1
+                            [is_virtual] => 0
+                            [sku] => Tyskie Gronie
+                            [name] => Tyskie Gronie
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 42.4900
+                            [base_price] => 42.4900
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 84.9800
+                            [base_row_total] => 84.9800
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => simple
+                            [price_incl_tax] => 42.4900
+                            [base_price_incl_tax] => 42.4900
+                            [row_total_incl_tax] => 84.9800
+                            [base_row_total_incl_tax] => 84.9800
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [qty_options] => Array
+                                (
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 3
+                                    [attribute_set_id] => 9
+                                    [type_id] => simple
+                                    [sku] => Tyskie Gronie
+                                    [has_options] => 0
+                                    [required_options] => 0
+                                    [created_at] => 2019-03-27 11:55:39
+                                    [updated_at] => 2019-03-28 10:32:51
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [price] => 42.4900
+                                    [name] => Tyskie Gronie
+                                    [small_image] => //1/6/162px-butelka_tyskie_bez_cienia.png
+                                    [thumbnail] => //1/6/162px-butelka_tyskie_bez_cienia.png
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => tyskie-gronie
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => tyskie-gronie.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                (
+                                    [has_error] => 
+                                )
+
+                        )
+
+                )
+
+        )
+
+)
+
+=========Dokoszyk=============
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 3
+    [form_key] => IlHbgX4LreH7l4Tf
+    [qty] => 3
+)
+
+=========================
+?? 3 == 3 >>> 493
+ID: 3
+Name: Tyskie Gronie
+ITEM ID: 493
+Quantity: 2
+ :) deleting...
+
+=========product============
+Array
+(
+    [store_id] => 1
+    [entity_id] => 3
+    [attribute_set_id] => 9
+    [type_id] => simple
+    [sku] => Tyskie Gronie
+    [has_options] => 0
+    [required_options] => 0
+    [created_at] => 2019-03-27 11:55:39
+    [updated_at] => 2019-03-28 10:32:51
+    [status] => 1
+    [visibility] => 4
+    [tax_class_id] => 2
+    [description] => Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere et nisi nec aliquet. Nam egestas, mi in volutpat iaculis, quam risus blandit erat, sit amet efficitur magna ante sed elit. Aliquam id dolor leo. Quisque pulvinar neque a tempor tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ut accumsan odio. Ut in velit eget leo accumsan volutpat id at leo. Suspendisse enim metus, varius ac rhoncus in, pretium et ligula. Cras id felis ut dui consectetur interdum. Proin vestibulum mattis fringilla. 
+    [short_description] => Praesent pretium, eros non elementum consectetur, elit elit mattis nunc, sit amet lobortis nulla mi vitae arcu.
+    [meta_keyword] => Tyskie Gronie
+    [name] => Tyskie Gronie
+    [meta_title] => Tyskie Gronie
+    [meta_description] => Tyskie Gronie 
+    [image] => //1/6/162px-butelka_tyskie_bez_cienia.png
+    [small_image] => //1/6/162px-butelka_tyskie_bez_cienia.png
+    [thumbnail] => //1/6/162px-butelka_tyskie_bez_cienia.png
+    [options_container] => container2
+    [msrp_display_actual_price_type] => 0
+    [url_key] => tyskie-gronie
+    [gift_message_available] => 2
+    [swatch_image] => //1/6/162px-butelka_tyskie_bez_cienia.png
+    [brand] => 7
+    [size] => 14
+    [alcohol_by_volume] => 4.0
+    [price] => 42.4900
+    [options] => Array
+        (
+        )
+
+    [media_gallery] => Array
+        (
+            [images] => Array
+                (
+                    [3] => Array
+                        (
+                            [value_id] => 3
+                            [file] => //1/6/162px-butelka_tyskie_bez_cienia.png
+                            [media_type] => image
+                            [entity_id] => 3
+                            [position] => 1
+                            [disabled] => 0
+                            [position_default] => 1
+                            [disabled_default] => 0
+                        )
+
+                )
+
+            [values] => Array
+                (
+                )
+
+        )
+
+    [tier_price] => Array
+        (
+        )
+
+    [tier_price_changed] => 0
+    [quantity_and_stock_status] => Array
+        (
+            [is_in_stock] => 1
+            [qty] => 100
+        )
+
+    [category_ids] => Array
+        (
+            [0] => 2
+            [1] => 3
+        )
+
+    [is_salable] => 1
+)
+
+=========koszyk=============
+Array
+(
+    [quote (Magento\Quote\Model\Quote\Interceptor)] => Array
+        (
+            [entity_id] => 60
+            [store_id] => 1
+            [created_at] => 2019-05-28 11:55:06
+            [updated_at] => 2019-05-28 12:46:54
+            [is_active] => 1
+            [is_virtual] => 0
+            [is_multi_shipping] => 
+            [items_count] => 5
+            [items_qty] => 8.0000
+            [orig_order_id] => 0
+            [store_to_base_rate] => 0.0000
+            [store_to_quote_rate] => 0.0000
+            [base_currency_code] => GBP
+            [store_currency_code] => GBP
+            [quote_currency_code] => GBP
+            [grand_total] => 168.9500
+            [base_grand_total] => 168.9500
+            [customer_tax_class_id] => 3
+            [customer_group_id] => 0
+            [customer_note_notify] => 1
+            [customer_is_guest] => 0
+            [remote_ip] => 127.0.0.1
+            [global_currency_code] => GBP
+            [base_to_global_rate] => 1.0000
+            [base_to_quote_rate] => 1.0000
+            [subtotal] => 168.9500
+            [base_subtotal] => 168.9500
+            [subtotal_with_discount] => 168.9500
+            [base_subtotal_with_discount] => 168.9500
+            [is_changed] => 1
+            [trigger_recollect] => 0
+            [is_persistent] => 0
+            [items] => Array
+                (
+                    [0 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 486
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 11:55:06
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 33
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 1
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 10.0000
+                            [base_row_total] => 10.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 10.0000
+                            [base_row_total_incl_tax] => 10.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 784
+                                            [item_id] => 486
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 33
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-22 13:43:09
+                                    [updated_at] => 2019-05-24 06:38:06
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                    [1 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 488
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:28:14
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 34
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable-2
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 20.0000
+                            [base_row_total] => 20.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 20.0000
+                            [base_row_total_incl_tax] => 20.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 790
+                                            [item_id] => 488
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 34
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable-1
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-24 06:38:21
+                                    [updated_at] => 2019-05-24 07:05:11
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable-2
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable-1
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable-1.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                    [2 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 491
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:29:57
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 2
+                            [store_id] => 1
+                            [is_virtual] => 0
+                            [sku] => Perla Chmielowa Strong
+                            [name] => Perla Chmielowa Strong
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 18.9900
+                            [base_price] => 18.9900
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 37.9800
+                            [base_row_total] => 37.9800
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => simple
+                            [price_incl_tax] => 18.9900
+                            [base_price_incl_tax] => 18.9900
+                            [row_total_incl_tax] => 37.9800
+                            [base_row_total_incl_tax] => 37.9800
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [qty_options] => Array
+                                (
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 2
+                                    [attribute_set_id] => 9
+                                    [type_id] => simple
+                                    [sku] => Perla Chmielowa Strong
+                                    [has_options] => 0
+                                    [required_options] => 0
+                                    [created_at] => 2019-03-27 11:53:19
+                                    [updated_at] => 2019-03-28 10:41:55
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [price] => 18.9900
+                                    [name] => Perla Chmielowa Strong
+                                    [small_image] => //p/e/perla-mocna.jpg
+                                    [thumbnail] => //p/e/perla-mocna.jpg
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => perla-chmielowa-plis-1
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => perla-chmielowa-plis-1.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                (
+                                    [has_error] => 
+                                )
+
+                        )
+
+                    [3 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 493
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:44:21
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 3
+                            [store_id] => 1
+                            [is_virtual] => 0
+                            [sku] => Tyskie Gronie
+                            [name] => Tyskie Gronie
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 42.4900
+                            [base_price] => 42.4900
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 84.9800
+                            [base_row_total] => 84.9800
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => simple
+                            [price_incl_tax] => 42.4900
+                            [base_price_incl_tax] => 42.4900
+                            [row_total_incl_tax] => 84.9800
+                            [base_row_total_incl_tax] => 84.9800
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [qty_options] => Array
+                                (
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 3
+                                    [attribute_set_id] => 9
+                                    [type_id] => simple
+                                    [sku] => Tyskie Gronie
+                                    [has_options] => 0
+                                    [required_options] => 0
+                                    [created_at] => 2019-03-27 11:55:39
+                                    [updated_at] => 2019-03-28 10:32:51
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [price] => 42.4900
+                                    [name] => Tyskie Gronie
+                                    [small_image] => //1/6/162px-butelka_tyskie_bez_cienia.png
+                                    [thumbnail] => //1/6/162px-butelka_tyskie_bez_cienia.png
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => tyskie-gronie
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => tyskie-gronie.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                (
+                                    [has_error] => 
+                                )
+
+                        )
+
+                    [4 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 494
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:46:54
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 5
+                            [store_id] => 1
+                            [is_virtual] => 0
+                            [sku] => Perla Chmielowa Plis-1
+                            [name] => Perla Chmielowa Plis
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [weight] => 12.0000
+                            [qty] => 1
+                            [price] => 15.9900
+                            [base_price] => 15.9900
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 15.9900
+                            [base_row_total] => 15.9900
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 12.0000
+                            [product_type] => simple
+                            [price_incl_tax] => 15.9900
+                            [base_price_incl_tax] => 15.9900
+                            [row_total_incl_tax] => 15.9900
+                            [base_row_total_incl_tax] => 15.9900
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [qty_options] => Array
+                                (
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 5
+                                    [attribute_set_id] => 9
+                                    [type_id] => simple
+                                    [sku] => Perla Chmielowa Plis-1
+                                    [has_options] => 0
+                                    [required_options] => 0
+                                    [created_at] => 2019-04-10 12:58:53
+                                    [updated_at] => 2019-04-25 15:43:49
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [price] => 21.9900
+                                    [weight] => 12.0000
+                                    [ts_dimensions_length] => 12.0000
+                                    [ts_dimensions_width] => 12.0000
+                                    [ts_dimensions_height] => 12.0000
+                                    [name] => Perla Chmielowa Plis
+                                    [small_image] => /p/r/product_img_6.png
+                                    [thumbnail] => /p/r/product_img_6.png
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => perla-chmielowa-plis-2
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => perla-chmielowa-plis-2.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                (
+                                    [has_error] => 
+                                )
+
+                        )
+
+                )
+
+            [totals_collected_flag] => 
+        )
+
+)
+
+=========Dokoszyk=============
+Array
+(
+    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyL2NvbmZpZ3VyYWJsZS0xLmh0bWw,
+    [product] => 2
+    [form_key] => IlHbgX4LreH7l4Tf
+    [qty] => 3
+)
+
+=========================
+?? 2 == 2 >>> 491
+ID: 2
+Name: Perla Chmielowa Strong
+ITEM ID: 491
+Quantity: 2
+ :) deleting...
+
+=========product============
+Array
+(
+    [store_id] => 1
+    [entity_id] => 2
+    [attribute_set_id] => 9
+    [type_id] => simple
+    [sku] => Perla Chmielowa Strong
+    [has_options] => 0
+    [required_options] => 0
+    [created_at] => 2019-03-27 11:53:19
+    [updated_at] => 2019-03-28 10:41:55
+    [status] => 1
+    [visibility] => 4
+    [quantity_and_stock_status] => Array
+        (
+            [is_in_stock] => 1
+            [qty] => 100
+        )
+
+    [tax_class_id] => 2
+    [description] => Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut posuere et nisi nec aliquet. Nam egestas, mi in volutpat iaculis, quam risus blandit erat, sit amet efficitur magna ante sed elit. Aliquam id dolor leo. Quisque pulvinar neque a tempor tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ut accumsan odio. Ut in velit eget leo accumsan volutpat id at leo. Suspendisse enim metus, varius ac rhoncus in, pretium et ligula. Cras id felis ut dui consectetur interdum. Proin vestibulum mattis fringilla. 
+    [short_description] => Praesent pretium, eros non elementum consectetur, elit elit mattis nunc, sit amet lobortis nulla mi vitae arcu.
+    [meta_keyword] => Perla Chmielowa Plis
+    [name] => Perla Chmielowa Strong
+    [meta_title] => Perla Chmielowa Plis
+    [meta_description] => Perla Chmielowa Plis 
+    [image] => //p/e/perla-mocna.jpg
+    [small_image] => //p/e/perla-mocna.jpg
+    [thumbnail] => //p/e/perla-mocna.jpg
+    [options_container] => container2
+    [msrp_display_actual_price_type] => 0
+    [url_key] => perla-chmielowa-plis-1
+    [gift_message_available] => 2
+    [swatch_image] => //p/e/perla-mocna.jpg
+    [brand] => 7
+    [size] => 14
+    [alcohol_by_volume] => 4.0
+    [price] => 18.9900
+    [options] => Array
+        (
+        )
+
+    [media_gallery] => Array
+        (
+            [images] => Array
+                (
+                    [4] => Array
+                        (
+                            [value_id] => 4
+                            [file] => //p/e/perla-mocna.jpg
+                            [media_type] => image
+                            [entity_id] => 2
+                            [position] => 1
+                            [disabled] => 0
+                            [position_default] => 1
+                            [disabled_default] => 0
+                        )
+
+                )
+
+            [values] => Array
+                (
+                )
+
+        )
+
+    [tier_price] => Array
+        (
+        )
+
+    [tier_price_changed] => 0
+    [category_ids] => Array
+        (
+            [0] => 2
+            [1] => 3
+        )
+
+    [is_salable] => 1
+)
+
+=========koszyk=============
+Array
+(
+    [quote (Magento\Quote\Model\Quote\Interceptor)] => Array
+        (
+            [entity_id] => 60
+            [store_id] => 1
+            [created_at] => 2019-05-28 11:55:06
+            [updated_at] => 2019-05-28 13:06:42
+            [is_active] => 1
+            [is_virtual] => 0
+            [is_multi_shipping] => 
+            [items_count] => 5
+            [items_qty] => 9.0000
+            [orig_order_id] => 0
+            [store_to_base_rate] => 0.0000
+            [store_to_quote_rate] => 0.0000
+            [base_currency_code] => GBP
+            [store_currency_code] => GBP
+            [quote_currency_code] => GBP
+            [grand_total] => 211.4400
+            [base_grand_total] => 211.4400
+            [customer_tax_class_id] => 3
+            [customer_group_id] => 0
+            [customer_note_notify] => 1
+            [customer_is_guest] => 0
+            [remote_ip] => 127.0.0.1
+            [global_currency_code] => GBP
+            [base_to_global_rate] => 1.0000
+            [base_to_quote_rate] => 1.0000
+            [subtotal] => 211.4400
+            [base_subtotal] => 211.4400
+            [subtotal_with_discount] => 211.4400
+            [base_subtotal_with_discount] => 211.4400
+            [is_changed] => 1
+            [trigger_recollect] => 0
+            [is_persistent] => 0
+            [items] => Array
+                (
+                    [0 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 486
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 11:55:06
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 33
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 1
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 10.0000
+                            [base_row_total] => 10.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 10.0000
+                            [base_row_total_incl_tax] => 10.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 784
+                                            [item_id] => 486
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 33
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-22 13:43:09
+                                    [updated_at] => 2019-05-24 06:38:06
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                    [1 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 488
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:28:14
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 34
+                            [store_id] => 1
+                            [is_virtual] => 1
+                            [sku] => Configurable-Box
+                            [name] => Configurable-2
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 10.0000
+                            [base_price] => 10.0000
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 20.0000
+                            [base_row_total] => 20.0000
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => configurable
+                            [price_incl_tax] => 10.0000
+                            [base_price_incl_tax] => 10.0000
+                            [row_total_incl_tax] => 20.0000
+                            [base_row_total_incl_tax] => 20.0000
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [has_children] => 1
+                            [qty_options] => Array
+                                (
+                                    [31 (Magento\Quote\Model\Quote\Item\Option)] => Array
+                                        (
+                                            [option_id] => 790
+                                            [item_id] => 488
+                                            [product_id] => 31
+                                            [code] => product_qty_31
+                                            [value] => 1
+                                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                                (
+                                                    [has_error] => 
+                                                )
+
+                                        )
+
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 34
+                                    [attribute_set_id] => 4
+                                    [type_id] => configurable
+                                    [sku] => Configurable-1
+                                    [has_options] => 1
+                                    [required_options] => 1
+                                    [created_at] => 2019-05-24 06:38:21
+                                    [updated_at] => 2019-05-24 07:05:11
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [name] => Configurable-2
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => configurable-1
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => configurable-1.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                        )
+
+                    [2 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 491
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:29:57
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 2
+                            [store_id] => 1
+                            [is_virtual] => 0
+                            [sku] => Perla Chmielowa Strong
+                            [name] => Perla Chmielowa Strong
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 2
+                            [price] => 18.9900
+                            [base_price] => 18.9900
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 37.9800
+                            [base_row_total] => 37.9800
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => simple
+                            [price_incl_tax] => 18.9900
+                            [base_price_incl_tax] => 18.9900
+                            [row_total_incl_tax] => 37.9800
+                            [base_row_total_incl_tax] => 37.9800
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [qty_options] => Array
+                                (
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 2
+                                    [attribute_set_id] => 9
+                                    [type_id] => simple
+                                    [sku] => Perla Chmielowa Strong
+                                    [has_options] => 0
+                                    [required_options] => 0
+                                    [created_at] => 2019-03-27 11:53:19
+                                    [updated_at] => 2019-03-28 10:41:55
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [price] => 18.9900
+                                    [name] => Perla Chmielowa Strong
+                                    [small_image] => //p/e/perla-mocna.jpg
+                                    [thumbnail] => //p/e/perla-mocna.jpg
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => perla-chmielowa-plis-1
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => perla-chmielowa-plis-1.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                (
+                                    [has_error] => 
+                                )
+
+                        )
+
+                    [3 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 494
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 12:46:54
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 5
+                            [store_id] => 1
+                            [is_virtual] => 0
+                            [sku] => Perla Chmielowa Plis-1
+                            [name] => Perla Chmielowa Plis
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [weight] => 12.0000
+                            [qty] => 1
+                            [price] => 15.9900
+                            [base_price] => 15.9900
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 15.9900
+                            [base_row_total] => 15.9900
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 12.0000
+                            [product_type] => simple
+                            [price_incl_tax] => 15.9900
+                            [base_price_incl_tax] => 15.9900
+                            [row_total_incl_tax] => 15.9900
+                            [base_row_total_incl_tax] => 15.9900
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [qty_options] => Array
+                                (
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 5
+                                    [attribute_set_id] => 9
+                                    [type_id] => simple
+                                    [sku] => Perla Chmielowa Plis-1
+                                    [has_options] => 0
+                                    [required_options] => 0
+                                    [created_at] => 2019-04-10 12:58:53
+                                    [updated_at] => 2019-04-25 15:43:49
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [price] => 21.9900
+                                    [weight] => 12.0000
+                                    [ts_dimensions_length] => 12.0000
+                                    [ts_dimensions_width] => 12.0000
+                                    [ts_dimensions_height] => 12.0000
+                                    [name] => Perla Chmielowa Plis
+                                    [small_image] => /p/r/product_img_6.png
+                                    [thumbnail] => /p/r/product_img_6.png
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => perla-chmielowa-plis-2
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => perla-chmielowa-plis-2.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                (
+                                    [has_error] => 
+                                )
+
+                        )
+
+                    [4 (Magento\Quote\Model\Quote\Item\Interceptor)] => Array
+                        (
+                            [item_id] => 495
+                            [quote_id] => 60
+                            [created_at] => 2019-05-28 13:06:42
+                            [updated_at] => 0000-00-00 00:00:00
+                            [product_id] => 3
+                            [store_id] => 1
+                            [is_virtual] => 0
+                            [sku] => Tyskie Gronie
+                            [name] => Tyskie Gronie
+                            [is_qty_decimal] => 
+                            [no_discount] => 0
+                            [qty] => 3
+                            [price] => 42.4900
+                            [base_price] => 42.4900
+                            [discount_percent] => 0.0000
+                            [discount_amount] => 0.0000
+                            [base_discount_amount] => 0.0000
+                            [tax_percent] => 0.0000
+                            [tax_amount] => 0.0000
+                            [base_tax_amount] => 0.0000
+                            [row_total] => 127.4700
+                            [base_row_total] => 127.4700
+                            [row_total_with_discount] => 0.0000
+                            [row_weight] => 0.0000
+                            [product_type] => simple
+                            [price_incl_tax] => 42.4900
+                            [base_price_incl_tax] => 42.4900
+                            [row_total_incl_tax] => 127.4700
+                            [base_row_total_incl_tax] => 127.4700
+                            [discount_tax_compensation_amount] => 0.0000
+                            [base_discount_tax_compensation_amount] => 0.0000
+                            [free_shipping] => 0
+                            [qty_options] => Array
+                                (
+                                )
+
+                            [product (Magento\Catalog\Model\Product\Interceptor)] => Array
+                                (
+                                    [entity_id] => 3
+                                    [attribute_set_id] => 9
+                                    [type_id] => simple
+                                    [sku] => Tyskie Gronie
+                                    [has_options] => 0
+                                    [required_options] => 0
+                                    [created_at] => 2019-03-27 11:55:39
+                                    [updated_at] => 2019-03-28 10:32:51
+                                    [status] => 1
+                                    [visibility] => 4
+                                    [tax_class_id] => 2
+                                    [price] => 42.4900
+                                    [name] => Tyskie Gronie
+                                    [small_image] => //1/6/162px-butelka_tyskie_bez_cienia.png
+                                    [thumbnail] => //1/6/162px-butelka_tyskie_bez_cienia.png
+                                    [msrp_display_actual_price_type] => 0
+                                    [url_key] => tyskie-gronie
+                                    [gift_message_available] => 2
+                                    [store_id] => 1
+                                    [request_path] => tyskie-gronie.html
+                                    [customer_group_id] => 0
+                                )
+
+                            [tax_class_id] => 2
+                            [has_error] => 
+                            [stock_state_result (Magento\Framework\DataObject)] => Array
+                                (
+                                    [has_error] => 
+                                )
+
+                        )
+
+                )
+
+            [totals_collected_flag] => 
+        )
+
+)
