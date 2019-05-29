@@ -7930,7 +7930,7 @@ input[type="text"], input[type="password"], textarea {
         top: 0;
         left: 0; }
 
-.product-item-actions {
+.product-item-actions, .catalog-product-view .column .product-buy .product-add-form .field.qty .control {
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -7938,7 +7938,7 @@ input[type="text"], input[type="password"], textarea {
   align-items: center;
   position: relative;
   top: 16px; }
-  .product-item-actions .input-text {
+  .product-item-actions .input-text, .catalog-product-view .column .product-buy .product-add-form .field.qty .control .input-text {
     appearance: textfield;
     width: 40%;
     height: 40px;
@@ -7946,21 +7946,22 @@ input[type="text"], input[type="password"], textarea {
     border: 1px solid #efeae6;
     float: left;
     margin-left: 10px; }
-  .product-item-actions input[type=number]::-webkit-inner-spin-button,
-  .product-item-actions input[type=number]::-webkit-outer-spin-button {
+  .product-item-actions input[type=number]::-webkit-inner-spin-button, .catalog-product-view .column .product-buy .product-add-form .field.qty .control input[type=number]::-webkit-inner-spin-button,
+  .product-item-actions input[type=number]::-webkit-outer-spin-button,
+  .catalog-product-view .column .product-buy .product-add-form .field.qty .control input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0; }
-  .product-item-actions .field {
+  .product-item-actions .field, .catalog-product-view .column .product-buy .product-add-form .field.qty .control .field {
     width: 100% !important;
     float: left; }
-    .product-item-actions .field .control {
+    .product-item-actions .field .control, .catalog-product-view .column .product-buy .product-add-form .field.qty .control .field .control {
       width: 100%; }
-      .product-item-actions .field .control #qty {
+      .product-item-actions .field .control #qty, .catalog-product-view .column .product-buy .product-add-form .field.qty .control .field .control #qty {
         float: left;
         height: 40px;
         width: 45%;
         text-align: center; }
-  .product-item-actions button {
+  .product-item-actions button, .catalog-product-view .column .product-buy .product-add-form .field.qty .control button {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -7977,7 +7978,7 @@ input[type="text"], input[type="password"], textarea {
     display: inline-block;
     float: left;
     border: none; }
-  .product-item-actions.out-of-stock::after {
+  .product-item-actions.out-of-stock::after, .catalog-product-view .column .product-buy .product-add-form .field.qty .out-of-stock.control::after {
     content: "Not enough in stock";
     color: #e53737;
     position: absolute;
@@ -8589,26 +8590,48 @@ input[type="text"], input[type="password"], textarea {
     height: 30px;
     background-color: #EFE9E6;
     border-radius: 25px; }
-    .product-item .package_type .swatch-option {
-      text-indent: -10000px;
-      width: 29px;
-      border: solid red 1px;
-      float: left;
-      margin-top: 4px;
-      cursor: pointer; }
-      .product-item .package_type .swatch-option.selected {
-        position: relative; }
-        .product-item .package_type .swatch-option.selected:before {
+    .product-item .package_type .swatch-attribute-options {
+      padding-left: 1px; }
+      .product-item .package_type .swatch-attribute-options .swatch-option {
+        opacity: .5;
+        text-indent: -10000px;
+        width: 29px;
+        float: left;
+        margin-top: 4px;
+        transition: 300ms;
+        cursor: pointer;
+        background-position: center;
+        background-repeat: no-repeat; }
+        .product-item .package_type .swatch-attribute-options .swatch-option:first-child {
+          background-image: url("../images/swatch_1.png"); }
+          .product-item .package_type .swatch-attribute-options .swatch-option:first-child:before {
+            background-image: url("../images/swatch_1.png");
+            left: 50%; }
+        .product-item .package_type .swatch-attribute-options .swatch-option:last-child {
+          background-image: url("../images/swatch_2.png"); }
+          .product-item .package_type .swatch-attribute-options .swatch-option:last-child:before {
+            background-image: url("../images/swatch_2.png");
+            left: -50%; }
+        .product-item .package_type .swatch-attribute-options .swatch-option:before {
+          opacity: 0;
+          background-position: center;
+          background-repeat: no-repeat;
           content: "";
-          height: 100%;
-          width: 50%;
+          height: 130%;
+          width: 90%;
           position: absolute;
-          top: 0;
-          left: 0%;
-          -webkit-transition: 300ms;
-          transition: 300ms;
+          top: -2px;
+          right: 0%;
+          margin: auto;
+          transition: 300ms left;
           background-color: #fff;
           border-radius: 50%; }
+        .product-item .package_type .swatch-attribute-options .swatch-option.selected {
+          position: relative;
+          opacity: 1; }
+          .product-item .package_type .swatch-attribute-options .swatch-option.selected:before {
+            left: 0%;
+            opacity: 1; }
   .product-item .super-attribute-select {
     display: none; }
 
@@ -8791,9 +8814,9 @@ input[type="text"], input[type="password"], textarea {
           height: 80px; }
           .catalog-product-view .column .media .gallery-placeholder .loading-mask .loader img {
             margin: 0 auto; }
-      .catalog-product-view .column .media .fotorama__nav__frame {
+      .catalog-product-view .column .media .fotorama__wrap .fotorama__nav__frame {
         padding: 0; }
-        .catalog-product-view .column .media .fotorama__nav__frame .fotorama__thumb-border {
+        .catalog-product-view .column .media .fotorama__wrap .fotorama__nav__frame .fotorama__thumb-border {
           margin-top: 0;
           border-width: 1px;
           border-color: #d6b791; }
@@ -8817,6 +8840,13 @@ input[type="text"], input[type="password"], textarea {
       .catalog-product-view .column .product-buy .product-add-form {
         order: 2;
         width: 100%; }
+        .catalog-product-view .column .product-buy .product-add-form .field.qty .label {
+          display: none; }
+        .catalog-product-view .column .product-buy .product-add-form .field.qty .control {
+          justify-content: flex-start;
+          top: 0; }
+          .catalog-product-view .column .product-buy .product-add-form .field.qty .control .input-text {
+            margin-left: 0; }
       .catalog-product-view .column .product-buy .price-final_price {
         position: relative;
         display: inline-block;
