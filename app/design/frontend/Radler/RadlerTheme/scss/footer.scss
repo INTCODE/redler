@@ -65,7 +65,7 @@
 }
 @media (max-width:991px){
     footer{
-        background: $green;
+        background: $green!important;
         .wrapper{
 
             .column{
@@ -73,6 +73,7 @@
             }
             .about{
                 margin: 20px 0;
+                padding-left: 0!important;
                 text-align: center;
                 padding: 0;
                 p{
