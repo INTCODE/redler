@@ -1,4 +1,5 @@
 require(["jquery"], function($) {
+
     // click +/-
     $('.increaseQty, .decreaseQty').on("click", function() {
         switch ($(this).attr("data-action")) {

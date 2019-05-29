@@ -217,7 +217,8 @@ switch ($type = $block->getType()) {
                             $addToCartUrl =  $listBlock->getAddToCartUrl($_item);
                         ?>
  
-                                    <form data-role="tocart-form" action="<?php echo $addToCartUrl; ?>" method="post"> 
+                                    <form data-role="tocart-form"  method="post">
+                                    <form data-role="tocart-form" data-product-sku="<?php echo $_item->getSku(); ?>" action="<?php echo $addToCartUrl; ?>" method="post">
                                             <?= $block->getBlockHtml('formkey') ?>
 
                                                 <div class="control">

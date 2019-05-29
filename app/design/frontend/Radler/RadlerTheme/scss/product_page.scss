@@ -121,12 +121,14 @@
                     }
                 } 
             }
-            .fotorama__nav__frame{
-                padding: 0;
-                .fotorama__thumb-border{
-                    margin-top: 0;
-                    border-width: 1px;
-                    border-color: #d6b791;
+            .fotorama__wrap{
+                .fotorama__nav__frame{
+                    padding: 0;
+                    .fotorama__thumb-border{
+                        margin-top: 0;
+                        border-width: 1px;
+                        border-color: #d6b791;
+                    }
                 }
             }
             .fotorama__thumb-border{
@@ -155,6 +157,19 @@
             .product-add-form{
                 order: 2;
                 width: 100%;
+                .field.qty{
+                    .label{
+                        display: none;
+                    }
+                    .control{
+                        @extend .product-item-actions;
+                        justify-content: flex-start;
+                        top: 0;
+                        .input-text{
+                            margin-left: 0;
+                        }
+                    }
+                }
             }
             .price-final_price{
                 position: relative;

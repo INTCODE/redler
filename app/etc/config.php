@@ -5,7 +5,7 @@ return [
         'Magento_Store' => 1,
         'Magento_Directory' => 1,
         'Magento_Theme' => 1,
-        'Amitshree_Customer' => 1,
+        'Amitshree_Customer' => 0,
         'Blm_AddToCart' => 1,
         'Company_CustomerDocuments' => 1,
         'Magento_Backend' => 1,

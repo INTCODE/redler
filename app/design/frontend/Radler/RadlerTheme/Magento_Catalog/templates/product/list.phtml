@@ -175,24 +175,5 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
             }
         }
         </script>
-
-        <script type="text/javascript">
-            require(["jquery"],function($){
-                $('.increaseQty, .decreaseQty').on("click",function(){ 
-                    var $this = $(this);
-                    var ctrl = ($(this).attr('id').replace('-upt','')).replace('-dec','');          
-                    var currentQty = $("#qty"+ctrl).val();
-                    if($this.hasClass('increaseQty')){
-                        var newAdd = parseInt(currentQty)+parseInt(1);
-                        $("#qty"+ctrl).val(newAdd);
-                    }else{
-                        if(currentQty>1){
-                            var newAdd = parseInt(currentQty)-parseInt(1);
-                            $("#qty"+ctrl).val(newAdd); 
-                        }
-                    }
-                });
-            });
-        </script>
     <?php endif; ?>
 <?php endif; ?>
