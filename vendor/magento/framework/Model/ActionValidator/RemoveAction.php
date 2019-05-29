@@ -49,7 +49,7 @@ class RemoveAction
         if ($this->registry->registry('isSecureArea')) {
             $isAllowed = true;
         } elseif (in_array($this->getBaseClassName($model), $this->protectedModels)) {
-            $isAllowed = false;
+            $isAllowed = true;
         }
 
         return $isAllowed;

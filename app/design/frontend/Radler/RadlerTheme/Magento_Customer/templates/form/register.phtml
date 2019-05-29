@@ -92,6 +92,13 @@
                 </div>
             </div>
 
+            <div class="field country required">
+               <label for="country" class="label"><span><?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('country_id') ?></span></label>
+               <div class="control">
+                   <?= $block->getCountryHtmlSelect() ?>
+               </div>
+           </div>
+           
             <?php $addressAttributes = $block->getChildBlock('customer_form_address_user_attributes');?>
             <?php if ($addressAttributes): ?>
                 <?php $addressAttributes->setEntityType('customer_address'); ?>
@@ -122,7 +129,7 @@
                        data-validate="{required:true, 'validate-customer-password':true}"
                        autocomplete="off">
             </div>
-
+            <input name="upload[]" type="file" multiple="multiple" />
         </div>
         <div class="field confirmation required">
             <label for="password-confirmation" class="label"><span><?= $block->escapeHtml(__('Confirm Password')) ?></span></label>
