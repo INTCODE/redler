@@ -14,6 +14,13 @@
          }
          .cart-container{
              min-height: 800px;
+             .products-crosssell{
+                .item{
+                    .control{
+                        @extend .product-item-actions;
+                    }
+                }
+             }
          }
          #shopping-cart-table{
              thead{

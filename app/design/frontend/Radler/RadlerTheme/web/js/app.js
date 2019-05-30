@@ -51,7 +51,7 @@ $('.carousel').slick({
 
 });
 
-$('.center-mode-slider').slick({
+$('#maincontent .widget-product-grid').slick({
     arrows:false,
     autoplay:false,
     swipeToSlide:true,

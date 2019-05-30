@@ -1,18 +1,20 @@
-.slick-slider{
-    padding: 20px 0;
-    height: 562px!important;
+.c-aslider{
+    padding: 60px 0;
+    height: auto;
     position: relative;
     top:-40px;
     background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%);
-    .slick-list{
-        max-width: 1460px;
-        margin: auto;
-        @extend .row;
-        padding: 50px 0;
-        align-items: center;
-        justify-content: center;
-        height: 468px;
+    // .slick-list{
+    //     max-width: 1460px;
+    //     margin: auto;
+    //     @extend .row;
+    //     padding: 50px 0;
+    //     align-items: center;
+    //     justify-content: center;
+    //     height: 468px;
         .c-aslider__item{
+            margin: auto;
+            max-width: 1460px;
             @extend .row;
             .c-aslider__picture{
                 @extend  .col-lg-5;
@@ -44,7 +46,7 @@
                 }
             }
 
-            } 
+            // } 
         }
  
     .slide{
@@ -92,8 +94,59 @@
         }
     }
 }
+#maincontent{
+    .slick-slide{
+        padding: 70px 0;
+        transition: 300ms;
+        text-align: center;
+        opacity: .5;
+        transform: scale(.8);
+        &.slick-center{
+            opacity: 1;
+            transform: scale(1);
+        }
+        .product-item .product-image-photo{
+            margin: auto;
+        }
+    }
+}
 @media (max-width:991px){
-    .slick-slider{
+    #maincontent{
+        .block-title{
+            text-align: center;
+        }
+        .slick-slide{
+            padding: 30px 0 70px;
+        }
+        .slick-dots{
+            width: 100%;
+            position: absolute;
+            bottom: 15px;
+        }
+    }
+    .c-aslider.slick-slider{
         top: 0;
+        padding-bottom: 0;
+        margin-bottom: 30px;
+        .c-aslider__item{
+            display: flex;
+            .c-aslider__caption{
+                padding: 0 0 50px;
+                h1{
+                    font-size: 32px;
+                }
+                p{
+                    font-size: 15px;
+                    max-width: 80%;
+                    margin: auto;
+                }
+                &:before{
+                    display: none;
+                }
+            }
+            .c-aslider__picture .c-aslider__image{
+
+            }
+        }
     }
 }
