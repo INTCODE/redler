@@ -93,12 +93,7 @@
     }
 }
 @media (max-width:991px){
-    #big_slider{
-        .slide{
-            img{
-                display: block;
-                margin: auto;
-            }
-        }
+    .slick-slider{
+        top: 0;
     }
 }

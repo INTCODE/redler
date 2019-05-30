@@ -21,7 +21,7 @@
         height: 290px;
         position: absolute;
         z-index: 3;
-        width: 76%;
+        width: 100%;
     }
     h2,p{
         width: 605px;
@@ -82,15 +82,43 @@
         }
     }
 }
-@media (max-width:991px){
-    #know_us{
-        background: #DFC9AD;
-        .wrapper{
-            background: none;
-            .text-box{
-                width: 90%;
-                margin: auto;
-            }
+@media (max-width:1420px){
+    .know-us-better{
+        padding-right: 50px;
+        &:after{
+            background-position: center right -200px;
         }
     }
 }
+@media (max-width:991px){
+    .know-us-better{
+        padding-right: 0;
+        background: #dfcaae;
+            &::before, &::after{
+                background: none;
+            }
+            h2, p, .btn{
+                float: initial;
+                margin: auto;
+            }
+            .btn{
+                display: block;
+            }
+        }
+    }
+@media (max-width:615px){
+    .know-us-better{
+        height: auto;
+        padding: 30px 0;
+            h2{
+                font-size: 36px;
+                padding: 0 0 20px 47px;
+                &::before{
+                    top: 3px;
+                }
+            }
+            h2, p{
+                width: 90%;
+            }
+        }
+    }
