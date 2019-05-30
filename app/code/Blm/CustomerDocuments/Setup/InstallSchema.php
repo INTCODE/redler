@@ -1,10 +1,4 @@
 <?php
-/**
- *  
-  
- * 
- */
-
 namespace Blm\CustomerDocuments\Setup;
 
 use Magento\Framework\Setup\InstallSchemaInterface;
@@ -48,17 +42,6 @@ class InstallSchema implements InstallSchemaInterface
 			255,
 			['nullable' => true,'default' => null],
 			'Document'
-		)->addForeignKey(
-			$installer->getFkName(
-				'blm_customerdocuments',
-				'entity_id',
-				'customer_entity',
-				'entity_id'
-			),
-			'entity_id',
-			$installer->getTable('customer_entity'),
-			'entity_id',
-			\Magento\Framework\DB\Ddl\Table::ACTION_CASCADE
 		)->setComment(
             'Blm CustomerDocuments Table'
         );
