@@ -1,5 +1,3 @@
-
-
 .checkout-cart-index{   
     padding: 40px 0 0 0;
     position: relative;
@@ -26,6 +24,9 @@
                     th{
                         border-top:none;
                         border-bottom:none;
+                        &:not(:first-child){
+                            text-align: center;
+                        }
                         span{
                             padding: 0;
                             color: #a09792;
@@ -68,14 +69,73 @@
                      position: relative;
                      td{
                         position: absolute; 
-                        bottom: 0; 
-                        right: 0; 
+                        top: 180px;
+                        right: 120px;
                         border: none;
                         .action-edit,
                         .action-towishlist{
                             display: none;
                         }
                      }
+                 }
+                 .field{
+                     .label{
+                         display: none;
+                     }
+                     .control{
+                         display: flex;
+                         input[type='number']{
+                            appearance: textfield;
+                            width: 50px;
+                            height: 40px;
+                            text-align: center;
+                            border: 1px solid #efeae6;
+                            float: left;
+                            margin-left: 10px;
+                         }
+                         .alo_qty{
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: #efeae6;
+                            width: 30px;
+                            height: 40px;
+                            margin-right: 1px;
+                            cursor: pointer;
+                            user-select: none;
+                            display: flex;
+                            float: left;
+                            &::before{
+                                color: #CFA773;
+                                font-weight: 700;
+                                font-size: 1.125rem;
+                                line-height: 1.3; 
+                            }
+                            border: none;
+                            &.ajax-cart-qty-plus{
+                                order: 1;
+                                &::before{
+                                    content:'+';
+                                }
+                            }
+                            &.ajax-cart-qty-minus{
+                                order: 2;
+                                &::before{
+                                    content:'-';
+                                }
+                            }
+                         }
+                     }
+                 }
+                 .action-delete{
+                    @extend .btn-remove;
+                    background-image: url('../images/icons/cross.svg');
+                    background-position: center;
+                    background-size: 8px;
+                    background-repeat: no-repeat;
+                    span{
+                        font-size: 0;
+                    }
                  }
              }
              .table-caption{
@@ -105,6 +165,16 @@
                     margin: 20px 0 15px;
                     padding: 15px 0;
                     border-top: 1px solid #eadfcf;
+                }
+                .checkout{
+                    list-style: none;
+                    button{
+                        @extend .btn;
+                        @extend .btn-green;
+                        
+                        display: block;
+                        margin: auto;
+                    }
                 }
                 .table-wrapper{
                     tbody{

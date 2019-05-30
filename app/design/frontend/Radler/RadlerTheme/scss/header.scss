@@ -298,15 +298,25 @@
     }
 }
 @media (max-width:480px){
-    #account{
-        flex-direction: column!important;
-        #my_account{
-            order:2;
-            text-align: center;
-            margin-top: 15px;
-        }
-        #basket{
-            order: 1;
+    .page-header{
+        .content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .logo{
+                display: block;
+            }
+            .links{
+                margin-bottom: 10px;
+                border: none;
+                float: initial;
+            }
+            .minicart-wrapper{
+                margin-left: 0;
+                width: 250px;
+                float: initial;
+                order: 2;
+            }
         }
     }
 }

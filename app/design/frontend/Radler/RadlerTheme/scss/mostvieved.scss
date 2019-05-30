@@ -50,5 +50,32 @@
     }
 }
 }
-
- 
+@media (max-width:1420px){
+    .cms-home .columns{
+        .product-items{
+            text-align: center!important;
+        }
+    }
+}
+@media (max-width:991px){
+    .cms-home .columns{
+        .title{
+            h3{
+                text-align: center;
+            }
+        }
+        .column{
+            &::before{
+                display: none;
+            }
+        }
+        .sidebar-additional{
+            &::before{
+                display: none;
+            }
+            .block-title{
+                text-align: center;
+            }
+        }
+    }
+}
