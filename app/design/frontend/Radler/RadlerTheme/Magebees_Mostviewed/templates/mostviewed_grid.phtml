@@ -72,7 +72,7 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
 									<?php if($this->getAddToCart()): ?>
 										<div class="actions-primary"<?php echo strpos($pos, $viewMode . '-primary') ? $position : ''; ?>>
 									<?php endif; ?>
-										<?php if ($_product->isSaleable()): ?>
+										<?php if ($_product->isSaleable() && $GLOBALS['isActive']==2  ): ?>
 											<?php $postParams = $block->getAddToCartPostParams($_product); ?>
 											<form data-role="tocart-form" action="<?php echo $postParams['action']; ?>" method="post" data-mage-init='{"validation":{}}'>
 												<input type="hidden" name="product" value="<?php echo $postParams['data']['product']; ?>">

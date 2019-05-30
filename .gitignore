@@ -68,3 +68,4 @@ atlassian*
 
 
 /app/design/frontend/Radler/RadlerTheme/Magento_Theme/layout
+app/etc/env.php

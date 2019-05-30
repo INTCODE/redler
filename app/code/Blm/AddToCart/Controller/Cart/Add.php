@@ -147,9 +147,9 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
           //  $attributes = $product->getTypeInstance(true)->getConfigurableAttributesAsArray($product); 
           //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========attributes===========\n".print_r($attributes, true));
          //   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========test===========\n".print_r($optionsData, true));
+        //$this->cart->getQuote()->setIsMultiShipping(true);
+//        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========Dokoszyk=============\n".print_r($this->cart->getQuote()->debug(), true));
 
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========Dokoszyk=============\n".print_r($params, true));
-            
             $debugContent = "";
             $items = $this->cart->getQuote()->getAllItems();
             foreach($items as $item) {
@@ -168,7 +168,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                                 $debugContent .= "ID KOMBINACJI: ".$option->getProduct()->getId()."\n";
                                 $debugContent .= "ID ATTRYBUTU Z KOSZYKA: ".$idAttribute."\n";
                               
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($product->getTypeId(), true));
+           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($product->getTypeId(), true));
                                 if($product->getTypeId()=='configurable'){
                                     $productType=$option->getProduct()->getId()-10;
                                 }else{
@@ -204,9 +204,9 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                             
             }
 
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($debugContent, true));
+           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($debugContent, true));
 
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========product============\n".print_r($product->debug(), true));
+            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========product============\n".print_r($product->debug(), true));
 
 
 
@@ -219,13 +219,15 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
 
             if($params['qty'] > 0){
                 $this->cart->addProduct($product, $params);
+           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========params============\n".print_r($params, true));
                 if (!empty($related)) {
                     $this->cart->addProductsByIds(explode(',', $related));
                 }
             }
 
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($this->cart->debug(), true));
+            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($this->cart->debug(), true));
             $this->cart->save();
+         //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($quote->getId(), true));
 
 
             /**

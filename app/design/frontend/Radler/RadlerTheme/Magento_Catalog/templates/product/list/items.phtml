@@ -211,12 +211,13 @@ switch ($type = $block->getType()) {
                             $swatchBlock = $this->getLayout()->createBlock("Magento\Swatches\Block\Product\Renderer\Listing\Configurable")->setTemplate("Magento_Swatches::product/listing/renderer.phtml");
                             echo $swatchBlock->setProduct($_item)->toHtml();                           
                         } ?>
+                            <?php if($GLOBALS['isActive']==2): ?>
                         <?php
                             $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
                             $listBlock = $objectManager->get('\Magento\Catalog\Block\Product\ListProduct');
                             $addToCartUrl =  $listBlock->getAddToCartUrl($_item);
                         ?>
- 
+
                                     <form data-role="tocart-form"  method="post">
                                     <form data-role="tocart-form" data-product-sku="<?php echo $_item->getSku(); ?>" action="<?php echo $addToCartUrl; ?>" method="post">
                                             <?= $block->getBlockHtml('formkey') ?>
@@ -263,7 +264,7 @@ switch ($type = $block->getType()) {
                                             </button>
                                         </form>
 
-
+                                        <?php endif; ?>
 
                             <?php if ($templateType): ?>
                                 <?= $block->getReviewsSummaryHtml($_item, $templateType) ?>

@@ -10,6 +10,7 @@
 <?php
 /** @var $block \Magento\Checkout\Block\Cart */
 ?>
+<?php if($GLOBALS['isActive']==2): ?>
 <?php if (!$block->hasError()): ?>
 <?php $methods = $block->getMethods('methods') ?: $block->getMethods('top_methods') ?>
 <ul class="checkout methods items checkout-methods-items">
@@ -20,4 +21,5 @@
     <?php endif; ?>
 <?php endforeach; ?>
 </ul>
+<?php endif; ?>
 <?php endif; ?>

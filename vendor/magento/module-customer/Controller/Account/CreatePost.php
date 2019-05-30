@@ -361,44 +361,11 @@ class CreatePost extends AbstractAccount implements CsrfAwareActionInterface, Ht
 
             $this->checkPasswordConfirmation($password, $confirmation);
 
-            //upload
-            // Count # of uploaded files in array
-            $total = count($_FILES['upload']['name']);
 
-            // Loop through each file
-            for ($i = 0; $i < $total; $i++) {
-                $tmpFilePath = $_FILES['upload']['tmp_name'][$i];
-
-                if ($tmpFilePath != ""){
-                    $newFilePath = $rootPath.'/pub/media/company/customerdocuments/' . $_FILES['upload']['name'][$i];            
-                   
-                    $dbPath='company/customerdocuments/' . $_FILES['upload']['name'][$i];
-                    //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt") . "\n=========IDD===========\n" . print_r($str, true));
-                   
-                   
-                    if (move_uploaded_file($tmpFilePath, $newFilePath)) {
-                      
-                        $this->_resources = \Magento\Framework\App\ObjectManager::getInstance()
-                        ->get('Magento\Framework\App\ResourceConnection');
-                        $connection= $this->_resources->getConnection();
-                        
-                        $sql = "INSERT INTO blm_customerdocuments
-                        (entity_id, Document)
-                        VALUES (0, '$dbPath')";
-                        $connection->query($sql);
-
-                    } else {
-                       echo "File was not uploaded";
-                    }
-                    
-                }
-            
-                    }
-                
-                    //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt") . "\n=========IDD===========\n" . print_r($customer->debug(), true));
 
             $customer = $this->accountManagement
                 ->createAccount($customer, $password, $redirectUrl);
+
 
             if ($this->getRequest()->getParam('is_subscribed', false)) {
                 $this->subscriberFactory->create()->subscribeCustomerById($customer->getId());
@@ -410,6 +377,41 @@ class CreatePost extends AbstractAccount implements CsrfAwareActionInterface, Ht
             );
 
             $confirmationStatus = $this->accountManagement->getConfirmationStatus($customer->getId());
+            
+            $id=$customer->getId();
+            //upload
+            // Count # of uploaded files in array
+            $total = count($_FILES['upload']['name']);
+
+            // Loop through each file
+            for ($i = 0; $i < $total; $i++) {
+                $tmpFilePath = $_FILES['upload']['tmp_name'][$i];
+
+                if ($tmpFilePath != ""){
+                    $newFilePath = $rootPath.'/pub/media/company/customerdocuments/' .$id.'_'. $_FILES['upload']['name'][$i];            
+                   
+                    $dbPath='company/customerdocuments/'.$id.'_'. $_FILES['upload']['name'][$i];
+                    //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt") . "\n=========IDD===========\n" . print_r($str, true));
+                   
+                   
+                    if (move_uploaded_file($tmpFilePath, $newFilePath)) {
+                     
+                        $this->_resources = \Magento\Framework\App\ObjectManager::getInstance()
+                        ->get('Magento\Framework\App\ResourceConnection');
+                        $connection= $this->_resources->getConnection();
+                        
+                        $sql = "INSERT INTO blm_customerdocuments
+                        (entity_id, Document)
+                        VALUES ($id, '$dbPath')";
+                        $connection->query($sql);
+
+                    } else {
+                       echo "File was not uploaded";
+                    }   
+                }
+                    }
+            
+
 
             if ($confirmationStatus === AccountManagementInterface::ACCOUNT_CONFIRMATION_REQUIRED) {
                 $email = $this->customerUrl->getEmailConfirmationUrl($customer->getEmail());

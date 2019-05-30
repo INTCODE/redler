@@ -84,7 +84,7 @@
                                             <div class="product-item-inner">
                                                 <?php if ($showCart): ?>
                                                     <div class="product-item-actions">
-                                                            <?php if ($_product->isSaleable()): ?>
+                                                            <?php if ($_product->isSaleable() && $GLOBALS['isActive']==2 ): ?>
                                                                 <?php $postParams = $list_product->getAddToCartPostParams($_product); ?>
                                                                 <form data-role="tocart-form"
                                                                       action="<?php echo $postParams['action']; ?>"
