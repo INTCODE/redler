@@ -12,13 +12,15 @@
  ?>
  <!-- 
 
+
+
     Dodatkowe divy dla headera
 
   -->
 
   <?php 
   $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
- 
+  
   $customerAddress = array();
   $id=null;
   $customerSession = $objectManager->create("Magento\Customer\Model\Session");
@@ -36,8 +38,7 @@
   $options=null;
   foreach ($customerAddress as $customerAddres) {
     $data=$customerAddres['postcode'].' | '.$customerAddres['firstname'].' '.$customerAddres['lastname'].' - '.$customerAddres['company'];
-
-    $options.="<option value='".$customerAddres['postcode']."'>$data</option>";
+    $options.="<option value='".$customerAddres['entity_id']."'>$data</option>";
   }
   
   ?>
@@ -46,11 +47,31 @@
 
 <?php if ($id): ?>
 <div>
-<select>
+<select id='addresses' onchange="getIdAddress()">
 <?php echo $options?>
 </select> 
 </div>
+
+<script >
+  
+function getIdAddress() {
+ var idAddress= $( "#addresses" ).val();
+  $('input[name="addressId"]').val(idAddress);
+
+} 
+
+</script>
+
+
 <?php endif; ?>
+
+<script>
+
+
+
+
+
+
 
 <?php
 /**
