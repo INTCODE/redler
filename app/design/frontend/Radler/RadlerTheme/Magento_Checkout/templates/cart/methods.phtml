@@ -12,6 +12,7 @@ file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=======
 file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========Top_Methodds===========\n".print_r($block->getMethods('top_methods'), true));
 /** @var $block \Magento\Checkout\Block\Cart */
 ?>
+<?php if($GLOBALS['isActive']==2): ?>
 <?php if (!$block->hasError()): ?>
 <?php $methods = $block->getMethods('methods') ?: $block->getMethods('top_methods') ?>
 <ul class="checkout methods items checkout-methods-items">
@@ -24,4 +25,5 @@ file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=======
     <?php endif; ?>
 <?php endforeach; ?>
 </ul>
+<?php endif; ?>
 <?php endif; ?>

@@ -7,6 +7,7 @@
     position: relative;
     margin: 2px!important;
     width: 260px; 
+    max-width: 260px;
     &.promo::before{
         content: "";
         background-image: url('../../assets/img/promo.png');

@@ -5,37 +5,37 @@
  */
 namespace Magento\Customer\Controller\Account;
 
-use Magento\Framework\App\Action\HttpPostActionInterface as HttpPostActionInterface;
-use Magento\Customer\Model\Account\Redirect as AccountRedirect;
+use Magento\Customer\Api\AccountManagementInterface;
 use Magento\Customer\Api\Data\AddressInterface;
+use Magento\Customer\Api\Data\AddressInterfaceFactory;
+use Magento\Customer\Api\Data\CustomerInterfaceFactory;
+use Magento\Customer\Api\Data\RegionInterfaceFactory;
+use Magento\Customer\Controller\AbstractAccount;
+use Magento\Customer\Helper\Address;
+use Magento\Customer\Model\Account\Redirect as AccountRedirect;
+use Magento\Customer\Model\CustomerExtractor;
+use Magento\Customer\Model\Metadata\FormFactory;
+use Magento\Customer\Model\Registration;
+use Magento\Customer\Model\Session;
+use Magento\Customer\Model\Url as CustomerUrl;
 use Magento\Framework\Api\DataObjectHelper;
 use Magento\Framework\App\Action\Context;
-use Magento\Customer\Model\Session;
+use Magento\Framework\App\Action\HttpPostActionInterface as HttpPostActionInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\CsrfAwareActionInterface;
 use Magento\Framework\App\ObjectManager;
-use Magento\Framework\App\Request\InvalidRequestException;
 use Magento\Framework\App\RequestInterface;
+use Magento\Framework\App\Request\InvalidRequestException;
 use Magento\Framework\Controller\Result\Redirect;
-use Magento\Framework\Exception\LocalizedException;
-use Magento\Framework\Phrase;
-use Magento\Store\Model\StoreManagerInterface;
-use Magento\Customer\Api\AccountManagementInterface;
-use Magento\Customer\Helper\Address;
-use Magento\Framework\UrlFactory;
-use Magento\Customer\Model\Metadata\FormFactory;
-use Magento\Newsletter\Model\SubscriberFactory;
-use Magento\Customer\Api\Data\RegionInterfaceFactory;
-use Magento\Customer\Api\Data\AddressInterfaceFactory;
-use Magento\Customer\Api\Data\CustomerInterfaceFactory;
-use Magento\Customer\Model\Url as CustomerUrl;
-use Magento\Customer\Model\Registration;
-use Magento\Framework\Escaper;
-use Magento\Customer\Model\CustomerExtractor;
-use Magento\Framework\Exception\StateException;
-use Magento\Framework\Exception\InputException;
 use Magento\Framework\Data\Form\FormKey\Validator;
-use Magento\Customer\Controller\AbstractAccount;
+use Magento\Framework\Escaper;
+use Magento\Framework\Exception\InputException;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Exception\StateException;
+use Magento\Framework\Phrase;
+use Magento\Framework\UrlFactory;
+use Magento\Newsletter\Model\SubscriberFactory;
+use Magento\Store\Model\StoreManagerInterface;
 
 /**
  * @SuppressWarnings(PHPMD.TooManyFields)
@@ -112,6 +112,11 @@ class CreatePost extends AbstractAccount implements CsrfAwareActionInterface, Ht
      * @var Session
      */
     protected $session;
+
+    /**
+     * @var dir
+     */
+     protected $dir;
 
     /**
      * @var AccountRedirect
@@ -285,7 +290,7 @@ class CreatePost extends AbstractAccount implements CsrfAwareActionInterface, Ht
      */
     public function createCsrfValidationException(
         RequestInterface $request
-    ): ?InvalidRequestException {
+    ): ?InvalidRequestException{
         /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         $url = $this->urlModel->getUrl('*/*/create', ['_secure' => true]);
@@ -314,6 +319,17 @@ class CreatePost extends AbstractAccount implements CsrfAwareActionInterface, Ht
      */
     public function execute()
     {
+
+        //getPath
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+        $directory = $objectManager->get('\Magento\Framework\Filesystem\DirectoryList');
+
+        $rootPath  =  $directory->getRoot('media');
+
+
+
+
         /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($this->session->isLoggedIn() || !$this->registration->isAllowed()) {
@@ -332,6 +348,7 @@ class CreatePost extends AbstractAccount implements CsrfAwareActionInterface, Ht
         $this->session->regenerateId();
 
         try {
+
             $address = $this->extractAddress();
             $addresses = $address === null ? [] : [$address];
 
@@ -344,8 +361,11 @@ class CreatePost extends AbstractAccount implements CsrfAwareActionInterface, Ht
 
             $this->checkPasswordConfirmation($password, $confirmation);
 
+
+
             $customer = $this->accountManagement
                 ->createAccount($customer, $password, $redirectUrl);
+
 
             if ($this->getRequest()->getParam('is_subscribed', false)) {
                 $this->subscriberFactory->create()->subscribeCustomerById($customer->getId());
@@ -357,6 +377,42 @@ class CreatePost extends AbstractAccount implements CsrfAwareActionInterface, Ht
             );
 
             $confirmationStatus = $this->accountManagement->getConfirmationStatus($customer->getId());
+            
+            $id=$customer->getId();
+            //upload
+            // Count # of uploaded files in array
+            $total = count($_FILES['upload']['name']);
+
+            // Loop through each file
+            for ($i = 0; $i < $total; $i++) {
+                $tmpFilePath = $_FILES['upload']['tmp_name'][$i];
+
+                if ($tmpFilePath != ""){
+                    $newFilePath = $rootPath.'/pub/media/company/customerdocuments/' .$id.'_'. $_FILES['upload']['name'][$i];            
+                   
+                    $dbPath='company/customerdocuments/'.$id.'_'. $_FILES['upload']['name'][$i];
+                    //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt") . "\n=========IDD===========\n" . print_r($str, true));
+                   
+                   
+                    if (move_uploaded_file($tmpFilePath, $newFilePath)) {
+                     
+                        $this->_resources = \Magento\Framework\App\ObjectManager::getInstance()
+                        ->get('Magento\Framework\App\ResourceConnection');
+                        $connection= $this->_resources->getConnection();
+                        
+                        $sql = "INSERT INTO blm_customerdocuments
+                        (entity_id, Document)
+                        VALUES ($id, '$dbPath')";
+                        $connection->query($sql);
+
+                    } else {
+                       echo "File was not uploaded";
+                    }   
+                }
+                    }
+            
+
+
             if ($confirmationStatus === AccountManagementInterface::ACCOUNT_CONFIRMATION_REQUIRED) {
                 $email = $this->customerUrl->getEmailConfirmationUrl($customer->getEmail());
                 // @codingStandardsIgnoreStart
@@ -366,6 +422,7 @@ class CreatePost extends AbstractAccount implements CsrfAwareActionInterface, Ht
                         $email
                     )
                 );
+
                 // @codingStandardsIgnoreEnd
                 $url = $this->urlModel->getUrl('*/*/index', ['_secure' => true]);
                 $resultRedirect->setUrl($this->_redirect->success($url));
@@ -380,6 +437,7 @@ class CreatePost extends AbstractAccount implements CsrfAwareActionInterface, Ht
                 }
                 $resultRedirect = $this->accountRedirect->getRedirect();
             }
+
             if ($this->getCookieManager()->getCookie('mage-cache-sessid')) {
                 $metadata = $this->getCookieMetadataFactory()->createCookieMetadata();
                 $metadata->setPath('/');

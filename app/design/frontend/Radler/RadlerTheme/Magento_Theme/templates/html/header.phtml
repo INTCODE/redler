@@ -15,3 +15,47 @@
     Dodatkowe divy dla headera
 
   -->
+
+  <?php 
+  $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+ 
+  $customerAddress = array();
+  $id=null;
+  $customerSession = $objectManager->create("Magento\Customer\Model\Session");
+
+  if($customerSession->isLoggedIn()){
+    $id= $customerSession->getCustomerId();
+  }
+  $customerObj = $objectManager->create('Magento\Customer\Model\Customer')->load($id);
+  $GLOBALS['isActive'] = $customerObj['approve_account'];
+
+  foreach ($customerObj->getAddresses() as $address)
+  {
+      $customerAddress[] = $address->toArray();
+  }
+  $options=null;
+  foreach ($customerAddress as $customerAddres) {
+    $data=$customerAddres['postcode'].' | '.$customerAddres['firstname'].' '.$customerAddres['lastname'].' - '.$customerAddres['company'];
+
+    $options.="<option value='".$customerAddres['postcode']."'>$data</option>";
+  }
+  
+  ?>
+
+<!--  -->
+
+<?php if ($id): ?>
+<div>
+<select>
+<?php echo $options?>
+</select> 
+</div>
+<?php endif; ?>
+
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile

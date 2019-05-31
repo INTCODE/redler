@@ -11,6 +11,7 @@
             @extend .col-lg-3 ;
             @extend .col-md-6 ;
             text-align: center;
+            display: block;
             .column-title{
                 color:$secondary_text_color;
                 letter-spacing: 2px;
