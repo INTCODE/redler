@@ -10,10 +10,10 @@ return [
         'table_prefix' => '',
         'connection' => [
             'default' => [
-                'host' => 'dev8.pro',
+                'host' => 'localhost',
                 'dbname' => 'admin_radler',
-                'username' => 'admin_radler',
-                'password' => 'DZ33UUIj5',
+                'username' => 'root',
+                'password' => '',
                 'model' => 'mysql4',
                 'engine' => 'innodb',
                 'initStatements' => 'SET NAMES utf8;',

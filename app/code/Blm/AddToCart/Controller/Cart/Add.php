@@ -1,4 +1,8 @@
 <?php
+
+
+
+
 /**
  *
  * Copyright © Magento, Inc. All rights reserved.
@@ -18,6 +22,9 @@ use Magento\Framework\Exception\NoSuchEntityException;
  */
 class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInterface
 {
+
+
+    
     /**
      * @var ProductRepositoryInterface
      */
@@ -82,6 +89,34 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
      */
     public function execute()
     {
+        $params = $this->getRequest()->getParams();
+
+
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $id=null;
+        $customerSession = $objectManager->create("Magento\Customer\Model\Session");
+      
+        if($customerSession->isLoggedIn()){
+          $id= $customerSession->getCustomerId();
+        }
+        $customerObj = $objectManager->create('Magento\Customer\Model\Customer')->load($id);
+      
+        $addresses = $customerObj->getAddresses();
+        $currentAddress=null;
+        foreach ($customerObj->getAddresses() as $address)
+        {
+            if($params['addressId']==$address['entity_id']){
+                $currentAddress=$address;
+            }
+
+        }
+
+       //currently set address 
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($currentAddress->debug(), true));
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($params['addressId'], true));
+
+       
+      
         if (!$this->_formKeyValidator->validate($this->getRequest())) {
             $this->messageManager->addErrorMessage(
                 __('Your session has expired')
@@ -89,7 +124,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
             return $this->resultRedirectFactory->create()->setPath('*/*/');
         }
 
-        $params = $this->getRequest()->getParams();
+        
 
         try {
             
@@ -147,8 +182,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
           //  $attributes = $product->getTypeInstance(true)->getConfigurableAttributesAsArray($product); 
           //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========attributes===========\n".print_r($attributes, true));
          //   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========test===========\n".print_r($optionsData, true));
-        //$this->cart->getQuote()->setIsMultiShipping(true);
-//        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========Dokoszyk=============\n".print_r($this->cart->getQuote()->debug(), true));
 
             $debugContent = "";
             $items = $this->cart->getQuote()->getAllItems();
@@ -205,6 +238,15 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
             }
 
            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($debugContent, true));
+          // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($this->cart->getQuote()->getShippingAddress()->debug(), true));
+           
+          $test= $this->cart->getQuote()->getAddressesCollection();
+          foreach ($test as $key => $value) {
+             // if($value['customer_address_id']==$params['addressId']){
+                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($value->debug(), true));
+             // }
+           # code...
+          }
 
             //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========product============\n".print_r($product->debug(), true));
 

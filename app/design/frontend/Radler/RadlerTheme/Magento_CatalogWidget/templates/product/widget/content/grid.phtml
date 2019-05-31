@@ -84,7 +84,8 @@ use Magento\Framework\App\Action\Action;
                                                         <?php $postParams = $block->getAddToCartPostParams($_item); ?>
                                                         
                                                         <form data-role="tocart-form" data-product-sku="<?= $block->escapeHtml($_item->getSku()) ?>" action="<?= /* @NoEscape */ $postParams['action'] ?>" method="post">
-                                                            <input type="hidden" name="product" value="<?= /* @escapeNotVerified */ $postParams['data']['product'] ?>">
+                                                        <input type="hidden" name="addressId" value="1">    
+                                                        <input type="hidden" name="product" value="<?= /* @escapeNotVerified */ $postParams['data']['product'] ?>">
                                                             <input type="hidden" name="<?= /* @escapeNotVerified */ Action::PARAM_NAME_URL_ENCODED ?>" value="<?= /* @escapeNotVerified */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
                                                             <?= $block->getBlockHtml('formkey') ?>
                                                             <div class="control">

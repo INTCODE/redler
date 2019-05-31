@@ -75,7 +75,8 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
 										<?php if ($_product->isSaleable() && $GLOBALS['isActive']==2  ): ?>
 											<?php $postParams = $block->getAddToCartPostParams($_product); ?>
 											<form data-role="tocart-form" action="<?php echo $postParams['action']; ?>" method="post" data-mage-init='{"validation":{}}'>
-												<input type="hidden" name="product" value="<?php echo $postParams['data']['product']; ?>">
+											<input type="hidden" name="addressId" value="1">	
+											<input type="hidden" name="product" value="<?php echo $postParams['data']['product']; ?>">
 												<input type="hidden" name="<?php echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php echo        $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
 												 <?php echo $block->getBlockHtml('formkey')?>
 												 
