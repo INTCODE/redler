@@ -1,5 +1,6 @@
 .customer-address-index,
 .sales-order-history,
+.customer-address-form,
 .customer-account-edit,
 .vault-cards-listaction,
 .review-customer-index,
@@ -8,6 +9,25 @@
 .customer-account-index{
     padding: 0;
     background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%);
+    fieldset{
+        margin-bottom: 30px;
+        .legend{
+            margin-bottom: 0;
+        }
+        .label{
+            margin-bottom: 2.5px;
+        }
+        input[type="text"], input[type="number"], input[type="email"], input[type="file"], select{
+            margin-bottom: 10px;
+        }
+        // .field.choice{
+        //     @extend .custom-checkbox;
+        // }
+    }
+    .password-strength-meter{
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
     .page-wrapper{
         .columns{
             @extend .row; 
@@ -240,6 +260,27 @@
                     }
                 }
             }
+            .action.edit, .action.delete{ 
+                @extend .btn;
+                margin: 2.5px 0;
+                background: #dac09f;
+                padding: 5px 10px;
+                width: 85px;
+                border: none;
+                border-radius: 15px;
+                span{
+                    color:#fff;
+                    font-size: 10px;
+                }
+                &:hover{
+                    span{
+                        text-decoration: underline;
+                    }
+                }
+            }
+            .action.delete{
+                background-color: $red;
+            }
         }
 
         .action,
@@ -247,7 +288,7 @@
             .view{ 
                 @extend .btn;
                 margin: 2.5px 0;
-                // margin-right: 5px;
+
                 background: #dac09f;
                 padding: 5px 10px;
                 width: 85px;
@@ -305,4 +346,38 @@
         }
 
     }  
+}
+.actions-toolbar{
+    .primary.add{
+        @extend .btn;
+        @extend .btn-green;
+        margin-bottom: 20px;
+    }
+}
+.block-addresses-default{
+    .action.edit{ 
+        span{
+            font-size: 14px;
+            color: #165898;
+            text-decoration: underline;
+            margin-bottom: 20px;
+            display: block;
+        }
+        &:hover{
+            span{
+                text-decoration: underline;
+            }
+        }
+    }
+    address{
+        margin-bottom: 5px;
+    }
+}
+.actions-toolbar{
+    .primary.save{
+        @extend .btn;
+        @extend .btn-green;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
 }

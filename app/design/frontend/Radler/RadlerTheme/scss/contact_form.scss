@@ -14,33 +14,76 @@
         }
         form{
             @extend .col-lg-8;
-            @extend .row;
-            .inputs{
-                @extend .col-lg-4;
-            }
-            .textarea{
-                @extend .col-lg-8;
-            }
-            label{
-                font-size: 14px;
-                font-weight: 600;
-                width: 100%;
-                padding-bottom: 18px;
-                span{
-                    display: block;
-                    padding-bottom: 5px;
-                }
-            }
-            .bottom-panel{
-                width: 100%;
-                @include flex-row(flex-end, center);
-                label{
-                    padding: 0;
-                    display: flex;
-                    .bottom-text{
-                        padding-left:30px;
+            .fieldset{
+                .left{
+                    width: 45%;
+                    float: left;
+                    .field:not(:first-child){
+                        padding-top: 10px;
                     }
                 }
+                .right{
+                    width: 50%;
+                    float: right;
+                    textarea{
+                        height: 110px;
+                    }
+                }
+                label{
+                    font-size: 14px;
+                    font-weight: 600;
+                    width: 100%;
+                    padding-bottom: 5px;
+                    span{
+                        display: block;
+                        padding-bottom: 5px;
+                    }
+                }
+            }
+        }
+        .primary{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            .action.submit{
+                @extend .btn;
+                @extend .btn-green;
+            }
+        }
+    }
+}
+@media (max-width:991px){
+    #contact_form{
+        .wrapper{
+            .text{
+                p{
+                    max-width: 300px;
+                    margin: auto;
+                    text-align: center;
+                }
+            }
+            form{
+                .fieldset{
+                    .left{
+                        width: 100%;
+                        float: initial;
+                        .field{
+                            padding-top: 10px;
+                        }
+                    }
+                    .right{
+                        width: 100%;
+                        float: initial;
+                        .field{
+                            padding-top: 10px;
+                        }
+                    }
+                }
+            }
+            .primary{
+                padding-top: 20px;
+                position: relative;
+                text-align: center;
             }
         }
     }
