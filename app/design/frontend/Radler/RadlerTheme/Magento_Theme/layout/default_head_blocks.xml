@@ -17,6 +17,7 @@
         <remove src="RLTSquare_BestSeller::css/custom-slick.css"/>
         <remove src="RLTSquare_BestSeller::js/slick.js"/>
         <script src="js/productCart.js"/>
+        <script src="js/addresses.js"/>
         
  
   

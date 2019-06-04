@@ -112,8 +112,8 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
         }
 
        //currently set address 
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($currentAddress->debug(), true));
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($params['addressId'], true));
+      //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($currentAddress->debug(), true));
+        //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($params['addressId'], true));
 
        
       
@@ -243,7 +243,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
           $test= $this->cart->getQuote()->getAddressesCollection();
           foreach ($test as $key => $value) {
              // if($value['customer_address_id']==$params['addressId']){
-                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($value->debug(), true));
+              //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($value->debug(), true));
              // }
            # code...
           }
@@ -270,7 +270,37 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
             //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($this->cart->debug(), true));
             $this->cart->save();
          //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($quote->getId(), true));
+         $items = $this->cart->getQuote()->getAllItems();
+       
+          //save product to adresses:
+          $qty=$params['qty'];
+          $address=$params['addressId'];
+          $product_item_id=$items[0]->getId();
 
+
+          $shiptest=array();
+          $product_ship=array('qty'=>$qty,'address'=>$address);
+     
+          $ship_elem = array($product_item_id => $product_ship);
+         
+/*session is started if you don't write this line can't use $_Session  global variable*/
+
+      
+
+       //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($shiptest, true));
+         
+
+      
+          // $shptest=$shipToInfo;
+         array_push($shiptest,$ship_elem);
+
+        // $_SESSION["newsession"]='qwe';
+      
+
+        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r('asds', true));
+
+         $AddressPost = $this->_objectManager->get('Magento\Multishipping\Controller\Checkout\AddressesPost');
+        $AddressPost->updateAddresses($shiptest);
 
             /**
              * @todo remove wishlist observer \Magento\Wishlist\Observer\AddToCart

@@ -22,6 +22,7 @@
                "eventName": "updateMulticartItemQty"
           }}'
       action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>"
+      
       method="post"
       class="multicheckout address form">
     <div class="title">
@@ -82,7 +83,8 @@
                                         <?= $block->getAddressesHtmlSelect($_item, $_index) ?>
                                     </div>
                                 </div>
-                            <?php endif; ?>
+                            <?php                      
+                        endif; ?>
                         </td>
                         <td class="col actions" data-th="<?= $block->escapeHtml(__('Actions')) ?>">
                             <a href="<?= $block->escapeUrl($block->getItemDeleteUrl($_item)) ?>"
