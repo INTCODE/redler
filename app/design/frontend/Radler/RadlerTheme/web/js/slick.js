@@ -1781,10 +1781,10 @@
 
             imageToLoad.onerror = function() {
 
-                if ( tryCount < 3 ) {
+                if ( tryCount < 5 ) {
 
                     /**
-                     * try to load the image 3 times,
+                     * try to load the image 5 times,
                      * leave a slight delay so we don't get
                      * servers blocking the request.
                      */
