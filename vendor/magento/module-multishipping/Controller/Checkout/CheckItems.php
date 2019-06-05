@@ -81,6 +81,8 @@ class CheckItems extends Checkout
     public function execute()
     {
         try {
+           
+
             $shippingInfo = $this->getRequest()->getPost('ship');
             if (!\is_array($shippingInfo)) {
                 throw new LocalizedException(

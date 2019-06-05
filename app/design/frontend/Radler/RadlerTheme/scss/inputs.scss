@@ -7,7 +7,7 @@ input[type="text"], input[type="password"], input[type="email"], textarea{
 }
 select{
     padding: 6px 35px 6px 20px;
-    background-color: #EADFCF;
+    background-color: $primary_bg_color;
     border-radius: 25px;
     border: none;
     appearance: none;

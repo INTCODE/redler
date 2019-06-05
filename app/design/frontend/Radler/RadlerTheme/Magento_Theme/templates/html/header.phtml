@@ -1,3 +1,4 @@
+
 <?php
 /**
  * Copyright © Magento, Inc. All rights reserved.
@@ -32,10 +33,25 @@ foreach ($customerAddress as $customerAddres) {
   $options.="<option value='".$customerAddres['entity_id']."'>$data</option>";
 }
  ?>
- <!-- 
-
-
+ <!--
 
     Dodatkowe divy dla headera
 
   -->
+
+
+<?php if ($id): ?>
+<div>
+<select id='addresses'>
+<?php echo $options?>
+</select> 
+</div>
+
+
+<?php endif; ?>
+
+
+
+
+
+
