@@ -13,16 +13,6 @@
             </argument>
         </column>
 
-
-        <column name="Image" class="Amitshree\Customer\Ui\Component\Listing\Column\AccountDocument">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="label" xsi:type="string" translate="true">Account Documents</item>
-                    <item name="sortOrder" xsi:type="number">32</item>
-                </item>
-            </argument>
-        </column>
-
     </columns>
 </listing>
 

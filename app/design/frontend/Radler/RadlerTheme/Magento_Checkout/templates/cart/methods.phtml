@@ -8,8 +8,6 @@
 
 ?>
 <?php
-file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========Methodds===========\n".print_r($block->getMethods('methods'), true));
-file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========Top_Methodds===========\n".print_r($block->getMethods('top_methods'), true));
 /** @var $block \Magento\Checkout\Block\Cart */
 ?>
 <?php if($GLOBALS['isActive']==2): ?>
@@ -18,8 +16,7 @@ file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=======
 <ul class="checkout methods items checkout-methods-items">
 <?php foreach ($methods as $method): ?>
     <?php $methodHtml = $block->getMethodHtml($method); 
-    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========Met===========\n".print_r($block->getMethods($method)));
-    ?>
+     ?>
     <?php if (trim($methodHtml) !== ''): ?>
     <li class="item"><?= /* @escapeNotVerified */ $methodHtml ?></li>
     <?php endif; ?>
