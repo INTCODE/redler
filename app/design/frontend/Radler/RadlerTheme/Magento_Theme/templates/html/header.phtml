@@ -40,12 +40,12 @@ foreach ($customerAddress as $customerAddres) {
   -->
 
 
-<?php if ($id): ?>
-<div>
+<?php if ($id && $options): ?>
+<li>
 <select id='addresses'>
-<?php echo $options?>
+<?php echo $options; ?>
 </select> 
-</div>
+</li>
 
 
 <?php endif; ?>
