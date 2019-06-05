@@ -6,8 +6,8 @@
     box-shadow: -2.5px 15.8px 68px #B49D7f48;
     position: relative;
     margin: 2px!important;
-    width: 260px; 
-    max-width: 260px;
+    width: 257px; 
+    max-width: 257px;
     &.promo::before{
         content: "";
         background-image: url('../../assets/img/promo.png');
@@ -51,7 +51,7 @@
         font-size: 0.75rem;
     }
     .tocart{
-    display: none;       
+        display: none;       
     }
 
     .price-box{ 
@@ -80,6 +80,17 @@
         .price-label{
             display: none;
         }  
+    }
+
+    .stock{
+        background: #e4d5be;
+        padding: 3px 10px;
+        position: relative;
+        top: 11px;
+        font-size: 12px;
+        color: #fff;
+        border-radius: 73px;
+        right: -15px;
     }
 
     .special-price{ 

@@ -63,7 +63,7 @@ $('#maincontent .widget-product-grid').slick({
     responsive:[{
         breakpoint: 991,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 5,
         }
     },
     {
@@ -118,3 +118,6 @@ function customInputNumberInit(){
     })
 }
 customInputNumberInit();
+
+
+console.log("aggggg");
