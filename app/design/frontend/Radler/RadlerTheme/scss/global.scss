@@ -218,11 +218,11 @@ section{
 }
 
 .messages{ 
-    position: fixed;
-    top: 155px;
-    right: 22px;
+    position: relative; 
     font-size: 16px;
-    z-index: 111;
+    text-align: center;
+    max-width: 1460px;
+    margin: 5px auto;
     .message-error{
         padding: 10px;
         background: #ce6f6f; 
@@ -241,4 +241,7 @@ section{
         }
     }
 }
- 
+
+.page-wrapper{
+    padding-top: 100px;
+}
