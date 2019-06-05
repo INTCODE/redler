@@ -14,6 +14,7 @@ use Magento\Framework\App\Action\HttpPostActionInterface as HttpPostActionInterf
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Checkout\Model\Cart as CustomerCart;
 use Magento\Framework\Exception\NoSuchEntityException;
+use function GuzzleHttp\json_encode;
 
 /**
  * Controller for processing add to cart action.
@@ -239,14 +240,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
 
            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($debugContent, true));
           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($this->cart->getQuote()->getShippingAddress()->debug(), true));
-           
-          $test= $this->cart->getQuote()->getAddressesCollection();
-          foreach ($test as $key => $value) {
-             // if($value['customer_address_id']==$params['addressId']){
-              //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($value->debug(), true));
-             // }
-           # code...
-          }
 
             //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========product============\n".print_r($product->debug(), true));
 
@@ -261,46 +254,54 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
 
             if($params['qty'] > 0){
                 $this->cart->addProduct($product, $params);
-           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========params============\n".print_r($params, true));
+         file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========params============\n".print_r($params, true));
                 if (!empty($related)) {
                     $this->cart->addProductsByIds(explode(',', $related));
                 }
             }
 
-            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($this->cart->debug(), true));
+           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($this->cart->debug(), true));
             $this->cart->save();
+
+            $cookie_name = "user";     
+            $cookie_value = "asd";
+
+
+
+          //  $data = json_decode($_COOKIE[$cookie_name], true);
+
+            
+            //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszykpoSave=============\n".print_r($this->cart->debug(), true));
+            $shiptest=array();
          //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($quote->getId(), true));
-         $items = $this->cart->getQuote()->getAllItems();
-       
-          //save product to adresses:
-          $qty=$params['qty'];
+          $items = $this->cart->getQuote()->getAllItems();
+          foreach ($items as $key => $value) {
+
           $address=$params['addressId'];
-          $product_item_id=$items[0]->getId();
+          $qty=$value->getQty();
+          $product_item_id=$value->getId();
 
-
-          $shiptest=array();
           $product_ship=array('qty'=>$qty,'address'=>$address);
-     
           $ship_elem = array($product_item_id => $product_ship);
-         
-/*session is started if you don't write this line can't use $_Session  global variable*/
+          array_push($shiptest,$ship_elem);
 
-      
+          }
 
-       //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($shiptest, true));
-         
+        //   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========shipTest=============\n".print_r($shiptest, true));
+          
+        //   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========data=============\n".print_r($data, true));
+          
+          
+        //   setcookie($cookie_name, json_encode($shiptest), time() + (86400 * 30), "/"); // 86400 = 1 day
+     
 
-      
-          // $shptest=$shipToInfo;
-         array_push($shiptest,$ship_elem);
+          
+          
 
-        // $_SESSION["newsession"]='qwe';
-      
 
-        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r('asds', true));
-
-         $AddressPost = $this->_objectManager->get('Magento\Multishipping\Controller\Checkout\AddressesPost');
-        $AddressPost->updateAddresses($shiptest);
+        
+          $AddressPost = $this->_objectManager->get('Magento\Multishipping\Controller\Checkout\AddressesPost');
+          $AddressPost->updateAddresses($shiptest);
 
             /**
              * @todo remove wishlist observer \Magento\Wishlist\Observer\AddToCart
