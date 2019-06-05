@@ -240,6 +240,29 @@
 }
 
 .page-layout-checkout{
+    .loading-mask{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background-color: rgba(0,0,0,.1);
+        height: 100vh;
+        width: 100vw;
+        z-index: 99;
+        .loader{
+            border-radius: 4px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
     .page-main{
         @extend .wrapper;
         position: relative;
@@ -275,13 +298,23 @@
         display: flex;
         justify-content: space-between;
         max-width: 700px;
-        padding:10px;
+        padding: 10px 100px 10px 10px;
         border-bottom: 1px solid $secondary_bg_color;
+        position: relative;
+        >span{
+            width: 140px;
+            margin: 0 40px;
+        }
+        >a{
+            margin: 0 40px;
+        }
         &.selected-item{
             background-color: $primary_bg_color;
         }
         .action-select-shipping-item{
             @extend .btn;
+            position: absolute;
+            right: 10px;
             background: #dac09f;
             color: #fff;
             height: 40px;
@@ -308,6 +341,9 @@
         padding: 15px 0 5px;
     }
     .table-checkout-shipping-method{
+        th{
+            background-color: #EFE9E6;
+        }
         .col{
             text-align: center;
             width: 160px;
@@ -329,6 +365,23 @@
         text-align: right;
         max-width: 975px;
         .checkout{
+            @extend .btn;
+            @extend .btn-green;
+        }
+    }
+    .store-credit{
+        #block-discount-heading{
+            span{
+                color: $primary_text_color;
+                text-decoration: underline;
+                cursor: pointer; 
+            }
+        }
+        .label{
+            padding-right: 10px;
+            font-weight: 600;
+        }
+        .action-apply{
             @extend .btn;
             @extend .btn-green;
         }
