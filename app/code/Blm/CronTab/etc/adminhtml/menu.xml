@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+  
+ 
+ 
+  
+ 
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="blm_crontab::core" title="CronTab" module="Blm_CronTab" sortOrder="90" resource="Blm_CronTab::sample"/>
+        <add id="blm_crontab::test" title="Cron list" module="Blm_CronTab" sortOrder="10" parent="blm_crontab::core" action="blm_crontab/items/" resource="Blm_CronTab::items"/>
+    </menu>
+</config>
