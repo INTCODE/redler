@@ -32,12 +32,12 @@
             <span class="counter-label">
             <!-- ko if: getCartParam('summary_count') == 1 -->
                 <span data-bind="html: getCartParam('subtotal')"></span>
-                <!-- ko text: getCartParam('summary_count') -->0 items<!-- /ko -->
+                <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
                 <!-- ko i18n: 'item' --><!-- /ko -->
             <!-- /ko -->
             <!-- ko if: getCartParam('summary_count') > 1 -->
                 <span data-bind="html: getCartParam('subtotal')"></span>
-                <!-- ko text: getCartParam('summary_count') -->0 items<!-- /ko -->
+                <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
                 <!-- ko i18n: 'items' --><!-- /ko -->
             <!-- /ko -->
             <!-- ko ifnot: getCartParam('summary_count') -->
