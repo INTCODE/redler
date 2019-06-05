@@ -87,7 +87,6 @@ class UpdateItemQty extends \Magento\Framework\App\Action\Action
             }
 
             $cartData = $this->quantityProcessor->process($cartData);
-
             $quote = $this->checkoutSession->getQuote();
 
             foreach ($cartData as $itemId => $itemInfo) {

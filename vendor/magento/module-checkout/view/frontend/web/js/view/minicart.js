@@ -155,6 +155,7 @@ define([
                 if (!this.cart.hasOwnProperty(key)) {
                     this.cart[key] = ko.observable();
                 }
+                console.log(this.cart[key](value));
                 this.cart[key](value);
             }, this);
         },
@@ -182,7 +183,7 @@ define([
             var items = this.getCartParam('items') || [];
 
             items = items.slice(parseInt(-this.maxItemsToDisplay, 10));
-
+            console.log(items);
             return items;
         },
 
