@@ -76,8 +76,8 @@
                      position: relative;
                      td{
                         position: absolute; 
-                        top: 180px;
                         right: 120px;
+                        transform: translateY(-45px);
                         border: none;
                         .action-edit,
                         .action-towishlist{
@@ -408,6 +408,10 @@
             }
         }
     }
+}
+.crosssell{
+    order:5;
+    margin: 15px 0;
 }
 @media (max-width:991px){
     #shipping_page{

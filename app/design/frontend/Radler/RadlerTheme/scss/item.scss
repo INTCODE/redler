@@ -160,16 +160,16 @@
                 background-position: center;
                 background-repeat: no-repeat;
                 &:first-child{
-                    background-image: url('../images/swatch_1.png');
+                    background-image: url('../images/view_1.png');
                     &:before{
-                        background-image: url('../images/swatch_1.png');
+                        background-image: url('../images/view_1.png');
                         left: 50%;
                     }
                 }
                 &:last-child{
-                    background-image: url('../images/swatch_2.png');
+                    background-image: url('../images/view_2.png');
                     &:before{
-                        background-image: url('../images/swatch_2.png');
+                        background-image: url('../images/view_2.png');
                         left: -50%;
                     }
                 }
