@@ -125,8 +125,9 @@ a{
 }
 .btn-remove{
     display: block;
+    border: none;
     background-color: #fff;
-    background-image: url('../../assets/img/icons/cross.svg');
+    background-image: url('../images/icons/cross.svg');
     background-position: center;
     border-radius: 50%;
     background-size: 8px;
