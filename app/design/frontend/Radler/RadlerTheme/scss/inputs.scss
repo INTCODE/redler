@@ -236,18 +236,20 @@ select{
     cursor: pointer;
     height: 70px;
     width: 100%;
-    @include flex-row(center, center);
-    span{
+    &::before{
         color: $opacity-color;
         position: relative;
         padding-left: 50px;
         padding-bottom: 0!important;
-        &::before{
-            content: url('../images/icons/upload.png');
-            position: absolute;
-            top: -3px;
-            left: 0;
-        }
+    }
+    &::after{
+        content: url('../images/icons/upload.png');
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @include flex-row(center , center);
     }
     input{
         position: absolute;
