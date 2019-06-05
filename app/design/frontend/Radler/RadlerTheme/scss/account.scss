@@ -7,6 +7,7 @@
 .newsletter-manage-index,
 .sales-order-view,
 .customer-address-form,
+.aw_store_credit-info-index,
 .customer-account-index{
     padding: 0;
     background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%);
@@ -30,6 +31,9 @@
         margin-bottom: 10px;
     }
     .page-wrapper{
+        .page-title-wrapper{
+            padding-bottom: 20px;
+        }
         .columns{
             @extend .row; 
             display: flex;
@@ -191,6 +195,9 @@
                     &.current{
                         font-weight: 600;
                         color: #cfa773;
+                        a{
+                            padding-left: 0;
+                        }
                     }
                     .delimiter{
                         width: 100%;
@@ -204,7 +211,9 @@
         #additional-addresses-table,
         #my-orders-table{
             width: 100%;
-            thead{ 
+            thead{
+                background: #cfa773;
+                margin-top: 25px;
                 tr{
                     padding: 5px 12px !important;
                     vertical-align: middle;
@@ -212,8 +221,9 @@
                     border:none;
                     background: transparent;
                     th{
-                        border:none;
+                        border:none; 
                         background: transparent;
+                        color: #fff; 
                     }
                     .col{
                         max-width: 15%!important;

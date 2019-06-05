@@ -1,5 +1,7 @@
 require(["jquery"], function($) {
 
+    // console.log($(this).attr("counter-label"));
+    console.log("xxx");
     // click +/-
     $('.increaseQty, .decreaseQty').on("click", function() {
         switch ($(this).attr("data-action")) {

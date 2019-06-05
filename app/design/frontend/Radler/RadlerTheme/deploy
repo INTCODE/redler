@@ -1,0 +1,7 @@
+
+Warning: PHP Startup: Unable to load dynamic library 'intl' (tried: /usr/local/lib/php/pecl/20170718/intl (dlopen(/usr/local/lib/php/pecl/20170718/intl, 9): image not found), /usr/local/lib/php/pecl/20170718/intl.so (dlopen(/usr/local/lib/php/pecl/20170718/intl.so, 9): image not found)) in Unknown on line 0
+
+Warning: PHP Startup: Unable to load dynamic library 'soap' (tried: /usr/local/lib/php/pecl/20170718/soap (dlopen(/usr/local/lib/php/pecl/20170718/soap, 9): image not found), /usr/local/lib/php/pecl/20170718/soap.so (dlopen(/usr/local/lib/php/pecl/20170718/soap.so, 9): image not found)) in Unknown on line 0
+
+Warning: PHP Startup: Unable to load dynamic library 'xsl' (tried: /usr/local/lib/php/pecl/20170718/xsl (dlopen(/usr/local/lib/php/pecl/20170718/xsl, 9): image not found), /usr/local/lib/php/pecl/20170718/xsl.so (dlopen(/usr/local/lib/php/pecl/20170718/xsl.so, 9): image not found)) in Unknown on line 0
+Could not open input file: bin/magento

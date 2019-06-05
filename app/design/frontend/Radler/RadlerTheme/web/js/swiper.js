@@ -34,5 +34,12 @@ require([
     });
 });
 
-
-console.log("asdasdasdads");
+require([
+    'jquery',
+    'slick'
+], function ($) {
+    $('.collapse-btn').click(function(){
+        var target = $(this).closest('.question');
+        target.toggleClass('collapsed')
+    })
+});

@@ -7,11 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     '6124b4c8570aa390c21fafd04a26c69f' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-    '320cde22f66dd4f5d3fd621d3e88b98f' => $vendorDir . '/symfony/polyfill-ctype/bootstrap.php',
-    '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => $vendorDir . '/symfony/polyfill-mbstring/bootstrap.php',
-    '023d27dca8066ef29e6739335ea73bad' => $vendorDir . '/symfony/polyfill-php70/bootstrap.php',
-    '25072dd6e2470089de65ae7bf11d3109' => $vendorDir . '/symfony/polyfill-php72/bootstrap.php',
-    '3a505b5f7faaefce1a399e528c23742b' => $vendorDir . '/zendframework/zend-mvc/src/autoload.php',
     '07ec02c7e667fdcb3e30c02cc772b743' => $vendorDir . '/magento/framework/registration.php',
     '18a9d3b717442a10d28b3171b35bea25' => $vendorDir . '/magento/module-authorization/registration.php',
     '489864ea263482896f9bb483ed58a3cc' => $vendorDir . '/magento/module-customer/registration.php',
@@ -260,5 +255,10 @@ return array(
     '826a7b542c39d193330d658e32b8d28d' => $vendorDir . '/rltsquare/ajax-shopping-cart-update/registration.php',
     '3de01a71e6a6e28cae034727d306007e' => $vendorDir . '/rltsquare/best-seller/registration.php',
     '0bd54e447b74957219be7d8540c9ff65' => $vendorDir . '/honl/magento2-templatehints/registration.php',
+    '320cde22f66dd4f5d3fd621d3e88b98f' => $vendorDir . '/symfony/polyfill-ctype/bootstrap.php',
+    '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => $vendorDir . '/symfony/polyfill-mbstring/bootstrap.php',
+    '023d27dca8066ef29e6739335ea73bad' => $vendorDir . '/symfony/polyfill-php70/bootstrap.php',
+    '25072dd6e2470089de65ae7bf11d3109' => $vendorDir . '/symfony/polyfill-php72/bootstrap.php',
+    '3a505b5f7faaefce1a399e528c23742b' => $vendorDir . '/zendframework/zend-mvc/src/autoload.php',
     'b4cf39431a4b949eea8aa69ebb3d39da' => $baseDir . '/app/etc/NonComposerComponentRegistration.php',
 );
