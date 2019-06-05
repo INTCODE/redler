@@ -6,6 +6,7 @@
 .review-customer-index,
 .newsletter-manage-index,
 .sales-order-view,
+.customer-address-form,
 .customer-account-index{
     padding: 0;
     background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%);
@@ -72,6 +73,7 @@
                             }
                         }
                     }
+                   
                     .block-content{
                         @extend .row;
                         .box-newsletter,
@@ -345,6 +347,41 @@
             } 
         }
 
+        .block-addresses-default{
+            float: left;
+            width:100%;
+            margin-bottom: 15px;
+            .block-title{
+                padding: 15px 0;
+                color: #cfa875;
+                font-weight: 300;
+                padding: 15px 0;
+            }
+            .box-address-shipping,
+            .box-address-billing{
+                width: 25%;
+                float: left;
+                padding: 15px;
+                margin: 15px 0;
+                border: 1px solid #cfa875;
+                .box-title{
+                    font-weight:400;
+                    margin-bottom: 10px;
+                }
+                a{
+                    span{
+                        font-size: 14px;
+                        color: #165898;
+                        text-decoration: underline;
+                        position: relative;
+                        margin-right: 5px;
+                    }
+                }
+            }
+            .box-address-shipping{
+                margin-left: 15px;
+            }
+        }
     }  
 }
 .actions-toolbar{

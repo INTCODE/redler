@@ -10,14 +10,14 @@ require([
             autoplaySpeed:5000,
             centerMode:true,
             focusOnSelect: true,
-            slidesToShow: 3,
+            slidesToShow: 5,
             infinite: true,
             arrows:false,
             centerPadding:'0px',
             responsive:[{
                 breakpoint: 991,
                 settings: {
-                  slidesToShow: 3,
+                  slidesToShow: 5,
                 }
             },
             {
@@ -33,3 +33,6 @@ require([
         })
     });
 });
+
+
+console.log("asdasdasdads");
