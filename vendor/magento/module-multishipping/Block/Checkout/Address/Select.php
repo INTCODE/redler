@@ -96,6 +96,7 @@ class Select extends \Magento\Multishipping\Block\Checkout\AbstractMultishipping
      */
     public function getAddress()
     {
+        
         $addresses = $this->getData('address_collection');
         if ($addresses === null) {
             try {

@@ -7,8 +7,6 @@ var config = {
   //    }
   //  }
     deps: [
-      'js/jquery',
-      'js/slick',
       'js/swiper',
     ],
  };

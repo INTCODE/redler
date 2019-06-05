@@ -7,6 +7,7 @@
 namespace Magento\Multishipping\Controller\Checkout;
 
 use Magento\Multishipping\Model\Checkout\Type\Multishipping\State;
+use MSP\TwoFactorAuth\Model\Alert;
 
 class AddressesPost extends \Magento\Multishipping\Controller\Checkout
 {
@@ -17,6 +18,7 @@ class AddressesPost extends \Magento\Multishipping\Controller\Checkout
      */
     public function execute()
     {
+
         if (!$this->_getCheckout()->getCustomerDefaultShippingAddress()) {
             $this->_redirect('*/checkout_address/newShipping');
             return;
@@ -33,6 +35,7 @@ class AddressesPost extends \Magento\Multishipping\Controller\Checkout
                 $this->_redirect('*/*/addresses');
             }
             if ($shipToInfo = $this->getRequest()->getPost('ship')) {
+            
                 $this->_getCheckout()->setShippingItemsInformation($shipToInfo);
             }
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
@@ -43,4 +46,16 @@ class AddressesPost extends \Magento\Multishipping\Controller\Checkout
             $this->_redirect('*/*/addresses');
         }
     }
+
+
+
+    public function updateAddresses($array){
+
+
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($array, true));
+
+        $this->_getCheckout()->setShippingItemsInformation($array);
+
+    }
+
 }
