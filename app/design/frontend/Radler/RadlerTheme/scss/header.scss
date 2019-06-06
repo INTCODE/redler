@@ -17,15 +17,23 @@
             width: 246px!important;
             height: 43px;
             display: inline-block;
+            float: left;
             img{
                 width: 100%!important;
                 height: auto; 
             }
         }
+        .addressSelect{
+            float: left;
+            margin-left: 150px;
+            #addresses{
+                width: 350px;
+            }
+        }
         .minicart-wrapper{
             float: right;
             position: relative;
-            width: 160px;
+            width: 170px;
             height: 40px;
             border-radius: 100px;
             background-color: #f6f3f1;
@@ -33,6 +41,15 @@
             .block-title{
                 display: none;
             }
+            .counter-label{
+                span{
+                    &:first-child{
+                        color: #000;
+                        margin-right: 5px;
+                    }
+                }
+            }
+            
             .icon{
                 @include circle-icon-box($secondary_bg_color);
                 transition: 300ms;
@@ -304,6 +321,14 @@
             position: absolute;
             right: 175px;
         }
+        .logoutBtnHeader{
+            color: #cfa773;
+            margin-left: 10px;
+            &:hover{
+                text-decoration: underline;
+            }
+        }  
+
         &::before{
             content: "";
             width: 20px;
@@ -329,7 +354,7 @@
                 }
             } 
             .customer-menu{
-                width: 100px;
+                display: none;
             }
             li{
                 list-style: none;
