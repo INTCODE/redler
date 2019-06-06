@@ -155,6 +155,12 @@
                 </item>
             </argument>
         </column>
+         <column name="firstname" sortOrder="20">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">First Name</label>
+            </settings>
+        </column>
         <actionsColumn name="actions" class="Blm\CronTab\Ui\Component\Listing\Column\CronTabActions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

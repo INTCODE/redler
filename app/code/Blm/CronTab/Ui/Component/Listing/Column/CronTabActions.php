@@ -50,14 +50,24 @@ class CronTabActions extends \Magento\Ui\Component\Listing\Columns\Column
      */
     public function prepareDataSource(array $dataSource)
     {
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+
         if (isset($dataSource['data']['items'])) {
+
             foreach ($dataSource['data']['items'] as & $item) {
+
+
+                $customerObj = $objectManager->create('Magento\Customer\Model\Customer')->load($item['entity_id']);
+                
+                $item['CheckedDate']=$customerObj['CheckedDate'];
+                $item['approve_account']=$customerObj['approve_account'];
                 $item[$this->getData('name')] = [
                     'edit' => [
                         'href' => $this->_urlBuilder->getUrl(
                             static::URL_PATH_EDIT,
                             [
-                                'id' => $item['crontab_id']
+                                'id' => $item['entity_id']
                             ]
                         ),
                         'label' => __('Edit')
@@ -65,6 +75,8 @@ class CronTabActions extends \Magento\Ui\Component\Listing\Columns\Column
                 ];
             }
         }
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========dataSource===========\n".print_r($dataSource, true));
+        
         return $dataSource;
     }
 }

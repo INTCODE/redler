@@ -25,7 +25,7 @@
 	</virtualType>
 	<virtualType name="Blm\CronTab\Model\ResourceModel\CronTab\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
 		<arguments>
-			<argument name="mainTable" xsi:type="string">blm_crontab</argument>
+			<argument name="mainTable" xsi:type="string">customer_entity</argument>
 			<argument name="resourceModel" xsi:type="string">Blm\CronTab\Model\ResourceModel\CronTab</argument>
 		</arguments>
 	</virtualType>
@@ -37,3 +37,4 @@
 		</arguments>
 	</type>
 </config>
+
