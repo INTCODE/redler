@@ -43,8 +43,23 @@ class CustomerDocumentsActions extends \Magento\Ui\Component\Listing\Columns\Col
      */
     public function prepareDataSource(array $dataSource)
     {
+
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $test=array();
+        $arr=array();
+
+
         if (isset($dataSource['data']['items'])) {
+           
             foreach ($dataSource['data']['items'] as & $item) {
+
+            $customerObj = $objectManager->create('Magento\Customer\Model\Customer')->load($item['entity_id']);
+
+            $item['entity_id']=$customerObj['entity_id'];
+            $item['firstname']=$customerObj['firstname'];
+            $item['lastname']=$customerObj['lastname'];
+            $item['email']=$customerObj['email'];
+
                 $item[$this->getData('name')] = [
                     'edit' => [
                         'href' => $this->_urlBuilder->getUrl(
@@ -57,6 +72,8 @@ class CustomerDocumentsActions extends \Magento\Ui\Component\Listing\Columns\Col
                     ],
                 ];
             }
+
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($dataSource, true));
         }
         return $dataSource;
     }
