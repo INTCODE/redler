@@ -17,9 +17,17 @@
             width: 246px!important;
             height: 43px;
             display: inline-block;
+            float: left;
             img{
                 width: 100%!important;
                 height: auto; 
+            }
+        }
+        .addressSelect{
+            float: left;
+            margin-left: 150px;
+            #addresses{
+                width: 350px;
             }
         }
         .minicart-wrapper{
