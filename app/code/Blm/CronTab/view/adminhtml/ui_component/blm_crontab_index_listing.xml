@@ -13,14 +13,14 @@
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">BlmCronTabGridDataProvider</argument>
             <argument name="name" xsi:type="string">blm_crontab_index_listing_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">crontab_id</argument>
-            <argument name="requestFieldName" xsi:type="string">crontab_id</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">entity_id</argument>
 			<argument name="data" xsi:type="array">
 				<item name="config" xsi:type="array">
 					<item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
 					<item name="update_url" xsi:type="url" path="mui/index/render"/>
 					<item name="storageConfig" xsi:type="array">
-						<item name="indexField" xsi:type="string">crontab_id</item>
+						<item name="indexField" xsi:type="string">entity_id</item>
 					</item>
 				</item>
 			</argument>
@@ -128,43 +128,50 @@
         <selectionsColumn name="ids">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="indexField" xsi:type="string">crontab_id</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
                 </item>
             </argument>
         </selectionsColumn>
-        <column name="crontab_id">
+        
+        <column name="entity_id" sortOrder="1">
             <argument name="data" xsi:type="array">
                 <item name="js_config" xsi:type="array">
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/column</item>
                 </item>
                 <item name="config" xsi:type="array">
-                    <item name="indexField" xsi:type="string">crontab_id</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
                     <item name="filter" xsi:type="string">textRange</item>
                     <item name="sorting" xsi:type="string">desc</item>
                     <item name="label" xsi:type="string" translate="true">ID</item>
                 </item>
             </argument>
         </column>
-        <column name="title">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Title</item>
-                    <item name="sortOrder" xsi:type="number">10</item>
-                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
-                </item>
-            </argument>
-        </column>
+      
          <column name="firstname" sortOrder="20">
             <settings>
                 <filter>text</filter>
                 <label translate="true">First Name</label>
             </settings>
         </column>
+            <column name="approve_account" sortOrder="22">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Account status</label>
+            </settings>
+        </column>
+            
+            <column name="CheckedDate" sortOrder="22">
+            <settings>
+                <filter>dateRange</filter>
+                <label translate="true">Accepted to</label>
+            </settings>
+        </column>
+    
+
         <actionsColumn name="actions" class="Blm\CronTab\Ui\Component\Listing\Column\CronTabActions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="indexField" xsi:type="string">crontab_id</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
                     <item name="urlEntityParamName" xsi:type="string">id</item>
                 </item>
             </argument>

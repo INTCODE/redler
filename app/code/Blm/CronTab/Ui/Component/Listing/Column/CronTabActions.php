@@ -54,18 +54,31 @@ class CronTabActions extends \Magento\Ui\Component\Listing\Columns\Column
 
 
         if (isset($dataSource['data']['items'])) {
-
-            foreach ($dataSource['data']['items'] as & $item) {
+            $totRec=$dataSource['data']['totalRecords'];
+            foreach ($dataSource['data']['items'] as $k => & $item) {
 
 
                 $customerObj = $objectManager->create('Magento\Customer\Model\Customer')->load($item['entity_id']);
-                
+
+
                 $item['CheckedDate']=$customerObj['CheckedDate'];
                 $item['approve_account']=$customerObj['approve_account'];
+                $totRec=$dataSource['data']['totalRecords'];
+                
+
+                if($item['approve_account']==2){
+                    unset($dataSource['data']['items'][$k]);
+                    $totRec--;
+                }elseif($item['approve_account']==1){
+                    $item['approve_account']=__("Dissaproved");
+                }else{
+                    $item['approve_account']=__("Pending");
+                }
+                
                 $item[$this->getData('name')] = [
                     'edit' => [
                         'href' => $this->_urlBuilder->getUrl(
-                            static::URL_PATH_EDIT,
+                            'customer/*/edit',
                             [
                                 'id' => $item['entity_id']
                             ]
@@ -73,10 +86,13 @@ class CronTabActions extends \Magento\Ui\Component\Listing\Columns\Column
                         'label' => __('Edit')
                     ],
                 ];
+             
             }
+
+            $dataSource['data']['items'] = array_values($dataSource['data']['items']);
+
+          
         }
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========dataSource===========\n".print_r($dataSource, true));
-        
         return $dataSource;
     }
 }
