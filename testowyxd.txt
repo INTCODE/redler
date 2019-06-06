@@ -1,163 +1,244 @@
 
-=========Methodds===========
-Array
-(
-    [0] => checkout.cart.methods.onepage.bottom
-    [1] => checkout.cart.shortcut.buttons
-    [2] => bml.right.logo
-    [3] => checkout.cart.methods.multishipping
-)
-
-=========Top_Methodds===========
-Array
-(
-)
-
-=========Met===========
-1
-=========Met===========
-1
-=========Met===========
-1
-=========Met===========
-1
 =========adres===========
-Array
-(
-    [entity_id] => 1
-    [parent_id] => 2
-    [created_at] => 2019-04-15 06:30:46
-    [updated_at] => 2019-05-27 11:29:25
-    [is_active] => 1
-    [city] => trhgerga
-    [country_id] => US
-    [firstname] => Test
-    [lastname] => Test
-    [postcode] => 23131
-    [region] => District of Columbia
-    [region_id] => 16
-    [street] => 123
-    [telephone] => 123123123
-    [customer_id] => 2
-)
-
+2019-06-05 00:00:00
 =========adres===========
 1
-=========================
+=========adres===========
+2019-06-05 00:00:00
+=========adres===========
+1
+=========adres===========
+2019-06-05 00:00:00
+=========adres===========
+1
+=========dataSource===========
 Array
 (
-    [address_id] => 309
-    [quote_id] => 69
-    [created_at] => 2019-05-30 11:38:51
-    [updated_at] => 2019-05-31 13:23:09
-    [customer_id] => 2
-    [save_in_address_book] => 0
-    [customer_address_id] => 1
-    [address_type] => billing
-    [email] => test@test.com
-    [firstname] => Test
-    [lastname] => Test
-    [street] => 123
-    [city] => trhgerga
-    [region] => District of Columbia
-    [region_id] => 16
-    [postcode] => 23131
-    [country_id] => US
-    [telephone] => 123123123
-    [same_as_billing] => 0
-    [collect_shipping_rates] => 0
-    [weight] => 0.0000
-    [subtotal] => 0.0000
-    [base_subtotal] => 0.0000
-    [subtotal_with_discount] => 60.0000
-    [base_subtotal_with_discount] => 60.0000
-    [tax_amount] => 0.0000
-    [base_tax_amount] => 0.0000
-    [shipping_amount] => 0.0000
-    [base_shipping_amount] => 0.0000
-    [shipping_tax_amount] => 0.0000
-    [base_shipping_tax_amount] => 0.0000
-    [discount_amount] => 0.0000
-    [base_discount_amount] => 0.0000
-    [grand_total] => 0.0000
-    [base_grand_total] => 0.0000
-    [applied_taxes] => null
-    [shipping_discount_amount] => 0.0000
-    [base_shipping_discount_amount] => 0.0000
-    [subtotal_incl_tax] => 0.0000
-    [base_subtotal_total_incl_tax] => 60.0000
-    [discount_tax_compensation_amount] => 0.0000
-    [base_discount_tax_compensation_amount] => 0.0000
-    [shipping_discount_tax_compensation_amount] => 0.0000
-    [shipping_incl_tax] => 0.0000
-    [base_shipping_incl_tax] => 0.0000
-    [free_shipping] => 0
+    [data] => Array
+        (
+            [items] => Array
+                (
+                    [0] => Array
+                        (
+                            [id_field_name] => entity_id
+                            [entity_id] => 108
+                            [website_id] => 1
+                            [email] => User@user.pl
+                            [group_id] => 1
+                            [increment_id] => 
+                            [store_id] => 1
+                            [created_at] => 2019-06-05 13:08:40
+                            [updated_at] => 2019-06-05 13:36:43
+                            [is_active] => 1
+                            [disable_auto_group_change] => 0
+                            [created_in] => Default Store View
+                            [prefix] => 
+                            [firstname] => User
+                            [middlename] => 
+                            [lastname] => User
+                            [suffix] => 
+                            [dob] => 2019-06-12
+                            [password_hash] => 
+                            [rp_token] => 0fKx2RBU9qTMztAWuRNpSiOxn2UYv4HB
+                            [rp_token_created_at] => 2019-06-05 13:08:41
+                            [default_billing] => 0
+                            [default_shipping] => 0
+                            [taxvat] => 
+                            [confirmation] => 
+                            [gender] => 1
+                            [failures_num] => 0
+                            [first_failure] => 
+                            [lock_expires] => 
+                            [orig_data] => 
+                            [CheckedDate] => 2019-06-05 00:00:00
+                            [approve_account] => 1
+                            [actions] => Array
+                                (
+                                    [edit] => Array
+                                        (
+                                            [href] => http://localhost/projekty/blm/redler/admin/blm_crontab/items/edit/id/108/key/1e64c62b0429ce0cbe7ce181d4b3721015696dd5c97f0119f4a9456db5234ae8/
+                                            [label] => Magento\Framework\Phrase Object
+                                                (
+                                                    [text:Magento\Framework\Phrase:private] => Edit
+                                                    [arguments:Magento\Framework\Phrase:private] => Array
+                                                        (
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [1] => Array
+                        (
+                            [id_field_name] => entity_id
+                            [entity_id] => 109
+                            [website_id] => 1
+                            [email] => user2@wp.pl
+                            [group_id] => 1
+                            [increment_id] => 
+                            [store_id] => 1
+                            [created_at] => 2019-06-05 13:10:18
+                            [updated_at] => 2019-06-05 13:36:44
+                            [is_active] => 1
+                            [disable_auto_group_change] => 0
+                            [created_in] => Default Store View
+                            [prefix] => 
+                            [firstname] => user2
+                            [middlename] => 
+                            [lastname] => user2
+                            [suffix] => 
+                            [dob] => 
+                            [password_hash] => 
+                            [rp_token] => Q3MkFlMgxRhDtMUu4LWAyNNBapjQNdK4
+                            [rp_token_created_at] => 2019-06-05 13:10:19
+                            [default_billing] => 0
+                            [default_shipping] => 0
+                            [taxvat] => 
+                            [confirmation] => 
+                            [gender] => 0
+                            [failures_num] => 0
+                            [first_failure] => 
+                            [lock_expires] => 
+                            [orig_data] => 
+                            [CheckedDate] => 2019-06-05 00:00:00
+                            [approve_account] => 1
+                            [actions] => Array
+                                (
+                                    [edit] => Array
+                                        (
+                                            [href] => http://localhost/projekty/blm/redler/admin/blm_crontab/items/edit/id/109/key/1e64c62b0429ce0cbe7ce181d4b3721015696dd5c97f0119f4a9456db5234ae8/
+                                            [label] => Magento\Framework\Phrase Object
+                                                (
+                                                    [text:Magento\Framework\Phrase:private] => Edit
+                                                    [arguments:Magento\Framework\Phrase:private] => Array
+                                                        (
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [2] => Array
+                        (
+                            [id_field_name] => entity_id
+                            [entity_id] => 110
+                            [website_id] => 1
+                            [email] => user3@wp.pl
+                            [group_id] => 1
+                            [increment_id] => 
+                            [store_id] => 1
+                            [created_at] => 2019-06-05 13:12:01
+                            [updated_at] => 2019-06-05 13:36:44
+                            [is_active] => 1
+                            [disable_auto_group_change] => 0
+                            [created_in] => Default Store View
+                            [prefix] => 
+                            [firstname] => ueser3
+                            [middlename] => 
+                            [lastname] => user3
+                            [suffix] => 
+                            [dob] => 
+                            [password_hash] => 
+                            [rp_token] => 2JBoweal7OdYsLLnjafeHKA5hjDvDW7W
+                            [rp_token_created_at] => 2019-06-05 13:12:01
+                            [default_billing] => 0
+                            [default_shipping] => 0
+                            [taxvat] => 
+                            [confirmation] => 
+                            [gender] => 0
+                            [failures_num] => 0
+                            [first_failure] => 
+                            [lock_expires] => 
+                            [orig_data] => 
+                            [CheckedDate] => 2019-06-05 00:00:00
+                            [approve_account] => 1
+                            [actions] => Array
+                                (
+                                    [edit] => Array
+                                        (
+                                            [href] => http://localhost/projekty/blm/redler/admin/blm_crontab/items/edit/id/110/key/1e64c62b0429ce0cbe7ce181d4b3721015696dd5c97f0119f4a9456db5234ae8/
+                                            [label] => Magento\Framework\Phrase Object
+                                                (
+                                                    [text:Magento\Framework\Phrase:private] => Edit
+                                                    [arguments:Magento\Framework\Phrase:private] => Array
+                                                        (
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [totalRecords] => 3
+        )
+
 )
 
-=========================
+=========dataSource===========
 Array
 (
-    [address_id] => 312
-    [quote_id] => 69
-    [created_at] => 2019-05-31 13:48:05
-    [updated_at] => 2019-05-31 13:48:06
-    [customer_id] => 2
-    [save_in_address_book] => 0
-    [customer_address_id] => 1
-    [address_type] => shipping
-    [email] => test@test.com
-    [firstname] => Test
-    [lastname] => Test
-    [street] => 123
-    [city] => trhgerga
-    [region] => District of Columbia
-    [region_id] => 16
-    [postcode] => 23131
-    [country_id] => US
-    [telephone] => 123123123
-    [same_as_billing] => 1
-    [collect_shipping_rates] => 0
-    [weight] => 204.0000
-    [subtotal] => 1985.3700
-    [base_subtotal] => 1985.3700
-    [subtotal_with_discount] => 1985.3700
-    [base_subtotal_with_discount] => 1985.3700
-    [tax_amount] => 0.0000
-    [base_tax_amount] => 0.0000
-    [shipping_amount] => 0.0000
-    [base_shipping_amount] => 0.0000
-    [shipping_tax_amount] => 0.0000
-    [base_shipping_tax_amount] => 0.0000
-    [discount_amount] => 0.0000
-    [base_discount_amount] => 0.0000
-    [grand_total] => 1985.3700
-    [base_grand_total] => 1985.3700
-    [applied_taxes] => []
-    [shipping_discount_amount] => 0.0000
-    [base_shipping_discount_amount] => 0.0000
-    [subtotal_incl_tax] => 1985.3700
-    [base_subtotal_total_incl_tax] => 1985.3700
-    [discount_tax_compensation_amount] => 0.0000
-    [base_discount_tax_compensation_amount] => 0.0000
-    [shipping_discount_tax_compensation_amount] => 0.0000
-    [shipping_incl_tax] => 0.0000
-    [base_shipping_incl_tax] => 0.0000
-    [free_shipping] => 0
-)
-
-=========Methodds===========
-Array
-(
-    [0] => checkout.cart.methods.onepage.bottom
-    [1] => checkout.cart.shortcut.buttons
-    [2] => bml.right.logo
-    [3] => checkout.cart.methods.multishipping
-)
-
-=========Top_Methodds===========
-Array
-(
-)
+    [data] => Array
+        (
+            [items] => Array
+                (
+                    [0] => Array
+                        (
+                            [id_field_name] => entity_id
+                            [entity_id] => 108
+                            [website_id] => 1
+                            [email] => User@user.pl
+                            [group_id] => 1
+                            [increment_id] => 
+                            [store_id] => 1
+                            [created_at] => 2019-06-05 13:08:40
+                            [updated_at] => 2019-06-05 13:36:43
+                            [is_active] => 1
+                            [disable_auto_group_change] => 0
+                            [created_in] => Default Store View
+                            [prefix] => 
+                            [firstname] => User
+                            [middlename] => 
+                            [lastname] => User
+                            [suffix] => 
+                            [dob] => 2019-06-12
+                            [password_hash] => 
+                            [rp_token] => 0fKx2RBU9qTMztAWuRNpSiOxn2UYv4HB
+                            [rp_token_created_at] => 2019-06-05 13:08:41
+                            [default_billing] => 0
+                            [default_shipping] => 0
+                            [taxvat] => 
+                            [confirmation] => 
+                            [gender] => 1
+                            [failures_num] => 0
+                            [first_failure] => 
+                            [lock_expires] => 
+                            [orig_data] => 
+                            [CheckedDate] => 2019-06-05 00:00:00
+                            [approve_account] => 1
+                            [actions] => Array
+                                (
+                                    [edit] => Array
+                                        (
+                                            [href] => http://localhost/projekty/blm/redler/admin/blm_crontab/items/edit/id/108/key/1e64c62b0429ce0cbe7ce181d4b3721015696dd5c97f0119f4a9456db5234ae8/
+                                            [label] => Magento\Framework\Phrase Object
+                                                (
+                                                    [text:Magento\Framework\Phrase:private] => Edit
+                                                    [arguments:Magento\Framework\Phrase:private] => Array
+                                                        (
+                                                        )
 
 =========Met===========
 1

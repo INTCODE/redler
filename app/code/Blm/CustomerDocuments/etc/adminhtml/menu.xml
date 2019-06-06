@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Backend/etc/menu.xsd">
     <menu>
-        <add id="Blm_CustomerDocuments::helloworld" title="Documents" module="Blm_CustomerDocuments" sortOrder="999" resource="Blm_CustomerDocuments::helloworld"/>
-        <add id="Blm_CustomerDocuments::post" title="Check status" module="Blm_CustomerDocuments" sortOrder="0" action="Blm_CustomerDocuments/post" resource="Blm_CustomerDocuments::post" parent="Blm_CustomerDocuments::helloworld"/>
+        <add id="blm_customerdocuments::core" title="CustomerDocuments" module="Blm_CustomerDocuments" sortOrder="90" resource="Blm_CustomerDocuments::sample"/>
+        <add id="blm_customerdocuments::test" title="Items" module="Blm_CustomerDocuments" sortOrder="10" parent="blm_customerdocuments::core" action="blm_customerdocuments/items/" resource="Blm_CustomerDocuments::items"/>
     </menu>
 </config>

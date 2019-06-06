@@ -33,7 +33,8 @@ $baseurl = $objectManagerlogin->get('Magento\Store\Model\StoreManagerInterface')
             }
         }
         </script>
-        <?php if($block->getChildHtml()):?>
+        <?php if($block->getChildHtml() && 1 == 2): // disabled 1==2 
+            ?>
         <div class="customer-menu" data-target="dropdown">
             <?= $block->getChildHtml() ?>
         </div>

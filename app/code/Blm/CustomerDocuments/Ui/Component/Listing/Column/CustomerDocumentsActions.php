@@ -1,17 +1,10 @@
 <?php
-/**
-  
- 
- 
-  
- 
- */
 
-namespace Blm\CronTab\Ui\Component\Listing\Column;
+namespace Blm\CustomerDocuments\Ui\Component\Listing\Column;
 
-class CronTabActions extends \Magento\Ui\Component\Listing\Columns\Column
+class CustomerDocumentsActions extends \Magento\Ui\Component\Listing\Columns\Column
 {
-    const URL_PATH_EDIT = 'blm_crontab/items/edit';
+    const URL_PATH_EDIT = 'blm_customerdocuments/items/edit';
 
     /**
      * URL builder
@@ -50,48 +43,20 @@ class CronTabActions extends \Magento\Ui\Component\Listing\Columns\Column
      */
     public function prepareDataSource(array $dataSource)
     {
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-
-
         if (isset($dataSource['data']['items'])) {
-            $totRec=$dataSource['data']['totalRecords'];
-            foreach ($dataSource['data']['items'] as $k => & $item) {
-
-
-                $customerObj = $objectManager->create('Magento\Customer\Model\Customer')->load($item['entity_id']);
-
-
-                $item['CheckedDate']=$customerObj['CheckedDate'];
-                $item['approve_account']=$customerObj['approve_account'];
-                $totRec=$dataSource['data']['totalRecords'];
-                
-
-                if($item['approve_account']==2){
-                    unset($dataSource['data']['items'][$k]);
-                    $totRec--;
-                }elseif($item['approve_account']==1){
-                    $item['approve_account']=__("Dissaproved");
-                }else{
-                    $item['approve_account']=__("Pending");
-                }
-                
+            foreach ($dataSource['data']['items'] as & $item) {
                 $item[$this->getData('name')] = [
                     'edit' => [
                         'href' => $this->_urlBuilder->getUrl(
-                            'customer/*/edit',
+                            static::URL_PATH_EDIT,
                             [
-                                'id' => $item['entity_id']
+                                'id' => $item['customerdocuments_id']
                             ]
                         ),
                         'label' => __('Edit')
                     ],
                 ];
-             
             }
-
-            $dataSource['data']['items'] = array_values($dataSource['data']['items']);
-
-          
         }
         return $dataSource;
     }
