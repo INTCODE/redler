@@ -240,125 +240,396 @@ Array
                                                         (
                                                         )
 
-                                                )
+=========Met===========
+1
+=========Met===========
+1
+=========Met===========
+1
+=========Met===========
+1
+=========Methodds===========
+Array
+(
+    [0] => checkout.cart.methods.onepage.bottom
+    [1] => checkout.cart.shortcut.buttons
+    [2] => bml.right.logo
+    [3] => checkout.cart.methods.multishipping
+)
 
-                                        )
+=========Top_Methodds===========
+Array
+(
+)
 
-                                )
+=========Met===========
+1
+=========Met===========
+1
+=========Met===========
+1
+=========Met===========
+1
+=========================
+Array
+(
+    [address_id] => 313
+    [quote_id] => 73
+    [created_at] => 2019-06-03 10:37:36
+    [updated_at] => 0000-00-00 00:00:00
+    [customer_id] => 106
+    [save_in_address_book] => 0
+    [customer_address_id] => 16
+    [address_type] => shipping
+    [email] => test00@test.com
+    [firstname] => Imie
+    [lastname] => Nazwisko
+    [company] => Company
+    [street] => Lublin
+33
+11
+    [city] => Lublin
+    [region_id] => 0
+    [postcode] => 12-123
+    [country_id] => US
+    [telephone] => 123456789
+    [same_as_billing] => 1
+    [collect_shipping_rates] => 1
+    [weight] => 0.0000
+    [subtotal] => 599.4000
+    [base_subtotal] => 599.4000
+    [subtotal_with_discount] => 599.4000
+    [base_subtotal_with_discount] => 599.4000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [shipping_amount] => 0.0000
+    [base_shipping_amount] => 0.0000
+    [shipping_tax_amount] => 0.0000
+    [base_shipping_tax_amount] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [grand_total] => 599.4000
+    [base_grand_total] => 599.4000
+    [applied_taxes] => []
+    [shipping_discount_amount] => 0.0000
+    [base_shipping_discount_amount] => 0.0000
+    [subtotal_incl_tax] => 599.4000
+    [base_subtotal_total_incl_tax] => 599.4000
+    [discount_tax_compensation_amount] => 0.0000
+    [base_discount_tax_compensation_amount] => 0.0000
+    [shipping_discount_tax_compensation_amount] => 0.0000
+    [shipping_incl_tax] => 0.0000
+    [base_shipping_incl_tax] => 0.0000
+    [free_shipping] => 0
+)
 
-                        )
+=========================
+Array
+(
+    [address_id] => 314
+    [quote_id] => 73
+    [created_at] => 2019-06-03 10:37:36
+    [updated_at] => 0000-00-00 00:00:00
+    [customer_id] => 106
+    [save_in_address_book] => 0
+    [customer_address_id] => 16
+    [address_type] => billing
+    [email] => test00@test.com
+    [firstname] => Imie
+    [lastname] => Nazwisko
+    [company] => Company
+    [street] => Lublin
+33
+11
+    [city] => Lublin
+    [region_id] => 0
+    [postcode] => 12-123
+    [country_id] => US
+    [telephone] => 123456789
+    [same_as_billing] => 0
+    [collect_shipping_rates] => 0
+    [weight] => 0.0000
+    [subtotal] => 0.0000
+    [base_subtotal] => 0.0000
+    [subtotal_with_discount] => 0.0000
+    [base_subtotal_with_discount] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [shipping_amount] => 0.0000
+    [base_shipping_amount] => 0.0000
+    [shipping_tax_amount] => 0.0000
+    [base_shipping_tax_amount] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [grand_total] => 0.0000
+    [base_grand_total] => 0.0000
+    [applied_taxes] => null
+    [shipping_discount_amount] => 0.0000
+    [base_shipping_discount_amount] => 0.0000
+    [subtotal_incl_tax] => 0.0000
+    [discount_tax_compensation_amount] => 0.0000
+    [base_discount_tax_compensation_amount] => 0.0000
+    [shipping_discount_tax_compensation_amount] => 0.0000
+    [shipping_incl_tax] => 0.0000
+    [base_shipping_incl_tax] => 0.0000
+    [free_shipping] => 0
+)
 
-                    [1] => Array
-                        (
-                            [id_field_name] => entity_id
-                            [entity_id] => 109
-                            [website_id] => 1
-                            [email] => user2@wp.pl
-                            [group_id] => 1
-                            [increment_id] => 
-                            [store_id] => 1
-                            [created_at] => 2019-06-05 13:10:18
-                            [updated_at] => 2019-06-05 13:36:44
-                            [is_active] => 1
-                            [disable_auto_group_change] => 0
-                            [created_in] => Default Store View
-                            [prefix] => 
-                            [firstname] => user2
-                            [middlename] => 
-                            [lastname] => user2
-                            [suffix] => 
-                            [dob] => 
-                            [password_hash] => 
-                            [rp_token] => Q3MkFlMgxRhDtMUu4LWAyNNBapjQNdK4
-                            [rp_token_created_at] => 2019-06-05 13:10:19
-                            [default_billing] => 0
-                            [default_shipping] => 0
-                            [taxvat] => 
-                            [confirmation] => 
-                            [gender] => 0
-                            [failures_num] => 0
-                            [first_failure] => 
-                            [lock_expires] => 
-                            [orig_data] => 
-                            [CheckedDate] => 2019-06-05 00:00:00
-                            [approve_account] => 1
-                            [actions] => Array
-                                (
-                                    [edit] => Array
-                                        (
-                                            [href] => http://localhost/projekty/blm/redler/admin/blm_crontab/items/edit/id/109/key/1e64c62b0429ce0cbe7ce181d4b3721015696dd5c97f0119f4a9456db5234ae8/
-                                            [label] => Magento\Framework\Phrase Object
-                                                (
-                                                    [text:Magento\Framework\Phrase:private] => Edit
-                                                    [arguments:Magento\Framework\Phrase:private] => Array
-                                                        (
-                                                        )
+=========================
+Array
+(
+    [address_id] => 313
+    [quote_id] => 73
+    [created_at] => 2019-06-03 10:37:36
+    [updated_at] => 0000-00-00 00:00:00
+    [customer_id] => 106
+    [save_in_address_book] => 0
+    [customer_address_id] => 16
+    [address_type] => shipping
+    [email] => test00@test.com
+    [firstname] => Imie
+    [lastname] => Nazwisko
+    [company] => Company
+    [street] => Lublin
+33
+11
+    [city] => Lublin
+    [region_id] => 0
+    [postcode] => 12-123
+    [country_id] => US
+    [telephone] => 123456789
+    [same_as_billing] => 1
+    [collect_shipping_rates] => 1
+    [weight] => 0.0000
+    [subtotal] => 599.4000
+    [base_subtotal] => 599.4000
+    [subtotal_with_discount] => 599.4000
+    [base_subtotal_with_discount] => 599.4000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [shipping_amount] => 0.0000
+    [base_shipping_amount] => 0.0000
+    [shipping_tax_amount] => 0.0000
+    [base_shipping_tax_amount] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [grand_total] => 599.4000
+    [base_grand_total] => 599.4000
+    [applied_taxes] => []
+    [shipping_discount_amount] => 0.0000
+    [base_shipping_discount_amount] => 0.0000
+    [subtotal_incl_tax] => 599.4000
+    [base_subtotal_total_incl_tax] => 599.4000
+    [discount_tax_compensation_amount] => 0.0000
+    [base_discount_tax_compensation_amount] => 0.0000
+    [shipping_discount_tax_compensation_amount] => 0.0000
+    [shipping_incl_tax] => 0.0000
+    [base_shipping_incl_tax] => 0.0000
+    [free_shipping] => 0
+)
 
-                                                )
+=========================
+Array
+(
+    [address_id] => 314
+    [quote_id] => 73
+    [created_at] => 2019-06-03 10:37:36
+    [updated_at] => 0000-00-00 00:00:00
+    [customer_id] => 106
+    [save_in_address_book] => 0
+    [customer_address_id] => 16
+    [address_type] => billing
+    [email] => test00@test.com
+    [firstname] => Imie
+    [lastname] => Nazwisko
+    [company] => Company
+    [street] => Lublin
+33
+11
+    [city] => Lublin
+    [region_id] => 0
+    [postcode] => 12-123
+    [country_id] => US
+    [telephone] => 123456789
+    [same_as_billing] => 0
+    [collect_shipping_rates] => 0
+    [weight] => 0.0000
+    [subtotal] => 0.0000
+    [base_subtotal] => 0.0000
+    [subtotal_with_discount] => 0.0000
+    [base_subtotal_with_discount] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [shipping_amount] => 0.0000
+    [base_shipping_amount] => 0.0000
+    [shipping_tax_amount] => 0.0000
+    [base_shipping_tax_amount] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [grand_total] => 0.0000
+    [base_grand_total] => 0.0000
+    [applied_taxes] => null
+    [shipping_discount_amount] => 0.0000
+    [base_shipping_discount_amount] => 0.0000
+    [subtotal_incl_tax] => 0.0000
+    [discount_tax_compensation_amount] => 0.0000
+    [base_discount_tax_compensation_amount] => 0.0000
+    [shipping_discount_tax_compensation_amount] => 0.0000
+    [shipping_incl_tax] => 0.0000
+    [base_shipping_incl_tax] => 0.0000
+    [free_shipping] => 0
+)
 
-                                        )
+=========================
+Array
+(
+    [address_id] => 317
+    [quote_id] => 74
+    [created_at] => 2019-06-03 11:29:31
+    [updated_at] => 0000-00-00 00:00:00
+    [save_in_address_book] => 0
+    [address_type] => billing
+    [same_as_billing] => 0
+    [collect_shipping_rates] => 0
+    [weight] => 0.0000
+    [subtotal] => 0.0000
+    [base_subtotal] => 0.0000
+    [subtotal_with_discount] => 0.0000
+    [base_subtotal_with_discount] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [shipping_amount] => 0.0000
+    [base_shipping_amount] => 0.0000
+    [shipping_tax_amount] => 0.0000
+    [base_shipping_tax_amount] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [grand_total] => 0.0000
+    [base_grand_total] => 0.0000
+    [applied_taxes] => null
+    [shipping_discount_amount] => 0.0000
+    [base_shipping_discount_amount] => 0.0000
+    [subtotal_incl_tax] => 0.0000
+    [discount_tax_compensation_amount] => 0.0000
+    [base_discount_tax_compensation_amount] => 0.0000
+    [shipping_discount_tax_compensation_amount] => 0.0000
+    [shipping_incl_tax] => 0.0000
+    [base_shipping_incl_tax] => 0.0000
+    [free_shipping] => 0
+)
 
-                                )
+=========================
+Array
+(
+    [address_id] => 318
+    [quote_id] => 74
+    [created_at] => 2019-06-03 11:29:31
+    [updated_at] => 0000-00-00 00:00:00
+    [save_in_address_book] => 0
+    [address_type] => shipping
+    [same_as_billing] => 1
+    [collect_shipping_rates] => 1
+    [weight] => 0.0000
+    [subtotal] => 0.0000
+    [base_subtotal] => 0.0000
+    [subtotal_with_discount] => 94.9500
+    [base_subtotal_with_discount] => 94.9500
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [shipping_amount] => 0.0000
+    [base_shipping_amount] => 0.0000
+    [shipping_tax_amount] => 0.0000
+    [base_shipping_tax_amount] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [grand_total] => 0.0000
+    [base_grand_total] => 0.0000
+    [applied_taxes] => null
+    [shipping_discount_amount] => 0.0000
+    [base_shipping_discount_amount] => 0.0000
+    [subtotal_incl_tax] => 0.0000
+    [base_subtotal_total_incl_tax] => 94.9500
+    [discount_tax_compensation_amount] => 0.0000
+    [base_discount_tax_compensation_amount] => 0.0000
+    [shipping_discount_tax_compensation_amount] => 0.0000
+    [shipping_incl_tax] => 0.0000
+    [base_shipping_incl_tax] => 0.0000
+    [free_shipping] => 0
+)
 
-                        )
+=========================
+Array
+(
+    [address_id] => 317
+    [quote_id] => 74
+    [created_at] => 2019-06-03 11:29:31
+    [updated_at] => 0000-00-00 00:00:00
+    [save_in_address_book] => 0
+    [address_type] => billing
+    [same_as_billing] => 0
+    [collect_shipping_rates] => 0
+    [weight] => 0.0000
+    [subtotal] => 0.0000
+    [base_subtotal] => 0.0000
+    [subtotal_with_discount] => 0.0000
+    [base_subtotal_with_discount] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [shipping_amount] => 0.0000
+    [base_shipping_amount] => 0.0000
+    [shipping_tax_amount] => 0.0000
+    [base_shipping_tax_amount] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [grand_total] => 0.0000
+    [base_grand_total] => 0.0000
+    [applied_taxes] => null
+    [shipping_discount_amount] => 0.0000
+    [base_shipping_discount_amount] => 0.0000
+    [subtotal_incl_tax] => 0.0000
+    [discount_tax_compensation_amount] => 0.0000
+    [base_discount_tax_compensation_amount] => 0.0000
+    [shipping_discount_tax_compensation_amount] => 0.0000
+    [shipping_incl_tax] => 0.0000
+    [base_shipping_incl_tax] => 0.0000
+    [free_shipping] => 0
+)
 
-                    [2] => Array
-                        (
-                            [id_field_name] => entity_id
-                            [entity_id] => 110
-                            [website_id] => 1
-                            [email] => user3@wp.pl
-                            [group_id] => 1
-                            [increment_id] => 
-                            [store_id] => 1
-                            [created_at] => 2019-06-05 13:12:01
-                            [updated_at] => 2019-06-05 13:36:44
-                            [is_active] => 1
-                            [disable_auto_group_change] => 0
-                            [created_in] => Default Store View
-                            [prefix] => 
-                            [firstname] => ueser3
-                            [middlename] => 
-                            [lastname] => user3
-                            [suffix] => 
-                            [dob] => 
-                            [password_hash] => 
-                            [rp_token] => 2JBoweal7OdYsLLnjafeHKA5hjDvDW7W
-                            [rp_token_created_at] => 2019-06-05 13:12:01
-                            [default_billing] => 0
-                            [default_shipping] => 0
-                            [taxvat] => 
-                            [confirmation] => 
-                            [gender] => 0
-                            [failures_num] => 0
-                            [first_failure] => 
-                            [lock_expires] => 
-                            [orig_data] => 
-                            [CheckedDate] => 2019-06-05 00:00:00
-                            [approve_account] => 1
-                            [actions] => Array
-                                (
-                                    [edit] => Array
-                                        (
-                                            [href] => http://localhost/projekty/blm/redler/admin/blm_crontab/items/edit/id/110/key/1e64c62b0429ce0cbe7ce181d4b3721015696dd5c97f0119f4a9456db5234ae8/
-                                            [label] => Magento\Framework\Phrase Object
-                                                (
-                                                    [text:Magento\Framework\Phrase:private] => Edit
-                                                    [arguments:Magento\Framework\Phrase:private] => Array
-                                                        (
-                                                        )
-
-                                                )
-
-                                        )
-
-                                )
-
-                        )
-
-                )
-
-            [totalRecords] => 3
-        )
-
+=========================
+Array
+(
+    [address_id] => 318
+    [quote_id] => 74
+    [created_at] => 2019-06-03 11:29:31
+    [updated_at] => 0000-00-00 00:00:00
+    [save_in_address_book] => 0
+    [address_type] => shipping
+    [same_as_billing] => 1
+    [collect_shipping_rates] => 0
+    [weight] => 0.0000
+    [subtotal] => 949.5000
+    [base_subtotal] => 949.5000
+    [subtotal_with_discount] => 949.5000
+    [base_subtotal_with_discount] => 949.5000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [shipping_amount] => 0.0000
+    [base_shipping_amount] => 0.0000
+    [shipping_tax_amount] => 0.0000
+    [base_shipping_tax_amount] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [grand_total] => 949.5000
+    [base_grand_total] => 949.5000
+    [applied_taxes] => []
+    [shipping_discount_amount] => 0.0000
+    [base_shipping_discount_amount] => 0.0000
+    [subtotal_incl_tax] => 949.5000
+    [base_subtotal_total_incl_tax] => 949.5000
+    [discount_tax_compensation_amount] => 0.0000
+    [base_discount_tax_compensation_amount] => 0.0000
+    [shipping_discount_tax_compensation_amount] => 0.0000
+    [shipping_incl_tax] => 0.0000
+    [base_shipping_incl_tax] => 0.0000
+    [free_shipping] => 0
 )

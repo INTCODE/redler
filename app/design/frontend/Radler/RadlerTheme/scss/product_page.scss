@@ -122,6 +122,9 @@
                 } 
             }
             .fotorama__wrap{
+                .fotorama__stage{
+                    max-height:540px;
+                }
                 .fotorama__nav__frame{
                     padding: 0;
                     .fotorama__thumb-border{
@@ -301,6 +304,13 @@
         left: -30px;
         z-index: 2;
         cursor: pointer;
+    }
+    .upsell{
+        order: 4;
+        margin: 20px;
+        .product-items{
+            display: flex;
+        }
     }
     @media (max-width:1180px){
         #product_page .product-body .details{

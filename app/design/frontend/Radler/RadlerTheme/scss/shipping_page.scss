@@ -240,29 +240,89 @@
 }
 
 .page-layout-checkout{
+    .loading-mask{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background-color: rgba(0,0,0,.1);
+        height: 100vh;
+        width: 100vw;
+        z-index: 99;
+        .loader{
+            border-radius: 4px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
     .page-main{
         @extend .wrapper;
         position: relative;
     }
     #checkout{
         min-height: 550px;
+        padding: 10px 0;
+    }
+    .opc-progress-bar{
+        display: flex;
+        justify-content: space-between;
+        max-width: 235px;
+        list-style: none;
+        .opc-progress-bar-item{
+            font-size: 18px;
+            &._active{
+                font-weight: 600;
+            }
+            &:first-child::after{
+                content: '>'
+            }
+        }
+    }
+    .opc-estimated-wrapper{
+        .estimated-price{
+            font-weight: 600;
+        }
+        .minicart-wrapper{
+            display: none;
+        }
     }
     .shipping-address-item, .billing-address-details{
         display: flex;
         justify-content: space-between;
         max-width: 700px;
-        padding:10px;
+        padding: 10px 100px 10px 10px;
         border-bottom: 1px solid $secondary_bg_color;
+        position: relative;
+        >span{
+            width: 140px;
+            margin: 0 40px;
+        }
+        >a{
+            margin: 0 40px;
+        }
         &.selected-item{
             background-color: $primary_bg_color;
         }
         .action-select-shipping-item{
             @extend .btn;
+            position: absolute;
+            right: 10px;
             background: #dac09f;
             color: #fff;
             height: 40px;
             padding: 10px 25px;
             align-self: center;
+            &:hover{
+                color: #fff;
+            }
         }
     }
     .action-show-popup{
@@ -272,12 +332,18 @@
         color: #fff;
         height: 40px;
         padding: 10px 25px; 
+        &:hover{
+            color: #fff;
+        }
     }
     .step-title{
         font-size: 18px;
         padding: 15px 0 5px;
     }
     .table-checkout-shipping-method{
+        th{
+            background-color: #EFE9E6;
+        }
         .col{
             text-align: center;
             width: 160px;
@@ -303,15 +369,32 @@
             @extend .btn-green;
         }
     }
-    .discount-code{
-        .block-discount-heading{
+    .store-credit{
+        #block-discount-heading{
             span{
                 color: $primary_text_color;
                 text-decoration: underline;
                 cursor: pointer; 
             }
         }
-        .discount-form{
+        .label{
+            padding-right: 10px;
+            font-weight: 600;
+        }
+        .action-apply{
+            @extend .btn;
+            @extend .btn-green;
+        }
+    }
+    .discount-code{
+        #block-discount-heading{
+            span{
+                color: $primary_text_color;
+                text-decoration: underline;
+                cursor: pointer; 
+            }
+        }
+        #discount-form{
             margin-top: 10px;
             max-width: 400px;
             input{
@@ -321,6 +404,11 @@
                 @extend .btn;
                 @extend .btn-green;
             }
+            #discount-code-error{
+                color: $red;
+                font-weight: 600;
+                font-size: 12px;
+            }
         }
     }
     .opc-summary-wrapper{
@@ -329,6 +417,8 @@
         z-index: 9;
         right: 0;
         top: 0;
+        max-height: 630px;
+        overflow-y: auto;
         .modal-header, .table-caption{
             display: none;
         }
@@ -350,7 +440,8 @@
             .title{
                 display: block;
                 font-size: 20px;
-                padding-bottom: 20px;
+                padding-bottom: 10px;
+                margin-bottom: 10px;
                 border-bottom: 1px solid #eadfcf;
             }
             .items-in-cart{
@@ -379,6 +470,16 @@
                         transform: rotate(180deg);
                     }
                 }   
+                .minicart-items-wrapper{
+                    overflow: hidden;
+                    .minicart-items{
+                        max-height: 350px;
+                        overflow-y: scroll;
+                        box-sizing: content-box;
+                        padding-right: 17px;
+                        width: 100%;
+                    }
+                }
                 .product-item{
                     background-color: transparent;
                     box-shadow: none;
@@ -390,6 +491,7 @@
                     .product-image-container{
                         min-height: auto;
                         max-height:75px;
+                        padding-right: 10px;
                     }
                     .product-item-details{
                         text-align: left;
@@ -432,6 +534,23 @@
         }
     }
 }
+.payment-method-billing-address{
+    max-width: 490px;
+    .field{
+        margin-bottom: 10px;
+        margin-top: 5px;
+    }
+    .action-update{
+        @extend .btn;
+        @extend .btn-green;
+        color:#fff;
+    }
+    .action-cancel{
+        @extend .btn;
+        color:#fff;
+        background-color: $red;
+    }
+}
 .modal-popup{
     border-radius: 4px;
     position: absolute;
@@ -460,7 +579,9 @@
     .modal-content{
         background-color: transparent;
         border: none;
-        border-radius: none;
+        border-radius: 4px;
+        max-height: 400px;
+        overflow-y: scroll;
         select{
             background-color: #fff;
         }

@@ -1,5 +1,9 @@
 
 <?php
+
+// PRZENIOSLEM DO MINICART // SZUKAJ JAKO: SELECT ADRESU
+
+
 /**
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,7 +14,7 @@
 /**
  * @var \Magento\Theme\Block\Html\Header $block
  */
-
+/*
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
   
 $customerAddress = array();
@@ -40,18 +44,15 @@ foreach ($customerAddress as $customerAddres) {
   -->
 
 
-<?php if ($id): ?>
-<div>
+<?php if ($id && $options): ?>
+<li>
 <select id='addresses'>
-<?php echo $options?>
+<?php echo $options; ?>
 </select> 
-</div>
+</li>
 
 
 <?php endif; ?>
 
 
-
-
-
-
+*/

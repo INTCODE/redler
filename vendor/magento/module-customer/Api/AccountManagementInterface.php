@@ -35,7 +35,6 @@ interface AccountManagementInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function createAccount(
-        
         \Magento\Customer\Api\Data\CustomerInterface $customer,
         $password = null,
         $redirectUrl = ''

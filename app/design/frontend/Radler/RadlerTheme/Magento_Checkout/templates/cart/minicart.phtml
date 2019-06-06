@@ -7,7 +7,44 @@
 // @codingStandardsIgnoreFile
 
 /** @var $block \Magento\Checkout\Block\Cart\Sidebar */
+
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+  
+$customerAddress = array();
+$id=null;
+$customerSession = $objectManager->create("Magento\Customer\Model\Session");
+
+if($customerSession->isLoggedIn()){
+  $id= $customerSession->getCustomerId();
+}
+$customerObj = $objectManager->create('Magento\Customer\Model\Customer')->load($id);
+$GLOBALS['isActive'] = $customerObj['approve_account'];
+
+foreach ($customerObj->getAddresses() as $address)
+{
+    $customerAddress[] = $address->toArray();
+}
+$options=null;
+foreach ($customerAddress as $customerAddres) {
+  $data=$customerAddres['postcode'].' | '.$customerAddres['firstname'].' '.$customerAddres['lastname'].' - '.$customerAddres['company'];
+  $options.="<option value='".$customerAddres['entity_id']."'>$data</option>";
+}
+
 ?>
+<!-- SELECT ADRESU -->
+
+<?php if ($id & $options): ?>
+
+<div class="addressSelect">
+    <select id='addresses'>
+        <?php echo $options; ?>
+    </select> 
+</div>
+
+<?php endif; ?>
+
+
 
 <div data-block="minicart" class="minicart-wrapper">
     <a class="action showcart" href="<?= /* @escapeNotVerified */ $block->getShoppingCartUrl() ?>"
@@ -32,16 +69,20 @@
             <span class="counter-label">
             <!-- ko if: getCartParam('summary_count') == 1 -->
                 <span data-bind="html: getCartParam('subtotal')"></span>
+                <span>
                 <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
-                <!-- ko i18n: 'item' --><!-- /ko -->
+                <!-- ko text: 'item' --><!-- /ko -->
+                </span>
             <!-- /ko -->
             <!-- ko if: getCartParam('summary_count') > 1 -->
                 <span data-bind="html: getCartParam('subtotal')"></span>
+                <span>
                 <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
-                <!-- ko i18n: 'items' --><!-- /ko -->
+                <!-- ko text: 'items' --><!-- /ko -->
+                </span>
             <!-- /ko -->
             <!-- ko ifnot: getCartParam('summary_count') -->
-                <!-- ko text: '0 items' --><!-- /ko -->
+                <span>£0</span> <span>0 items</span>
             <!-- /ko -->
             </span>
         </span>

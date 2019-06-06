@@ -9,21 +9,17 @@
 ?>
 <?php if($block->customerLoggedIn()): ?>
     <li class="customer-welcome">
-        <span class="customer-name"
-              role="link"
-              tabindex="0"
-              data-mage-init='{"dropdown":{}}'
-              data-toggle="dropdown"
-              data-trigger-keypress-button="true"
-              data-bind="scope: 'customer'">
-            <span data-bind="text: customer().fullname"></span>
-            <button type="button"
-                    class="action switch"
-                    tabindex="-1"
-                    data-action="customer-menu-toggle">
-                <span><?= $block->escapeHtml(__('Change')) ?></span>
-            </button>
-        </span>
+<?php
+$objectManagerlogin = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManagerlogin->get('Magento\Customer\Model\Session');
+$baseurl = $objectManagerlogin->get('Magento\Store\Model\StoreManagerInterface')->getStore(0)->getBaseUrl();
+?>
+    <a class="myAccountBtnHeader" href="<?php echo $baseurl .'customer/account/'; ?>">
+        <span>My Account</span>
+    </a>
+    <a class="logoutBtnHeader" href="<?php echo $baseurl .'customer/account/logout'; ?>">
+        <span>Logout</span>
+    </a>
         <script type="text/x-magento-init">
         {
             "*": {

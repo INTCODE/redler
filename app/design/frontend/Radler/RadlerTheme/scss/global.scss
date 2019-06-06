@@ -125,8 +125,9 @@ a{
 }
 .btn-remove{
     display: block;
+    border: none;
     background-color: #fff;
-    background-image: url('../../assets/img/icons/cross.svg');
+    background-image: url('../images/icons/cross.svg');
     background-position: center;
     border-radius: 50%;
     background-size: 8px;
@@ -184,7 +185,7 @@ section{
     font-size: 0;
     display: block;
     background:none;
-    background-image: url('../../assets/img/icons/angle-down.svg');
+    background: url(../images/icons/angle-down.svg);  
     background-position: center;
     background-size: 15px;
     background-repeat: no-repeat;
@@ -218,11 +219,11 @@ section{
 }
 
 .messages{ 
-    position: fixed;
-    top: 155px;
-    right: 22px;
+    position: relative; 
     font-size: 16px;
-    z-index: 111;
+    text-align: center;
+    max-width: 1460px;
+    margin: 5px auto;
     .message-error{
         padding: 10px;
         background: #ce6f6f; 
@@ -241,4 +242,7 @@ section{
         }
     }
 }
- 
+
+.page-wrapper{
+    padding-top: 100px;
+}

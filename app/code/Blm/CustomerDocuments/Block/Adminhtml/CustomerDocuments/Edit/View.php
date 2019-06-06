@@ -48,7 +48,8 @@ class View extends TabWrapper {
     }
  
     public function getTabUrl() {
-        return $this->getUrl('customerDocuments/Controller/Admmin/Index/Grid', ['_current' => true]);
+        return '';
+        //return $this->getUrl('customerDocuments/Controller/Admmin/Index/Grid', ['_current' => true]);
     }
  
     public function isAjaxLoaded() {
