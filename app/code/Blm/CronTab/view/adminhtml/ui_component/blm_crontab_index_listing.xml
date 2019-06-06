@@ -101,7 +101,7 @@
             </argument>
         </paging>
 
- <massaction name="listing_massaction" component="Magento_Ui/js/grid/tree-massactions">
+<massaction name="listing_massaction" component="Magento_Ui/js/grid/tree-massactions">
             <action name="approve">
                 <settings>
                     <confirm>

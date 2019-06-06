@@ -51,10 +51,10 @@ class MassDelete extends \Magento\Backend\App\Action
         $collectionSize = $collection->getSize();
 
         foreach ($collection as $record) {
-            $date=time();
+            $date = date('Y-m-d', time());
             $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
             $customerObj = $objectManager->create('Magento\Customer\Model\Customer')->load($record['entity_id']);
-            $effectiveDate = date('Y-m-d', strtotime("+3 months", strtotime($customerObj['CheckedDate'])));
+            $effectiveDate = date('Y-m-d', strtotime("+3 months", strtotime($date)));
             $customerObj['approve_account']=2;
             $customerObj['CheckedDate']=$effectiveDate;
             $customerObj->save();
