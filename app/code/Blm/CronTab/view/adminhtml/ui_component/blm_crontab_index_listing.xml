@@ -100,7 +100,25 @@
                 </item>
             </argument>
         </paging>
+
+ <massaction name="listing_massaction" component="Magento_Ui/js/grid/tree-massactions">
+            <action name="approve">
+                <settings>
+                    <confirm>
+                        <message translate="true">Approve selected customers?</message>
+                        <title translate="true">Approve customers</title>
+                    </confirm>
+                    <url path="blm_crontab/items/massDelete"/>
+                    <type>delete</type>
+                    <label translate="true">Approve</label>
+                </settings>
+            </action>
+        </massaction>
+
+
+
     </container>
+    
     <columns name="blm_crontab_index_listing_columns">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
