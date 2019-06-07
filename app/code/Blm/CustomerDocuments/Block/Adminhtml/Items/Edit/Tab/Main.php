@@ -8,16 +8,19 @@ use Magento\Backend\Block\Widget\Tab\TabInterface;
 class Main extends Generic implements TabInterface
 {
     protected $_wysiwygConfig;
+    protected $_customerFactory;
  
     public function __construct(
         \Magento\Backend\Block\Template\Context $context, 
         \Magento\Framework\Registry $registry, 
         \Magento\Framework\Data\FormFactory $formFactory,  
         \Magento\Cms\Model\Wysiwyg\Config $wysiwygConfig, 
+        \Magento\Customer\Model\ResourceModel\Customer\CollectionFactory $customerFactory,
         array $data = []
     ) 
     {
         $this->_wysiwygConfig = $wysiwygConfig;
+        $this->_customerFactory = $customerFactory;
         parent::__construct($context, $registry, $formFactory, $data);
     }
 
@@ -53,6 +56,13 @@ class Main extends Generic implements TabInterface
         return false;
     }
 
+
+    public function getCustomerCollection()
+{
+    return $this->_customerFactory->create();
+}
+
+
     /**
      * Prepare form before rendering HTML
      *
@@ -62,6 +72,18 @@ class Main extends Generic implements TabInterface
      */
     protected function _prepareForm()
     {
+
+
+
+        $customerCollection = $this->getCustomerCollection();
+        $userArray=array();
+        foreach ($customerCollection as $customer) {
+            $userArray[$customer->getId()]=$customer->getEmail();
+        //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r( $userArray, true));
+
+        }
+
+
         $model = $this->_coreRegistry->registry('current_blm_customerdocuments_items');
         /** @var \Magento\Framework\Data\Form $form */
         $form = $this->_formFactory->create();
@@ -71,14 +93,9 @@ class Main extends Generic implements TabInterface
             $fieldset->addField('customerdocuments_id', 'hidden', ['name' => 'customerdocuments_id']);
         }
         $fieldset->addField(
-            'title',
-            'text',
-            ['name' => 'title', 'label' => __('Title'), 'title' => __('Title'), 'required' => true]
-        );
-        $fieldset->addField(
-            'author',
-            'text',
-            ['name' => 'author', 'label' => __('Author'), 'title' => __('Author'), 'required' => true]
+            'User',
+            'select',
+            ['name' => 'User', 'label' => __('User'), 'title' => __('User'),  'options'   => $userArray, 'required' => true]
         );
         $fieldset->addField(
             'image',
@@ -87,27 +104,10 @@ class Main extends Generic implements TabInterface
                 'name' => 'image',
                 'label' => __('Image'),
                 'title' => __('Image'),
-                'required'  => false
+                'required'  => true
             ]
         );
-        $fieldset->addField(
-            'status',
-            'select',
-            ['name' => 'status', 'label' => __('Status'), 'title' => __('Status'),  'options'   => [0 => 'Disable', 1 => 'Enable'], 'required' => true]
-        );
-        $fieldset->addField(
-            'content',
-            'editor',
-            [
-                'name' => 'content',
-                'label' => __('Content'),
-                'title' => __('Content'),
-                'style' => 'height:26em;',
-                'required' => true,
-                'config'    => $this->_wysiwygConfig->getConfig(),
-                'wysiwyg' => true
-            ]
-        );
+
         
         $form->setValues($model->getData());
         $this->setForm($form);

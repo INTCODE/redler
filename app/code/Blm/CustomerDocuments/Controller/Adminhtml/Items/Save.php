@@ -11,6 +11,17 @@ class Save extends \Blm\CustomerDocuments\Controller\Adminhtml\Items
                 $data = $this->getRequest()->getPostValue();
                 if(isset($_FILES['image']['name']) && $_FILES['image']['name'] != '') {
                     try{
+
+
+                        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+                        $directory = $objectManager->get('\Magento\Framework\Filesystem\DirectoryList');
+
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($data, true));
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($directory->getPath('media').'/company/customerdocuments' , true));
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($_FILES['image'], true));
+
+
                         $uploaderFactory = $this->uploaderFactory->create(['fileId' => 'image']);
                         $uploaderFactory->setAllowedExtensions(['jpg', 'jpeg', 'gif', 'png']);
                         $imageAdapter = $this->adapterFactory->create();
@@ -18,8 +29,11 @@ class Save extends \Blm\CustomerDocuments\Controller\Adminhtml\Items
                         $uploaderFactory->setAllowRenameFiles(true);
                         $uploaderFactory->setFilesDispersion(true);
                         $mediaDirectory = $this->filesystem->getDirectoryRead($this->directoryList::MEDIA);
-                        $destinationPath = $mediaDirectory->getAbsolutePath('blm/customerdocuments');
-                        $result = $uploaderFactory->save($destinationPath);
+                        
+                        $destinationPath = $directory->getPath('media').'/company/customerdocuments';
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($destinationPath, true));
+
+                        $result = $uploaderFactory->save($destinationPath,$_FILES['image']['name'].$data['User']);
                         if (!$result) {
                             throw new LocalizedException(
                                 __('File cannot be saved to path: $1', $destinationPath)
