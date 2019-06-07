@@ -37,5 +37,6 @@
 
         <!-- MOVED BLOCKS -->
         <move element="product.attributes" destination="product.info.main" after="product.price.final"/>
+        <move element="content.aside" destination="before.body.end" before="-"/>
     </body>
 </page>
