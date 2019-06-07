@@ -11,37 +11,48 @@ class Save extends \Blm\CustomerDocuments\Controller\Adminhtml\Items
                 $data = $this->getRequest()->getPostValue();
                 if(isset($_FILES['image']['name']) && $_FILES['image']['name'] != '') {
                     try{
-
-
+                        
                         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 
                         $directory = $objectManager->get('\Magento\Framework\Filesystem\DirectoryList');
+                
+                        $rootPath  =  $directory->getRoot('media');
+
 
             file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($data, true));
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($directory->getPath('media').'/company/customerdocuments' , true));
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($_FILES['image'], true));
-
+            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($directory->getPath('media').'/company/customerdocuments' , true));
+            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($_FILES['image'], true));
+                        $data['entity_id']=$data['User'];
 
                         $uploaderFactory = $this->uploaderFactory->create(['fileId' => 'image']);
-                        $uploaderFactory->setAllowedExtensions(['jpg', 'jpeg', 'gif', 'png']);
+                        //$uploaderFactory->setAllowedExtensions(['jpg', 'jpeg', 'gif', 'png']);
                         $imageAdapter = $this->adapterFactory->create();
                         $uploaderFactory->addValidateCallback('custom_image_upload',$imageAdapter,'validateUploadFile');
                         $uploaderFactory->setAllowRenameFiles(true);
                         $uploaderFactory->setFilesDispersion(true);
                         $mediaDirectory = $this->filesystem->getDirectoryRead($this->directoryList::MEDIA);
+                        $ts=time();
+
+                    $newFilePath = $rootPath.'/pub/media/company/customerdocuments/' .$ts.'_'. $_FILES['image']['name'];            
+
                         
                         $destinationPath = $directory->getPath('media').'/company/customerdocuments';
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($destinationPath, true));
+                        $dbPath='company/customerdocuments/' .$ts.'_'. $_FILES['image']['name'];
+                        $data['Document']=$dbPath;
+                        $tmpFilePath = $_FILES['image']['tmp_name'];
 
-                        $result = $uploaderFactory->save($destinationPath,$_FILES['image']['name'].$data['User']);
-                        if (!$result) {
-                            throw new LocalizedException(
-                                __('File cannot be saved to path: $1', $destinationPath)
-                            );
-                        }
+                        move_uploaded_file($tmpFilePath, $newFilePath);
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($ts, true));
+
+                        // $result = $uploaderFactory->save($destinationPath,$_FILES['image']['name'].$data['User']);
+                        // if (!$result) {
+                        //     throw new LocalizedException(
+                        //         __('File cannot be saved to path: $1', $destinationPath)
+                        //     );
+                        // }
                         
-                        $imagePath = 'blm/customerdocuments'.$result['file'];
-                        $data['image'] = $imagePath;
+                        // $imagePath = 'blm/customerdocuments'.$result['file'];
+                        // $data['image'] = $imagePath;
                     } catch (\Exception $e) {
                     }
                 }

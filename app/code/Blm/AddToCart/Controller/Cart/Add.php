@@ -92,7 +92,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
     {
         $params = $this->getRequest()->getParams();
 
-
+        
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $id=null;
         $customerSession = $objectManager->create("Magento\Customer\Model\Session");
