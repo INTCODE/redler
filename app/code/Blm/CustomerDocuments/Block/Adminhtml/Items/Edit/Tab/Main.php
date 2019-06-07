@@ -99,7 +99,7 @@ class Main extends Generic implements TabInterface
         );
         $fieldset->addField(
             'image',
-            'image',
+            'file',
             [
                 'name' => 'image',
                 'label' => __('Image'),

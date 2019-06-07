@@ -73,7 +73,7 @@ class CustomerDocumentsActions extends \Magento\Ui\Component\Listing\Columns\Col
                 ];
             }
 
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($dataSource, true));
+           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========adres===========\n".print_r($dataSource, true));
         }
         return $dataSource;
     }
