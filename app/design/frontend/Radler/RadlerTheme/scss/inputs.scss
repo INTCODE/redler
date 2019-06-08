@@ -186,21 +186,23 @@ select{
 }
 .custom-checkbox{
     position: relative;
-    cursor: pointer;
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
     input[type="checkbox"]{
         opacity: 0;
-        top: 0;
         left: 0;
+        height: 17px;
+        width: 17px;
         position: absolute;
-        &:checked + &::after{
+        cursor: pointer;
+        &:checked + label::after{
             content: url('../images/icons/check.svg');
             height: 10px;
             width: 10px;
             display: inline-block;
             position: absolute;
-            top: 1px;
-            left: 0;
-            right: 0;
+            left: 4px;
             margin:auto;
         }
     }
@@ -208,11 +210,14 @@ select{
         content: '';
         position: absolute;
         left: 0;
-        top: 0;
         background-color: #fff;
         height: 17px;
         width: 17px;
         @include flex-row(center, center);
+    }
+    label{
+        user-select: none;
+        cursor: pointer;
     }
 }
 .input-with-button{

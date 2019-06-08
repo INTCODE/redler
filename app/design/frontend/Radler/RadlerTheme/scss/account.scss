@@ -22,9 +22,9 @@
         input[type="text"], input[type="number"], input[type="email"], input[type="file"], select{
             margin-bottom: 10px;
         }
-        // .field.choice{
-        //     @extend .custom-checkbox;
-        // }
+        .field.choice{
+            @extend .custom-checkbox;
+        }
     }
     .password-strength-meter{
         font-size: 14px;
