@@ -45,21 +45,32 @@ select{
     @include flex-row(center,center);
     position: relative;
     top: 16px;
-    .input-text{
-        appearance: textfield;
-        width: 40%;
-        height:40px;
-        text-align: center;
-        border: 1px solid $third_bg_color;
-        float: left;
-        margin-left: 10px;
-    }
-    input[type=number]::-webkit-inner-spin-button,
-    input[type=number]::-webkit-outer-spin-button
-    {
-      -webkit-appearance: none;
-      margin: 0;
-     
+    .control{
+        display: flex;
+        .decreaseQty{
+            order: 1;
+        }
+        .increaseQty{
+            order: 3;
+        }
+        .input-text{
+            order: 2;
+            -webkit-appearance: none;
+            -moz-appearance: textfield;
+            appearance: none;
+            width: 40%;
+            height:40px;
+            text-align: center;
+            border: 1px solid $third_bg_color;
+            float: left;
+        }
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button
+        {
+            -webkit-appearance: none;
+            margin: 0;
+            
+        }
     }
     .field{
         width: 100%!important; 
@@ -81,7 +92,6 @@ select{
         font-weight: 700;
         width: 20%;
         height: 40px;
-        margin-right: 1px;
         font-size: $f-18;
         cursor: pointer;
         user-select: none;

@@ -161,11 +161,11 @@
                 order: 2;
                 width: 100%;
                 .field.qty{
+                    @extend .product-item-actions;
                     .label{
                         display: none;
                     }
                     .control{
-                        @extend .product-item-actions;
                         justify-content: flex-start;
                         top: 0;
                         .input-text{
