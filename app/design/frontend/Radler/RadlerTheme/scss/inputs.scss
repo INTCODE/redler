@@ -100,71 +100,7 @@ select{
         font-weight: 600;
     }
 }
-.switch{
-    position: relative;
-    width: 60px;
-    height: 30px;
-    background-color: $primary_bg_color;
-    border-radius: 25px;
-    input[type="checkbox"]{
-        cursor: pointer;
-        opacity: 0;
-        position: relative;
-        z-index: 2;
-        width: 100%;
-        height: 100%;
-    }
-    .switch-body{
-        border: 2px solid $primary_bg_color;
-        border-radius: 25px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        transition: 300ms;
-        &::before{
-            content: "";
-            height: 100%;
-            width: 50%;
-            position: absolute;
-            top: 0;
-            left: 0%;
-            transition: 300ms;
-            background-color: #fff;
-            border-radius: 50%;
-        }
-    }
-    .icons{
-        >span{
-            transition: 300ms;
-        }
-        .right{
-            opacity: .3;
-        }
-    }
-    input:checked{
-        &+ .switch-body::before{
-         left: 50%;
-        }
-        &~ .icons .left{
-            opacity: .3;
-        }
-        &~ .icons .right{
-            opacity: 1;
-        }
-    }
-    .icons{
-        @include flex-row(space-between, center);
-        position: absolute;
-        top: -2px;
-        left: 2px;
-        right: 0;
-        width: 45px;
-        margin: auto;
-        height: 100%;
-    }
-}
+
 .sort-by-select{
     span{
         color:$opacity-color;
@@ -310,3 +246,71 @@ select{
         }
     }
 }
+
+
+.switch{
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: $primary_bg_color;
+    border-radius: 25px;
+    input[type="checkbox"]{
+        cursor: pointer;
+        opacity: 0;
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+    }
+    .switch-body{
+        border: 2px solid $primary_bg_color;
+        border-radius: 25px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transition: 300ms;
+        &::before{
+            content: "";
+            height: 100%;
+            width: 50%;
+            position: absolute;
+            top: 0;
+            left: 0%;
+            transition: 300ms;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+    }
+    .icons{
+        >span{
+            transition: 300ms;
+        }
+        .right{
+            opacity: .3;
+        }
+    }
+    input:checked{
+        &+ .switch-body::before{
+         left: 50%;
+        }
+        &~ .icons .left{
+            opacity: .3;
+        }
+        &~ .icons .right{
+            opacity: 1;
+        }
+    }
+    .icons{
+        @include flex-row(space-between, center);
+        position: absolute;
+        top: -2px;
+        left: 2px;
+        right: 0;
+        width: 45px;
+        margin: auto;
+        height: 100%;
+    }
+}
+
