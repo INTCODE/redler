@@ -2,6 +2,7 @@
     padding: 40px 0 0 0;
     position: relative;
     margin-top: -40px; 
+    
     .page-main{ 
         max-width: 1460px;
          width: 98%;
@@ -17,7 +18,46 @@
              .products-crosssell{
                 .item{
                     .control{
-                        @extend .product-item-actions;
+                        padding-top:15px;
+                        display: flex;
+                        .decreaseQty{
+                            order: 1;
+                        }
+                        .increaseQty{
+                            order: 3;
+                        }
+                        .input-text{
+                            order: 2;
+                            -webkit-appearance: none;
+                            -moz-appearance: textfield;
+                            appearance: none;
+                            width: 40%;
+                            height:40px;
+                            text-align: center;
+                            border: 1px solid $third_bg_color;
+                            float: left;
+                        }
+                        input[type=number]::-webkit-inner-spin-button,
+                        input[type=number]::-webkit-outer-spin-button
+                        {
+                            -webkit-appearance: none;
+                            margin: 0;
+                            
+                        }
+                        button{
+                            @include flex-row(center,center);
+                            color: $primary_text_color;
+                            background-color: $third_bg_color;
+                            font-weight: 700;
+                            width: 20%;
+                            height: 40px;
+                            font-size: $f-18;
+                            cursor: pointer;
+                            user-select: none;
+                            display: inline-block;
+                            float: left;
+                            border: none;
+                        }
                     }
                 }
              }
@@ -65,7 +105,7 @@
                         .product-item-details{
                             .product-item-name{
                                 float: left;
-                                margin: 15px 5px 5px 15px;
+                                margin: 15px 35px 5px 15px;
                                 font-weight: 600;
                                 font-size: 14px; 
                             }  
@@ -217,7 +257,6 @@
 
 .cart-empty{ 
     min-height: 550px;
-    border:solid red;
     p{
         &:first-child{
             background-color: #EADFCF;
@@ -240,6 +279,12 @@
 }
 
 .page-layout-checkout{
+    .field.choice:not(.billing-address-same-as-shipping-block){
+        padding-left: 0;
+        &::before{
+            display: none;
+        }
+    }
     .loading-mask{
         display: flex;
         justify-content: center;
@@ -622,7 +667,7 @@
 }
 @media (max-width:580px){
     .page-layout-checkout {
-        .shipping-address-item{
+        .shipping-address-item, .billing-address-details{
             padding: 10px;
             flex-direction: column;
             align-items: center;

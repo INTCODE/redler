@@ -390,7 +390,7 @@
         @extend .block-static-block;
         background-color: $body_background_color;
         order: 4;
-        padding: 50px 0 10px 0;
+        padding: 50px 10px 10px 10px;
         position: relative;
         &::after{
             content: "";
@@ -403,8 +403,11 @@
         }
         .action.select{
             font-weight: 600;
+            border: none;
+            padding: 0;
+            background: none;
             span{
-                color:#fff;
+                color:$primary_text_color;
             }
             &:hover{
                 span{
@@ -464,6 +467,11 @@
                 padding-bottom: 0;
             }
         }
+    }
+    .catalog-product-view .column .product-buy .product-add-form .package_type{
+        bottom: 0;
+        top: initial;
+        z-index: 1;
     }
     .upsell, .block.related{
         .product-items{

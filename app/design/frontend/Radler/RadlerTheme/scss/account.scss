@@ -474,4 +474,26 @@
     .customer-address-index .page-wrapper .block-addresses-default .box-address-shipping{
         width: 49%;
     }
+    .customer-address-index,
+    .sales-order-history,
+    .customer-address-form,
+    .customer-account-edit,
+    .vault-cards-listaction,
+    .review-customer-index,
+    .newsletter-manage-index,
+    .sales-order-view,
+    .customer-address-form,
+    .aw_store_credit-info-index,
+    .customer-account-index{
+    .page-wrapper{
+        .sidebar .items .item:first-child{
+            margin-top: 0;
+        }
+        .columns{
+            .column{
+                padding: 15px 20px;
+            }
+        }
+    }
+}
 }
