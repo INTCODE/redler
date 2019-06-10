@@ -230,6 +230,7 @@
                                 background: transparent;
                                 border-top: none;
                                 padding: 0;
+                                vertical-align: middle;
                             }
                             td{
                                 border-top: none;  
@@ -667,6 +668,9 @@
 }
 @media (max-width:580px){
     .page-layout-checkout {
+        #maincontent{
+            padding: 0 10px;
+        }
         .shipping-address-item, .billing-address-details{
             padding: 10px;
             flex-direction: column;
