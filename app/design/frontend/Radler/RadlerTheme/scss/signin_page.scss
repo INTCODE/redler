@@ -582,3 +582,38 @@
         } 
     }
 }
+@media (max-width:991px){
+    .customer-account-create .columns .column{
+        padding: 0;
+        display: flex;
+        flex-direction: column-reverse;
+        .note{
+            text-align: center;
+        }
+        .register-container{
+            background-image: none;
+            background-color: $body_background_color;
+            float: none;
+            padding: 30px 15px;
+            display: flex;
+            justify-content: center;
+            .customer-account-create .columns .column .register-container form > div:last-child{
+                .primary{
+                    text-align: center;
+                }
+            }
+            .form-create-account{
+                .field{
+                    width: 100%!important;
+                }
+            }
+        }
+        .block-customer-login{
+            top: 0;
+            padding: 30px;
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+    }
+}

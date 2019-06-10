@@ -402,20 +402,8 @@
     }
 }
 @media (max-width:991px){
-    header{
-        .wrapper{
-            display: block;
-            padding: 15px 0;
-            .right-part{
-                display: block;
-            }
-            #logo{
-                margin-bottom: 25px;
-            }
-            .store-list{
-                margin-bottom: 15px;
-            }
-        }
+    .page-header{
+        height: auto;
     }
 }
 @media (max-width:480px){

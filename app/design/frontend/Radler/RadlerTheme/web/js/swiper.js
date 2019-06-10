@@ -17,7 +17,7 @@ require([
             responsive:[{
                 breakpoint: 991,
                 settings: {
-                  slidesToShow: 5,
+                  slidesToShow: 3,
                 }
             },
             {

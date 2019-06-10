@@ -22,9 +22,6 @@
         input[type="text"], input[type="number"], input[type="password"], input[type="email"], input[type="file"], select{
             margin-bottom: 10px;
         }
-        .field.choice{
-            @extend .custom-checkbox;
-        }
     }
     .password-strength-meter{
         font-size: 14px;
@@ -428,6 +425,16 @@
             }
         }
     }
+    .edit-email-preferences{
+        span{
+            font-size: 14px;
+            color: #165898;
+            text-decoration: underline;
+            position: relative;
+            display: block;
+            margin:10px 0 20px;
+        }
+    }
 }
 .actions-toolbar{
     .primary.add{
@@ -461,5 +468,10 @@
         @extend .btn-green;
         margin-top: 10px;
         margin-bottom: 20px;
+    }
+}
+@media (max-width:991px){
+    .customer-address-index .page-wrapper .block-addresses-default .box-address-shipping{
+        width: 49%;
     }
 }

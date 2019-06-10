@@ -5,6 +5,11 @@ input[type="text"], input[type="password"], input[type="email"], textarea{
     font-weight: 600;
     font-size: $f-12;
 }
+input[type='number']{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}
 select{
     padding: 6px 35px 6px 20px;
     background-color: $primary_bg_color;
@@ -194,7 +199,7 @@ select{
         background-repeat: no-repeat;
     }
 }
-.custom-checkbox{
+.field.choice{
     position: relative;
     padding-left: 30px;
     display: flex;
