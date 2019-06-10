@@ -19,12 +19,12 @@
         .label{
             margin-bottom: 2.5px;
         }
-        input[type="text"], input[type="number"], input[type="email"], input[type="file"], select{
+        input[type="text"], input[type="number"], input[type="password"], input[type="email"], input[type="file"], select{
             margin-bottom: 10px;
         }
-        // .field.choice{
-        //     @extend .custom-checkbox;
-        // }
+        .field.choice{
+            @extend .custom-checkbox;
+        }
     }
     .password-strength-meter{
         font-size: 14px;
@@ -248,6 +248,11 @@
                     }
                     .col{
                         max-width: 15%;
+                        &.qty{
+                            ul{
+                                list-style: none;
+                            }
+                        }
                     }
                 }
             } 
@@ -297,10 +302,9 @@
 
         .action,
         .actions{
-            .view{ 
+            .view, .print{ 
                 @extend .btn;
                 margin: 2.5px 0;
-
                 background: #dac09f;
                 padding: 5px 10px;
                 width: 85px;
@@ -393,6 +397,37 @@
             }
         }
     }  
+    .mark{
+        background-color: transparent;
+    }
+    .block-order-details-view{
+        padding-top: 20px;
+        .block-content{
+            padding-top: 10px;
+            @extend .row;
+            .box{
+                @extend .col-lg-3;
+                font-size: 14px;
+            }
+        }
+    }
+    .password-info{
+        a{
+            @extend .btn;
+            margin: 2.5px 0;
+            background: #dac09f;
+            padding: 5px 10px;
+            width: auto;
+            border: none;
+            border-radius: 15px;
+            color:#fff;
+            font-size: 10px;
+            &:hover{
+                    text-decoration: underline;
+                    color:#fff;
+            }
+        }
+    }
 }
 .actions-toolbar{
     .primary.add{

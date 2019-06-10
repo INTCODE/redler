@@ -92,7 +92,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
     {
         $params = $this->getRequest()->getParams();
 
-
+        
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $id=null;
         $customerSession = $objectManager->create("Magento\Customer\Model\Session");
@@ -254,7 +254,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
 
             if($params['qty'] > 0){
                 $this->cart->addProduct($product, $params);
-         file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========params============\n".print_r($params, true));
+         //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========params============\n".print_r($params, true));
                 if (!empty($related)) {
                     $this->cart->addProductsByIds(explode(',', $related));
                 }

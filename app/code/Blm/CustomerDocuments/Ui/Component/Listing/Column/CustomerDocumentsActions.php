@@ -61,14 +61,9 @@ class CustomerDocumentsActions extends \Magento\Ui\Component\Listing\Columns\Col
             $item['email']=$customerObj['email'];
 
                 $item[$this->getData('name')] = [
-                    'edit' => [
-                        'href' => $this->_urlBuilder->getUrl(
-                            static::URL_PATH_EDIT,
-                            [
-                                'id' => $item['customerdocuments_id']
-                            ]
-                        ),
-                        'label' => __('Edit')
+                    'view' => [
+                        'href' => $item['image_src'],
+                        'label' => __('View')
                     ],
                 ];
             }
