@@ -280,10 +280,10 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
             $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
             $connection = $resource->getConnection();
 
-            $id=$this->cart->getQuote()->getId();
+            $idQuote=$this->cart->getQuote()->getId();
             $sql = "SELECT *
             FROM quote_item 
-            WHERE quote_id = $id";
+            WHERE quote_id = $idQuote";
             $result = $connection->fetchAll($sql); 
 
 
@@ -292,7 +292,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
         $shiptest=array();
 
           foreach ($result as $key => $value) {
-            // if(!$value['parent_item_id']){
+             if(!$value['parent_item_id']){
                 file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========query=============\n".print_r($value['item_id'], true));
                 $address=$params['addressId'];
                 $qty=(int)$value['qty'];
@@ -301,12 +301,14 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                 $ship_elem = array($id => $product_ship);
                 array_push($shiptest,$ship_elem);
             
-
+             }
           }
                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========shipTest=============\n".print_r($shiptest, true));
 
-            $sql="DELETE FROM quote_item WHERE quote_id=$id";
-            $connection->query($sql);
+        //     $sql="DELETE FROM quote_item WHERE quote_id=$idQuote";
+        //     file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========query=============\n".print_r($sql, true));
+
+        //    $connection->query($sql);
 
                $AddressPost = $this->_objectManager->get('Magento\Multishipping\Controller\Checkout\AddressesPost');
                $AddressPost->updateAddresses($shiptest);
