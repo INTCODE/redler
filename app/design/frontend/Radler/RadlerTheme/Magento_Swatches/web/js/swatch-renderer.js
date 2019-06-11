@@ -616,7 +616,6 @@ define([
          * @private
          */
         _RenderFormInput: function (config) {
-            console.log();
             return '<input class="' + this.options.classes.attributeInput + ' super-attribute-select" ' +
                 'name="super_attribute[' + config.id + ']" ' +
                 'type="text" ' +
