@@ -301,23 +301,8 @@
     }
 }
 @media (max-width:991px){
-    #product_list{
-        .list-container{
-            .sidebar{
-                .category-name{
-                    text-align: center;
-                    margin: 30px 0;
-                }
-                .filters{
-                    margin: 20px 0 40px;
-                }
-            }
-            .product-grid{
-                .content{
-                    text-align: center;
-                }
-            }
-        }
+    .page-products .columns .main .product-items{
+        text-align: center;
     }
 }
 @media (max-width:685px){

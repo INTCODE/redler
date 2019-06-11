@@ -242,7 +242,15 @@ section{
         }
     }
 }
-
 .page-wrapper{
     padding-top: 100px;
+}
+@media (max-width:991px){
+    .block-static-block,
+    .wrapper{
+        padding: 0;
+    }
+    .page-wrapper{
+        padding-top: 175px;
+    }
 }
