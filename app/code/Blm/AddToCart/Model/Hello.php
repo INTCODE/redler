@@ -36,9 +36,9 @@ class Hello implements HelloInterface
         WHERE b.productId= $productId AND b.quoteId=$quoteId AND b.`type`=$type";
 
         $result = $connection->fetchAll($sql);
-
-        return json_encode($result);
         
+        return json_encode($result);
+        //return $productId;
 
     }
 }

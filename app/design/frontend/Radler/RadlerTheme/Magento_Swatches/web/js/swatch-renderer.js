@@ -768,6 +768,36 @@ define([
 
             $widget._loadMedia();
             $input.trigger('change');
+
+            console.log("ajax");
+            var j = {
+                productId:30, 
+                quoteId: 28, 
+                type: 21
+            };
+            j = JSON.stringify(j);
+            $.ajax({
+                url: "http://localhost/projekty/blm/redler/rest/V1/blmCart/get/",
+                data: j,
+                type: 'POST',
+                dataType: 'json',
+                cache: false,
+                contentType: 'application/json',
+                processData: false,
+
+                /** @inheritdoc */
+                success: function(res) {
+                    console.info("success");
+                    console.log(res);
+                },
+                
+                /** @inheritdoc */
+                error: function(res) {
+                    console.info("error");
+                    console.log(res);
+                }
+            });
+
         },
 
         /**
