@@ -80,12 +80,6 @@
                            type="number"
                            size="4"
                            class="item-qty cart-item-qty">
-
-                           <button type="button" data-bind="attr: {title: $t('Increase the quantity'), 'data-cart-item': item_id, 'data-item-qty': qty}" class="increaseQty">+</button>
-                           <button type="button" data-bind="attr: {title: $t('Decrease the quantity'), 'data-cart-item': item_id, 'data-item-qty': qty}" class="decreaseQty">-</button>
-
-
-
                     <button data-bind="attr: {
                            id: 'update-cart-item-'+item_id,
                            'data-cart-item': item_id,
@@ -95,17 +89,22 @@
                             style="display: none">
                         <span data-bind="i18n: 'Update'"></span>
                     </button>
+                    <div data-bind="attr: {
+                           id: 'update-cart-item-'+item_id,
+                           'data-cart-item': item_id
+                           }"
+                        class="buttonMinicartQty"
+                        onclick="jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())+1)">+</div>
+                    <div data-bind="attr: {
+                           id: 'update-cart-item-'+item_id,
+                           'data-cart-item': item_id
+                           }"
+                        class="buttonMinicartQty"
+                        onclick="if(jQuery(this).parent().find('.cart-item-qty').val() > 0) jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())-1)">-</div>
                 </div>
             </div>
 
             <div class="product actions">
-                <!-- ko if: is_visible_in_site_visibility -->
-                <div class="primary">
-                    <a data-bind="attr: {href: configure_url, title: $t('Edit item')}" class="action edit">
-                        <span data-bind="i18n: 'Edit'"></span>
-                    </a>
-                </div>
-                <!-- /ko -->
                 <div class="secondary">
                     <a href="#" data-bind="attr: {'data-cart-item': item_id, title: $t('Remove item')}"
                        class="action delete">
@@ -116,19 +115,3 @@
         </div>
     </div>
 </li>
-<script type="text/javascript">
-    require(['jquery'], function($) {
-        $('.decrease-Qty').on('click', function() {
-            console.log("+");
-
-            // var qty = parseInt($('#qty').val());
-            // qty = qty - 1;
-            // $('#qty').val(qty).trigger('change');
-        });
-        $('.increase-Qty').on('click', function() {
-            var qty = parseInt($('#qty').val());
-            qty = qty + 1;
-            $('#qty').val(qty).trigger('change');
-        });
-    });
-</script>
