@@ -61,10 +61,10 @@ define([
             locationParts = window.location.href.split('#');
             forceReload = urlParts[0] === locationParts[0];
 
-            window.location.assign(url);
+            //window.location.assign(url);
 
             if (forceReload) {
-                window.location.reload();
+                //window.location.reload();
             }
         },
 

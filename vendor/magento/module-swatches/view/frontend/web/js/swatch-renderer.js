@@ -197,6 +197,9 @@ define([
      *  - selectorProduct (selector for product container)
      *  - selectorProductPrice (selector for change price)
      */
+
+
+
     $.widget('mage.SwatchRenderer', {
         options: {
             classes: {
@@ -492,7 +495,7 @@ define([
             if (!this.options.jsonSwatchConfig.hasOwnProperty(config.id)) {
                 return '';
             }
-
+            var $widget = this;
             $.each(config.options, function (index) {
                 var id,
                     type,
@@ -535,6 +538,7 @@ define([
                     ' option-tooltip-thumb="' + thumb + '"' +
                     ' option-tooltip-value="' + value + '"' +
                     ' role="option"' +
+                    ' option-swatch="swatchobject'+index+'"' +
                     ' thumb-width="' + width + '"' +
                     ' thumb-height="' + height + '"';
 
@@ -568,10 +572,13 @@ define([
                     // Default
                     html += '<div class="' + optionClass + '" ' + attr + '>' + label + '</div>';
                 }
+               
+                if(index == 0) $widget._OnClick($('[option-swatch=swatchobject'+index+']'), $widget);
             });
 
             return html;
         },
+
 
         /**
          * Render select by part of config
@@ -619,7 +626,8 @@ define([
             return '<input class="' + this.options.classes.attributeInput + ' super-attribute-select" ' +
                 'name="super_attribute[' + config.id + ']" ' +
                 'type="text" ' +
-                'value="" ' +
+                'style="display: none"'+
+                'value="'+config.options[0].id+'" ' +
                 'data-selector="super_attribute[' + config.id + ']" ' +
                 'data-validate="{required: true}" ' +
                 'aria-required="true" ' +
@@ -637,7 +645,10 @@ define([
                 target;
 
             $widget.element.on('click', '.' + options.optionClass, function () {
-                return $widget._OnClick($(this), $widget);
+                var isChecked = ($(this).hasClass('selected'));
+                if(!isChecked) {
+                    return $widget._OnClick($(this), $widget);
+                }
             });
 
             $widget.element.on('change', '.' + options.selectClass, function () {
@@ -1387,3 +1398,4 @@ define([
 
     return $.mage.SwatchRenderer;
 });
+
