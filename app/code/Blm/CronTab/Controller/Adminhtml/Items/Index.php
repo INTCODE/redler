@@ -21,9 +21,9 @@ class Index extends \Blm\CronTab\Controller\Adminhtml\Items
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Blm_CronTab::test');
-        $resultPage->getConfig()->getTitle()->prepend(__('Accounts Cron'));
-        $resultPage->addBreadcrumb(__('Accounts'), __('Accounts'));
-        $resultPage->addBreadcrumb(__('AccountsCron'), __('AccountsCron'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Customers List'));
+        $resultPage->addBreadcrumb(__('Customers'), __('Customers'));
+        $resultPage->addBreadcrumb(__('CustomersList'), __('CustomersList'));
         return $resultPage;
     }
 }

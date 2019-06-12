@@ -1,11 +1,4 @@
 <?php
-/**
-  
- 
- 
-  
- 
- */
 
 namespace Blm\CronTab\Setup;
 

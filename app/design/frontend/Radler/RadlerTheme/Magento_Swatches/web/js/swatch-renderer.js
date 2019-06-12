@@ -496,6 +496,7 @@ define([
                 return '';
             }
             var $widget = this;
+            var eachI = 0;
             $.each(config.options, function (index) {
                 var id,
                     type,
@@ -538,7 +539,7 @@ define([
                     ' option-tooltip-thumb="' + thumb + '"' +
                     ' option-tooltip-value="' + value + '"' +
                     ' role="option"' +
-                    ' option-swatch="swatchobject'+index+'"' +
+                    ' option-swatch="swatchobject'+eachI+'"' +
                     ' thumb-width="' + width + '"' +
                     ' thumb-height="' + height + '"';
 
@@ -573,7 +574,8 @@ define([
                     html += '<div class="' + optionClass + '" ' + attr + '>' + label + '</div>';
                 }
                
-                if(index == 0) $widget._OnClick($('[option-swatch=swatchobject'+index+']'), $widget);
+                if(eachI == 0) $widget._OnClick($('[option-swatch=swatchobject'+eachI+']'), $widget);
+                eachI++;
             });
 
             return html;

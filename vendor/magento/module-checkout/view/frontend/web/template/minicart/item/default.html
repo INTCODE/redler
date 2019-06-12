@@ -89,6 +89,18 @@
                             style="display: none">
                         <span data-bind="i18n: 'Update'"></span>
                     </button>
+                    <div data-bind="attr: {
+                           id: 'update-cart-item-'+item_id,
+                           'data-cart-item': item_id
+                           }"
+                        class="buttonMinicartQty"
+                        onclick="jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())+1)">+</div>
+                    <div data-bind="attr: {
+                           id: 'update-cart-item-'+item_id,
+                           'data-cart-item': item_id
+                           }"
+                        class="buttonMinicartQty"
+                        onclick="if(jQuery(this).parent().find('.cart-item-qty').val() > 0) jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())-1)">-</div>
                 </div>
             </div>
 

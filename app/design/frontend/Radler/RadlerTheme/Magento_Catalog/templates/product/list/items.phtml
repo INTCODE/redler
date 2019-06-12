@@ -23,8 +23,8 @@ switch ($type = $block->getType()) {
             $limit = $block->getPositionLimit();
             $shuffle = (int) $block->isShuffled();
             $canItemsAddToCart = $block->canItemsAddToCart();
-            $showAddTo = true;
-            $showCart = true;
+            $showAddTo = false;
+            $showCart = false;
             $templateType = null;
             $description = false;
         }
@@ -42,8 +42,8 @@ switch ($type = $block->getType()) {
             $limit = 0;
             $shuffle = 0;
             $canItemsAddToCart = $block->canItemsAddToCart();
-            $showAddTo = true;
-            $showCart = true;
+            $showAddTo = false;
+            $showCart = false;
             $templateType = null;
             $description = false;
         }

@@ -10,7 +10,7 @@ return [
         'Blm_AddToCart' => 1,
         'Blm_CronTab' => 1,
         'Blm_CustomerDocuments' => 1,
-        'Blm_MultipleAdresses' => 1,
+        'Blm_MultipleAdresses' => 0,
         'Magento_Backend' => 1,
         'Ho_Templatehints' => 0,
         'Magento_Eav' => 1,

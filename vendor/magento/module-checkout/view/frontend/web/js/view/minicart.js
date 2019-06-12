@@ -66,7 +66,7 @@ define([
             },
             'item': {
                 'qty': ':input.cart-item-qty',
-                'button': ':button.update-cart-item'
+                'button': 'div.buttonMinicartQty'
             },
             'confirmMessage': $.mage.__('Are you sure you would like to remove this item from the shopping cart?')
         });

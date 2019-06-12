@@ -106,21 +106,7 @@ define([
             /**
              * @param {jQuery.Event} event
              */
-            events['keyup ' + this.options.item.qty] = function (event) {
-                self._showItemButton($(event.target));
-            };
-
-            /**
-             * @param {jQuery.Event} event
-             */
             events['change ' + this.options.item.qty] = function (event) {
-                self._showItemButton($(event.target));
-            };
-
-            /**
-             * @param {jQuery.Event} event
-             */
-            events['click ' + this.options.item.button] = function (event) {
                 event.stopPropagation();
                 self._updateItemQty($(event.currentTarget));
             };
@@ -128,8 +114,9 @@ define([
             /**
              * @param {jQuery.Event} event
              */
-            events['focusout ' + this.options.item.qty] = function (event) {
-                self._validateQty($(event.currentTarget));
+            events['mouseleave ' + this.options.item.button] = function (event) {
+                event.stopPropagation();
+                self._updateItemQty($(event.currentTarget));
             };
 
             this._on(this.element, events);
@@ -212,10 +199,14 @@ define([
         _updateItemQty: function (elem) {
             var itemId = elem.data('cart-item');
 
-            this._ajax(this.options.url.update, {
-                'item_id': itemId,
-                'item_qty': $('#cart-item-' + itemId + '-qty').val()
-            }, elem, this._updateItemQtyAfter);
+            if($('#cart-item-' + itemId + '-qty').val() <= 0){
+                this._removeItem(elem);
+            }else{
+                this._ajax(this.options.url.update, {
+                    'item_id': itemId,
+                    'item_qty': parseInt($('#cart-item-' + itemId + '-qty').val()) 
+                }, elem, this._updateItemQtyAfter);
+            }
         },
 
         /**
@@ -226,13 +217,13 @@ define([
         _updateItemQtyAfter: function (elem) {
             var productData = this._getProductById(Number(elem.data('cart-item')));
 
-            if (!_.isUndefined(productData)) {
+            /*if (!_.isUndefined(productData)) {
                 $(document).trigger('ajax:updateCartItemQty');
 
                 if (window.location.href === this.shoppingCartUrl) {
                     window.location.reload(false);
                 }
-            }
+            }*/
             this._hideItemButton(elem);
         },
 

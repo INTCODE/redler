@@ -29,7 +29,7 @@ class Main extends Generic implements TabInterface
      */
     public function getTabLabel()
     {
-        return __('Item Information');
+        return __('Customer Information');
     }
 
     /**
@@ -37,7 +37,7 @@ class Main extends Generic implements TabInterface
      */
     public function getTabTitle()
     {
-        return __('Item Information');
+        return __('Customer Information');
     }
 
     /**
@@ -88,7 +88,7 @@ class Main extends Generic implements TabInterface
         /** @var \Magento\Framework\Data\Form $form */
         $form = $this->_formFactory->create();
         $form->setHtmlIdPrefix('item_');
-        $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Item Information')]);
+        $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Customer Information')]);
         if ($model->getId()) {
             $fieldset->addField('customerdocuments_id', 'hidden', ['name' => 'customerdocuments_id']);
         }
@@ -98,7 +98,7 @@ class Main extends Generic implements TabInterface
             ['name' => 'User', 'label' => __('User'), 'title' => __('User'),  'options'   => $userArray, 'required' => true]
         );
         $fieldset->addField(
-            'image',
+            'Document',
             'file',
             [
                 'name' => 'image',
