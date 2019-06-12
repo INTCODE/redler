@@ -22,7 +22,7 @@ class Hello implements HelloInterface
      * @param int $productId The array of numbers to sum.
      * @param int $quoteId The array of numbers to sum.
      * @param int $type The array of numbers to sum.
-     * @return int The sum of the numbers.
+     * @return string The sum of the numbers.
      */
      public function get($productId,$quoteId,$type){
        
