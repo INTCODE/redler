@@ -20,7 +20,7 @@ class Items extends \Magento\Backend\Block\Widget\Grid\Container
     {
         $this->_controller = 'items';
         $this->_headerText = __('Items');
-        $this->_addButtonLabel = __('Add New Item');
+        $this->_addButtonLabel = __('Add New Document');
         parent::_construct();
     }
 }

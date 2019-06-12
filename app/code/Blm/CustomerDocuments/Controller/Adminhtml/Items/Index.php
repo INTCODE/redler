@@ -13,9 +13,9 @@ class Index extends \Blm\CustomerDocuments\Controller\Adminhtml\Items
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Blm_CustomerDocuments::test');
-        $resultPage->getConfig()->getTitle()->prepend(__('Test Items'));
-        $resultPage->addBreadcrumb(__('Test'), __('Test'));
-        $resultPage->addBreadcrumb(__('Items'), __('Items'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Customers Documents'));
+        $resultPage->addBreadcrumb(__('Customer'), __('Customer'));
+        $resultPage->addBreadcrumb(__('Documents'), __('Documents'));
         return $resultPage;
     }
 }

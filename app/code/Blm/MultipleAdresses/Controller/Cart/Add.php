@@ -268,6 +268,60 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
          //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($quote->getId(), true));
 
 
+
+
+
+
+
+         $cookie_name = "user";     
+         $cookie_value = "asd";
+
+
+
+       //  $data = json_decode($_COOKIE[$cookie_name], true);
+
+         
+         //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszykpoSave=============\n".print_r($this->cart->debug(), true));
+         $shiptest=array();
+      //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($quote->getId(), true));
+       $items = $this->cart->getQuote()->getAllItems();
+       foreach ($items as $key => $value) {
+
+       $address=$params['addressId'];
+       $qty=$value->getQty();
+       $product_item_id=$value->getId();
+
+       $product_ship=array('qty'=>$qty,'address'=>$address);
+       $ship_elem = array($product_item_id => $product_ship);
+       array_push($shiptest,$ship_elem);
+
+       }
+
+     //   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========shipTest=============\n".print_r($shiptest, true));
+       
+     //   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========data=============\n".print_r($data, true));
+       
+       
+     //   setcookie($cookie_name, json_encode($shiptest), time() + (86400 * 30), "/"); // 86400 = 1 day
+  
+
+       
+       
+
+
+     
+       $AddressPost = $this->_objectManager->get('Magento\Multishipping\Controller\Checkout\AddressesPost');
+       $AddressPost->updateAddresses($shiptest);
+
+
+
+
+
+
+
+
+
+
             /**
              * @todo remove wishlist observer \Magento\Wishlist\Observer\AddToCart
              */
