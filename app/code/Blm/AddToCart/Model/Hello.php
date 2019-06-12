@@ -37,7 +37,6 @@ class Hello implements HelloInterface
 
         $result = $connection->fetchAll($sql);
         
-        file_put_contents("gettest.txt", $productId.",".$addressId.",".$type." \n ".print_r($result, true));
         if(isset($result[0])){
             return json_encode($result[0]);
         }else{
