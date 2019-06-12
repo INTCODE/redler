@@ -31,6 +31,26 @@ class Addresses extends \Magento\Multishipping\Controller\Checkout implements Ht
             $message = $this->_getCheckout()->getMinimumAmountDescription();
             $this->messageManager->addNotice($message);
         }
+               file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========addresses=============\n".print_r('call', true));
+
+        $isset=0;
+
+        if(isset($_SESSION["curr"] ))
+        $tab=$_SESSION["curr"] ;
+        if(isset($_SESSION["set"] ))
+        $isset=$_SESSION["set"];
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========addresses=============\n".print_r($tab, true));
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========addresses=============\n".print_r($isset, true));
+
+        if($isset==1){
+
+            $AddressPost = $this->_objectManager->get('Magento\Multishipping\Controller\Checkout\AddressesPost');
+            $AddressPost->updateAddresses($tab);
+            unset($_SESSION["set"]);
+        }
+    
+
+
         $this->_view->loadLayout();
         $this->_view->renderLayout();
     }
