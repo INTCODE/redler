@@ -400,8 +400,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                    $productId=$value['productId'];
                    $address=$value['address'];
                    $qty=$value['qty'];
-
-
                    
                 $sql="SELECT q.item_id
                 FROM quote_item q
