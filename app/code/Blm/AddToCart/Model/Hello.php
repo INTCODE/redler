@@ -37,7 +37,7 @@ class Hello implements HelloInterface
 
         $result = $connection->fetchAll($sql);
 
-        return $result;
+        return json_encode($result);
         
 
     }
