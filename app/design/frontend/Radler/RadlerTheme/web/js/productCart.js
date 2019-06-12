@@ -42,4 +42,42 @@ require(["jquery"], function($) {
         $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "false");
     });
 
+
 });
+
+
+function updateQtyItem(productId, addressId, type){
+    if(productId && addressId && type)
+    require(["jquery"], function($) {
+        
+        console.log("updateQtyItem: "+productId+" "+addressId+" "+type);
+        var j = {
+            productId: productId, 
+            addressId: addressId, 
+            type: type
+        };
+        j = JSON.stringify(j);
+        $.ajax({
+            url: "http://localhost/projekty/blm/redler/rest/V1/blmCart/get/",
+            data: j,
+            type: 'POST',
+            dataType: 'json',
+            cache: false,
+            contentType: 'application/json',
+            processData: false,
+
+            /** @inheritdoc */
+            success: function(res) {
+                var json = JSON.parse(res);
+                console.info(json.qty);
+                $("[data-target='product-qty-"+productId+"']").val(json.qty);
+            },
+            
+            /** @inheritdoc */
+            error: function(res) {
+                console.info("error");
+                console.log(res);
+            }
+        });
+    });
+}

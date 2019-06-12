@@ -496,7 +496,7 @@ define([
                 return '';
             }
             var $widget = this;
-            var eachI = 0;
+
             $.each(config.options, function (index) {
                 var id,
                     type,
@@ -519,6 +519,7 @@ define([
                 }
 
                 id = this.id;
+
                 type = parseInt(optionConfig[id].type, 10);
                 value = optionConfig[id].hasOwnProperty('value') ?
                     $('<i></i>').text(optionConfig[id].value).html() : '';
@@ -539,7 +540,7 @@ define([
                     ' option-tooltip-thumb="' + thumb + '"' +
                     ' option-tooltip-value="' + value + '"' +
                     ' role="option"' +
-                    ' option-swatch="swatchobject'+eachI+'"' +
+                    ' option-swatch="swatchobject'+index+'"' +
                     ' thumb-width="' + width + '"' +
                     ' thumb-height="' + height + '"';
 
@@ -573,10 +574,10 @@ define([
                     // Default
                     html += '<div class="' + optionClass + '" ' + attr + '>' + label + '</div>';
                 }
-               
-                if(eachI == 0) $widget._OnClick($('[option-swatch=swatchobject'+eachI+']'), $widget);
-                eachI++;
+     
             });
+
+            $widget._OnClick($('[option-swatch=swatchobject0]'), $widget);
 
             return html;
         },
@@ -728,6 +729,8 @@ define([
                 attributeId = $parent.attr('attribute-id'),
                 $input = $parent.find('.' + $widget.options.classes.attributeInput);
 
+            updateQtyItem($($this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"),$("#addresses").val(),$this.attr('option-id'));
+
             if ($widget.inProductList) {
                 $input = $widget.productForm.find(
                     '.' + $widget.options.classes.attributeInput + '[name="super_attribute[' + attributeId + ']"]'
@@ -768,35 +771,6 @@ define([
 
             $widget._loadMedia();
             $input.trigger('change');
-
-            console.log("ajax");
-            var j = {
-                productId:30, 
-                quoteId: 28, 
-                type: 21
-            };
-            j = JSON.stringify(j);
-            $.ajax({
-                url: "http://localhost/projekty/blm/redler/rest/V1/blmCart/get/",
-                data: j,
-                type: 'POST',
-                dataType: 'json',
-                cache: false,
-                contentType: 'application/json',
-                processData: false,
-
-                /** @inheritdoc */
-                success: function(res) {
-                    console.info("success");
-                    console.log(res);
-                },
-                
-                /** @inheritdoc */
-                error: function(res) {
-                    console.info("error");
-                    console.log(res);
-                }
-            });
 
         },
 
