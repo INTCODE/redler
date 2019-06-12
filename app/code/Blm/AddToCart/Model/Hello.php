@@ -22,7 +22,7 @@ class Hello implements HelloInterface
      * @param int $productId The array of numbers to sum.
      * @param int $quoteId The array of numbers to sum.
      * @param int $type The array of numbers to sum.
-     * @return string The sum of the numbers.
+     * @return int The sum of the numbers.
      */
      public function get($productId,$quoteId,$type){
        
@@ -37,7 +37,7 @@ class Hello implements HelloInterface
 
         $result = $connection->fetchAll($sql);
 
-        return json_encode($result);
+        return $result;
         
 
     }
