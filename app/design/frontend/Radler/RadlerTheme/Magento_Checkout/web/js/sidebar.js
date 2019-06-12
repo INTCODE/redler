@@ -115,7 +115,7 @@ define([
              * @param {jQuery.Event} event
              */
             events['mouseleave ' + this.options.item.button] = function (event) {
-                event.stopPropagation();
+                //event.stopPropagation();
                 self._updateItemQty($(event.currentTarget));
             };
 
@@ -207,6 +207,7 @@ define([
                     'item_qty': parseInt($('#cart-item-' + itemId + '-qty').val()) 
                 }, elem, this._updateItemQtyAfter);
             }
+            updateQtyAllItems();
         },
 
         /**

@@ -650,6 +650,7 @@ define([
             $widget.element.on('click', '.' + options.optionClass, function () {
                 var isChecked = ($(this).hasClass('selected'));
                 if(!isChecked) {
+                    updateQtyItem($($this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"),$("#addresses").val(),$this.attr('option-id'));
                     return $widget._OnClick($(this), $widget);
                 }
             });
@@ -728,8 +729,6 @@ define([
                 $label = $parent.find('.' + $widget.options.classes.attributeSelectedOptionLabelClass),
                 attributeId = $parent.attr('attribute-id'),
                 $input = $parent.find('.' + $widget.options.classes.attributeInput);
-
-            updateQtyItem($($this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"),$("#addresses").val(),$this.attr('option-id'));
 
             if ($widget.inProductList) {
                 $input = $widget.productForm.find(
