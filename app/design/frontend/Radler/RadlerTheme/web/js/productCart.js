@@ -67,6 +67,10 @@ function updateQtySomeProduct(productId){
 
 function updateQtyAllItems(){
     require(["jquery"], function($) {
+        $("#addresses").attr("disabled", "true");
+        setTimeout(() => {
+            $("#addresses").removeAttr("disabled");
+        }, 5000);
         $("[data-product-id]").each(function(){
             var pid = $(this).attr("data-product-id");
             var addr = $("#addresses").val();
@@ -99,6 +103,7 @@ function updateQtyItem(productId, addressId, type){
             cache: false,
             contentType: 'application/json',
             processData: false,
+            async: true,
             /** @inheritdoc */
             success: function(res) {
                 var json = JSON.parse(res);
@@ -109,7 +114,7 @@ function updateQtyItem(productId, addressId, type){
             /** @inheritdoc */
             error: function(res) {
                 console.info("error productCart.js");
-                console.log(res);
+                //console.log(res);
             }
         });
     });

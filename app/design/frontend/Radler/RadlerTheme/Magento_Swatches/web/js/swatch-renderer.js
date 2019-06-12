@@ -648,11 +648,11 @@ define([
                 target;
 
             $widget.element.on('click', '.' + options.optionClass, function () {
-                var isChecked = ($(this).hasClass('selected'));
-                if(!isChecked) {
-                    updateQtyItem($($this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"),$("#addresses").val(),$this.attr('option-id'));
+                //var isChecked = ($(this).hasClass('selected'));
+                //if(!isChecked) {
+                    updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"),$("#addresses").val(),$(this).attr('option-id'));
                     return $widget._OnClick($(this), $widget);
-                }
+               // }
             });
 
             $widget.element.on('change', '.' + options.selectClass, function () {
