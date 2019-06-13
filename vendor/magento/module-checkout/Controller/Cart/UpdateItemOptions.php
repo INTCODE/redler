@@ -20,6 +20,8 @@ class UpdateItemOptions extends \Magento\Checkout\Controller\Cart implements Htt
      */
     public function execute()
     {
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r('to tu', true));
+
         $id = (int)$this->getRequest()->getParam('id');
         $params = $this->getRequest()->getParams();
 

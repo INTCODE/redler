@@ -78,6 +78,7 @@ class UpdateItemQty extends \Magento\Framework\App\Action\Action
                     __('Something went wrong while saving the page. Please refresh the page and try again.')
                 );
             }
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r('to tu', true));
 
             $cartData = $this->getRequest()->getParam('cart');
             if (!is_array($cartData)) {
@@ -117,6 +118,8 @@ class UpdateItemQty extends \Magento\Framework\App\Action\Action
     {
         if ($qty > 0) {
             $item->setQty($qty);
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r('to tu', true));
+            
 
             if ($item->getHasError()) {
                 throw new LocalizedException(__($item->getMessage()));

@@ -218,10 +218,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
 
             
             // }
-            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-            $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
             
-
             $debugContent = "";
             $deletedId=null;
             $items = $this->cart->getQuote()->getAllItems();
@@ -408,6 +405,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                 $result = $connection->fetchAll($sql); 
               $product_ship=array('qty'=>$qty,'address'=>$address);
           
+              if($result[0]['item_id'])
                 $ship_elem = array($result[0]['item_id'] => $product_ship);
                 array_push($dbArray,$ship_elem);
 
