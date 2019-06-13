@@ -15,6 +15,49 @@ class Hello implements HelloInterface
         return "Hello, ";
     }
 
+                     /**
+     * Sum an array of numbers.
+     *
+     * @api
+     * @param int $productId The array of numbers to sum.
+     * @param int $addressId The array of numbers to sum.
+     * @param int $type The array of numbers to sum.
+     * @param int $quoteId The array of numbers to sum.
+     * @param int $qty The array of numbers to sum.
+     * @return string The sum of the numbers.
+     */
+     public function add($productId,$addressId,$type,$quoteId,$qty){
+
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+        $connection = $resource->getConnection();
+
+        $sql="SELECT b.crontab_id
+        FROM blm_crontab b
+        WHERE b.productId= $productId AND b.address=$addressId AND b.`type`=$type AND b.quoteId=$quoteId";
+
+        $result = $connection->fetchAll($sql);
+
+        if(isset($result[0])){
+            $sql="UPDATE blm_crontab
+            SET
+                qty='$qty'
+            WHERE quoteId=$quoteId AND productId=$productId AND `type`=$type AND address=$addressId ";
+        }else{
+            $sql="INSERT INTO blm_crontab
+            (quoteId, productId, `type`, qty, address)
+            VALUES ('$quoteId', '$productId', '$type', '$qty', '$addressId')";
+        }
+     // $connection->query($sql);
+           if($connection->query($sql)){
+            return 'dodano';
+           }else{
+            return 'error';
+           }
+        
+      
+     }
+
             /**
      * Sum an array of numbers.
      *
@@ -47,4 +90,8 @@ class Hello implements HelloInterface
         //return $productId.",".$quoteId.",".$type;
 
     }
+
+
+
+    
 }
