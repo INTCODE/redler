@@ -91,6 +91,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
     public function execute()
     {
 
+
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
         $connection = $resource->getConnection();
@@ -102,6 +103,8 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
         $qty=$params['qty'];
         $address=$params['addressId'];
         if(isset($params['super_attribute'])) $type=reset($params['super_attribute']); else $type = "UNDEFINED";
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r('asd', true));
+
       //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($type, true));
 
 
@@ -279,7 +282,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                             FROM blm_crontab b
                             WHERE b.productId=$id AND b.quoteId=$idQuote AND  b.`type`=$idAttribute";
                              $res = $connection->fetchAll($res); 
-                                 file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($res, true));
 
                              foreach ($result as $key => $value) {
       
