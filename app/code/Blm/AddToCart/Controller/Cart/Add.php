@@ -304,7 +304,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                              # code...
                              }
 
-                             file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n===========newqty==============\n".print_r($newqty, true));
+                            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n===========newqty==============\n".print_r($newqty, true));
                                      
             
                          

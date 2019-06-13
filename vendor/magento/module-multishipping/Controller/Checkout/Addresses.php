@@ -39,10 +39,11 @@ class Addresses extends \Magento\Multishipping\Controller\Checkout implements Ht
         $tab=$_SESSION["curr"] ;
         if(isset($_SESSION["set"] ))
         $isset=$_SESSION["set"];
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========addresses=============\n".print_r($tab, true));
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========addresses=============\n".print_r($isset, true));
+      //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========addresses=============\n".print_r($tab, true));
+      //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========addresses=============\n".print_r($isset, true));
 
         if($isset==1){
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========addresses=============\n".print_r($isset, true));
 
             $AddressPost = $this->_objectManager->get('Magento\Multishipping\Controller\Checkout\AddressesPost');
             $AddressPost->updateAddresses($tab);
