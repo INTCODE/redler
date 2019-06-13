@@ -68,7 +68,7 @@ class Hello implements HelloInterface
      * Sum an array of numbers.
      *
      * @api
-     * @param int $data[] The array of numbers to sum.
+     * @param int[] $data The array of numbers to sum.
      * @return string The sum of the numbers.
      */
      public function get($data){
