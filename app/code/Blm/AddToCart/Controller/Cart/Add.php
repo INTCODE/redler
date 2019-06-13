@@ -101,7 +101,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
         $id=$params['product'];
         $qty=$params['qty'];
         $address=$params['addressId'];
-        $type=reset($params['super_attribute']);
+        if(isset($params['super_attribute'])) $type=reset($params['super_attribute']); else $type = "UNDEFINED";
         file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($type, true));
 
 
@@ -400,8 +400,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                    $productId=$value['productId'];
                    $address=$value['address'];
                    $qty=$value['qty'];
-
-
                    
                 $sql="SELECT q.item_id
                 FROM quote_item q

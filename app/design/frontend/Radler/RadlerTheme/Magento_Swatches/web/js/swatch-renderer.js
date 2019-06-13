@@ -496,7 +496,7 @@ define([
                 return '';
             }
             var $widget = this;
-            var eachI = 0;
+
             $.each(config.options, function (index) {
                 var id,
                     type,
@@ -519,6 +519,7 @@ define([
                 }
 
                 id = this.id;
+
                 type = parseInt(optionConfig[id].type, 10);
                 value = optionConfig[id].hasOwnProperty('value') ?
                     $('<i></i>').text(optionConfig[id].value).html() : '';
@@ -539,7 +540,7 @@ define([
                     ' option-tooltip-thumb="' + thumb + '"' +
                     ' option-tooltip-value="' + value + '"' +
                     ' role="option"' +
-                    ' option-swatch="swatchobject'+eachI+'"' +
+                    ' option-swatch="swatchobject'+index+'"' +
                     ' thumb-width="' + width + '"' +
                     ' thumb-height="' + height + '"';
 
@@ -573,10 +574,10 @@ define([
                     // Default
                     html += '<div class="' + optionClass + '" ' + attr + '>' + label + '</div>';
                 }
-               
-                if(eachI == 0) $widget._OnClick($('[option-swatch=swatchobject'+eachI+']'), $widget);
-                eachI++;
+     
             });
+
+            $widget._OnClick($('[option-swatch=swatchobject0]'), $widget);
 
             return html;
         },
@@ -647,10 +648,11 @@ define([
                 target;
 
             $widget.element.on('click', '.' + options.optionClass, function () {
-                var isChecked = ($(this).hasClass('selected'));
-                if(!isChecked) {
+                //var isChecked = ($(this).hasClass('selected'));
+                //if(!isChecked) {
+                    updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"),$("#addresses").val(),$(this).attr('option-id'));
                     return $widget._OnClick($(this), $widget);
-                }
+               // }
             });
 
             $widget.element.on('change', '.' + options.selectClass, function () {
@@ -768,6 +770,7 @@ define([
 
             $widget._loadMedia();
             $input.trigger('change');
+
         },
 
         /**
