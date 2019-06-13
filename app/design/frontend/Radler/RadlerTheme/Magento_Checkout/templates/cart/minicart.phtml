@@ -51,6 +51,9 @@ $cart = $objectManager->get('\Magento\Checkout\Model\Cart');
 $idQuote=$cart->getQuote()->getId();
 
 echo "<div id='quoteId' style='display: none'>$idQuote</div>";
+
+echo "<div id='homePath' style='display: none'>".$this->getBaseUrl()."</div>";
+
 ?>
 
 

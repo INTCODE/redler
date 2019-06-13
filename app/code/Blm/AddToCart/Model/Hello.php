@@ -68,25 +68,26 @@ class Hello implements HelloInterface
      * Sum an array of numbers.
      *
      * @api
-     * @param int[] $data The array of numbers to sum.
+     * @param int $productId The array of numbers to sum.
+     * @param int $addressId The array of numbers to sum.
+     * @param int $type The array of numbers to sum.
+     * @param int $quoteId The array of numbers to sum.
      * @return string The sum of the numbers.
      */
-     public function get($data){
+     public function get($productId, $addressId, $type, $quoteId){
+
        
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
         $connection = $resource->getConnection();
-
-        $productId=$data['productId'];
-        $addressId=$data['addressId'];
-        $type=$data['type'];
-        $quoteId=$data['quoteId'];
 
         $sql="SELECT b.qty
         FROM blm_crontab b
         WHERE b.productId= $productId AND b.address=$addressId AND b.`type`=$type AND b.quoteId=$quoteId";
 
         $result = $connection->fetchAll($sql);
+
+        
         
         if(isset($result[0])){
             return json_encode($result[0]);

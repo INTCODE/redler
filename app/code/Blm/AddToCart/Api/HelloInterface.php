@@ -17,10 +17,13 @@ interface HelloInterface
      * Sum an array of numbers.
      *
      * @api
-     * @param int[] $data The array of numbers to sum.
+     * @param int $productId The array of numbers to sum.
+     * @param int $addressId The array of numbers to sum.
+     * @param int $type The array of numbers to sum.
+     * @param int $quoteId The array of numbers to sum.
      * @return string The sum of the numbers.
      */
-     public function get($data);
+     public function get($productId, $addressId, $type, $quoteId);
 
 
                  /**

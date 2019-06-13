@@ -74,7 +74,7 @@ function addToCartProduct(productId, type, qty){
         };
         j = JSON.stringify(j);
         $.ajax({
-            url: "http://localhost/projekty/blm/redler/rest/V1/blmCart/add/",
+            url: $("#homePath").text()+"/rest/V1/blmCart/add/",
             data: j,
             type: 'POST',
             dataType: 'json',
@@ -84,13 +84,13 @@ function addToCartProduct(productId, type, qty){
             async: true,
             /** @inheritdoc */
             success: function(res) {
-                console.log(res);
+                //console.log(res);
             },
             
             /** @inheritdoc */
             error: function(res) {
                 console.info("error add - productCart.js");
-                console.log(res);
+                //console.log(res);
             }
         });
     });
@@ -143,6 +143,16 @@ function updateQtyAllItems(){
     });
 }
 
+/*
+{
+"data":[
+    parseInt(productId),
+    parseInt(addressId),
+    parseInt(type),
+    parseInt($("#quoteId").text())
+]
+}
+*/
 
 async function updateQtyItem(productId, addressId, type){
     if(productId && addressId && type)
@@ -157,7 +167,7 @@ async function updateQtyItem(productId, addressId, type){
         };
         j = JSON.stringify(j);
         $.ajax({
-            url: "http://localhost/projekty/blm/redler/rest/V1/blmCart/get/",
+            url: $("#homePath").text()+"/rest/V1/blmCart/get/",
             data: j,
             type: 'POST',
             dataType: 'json',
@@ -168,14 +178,14 @@ async function updateQtyItem(productId, addressId, type){
             /** @inheritdoc */
             success: function(res) {
                 var json = JSON.parse(res);
-                //console.info(res);
+                console.info(res);
                 $("[data-target='product-qty-"+productId+"']").val(json.qty);
             },
             
             /** @inheritdoc */
             error: function(res) {
                 console.info("error update - productCart.js");
-                //console.log(res);
+                console.log(res);
             }
         });
     });
