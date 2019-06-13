@@ -91,6 +91,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
     public function execute()
     {
 
+
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
         $connection = $resource->getConnection();
@@ -102,7 +103,9 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
         $qty=$params['qty'];
         $address=$params['addressId'];
         if(isset($params['super_attribute'])) $type=reset($params['super_attribute']); else $type = "UNDEFINED";
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($type, true));
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r('asd', true));
+
+      //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($type, true));
 
 
         $sel="SELECT crontab_id, quoteId, productId, `type`, qty, address
@@ -129,7 +132,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                        $flag=true;
                     }
 
-                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($value, true));
+               // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($value, true));
 
                 }
             }
@@ -141,7 +144,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                  $connection->query($ins);
             }
 
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========session=============\n".print_r('qwe', true));
+       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========session=============\n".print_r('qwe', true));
 
      
         
@@ -218,10 +221,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
 
             
             // }
-            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-            $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
             
-
             $debugContent = "";
             $deletedId=null;
             $items = $this->cart->getQuote()->getAllItems();
@@ -248,7 +248,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                                 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
                                 $productDel = $objectManager->get('Magento\Catalog\Model\Product')->load($option->getProduct()->getId());
                                 $packageId=$productDel->getCustomAttribute('package_type')->getValue();
-                                // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($test, true));
+                                 file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($option->getProduct()->getId(), true));
                                 // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($productDel->debug(), true));
            
 
@@ -273,33 +273,40 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                             $deletedId=$idToDelete;
                             $debugContent .= " :) deleting...\n";
                        
+                            $idQuote=$this->cart->getQuote()->getId();
+                            $id=$params['product'];
+                            $qty=$params['qty'];
+                            $address=$params['addressId'];
 
-                          // $list=$_SESSION['curr'];
-                        //    foreach ($list as $key => $value) {
+                            $res="SELECT *
+                            FROM blm_crontab b
+                            WHERE b.productId=$id AND b.quoteId=$idQuote AND  b.`type`=$idAttribute";
+                             $res = $connection->fetchAll($res); 
 
-                        //           if($idToDelete==key($value)){
-                        //               if($params['addressId']==$value[$idToDelete]['address']){
-                                        try {
-                                            $this->cart->removeItem($idToDelete);
-                                            $this->cart->getQuote()->setTotalsCollectedFlag(false);
-                                            break;
-                                        } catch (\Exception $e) {
-                                        // $this->messageManager->addErrorMessage(__('We can\'t remove the item.'));
-                                        // $this->_objectManager->get(\Psr\Log\LoggerInterface::class)->critical($e);
+                             foreach ($result as $key => $value) {
+      
+                                 if($value['address']==$address){
+                                    try {
+                                        $newqty=0;
+                                        foreach ($res as $key => $value) {
+                                            $newqty+=$value['qty'];
                                         }
-                        //               }
-                        //           }
-                        //    }
-                   
-                                
-                                   
-                                    
-                                        
 
-                                       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tabDel=============\n".print_r($value[$idToDelete]['address'], true));
-                                   
-                               
-                           
+                                        $params['qty']=$newqty;
+                                        $this->cart->removeItem($idToDelete);
+                                        $this->cart->getQuote()->setTotalsCollectedFlag(false);
+                                        break;
+                                    } catch (\Exception $e) {
+                                    // $this->messageManager->addErrorMessage(__('We can\'t remove the item.'));
+                                    // $this->_objectManager->get(\Psr\Log\LoggerInterface::class)->critical($e);
+                                    }
+                                 }
+                             # code...
+                             }
+
+                            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n===========newqty==============\n".print_r($newqty, true));
+                                     
+            
                          
                         }
                     }
@@ -311,7 +318,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
             }
 
 
-           file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($debugContent, true));
           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($this->cart->getQuote()->getShippingAddress()->debug(), true));
 
             //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========product============\n".print_r($product->debug(), true));
@@ -330,8 +336,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
             $id=$params['product'];
             $qty=$params['qty'];
             $address=$params['addressId'];
-
-
 
 
             if($params['qty'] > 0){
@@ -408,6 +412,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                 $result = $connection->fetchAll($sql); 
               $product_ship=array('qty'=>$qty,'address'=>$address);
           
+              if($result[0]['item_id'])
                 $ship_elem = array($result[0]['item_id'] => $product_ship);
                 array_push($dbArray,$ship_elem);
 

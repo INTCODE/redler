@@ -161,7 +161,7 @@ define([
                                 left: leftCorner
                             });
                             $element.css({
-                                left: left,
+                                left: left, 
                                 top: $this.offset().top - $element.height() - $corner.height() - 18
                             }).show();
                         },

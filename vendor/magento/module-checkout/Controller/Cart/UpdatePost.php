@@ -73,6 +73,7 @@ class UpdatePost extends \Magento\Checkout\Controller\Cart implements HttpGetAct
     protected function _updateShoppingCart()
     {
         try {
+            
             $cartData = $this->getRequest()->getParam('cart');
             if (is_array($cartData)) {
                 if (!$this->cart->getCustomerSession()->getCustomerId() && $this->cart->getQuote()->getCustomerId()) {
@@ -103,7 +104,52 @@ class UpdatePost extends \Magento\Checkout\Controller\Cart implements HttpGetAct
             return $this->resultRedirectFactory->create()->setPath('*/*/');
         }
 
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+        $cart = $objectManager->get('\Magento\Checkout\Model\Cart');
+        $idQuote=$cart->getQuote()->getId();
+
+        $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+        $connection = $resource->getConnection();
+
         $updateAction = (string)$this->getRequest()->getParam('update_cart_action');
+        $params=$this->getRequest()->getParams();
+
+        foreach ($params['cart'] as $key => $value) {
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($value['qty'], true));
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($key, true));
+        $qty=$value['qty'];
+                
+        $sql="SELECT q.product_id
+        FROM quote_item q
+        WHERE q.quote_id=$idQuote AND q.item_id=$key";
+       $result = $connection->fetchAll($sql); 
+
+
+       $child="SELECT q.product_id
+       FROM quote_item q
+       WHERE q.quote_id=$idQuote AND q.parent_item_id=$key";
+
+        $childId = $connection->fetchAll($child); 
+
+        $product = $objectManager->create('Magento\Catalog\Model\Product')->load($childId);
+        $type=$product->getCustomAttribute('package_type')->getValue();
+        $product_id=$result[0]['product_id'];
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========c=============\n".print_r($type, true));
+
+        if($qty>0){
+            $sql="UPDATE blm_crontab
+            SET
+                qty='$qty'
+            WHERE quoteId= $idQuote AND productId=$product_id AND `type`=$type";
+    
+        }else{
+            $sql="DELETE FROM blm_crontab   WHERE quoteId= $idQuote AND productId=$product_id AND `type`=$type";
+        }
+
+        }
+        $connection->query($sql);
+
 
         switch ($updateAction) {
             case 'empty_cart':

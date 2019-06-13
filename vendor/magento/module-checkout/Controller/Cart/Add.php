@@ -82,6 +82,8 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
      */
     public function execute()
     {
+
+        
         if (!$this->_formKeyValidator->validate($this->getRequest())) {
             $this->messageManager->addErrorMessage(
                 __('Your session has expired')

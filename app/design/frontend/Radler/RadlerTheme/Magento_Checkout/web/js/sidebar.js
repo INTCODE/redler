@@ -116,7 +116,15 @@ define([
              */
             events['mouseleave ' + this.options.item.button] = function (event) {
                 //event.stopPropagation();
-                self._updateItemQty($(event.currentTarget));
+
+                var productId = this._getProductById(Number(event.currentTarget.dataset.cartItem)).product_id;
+                var type = this._getProductById(Number(event.currentTarget.dataset.cartItem)).options[0].option_value;
+                var qty = $("#cart-item-"+event.currentTarget.dataset.cartItem+"-qty").val();
+
+                addToCartProduct(productId, type, qty);
+                updateQtySomeProduct(productId);
+
+                //self._updateItemQty($(event.currentTarget));
             };
 
             this._on(this.element, events);
@@ -207,7 +215,7 @@ define([
                     'item_qty': parseInt($('#cart-item-' + itemId + '-qty').val()) 
                 }, elem, this._updateItemQtyAfter);
             }
-            updateQtyAllItems();
+
         },
 
         /**

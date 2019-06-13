@@ -48,10 +48,53 @@ require(["jquery"], function($) {
     });
 
     $(document).on("ready", function(){
+        var iterChecker = 0;
         updateQtyAllItems();
+        
+        var pchecker = setInterval(() => {
+            iterChecker++;
+            if($(".swatch-option").length > 0 || iterChecker > 100){
+                updateQtyConfAllItems();
+                clearInterval(pchecker);
+            }
+        }, 100);
+
     });
 
 });
+
+function addToCartProduct(productId, type, qty){
+    require(["jquery"], function($) {
+        var j = {
+            productId:productId,
+            quoteId:parseInt($("#quoteId").text()),
+            type:type,
+            addressId:$("#addresses").val(),
+            qty:qty
+        };
+        j = JSON.stringify(j);
+        $.ajax({
+            url: $("#homePath").text()+"/rest/V1/blmCart/add/",
+            data: j,
+            type: 'POST',
+            dataType: 'json',
+            cache: false,
+            contentType: 'application/json',
+            processData: false,
+            async: true,
+            /** @inheritdoc */
+            success: function(res) {
+                //console.log(res);
+            },
+            
+            /** @inheritdoc */
+            error: function(res) {
+                console.info("error add - productCart.js");
+                //console.log(res);
+            }
+        });
+    });
+}
 
 function updateQtySomeProduct(productId){
     require(["jquery"], function($) {
@@ -63,6 +106,23 @@ function updateQtySomeProduct(productId){
         }
         updateQtyItem(pid, addr, type);
     });
+}
+
+function updateQtyConfAllItems(){
+    require(["jquery"], function($) {
+        $("#addresses").attr("disabled", "true");
+        setTimeout(() => {
+            $("#addresses").removeAttr("disabled");
+        }, 5000);
+        $(".swatch-attribute-options").each(function(){
+            var me = $(this).parents(".product-item-details").find("[data-product-id]");
+            var pid = $(me).attr("data-product-id");
+            var addr = $("#addresses").val();
+            var type = $(this).find(".swatch-option.selected").attr("option-id");
+            updateQtyItem(pid, addr, type);
+        });
+    });
+    
 }
 
 function updateQtyAllItems(){
@@ -83,8 +143,18 @@ function updateQtyAllItems(){
     });
 }
 
+/*
+{
+"data":[
+    parseInt(productId),
+    parseInt(addressId),
+    parseInt(type),
+    parseInt($("#quoteId").text())
+]
+}
+*/
 
-function updateQtyItem(productId, addressId, type){
+async function updateQtyItem(productId, addressId, type){
     if(productId && addressId && type)
     require(["jquery"], function($) {
         
@@ -92,11 +162,12 @@ function updateQtyItem(productId, addressId, type){
         var j = {
             productId: productId, 
             addressId: addressId, 
-            type: type
+            type: type,
+            quoteId: parseInt($("#quoteId").text())
         };
         j = JSON.stringify(j);
         $.ajax({
-            url: "http://localhost/projekty/blm/redler/rest/V1/blmCart/get/",
+            url: $("#homePath").text()+"/rest/V1/blmCart/get/",
             data: j,
             type: 'POST',
             dataType: 'json',
@@ -107,14 +178,14 @@ function updateQtyItem(productId, addressId, type){
             /** @inheritdoc */
             success: function(res) {
                 var json = JSON.parse(res);
-                //console.info(json.qty);
+                console.info(res);
                 $("[data-target='product-qty-"+productId+"']").val(json.qty);
             },
             
             /** @inheritdoc */
             error: function(res) {
-                console.info("error productCart.js");
-                //console.log(res);
+                console.info("error update - productCart.js");
+                console.log(res);
             }
         });
     });
