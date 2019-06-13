@@ -88,8 +88,25 @@ class Cart extends \Magento\Framework\DataObject implements SectionSourceInterfa
      */
     public function getSectionData()
     {
+
+
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+        $connection = $resource->getConnection();
+       
+
         $totals = $this->getQuote()->getTotals();
         $subtotalAmount = $totals['subtotal']->getValue();
+        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($subtotalAmount, true));
+        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($this->getSummaryCount(), true));
+        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r( $this->checkoutCart->getQuote()->getId(), true));
+        $quoteId=$this->checkoutCart->getQuote()->getId();
+        if($subtotalAmount==0 && $this->getSummaryCount()==0){
+            $sql="DELETE FROM blm_crontab WHERE quoteId=$quoteId";
+            $connection->query($sql);
+        }
+
+
         return [
             'summary_count' => $this->getSummaryCount(),
             'subtotalAmount' => $subtotalAmount,
