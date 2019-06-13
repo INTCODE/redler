@@ -47,13 +47,23 @@ class Test {
       $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
       $customerObj = $objectManager->create('Magento\Customer\Model\Customer')->load($customer->getId());
       //$result = $date->format('Y-m-d H:i:s');
-      
+      $counter=0;
       if($customerObj['CheckedDate']==$date){
          $customerObj['approve_account']=1;
          $customerObj->save();
+         $counter++;
           }
+      } 
+      
+      if($counter>0){
+        $msg="Dissaproved :". $counter." users";
+        mail("w.chudek@gloo.pl","CRON - ". date("Y-m-d",time()),$msg);     
+      }else{
+        $msg="No problems";
 
-      }      
+        mail("w.chudek@gloo.pl","CRON - ". date("Y-m-d",time()),$msg);             
+
+      }     
   }
 
 }
