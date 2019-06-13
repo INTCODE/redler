@@ -248,7 +248,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                                 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
                                 $productDel = $objectManager->get('Magento\Catalog\Model\Product')->load($option->getProduct()->getId());
                                 $packageId=$productDel->getCustomAttribute('package_type')->getValue();
-                                // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($test, true));
+                                 file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($option->getProduct()->getId(), true));
                                 // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($productDel->debug(), true));
            
 

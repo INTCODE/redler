@@ -35,11 +35,13 @@ class UpdateItemQty extends Action
      * @param Sidebar $sidebar
      * @param LoggerInterface $logger
      * @param Data $jsonHelper
+
      * @codeCoverageIgnore
      */
     public function __construct(
         Context $context,
         Sidebar $sidebar,
+
         LoggerInterface $logger,
         Data $jsonHelper
     ) {
@@ -54,10 +56,54 @@ class UpdateItemQty extends Action
      */
     public function execute()
     {
+
+
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+
+        $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+        $connection = $resource->getConnection();
+
+
+
         $itemId = (int)$this->getRequest()->getParam('item_id');
         $itemQty = $this->getRequest()->getParam('item_qty') * 1;
 
+        $cart = $objectManager->get('\Magento\Checkout\Model\Cart');
+        $idQuote=$cart->getQuote()->getId();
+        
+        $sql="SELECT q.product_id
+        FROM quote_item q
+        WHERE q.quote_id=$idQuote AND q.item_id=$itemId";
+       $result = $connection->fetchAll($sql); 
+
+
+       $child="SELECT q.product_id
+       FROM quote_item q
+       WHERE q.quote_id=$idQuote AND q.parent_item_id=$itemId";
+
+        $childId = $connection->fetchAll($child); 
+
         try {
+        $product_id=$result[0]['product_id'];
+        $childId=$childId[0]['product_id'];
+
+        $product = $objectManager->create('Magento\Catalog\Model\Product')->load($childId);
+        $type=$product->getCustomAttribute('package_type')->getValue();
+
+        if($itemQty>0){
+            $sql="UPDATE blm_crontab
+            SET
+                qty='$itemQty'
+            WHERE quoteId= $idQuote AND productId=$product_id AND `type`=$type";
+    
+        }else{
+            $sql="DELETE FROM blm_crontab   WHERE quoteId= $idQuote AND productId=$product_id AND `type`=$type";
+        }
+
+        $connection->query($sql);
+        
+
             $this->sidebar->checkQuoteItem($itemId);
             $this->sidebar->updateQuoteItem($itemId, $itemQty);
             return $this->jsonResponse();
