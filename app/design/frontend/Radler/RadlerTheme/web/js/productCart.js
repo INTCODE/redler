@@ -84,7 +84,7 @@ function updateQtyAllItems(){
 }
 
 
-function updateQtyItem(productId, addressId, type){
+async function updateQtyItem(productId, addressId, type){
     if(productId && addressId && type)
     require(["jquery"], function($) {
         
@@ -92,7 +92,8 @@ function updateQtyItem(productId, addressId, type){
         var j = {
             productId: productId, 
             addressId: addressId, 
-            type: type
+            type: type,
+            quoteId: parseInt($("#quoteId").text())
         };
         j = JSON.stringify(j);
         $.ajax({
@@ -107,7 +108,7 @@ function updateQtyItem(productId, addressId, type){
             /** @inheritdoc */
             success: function(res) {
                 var json = JSON.parse(res);
-                //console.info(json.qty);
+                //console.info(res);
                 $("[data-target='product-qty-"+productId+"']").val(json.qty);
             },
             
