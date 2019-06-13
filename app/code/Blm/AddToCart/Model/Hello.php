@@ -47,10 +47,16 @@ class Hello implements HelloInterface
             $sql="INSERT INTO blm_crontab
             (quoteId, productId, `type`, qty, address)
             VALUES ('$quoteId', '$productId', '$type', '$qty', '$addressId')";
+            
         }
      // $connection->query($sql);
            if($connection->query($sql)){
-            return 'dodano';
+            $lastInsertId = $connection->lastInsertId();
+               if(isset($lastInsertId) && $lastInsertId!=0){
+                return $lastInsertId;
+               }else{
+            return 'zaktualizowano';       
+               }
            }else{
             return 'error';
            }
@@ -62,18 +68,19 @@ class Hello implements HelloInterface
      * Sum an array of numbers.
      *
      * @api
-     * @param int $productId The array of numbers to sum.
-     * @param int $addressId The array of numbers to sum.
-     * @param int $type The array of numbers to sum.
-     * @param int $quoteId The array of numbers to sum.
+     * @param int $data[] The array of numbers to sum.
      * @return string The sum of the numbers.
      */
-     public function get($productId,$addressId,$type,$quoteId){
+     public function get($data){
        
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
         $connection = $resource->getConnection();
 
+        $productId=$data['productId'];
+        $addressId=$data['addressId'];
+        $type=$data['type'];
+        $quoteId=$data['quoteId'];
 
         $sql="SELECT b.qty
         FROM blm_crontab b
