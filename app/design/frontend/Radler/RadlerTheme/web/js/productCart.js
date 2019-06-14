@@ -50,15 +50,6 @@ require(["jquery"], function($) {
     $(document).on("ready", function(){
         var iterChecker = 0;
         updateQtyAllItems();
-        
-        var pchecker = setInterval(() => {
-            iterChecker++;
-            if($(".swatch-option").length > 0 || iterChecker > 100){
-                updateQtyConfAllItems();
-                clearInterval(pchecker);
-            }
-        }, 100);
-
     });
 
 });
