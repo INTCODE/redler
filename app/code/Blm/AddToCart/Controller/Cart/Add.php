@@ -102,8 +102,8 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
         $id=$params['product'];
         $qty=$params['qty'];
         $address=$params['addressId'];
-        if(isset($params['super_attribute'])) $type=reset($params['super_attribute']); else $type = "UNDEFINED";
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r('asd', true));
+        if(isset($params['super_attribute'])) $type=reset($params['super_attribute']); else $type = "0";
+       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r('asd', true));
 
       //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($type, true));
 
@@ -112,7 +112,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
         FROM blm_crontab
         WHERE quoteId=$idQuote";
 
-
+file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r('xd', true));
             $result = $connection->fetchAll($sel); 
             $flag=false;
 
@@ -124,6 +124,9 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                         SET
                             qty='$qty'
                         WHERE crontab_id=$tabid";
+
+file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($tabid, true));
+
                         $connection->query($update);
                         $flag=true;
                     }elseif ($qty==0) {
@@ -132,7 +135,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                        $flag=true;
                     }
 
-               // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($value, true));
+               file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tabdata=============\n".print_r($value, true));
 
                 }
             }
@@ -248,7 +251,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                                 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
                                 $productDel = $objectManager->get('Magento\Catalog\Model\Product')->load($option->getProduct()->getId());
                                 $packageId=$productDel->getCustomAttribute('package_type')->getValue();
-                                 file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($option->getProduct()->getId(), true));
+                                // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($option->getProduct()->getId(), true));
                                 // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($productDel->debug(), true));
            
 
@@ -353,81 +356,44 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
           $items = $this->cart->getQuote()->getAllItems();
           $ids=array();
 
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($ids, true));
-
-
-
-  
-            $idQuote=$this->cart->getQuote()->getId();
-            $sql = "SELECT *
-            FROM quote_item 
-            WHERE quote_id = $idQuote";
-            $result = $connection->fetchAll($sql); 
-
-        $shiptest=array();
-
-                // if(isset($temp)){
-                //     $_SESSION["curr"] =$temp;
-    
-                // }else{
-                //    // $_SESSION["curr"] =$shiptest;
-                // }
-                
-
-             //   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========sessionearly=============\n".print_r($_SESSION["curr"], true));
-
-          foreach ($result as $key => $value) {
-             if(!$value['parent_item_id']){
-               
-                $address=$params['addressId'];
-                $qty=(int)$value['qty'];
-               //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========qty=============\n".print_r($value, true));
-
-                $id=$value['item_id'];
-                $product_ship=array('qty'=>$qty,'address'=>$address);
-                $ship_elem = array($id => $product_ship);
-                array_push($shiptest,$ship_elem);
-            
-             }
-          }
-               file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========currentShip=============\n".print_r($shiptest, true));
-               //$_SESSION["curr"]=$shiptest;
-
                $sql="SELECT *
                FROM blm_crontab b
                WHERE b.quoteId=$idQuote";
 
+                $sql2="SELECT *
+                FROM quote_item q
+                WHERE q.quote_id=$idQuote";
+
+                $re = $connection->fetchAll($sql2); 
 
                 $dbArray=array();
                $result = $connection->fetchAll($sql); 
                foreach ($result as $key => $value) {
+
                    $productId=$value['productId'];
                    $address=$value['address'];
                    $qty=$value['qty'];
+                   $type=$value['type'];
+
                    
-                $sql="SELECT q.item_id
-                FROM quote_item q
-                WHERE q.quote_id=$idQuote AND q.product_id=$productId";
 
-                $result = $connection->fetchAll($sql); 
-              $product_ship=array('qty'=>$qty,'address'=>$address);
-          
-              if($result[0]['item_id'])
-                $ship_elem = array($result[0]['item_id'] => $product_ship);
-                array_push($dbArray,$ship_elem);
+                   foreach ($re as $key => $value) {
+                    if($value['parent_item_id']){
+                        $product = $objectManager->create('Magento\Catalog\Model\Product')->load($value['product_id']);
+                        $packageId=$product->getCustomAttribute('package_type')->getValue();
+                        if($packageId==$type){
+                            $product_ship=array('qty'=>$qty,'address'=>$address);
+                            $ship_elem = array($value['parent_item_id'] => $product_ship);
+                        
+                        }
+                    }
+                   }
+                   array_push($dbArray,$ship_elem);
+                }
+                   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========fin=============\n".print_r($dbArray, true));
+                   
 
-               }
-               $_SESSION["set"] =1;
-               $_SESSION["curr"]=$dbArray;
 
-               file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========finish=============\n".print_r($dbArray, true));
-
-
-
-             //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========session=============\n".print_r($_SESSION["curr"], true));
-
-            
-    
 
             /**
              * @todo remove wishlist observer \Magento\Wishlist\Observer\AddToCart

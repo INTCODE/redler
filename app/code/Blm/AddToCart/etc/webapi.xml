@@ -13,4 +13,18 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+
+        <route url="/V1/blmCart/getCartByAddress/" method="POST">
+        <service class="Blm\AddToCart\Api\HelloInterface" method="getCartByAddress"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+            <route url="/V1/blmCart/getCart/" method="POST">
+        <service class="Blm\AddToCart\Api\HelloInterface" method="getCart"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
 </routes>

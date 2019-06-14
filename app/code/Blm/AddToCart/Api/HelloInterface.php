@@ -38,4 +38,27 @@ interface HelloInterface
      * @return string The sum of the numbers.
      */
      public function add($productId,$addressId,$type,$quoteId,$qty);
+
+
+                      /**
+     * Sum an array of numbers.
+     *
+     * @api
+
+     * @param int $addressId The array of numbers to sum.
+     * @param int $quoteId The array of numbers to sum.
+     * @return string The sum of the numbers.
+     */
+     public function getCartByAddress($addressId,$quoteId);
+
+
+                           /**
+     * Sum an array of numbers.
+     *
+     * @api
+
+     * @param int $quoteId The array of numbers to sum.
+     * @return string The sum of the numbers.
+     */
+     public function getCart($quoteId);
 }

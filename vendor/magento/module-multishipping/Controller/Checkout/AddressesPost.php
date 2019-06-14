@@ -19,18 +19,18 @@ class AddressesPost extends \Magento\Multishipping\Controller\Checkout
     public function execute()
     {
 
-        
-        // $tab=$_SESSION["curr"] ;
-            
-        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($tab, true));
-        // $this->_getCheckout()->setShippingItemsInformation($tab);
+
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+        $connection = $resource->getConnection();
+
 
         if (!$this->_getCheckout()->getCustomerDefaultShippingAddress()) {
             $this->_redirect('*/checkout_address/newShipping');
             return;
         }
         try {
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($this->getRequest()->getParams(), true));
+            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($this->getRequest()->getParams(), true));
 
             if ($this->getRequest()->getParam('continue', false)) {
                 $this->_getCheckout()->setCollectRatesFlag(true);
@@ -44,13 +44,57 @@ class AddressesPost extends \Magento\Multishipping\Controller\Checkout
             }
             if ($shipToInfo = $this->getRequest()->getPost('ship')) {
 
-                $_SESSION["curr"]=$shipToInfo;
+               
+               $cart = $objectManager->get('\Magento\Checkout\Model\Cart');
+               $idQuote=$cart->getQuote()->getId();
+
+
+             file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($idQuote, true));
+
+
+             $sql="SELECT *
+             FROM blm_crontab b
+             WHERE b.quoteId=$idQuote";
+
+              $sql2="SELECT *
+              FROM quote_item q
+              WHERE q.quote_id=$idQuote";
+
+              $re = $connection->fetchAll($sql2); 
+
+              $dbArray=array();
+             $result = $connection->fetchAll($sql); 
+             foreach ($result as $key => $value) {
+
+                 $productId=$value['productId'];
+                 $address=$value['address'];
+                 $qty=$value['qty'];
+                 $type=$value['type'];
+
+                 
+
+                 foreach ($re as $key => $value) {
+                  if($value['parent_item_id']){
+                      $product = $objectManager->create('Magento\Catalog\Model\Product')->load($value['product_id']);
+                      $packageId=$product->getCustomAttribute('package_type')->getValue();
+                      if($packageId==$type){
+                          $product_ship=array('qty'=>$qty,'address'=>$address);
+                          $ship_elem = array($value['parent_item_id'] => $product_ship);
+                      
+                      }
+                  }
+                 }
+                 array_push($dbArray,$ship_elem);
+              }
+
+                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($dbArray, true));
+
             
-                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($_SESSION["curr"], true));
+                //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($_SESSION["curr"], true));
                 //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($this->_getCheckout()->debug(), true));
 
-                $this->_getCheckout()->setShippingItemsInformation($shipToInfo);
-                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($this->_getCheckout()->debug(), true));
+                $this->_getCheckout()->setShippingItemsInformation($dbArray);
+                //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($this->_getCheckout()->debug(), true));
 
             }
         } catch (\Magento\Framework\Exception\LocalizedException $e) {

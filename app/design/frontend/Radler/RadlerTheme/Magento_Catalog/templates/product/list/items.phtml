@@ -203,7 +203,7 @@ switch ($type = $block->getType()) {
                         </strong>
                         <div class="attribute-short">
                             <?php echo $size; ?>
-                            <?php echo $alcoholByVolume; ?>
+                            <?php echo (empty($alcoholByVolume)? "" : $alcoholByVolume.'%');?>
                             <?php echo ($isReturnable == "Yes" ? "" : "NRB"); ?>       
                         </div>
                         <?= /* @escapeNotVerified */ $block->getProductPrice($_item) ?>

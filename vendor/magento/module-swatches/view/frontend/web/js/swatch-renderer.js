@@ -161,7 +161,7 @@ define([
                                 left: leftCorner
                             });
                             $element.css({
-                                left: left,
+                                left: left, 
                                 top: $this.offset().top - $element.height() - $corner.height() - 18
                             }).show();
                         },
@@ -181,6 +181,8 @@ define([
             $this.on('tap', function (event) {
                 event.stopPropagation();
             });
+
+            setTimeout(function(){$(".swatch-attribute-options>div[option-id=21]").click();}, 200);
         }
     });
 
@@ -495,7 +497,8 @@ define([
             if (!this.options.jsonSwatchConfig.hasOwnProperty(config.id)) {
                 return '';
             }
-            var $widget = this;
+            
+
             $.each(config.options, function (index) {
                 var id,
                     type,
@@ -518,6 +521,15 @@ define([
                 }
 
                 id = this.id;
+
+                var selected = "";
+                var achecked = "false";
+                /*if(index == 0) {
+                    selected = "selected";
+                    achecked = "true";
+                }*/
+
+
                 type = parseInt(optionConfig[id].type, 10);
                 value = optionConfig[id].hasOwnProperty('value') ?
                     $('<i></i>').text(optionConfig[id].value).html() : '';
@@ -528,7 +540,7 @@ define([
                 attr =
                     ' id="' + controlId + '-item-' + id + '"' +
                     ' index="' + index + '"' +
-                    ' aria-checked="false"' +
+                    ' aria-checked="'+achecked+'"' +
                     ' aria-describedby="' + controlId + '"' +
                     ' tabindex="0"' +
                     ' option-type="' + type + '"' +
@@ -551,7 +563,7 @@ define([
 
                 if (type === 0) {
                     // Text
-                    html += '<div class="' + optionClass + ' text" ' + attr + '>' + (value ? value : label) +
+                    html += '<div class="' + optionClass + ' text '+selected+'" ' + attr + '>' + (value ? value : label) +
                         '</div>';
                 } else if (type === 1) {
                     // Color
@@ -572,10 +584,11 @@ define([
                     // Default
                     html += '<div class="' + optionClass + '" ' + attr + '>' + label + '</div>';
                 }
-               
-                if(index == 0) $widget._OnClick($('[option-swatch=swatchobject'+index+']'), $widget);
+     
             });
 
+            //var $widget = this;
+            //$widget._OnClick($('[option-swatch=swatchobject0]'), $widget);
             return html;
         },
 
@@ -646,6 +659,10 @@ define([
 
             $widget.element.on('click', '.' + options.optionClass, function () {
                 var isChecked = ($(this).hasClass('selected'));
+                if($(this).attr("index") == 1){
+                    $(this).parent().children("[index=0]").click();
+                }
+                updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"),$("#addresses").val(),$(this).attr('option-id'));
                 if(!isChecked) {
                     return $widget._OnClick($(this), $widget);
                 }
@@ -752,9 +769,8 @@ define([
 
             $widget._Rebuild();
 
-            if ($widget.element.parents($widget.options.selectorProduct)
-                    .find(this.options.selectorProductPrice).is(':data(mage-priceBox)')
-            ) {
+            if ($widget.element.parents($widget.options.selectorProduct).find(this.options.selectorProductPrice).is(':data(mage-priceBox)')
+                || $widget.element.parents('.product-buy').find(this.options.selectorProductPrice)) {
                 $widget._UpdatePrice();
             }
 
@@ -766,6 +782,7 @@ define([
 
             $widget._loadMedia();
             $input.trigger('change');
+
         },
 
         /**
@@ -946,6 +963,40 @@ define([
 
             result = $widget.options.jsonConfig.optionPrices[_.findKey($widget.options.jsonConfig.index, options)];
 
+            if($(".product-buy").length>0){
+                $(".product-buy [data-price-type='finalPrice']>span").text("£"+result.finalPrice.amount.toFixed(2));
+
+                var pid = $(".product-buy input[name=item]").attr("value");
+                var j = {
+                    productId: pid, 
+                    addressId: $("#addresses").val(), 
+                    type: $(".product-buy .swatch-attribute-options>div.selected").attr("option-id"),
+                    quoteId: parseInt($("#quoteId").text())
+                };
+                j = JSON.stringify(j);
+                $.ajax({
+                    url: $("#homePath").text()+"/rest/V1/blmCart/get/",
+                    data: j,
+                    type: 'POST',
+                    dataType: 'json',
+                    cache: false,
+                    contentType: 'application/json',
+                    processData: false,
+                    async: true,
+                    /** @inheritdoc */
+                    success: function(res) {
+                        var json = JSON.parse(res);
+                        $("[data-target='product-qty-"+pid+"']").val(json.qty);
+                    },
+                    
+                    /** @inheritdoc */
+                    error: function(res) {
+                        console.info("error update - productCart.js");
+                        //console.log(res);
+                    }
+                });
+            }
+
             $productPrice.trigger(
                 'updatePrice',
                 {
@@ -954,10 +1005,11 @@ define([
             );
 
             if (typeof result != 'undefined' && result.oldPrice.amount !== result.finalPrice.amount) {
-                $(this.options.slyOldPriceSelector).show();
+                $($product).find("[data-price-type='oldPrice']").show();
             } else {
-                $(this.options.slyOldPriceSelector).hide();
+                $($product).find("[data-price-type='oldPrice']").hide();
             }
+
 
             if (typeof result != 'undefined' && result.tierPrices.length) {
                 if (this.options.tierPriceTemplate) {
@@ -977,6 +1029,7 @@ define([
             }
 
             $(this.options.normalPriceLabelSelector).hide();
+
 
             _.each($('.' + this.options.classes.attributeOptionsWrapper), function (attribute) {
                 if ($(attribute).find('.' + this.options.classes.optionClass + '.selected').length === 0) {
