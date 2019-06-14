@@ -57,7 +57,7 @@
                                 ?>
                                 <div class="attribute-short">
                                     <?php echo $size; ?>
-                                    <?php echo $alcoholByVolume; ?>
+                                    <?php echo (empty($alcoholByVolume)? "" : $alcoholByVolume.'%');?>
                                     <?php echo ($isReturnable == "Yes" ? "" : "NRB"); ?>       
                                 </div>
                                         <?php echo $list_product->getProductPrice($_product) ?>

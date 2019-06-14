@@ -79,7 +79,7 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                         </strong>
                         <div class="attribute-short">
                             <?php echo $size; ?>
-                            <?php echo $alcoholByVolume; ?>
+                            <?php echo (empty($alcoholByVolume)? "" : $alcoholByVolume.'%');?>
                             <?php echo ($isReturnable == "Yes" ? "" : "NRB"); ?>       
                         </div>
                         <?= $block->getReviewsSummaryHtml($_product, $templateType) ?>

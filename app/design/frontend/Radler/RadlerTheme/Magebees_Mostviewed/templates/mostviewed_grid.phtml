@@ -58,7 +58,7 @@ $mv_content_id="cwsMostviewedProducts-".$unique_slider_key;?>
 
 							<div class="attribute-short">
                                     <?php echo $size; ?>
-                                    <?php echo $alcoholByVolume; ?>
+                                    <?php echo (empty($alcoholByVolume)? "" : $alcoholByVolume.'%');?>
                                     <?php echo ($isReturnable == "Yes" ? "" : "NRB"); ?>       
                             </div>
 							

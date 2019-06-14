@@ -49,7 +49,7 @@ if ($_attributeType && $_attributeType == 'text') {
 <div class="test">
     <strong>
        <?php echo $size; ?>
-       <?php echo $alcoholByVolume; ?>
+       <?php echo (empty($alcoholByVolume)? "" : $alcoholByVolume.'%');?>
        <?php echo ($isReturnable == "Yes" ? "" : "NRB"); ?>
     </strong>
 </div>
