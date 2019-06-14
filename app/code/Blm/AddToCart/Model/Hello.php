@@ -81,12 +81,22 @@ class Hello implements HelloInterface
         $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
         $connection = $resource->getConnection();
 
-        $sql="SELECT b.qty
-        FROM blm_crontab b
-        WHERE b.productId= $productId AND b.address=$addressId AND b.`type`=$type AND b.quoteId=$quoteId";
+
+        if($type==0){
+    
+            $sql="SELECT qty
+            FROM blm_crontab b
+       WHERE b.quoteId=$quoteId AND b.productId=$productId AND b.`type`=$type AND b.address=$addressId";
+        }else{
+            $sql="SELECT b.qty
+            FROM blm_crontab b
+            WHERE b.productId= $productId AND b.address=$addressId AND b.`type`=$type AND b.quoteId=$quoteId";
+        }
+
+
 
         $result = $connection->fetchAll($sql);
-
+        
         
         
         if(isset($result[0])){
