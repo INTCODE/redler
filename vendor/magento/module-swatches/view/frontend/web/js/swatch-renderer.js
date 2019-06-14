@@ -182,7 +182,7 @@ define([
                 event.stopPropagation();
             });
 
-            $(".swatch-attribute-options>div[option-id=21]").click();
+            setTimeout(function(){$(".swatch-attribute-options>div[option-id=21]").click();}, 200);
         }
     });
 
@@ -769,9 +769,8 @@ define([
 
             $widget._Rebuild();
 
-            if ($widget.element.parents($widget.options.selectorProduct)
-                    .find(this.options.selectorProductPrice).is(':data(mage-priceBox)')
-            ) {
+            if ($widget.element.parents($widget.options.selectorProduct).find(this.options.selectorProductPrice).is(':data(mage-priceBox)')
+                || $widget.element.parents('.product-buy').find(this.options.selectorProductPrice)) {
                 $widget._UpdatePrice();
             }
 
@@ -964,6 +963,40 @@ define([
 
             result = $widget.options.jsonConfig.optionPrices[_.findKey($widget.options.jsonConfig.index, options)];
 
+            if($(".product-buy").length>0){
+                $(".product-buy [data-price-type='finalPrice']>span").text("£"+result.finalPrice.amount.toFixed(2));
+
+                var pid = $(".product-buy input[name=item]").attr("value");
+                var j = {
+                    productId: pid, 
+                    addressId: $("#addresses").val(), 
+                    type: $(".product-buy .swatch-attribute-options>div.selected").attr("option-id"),
+                    quoteId: parseInt($("#quoteId").text())
+                };
+                j = JSON.stringify(j);
+                $.ajax({
+                    url: $("#homePath").text()+"/rest/V1/blmCart/get/",
+                    data: j,
+                    type: 'POST',
+                    dataType: 'json',
+                    cache: false,
+                    contentType: 'application/json',
+                    processData: false,
+                    async: true,
+                    /** @inheritdoc */
+                    success: function(res) {
+                        var json = JSON.parse(res);
+                        $("[data-target='product-qty-"+pid+"']").val(json.qty);
+                    },
+                    
+                    /** @inheritdoc */
+                    error: function(res) {
+                        console.info("error update - productCart.js");
+                        //console.log(res);
+                    }
+                });
+            }
+
             $productPrice.trigger(
                 'updatePrice',
                 {
@@ -976,6 +1009,7 @@ define([
             } else {
                 $($product).find("[data-price-type='oldPrice']").hide();
             }
+
 
             if (typeof result != 'undefined' && result.tierPrices.length) {
                 if (this.options.tierPriceTemplate) {
@@ -995,6 +1029,7 @@ define([
             }
 
             $(this.options.normalPriceLabelSelector).hide();
+
 
             _.each($('.' + this.options.classes.attributeOptionsWrapper), function (attribute) {
                 if ($(attribute).find('.' + this.options.classes.optionClass + '.selected').length === 0) {
