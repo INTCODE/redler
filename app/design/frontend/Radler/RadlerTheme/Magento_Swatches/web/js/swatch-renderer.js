@@ -181,6 +181,8 @@ define([
             $this.on('tap', function (event) {
                 event.stopPropagation();
             });
+
+            $(".swatch-attribute-options>div[option-id=21]").click();
         }
     });
 
@@ -495,7 +497,7 @@ define([
             if (!this.options.jsonSwatchConfig.hasOwnProperty(config.id)) {
                 return '';
             }
-            var $widget = this;
+            
 
             $.each(config.options, function (index) {
                 var id,
@@ -520,6 +522,14 @@ define([
 
                 id = this.id;
 
+                var selected = "";
+                var achecked = "false";
+                /*if(index == 0) {
+                    selected = "selected";
+                    achecked = "true";
+                }*/
+
+
                 type = parseInt(optionConfig[id].type, 10);
                 value = optionConfig[id].hasOwnProperty('value') ?
                     $('<i></i>').text(optionConfig[id].value).html() : '';
@@ -530,7 +540,7 @@ define([
                 attr =
                     ' id="' + controlId + '-item-' + id + '"' +
                     ' index="' + index + '"' +
-                    ' aria-checked="false"' +
+                    ' aria-checked="'+achecked+'"' +
                     ' aria-describedby="' + controlId + '"' +
                     ' tabindex="0"' +
                     ' option-type="' + type + '"' +
@@ -553,7 +563,7 @@ define([
 
                 if (type === 0) {
                     // Text
-                    html += '<div class="' + optionClass + ' text" ' + attr + '>' + (value ? value : label) +
+                    html += '<div class="' + optionClass + ' text '+selected+'" ' + attr + '>' + (value ? value : label) +
                         '</div>';
                 } else if (type === 1) {
                     // Color
@@ -577,8 +587,8 @@ define([
      
             });
 
-            $widget._OnClick($('[option-swatch=swatchobject0]'), $widget);
-
+            //var $widget = this;
+            //$widget._OnClick($('[option-swatch=swatchobject0]'), $widget);
             return html;
         },
 
@@ -648,11 +658,14 @@ define([
                 target;
 
             $widget.element.on('click', '.' + options.optionClass, function () {
-                //var isChecked = ($(this).hasClass('selected'));
-                //if(!isChecked) {
-                    updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"),$("#addresses").val(),$(this).attr('option-id'));
+                var isChecked = ($(this).hasClass('selected'));
+                if($(this).attr("index") == 1){
+                    $(this).parent().children("[index=0]").click();
+                }
+                updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"),$("#addresses").val(),$(this).attr('option-id'));
+                if(!isChecked) {
                     return $widget._OnClick($(this), $widget);
-               // }
+                }
             });
 
             $widget.element.on('change', '.' + options.selectClass, function () {
@@ -959,9 +972,9 @@ define([
             );
 
             if (typeof result != 'undefined' && result.oldPrice.amount !== result.finalPrice.amount) {
-                $(this.options.slyOldPriceSelector).show();
+                $($product).find("[data-price-type='oldPrice']").show();
             } else {
-                $(this.options.slyOldPriceSelector).hide();
+                $($product).find("[data-price-type='oldPrice']").hide();
             }
 
             if (typeof result != 'undefined' && result.tierPrices.length) {
