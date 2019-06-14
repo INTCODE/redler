@@ -356,81 +356,44 @@ file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=======
           $items = $this->cart->getQuote()->getAllItems();
           $ids=array();
 
-            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($ids, true));
-
-
-
-  
-            $idQuote=$this->cart->getQuote()->getId();
-            $sql = "SELECT *
-            FROM quote_item 
-            WHERE quote_id = $idQuote";
-            $result = $connection->fetchAll($sql); 
-
-        $shiptest=array();
-
-                // if(isset($temp)){
-                //     $_SESSION["curr"] =$temp;
-    
-                // }else{
-                //    // $_SESSION["curr"] =$shiptest;
-                // }
-                
-
-             //   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========sessionearly=============\n".print_r($_SESSION["curr"], true));
-
-          foreach ($result as $key => $value) {
-             if(!$value['parent_item_id']){
-               
-                $address=$params['addressId'];
-                $qty=(int)$value['qty'];
-               //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========qty=============\n".print_r($value, true));
-
-                $id=$value['item_id'];
-                $product_ship=array('qty'=>$qty,'address'=>$address);
-                $ship_elem = array($id => $product_ship);
-                array_push($shiptest,$ship_elem);
-            
-             }
-          }
-               file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========currentShip=============\n".print_r($shiptest, true));
-               //$_SESSION["curr"]=$shiptest;
-
                $sql="SELECT *
                FROM blm_crontab b
                WHERE b.quoteId=$idQuote";
 
+                $sql2="SELECT *
+                FROM quote_item q
+                WHERE q.quote_id=$idQuote";
+
+                $re = $connection->fetchAll($sql2); 
 
                 $dbArray=array();
                $result = $connection->fetchAll($sql); 
                foreach ($result as $key => $value) {
+
                    $productId=$value['productId'];
                    $address=$value['address'];
                    $qty=$value['qty'];
+                   $type=$value['type'];
+
                    
-                $sql="SELECT q.item_id
-                FROM quote_item q
-                WHERE q.quote_id=$idQuote AND q.product_id=$productId";
 
-                $result = $connection->fetchAll($sql); 
-              $product_ship=array('qty'=>$qty,'address'=>$address);
-          
-              if(isset($result[0]['item_id']))
-                $ship_elem = array($result[0]['item_id'] => $product_ship);
-                array_push($dbArray,$ship_elem);
+                   foreach ($re as $key => $value) {
+                    if($value['parent_item_id']){
+                        $product = $objectManager->create('Magento\Catalog\Model\Product')->load($value['product_id']);
+                        $packageId=$product->getCustomAttribute('package_type')->getValue();
+                        if($packageId==$type){
+                            $product_ship=array('qty'=>$qty,'address'=>$address);
+                            $ship_elem = array($value['parent_item_id'] => $product_ship);
+                        
+                        }
+                    }
+                   }
+                   array_push($dbArray,$ship_elem);
+                }
+                   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========fin=============\n".print_r($dbArray, true));
+                   
 
-               }
-               $_SESSION["set"] =1;
-               $_SESSION["curr"]=$dbArray;
 
-               //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========finish=============\n".print_r($dbArray, true));
-
-
-
-             //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========session=============\n".print_r($_SESSION["curr"], true));
-
-            
-    
 
             /**
              * @todo remove wishlist observer \Magento\Wishlist\Observer\AddToCart

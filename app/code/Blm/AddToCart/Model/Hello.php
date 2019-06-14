@@ -110,6 +110,67 @@ class Hello implements HelloInterface
     }
 
 
+                      /**
+     * Sum an array of numbers.
+     *
+     * @api
 
+     * @param int $addressId The array of numbers to sum.
+     * @param int $quoteId The array of numbers to sum.
+     * @return string The sum of the numbers.
+     */
+     public function getCartByAddress($addressId,$quoteId){
+
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+        $connection = $resource->getConnection();
+
+
+        $sql="SELECT *
+        FROM blm_crontab b
+        Where b.quoteId=$quoteId AND b.address=$addressId";
+        $result = $connection->fetchAll($sql);
+        if($result){
+            return json_encode($result);
+
+        }else{
+            return 'not found';
+        }
+
+
+
+     }
+
+
+                                /**
+     * Sum an array of numbers.
+     *
+     * @api
+
+     * @param int $quoteId The array of numbers to sum.
+     * @return string The sum of the numbers.
+     */
+     public function getCart($quoteId){
+
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+        $connection = $resource->getConnection();
+
+
+        $sql="SELECT *
+        FROM blm_crontab b
+        Where b.quoteId=$quoteId";
+        $result = $connection->fetchAll($sql);
+
+        if($result){
+            return json_encode($result);
+
+        }else{
+            return 'not found';
+        }
+
+
+     }
+    
     
 }
