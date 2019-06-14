@@ -19,11 +19,11 @@ class AddressesPost extends \Magento\Multishipping\Controller\Checkout
     public function execute()
     {
 
-        
-        // $tab=$_SESSION["curr"] ;
-            
-        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($tab, true));
-        // $this->_getCheckout()->setShippingItemsInformation($tab);
+
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+        $connection = $resource->getConnection();
+
 
         if (!$this->_getCheckout()->getCustomerDefaultShippingAddress()) {
             $this->_redirect('*/checkout_address/newShipping');
@@ -44,12 +44,46 @@ class AddressesPost extends \Magento\Multishipping\Controller\Checkout
             }
             if ($shipToInfo = $this->getRequest()->getPost('ship')) {
 
-                $_SESSION["curr"]=$shipToInfo;
+               
+               $cart = $objectManager->get('\Magento\Checkout\Model\Cart');
+               $idQuote=$cart->getQuote()->getId();
+
+
+             file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($idQuote, true));
+
+
+
+                $sql="SELECT *
+                FROM blm_crontab b
+                WHERE b.quoteId=$idQuote";
+ 
+ 
+                $dbArray=array();
+                $result = $connection->fetchAll($sql); 
+                foreach ($result as $key => $value) {
+                    $productId=$value['productId'];
+                    $address=$value['address'];
+                    $qty=$value['qty'];
+                    
+                 $sql="SELECT q.item_id
+                 FROM quote_item q
+                 WHERE q.quote_id=$idQuote AND q.product_id=$productId";
+ 
+                 $result = $connection->fetchAll($sql); 
+               $product_ship=array('qty'=>$qty,'address'=>$address);
+           
+               if(isset($result[0]['item_id']))
+                 $ship_elem = array($result[0]['item_id'] => $product_ship);
+                 array_push($dbArray,$ship_elem);
+ 
+                }
+
+
             
                 file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($_SESSION["curr"], true));
                 //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($this->_getCheckout()->debug(), true));
 
-                $this->_getCheckout()->setShippingItemsInformation($shipToInfo);
+                $this->_getCheckout()->setShippingItemsInformation($dbArray);
                 file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($this->_getCheckout()->debug(), true));
 
             }
