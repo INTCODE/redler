@@ -1,0 +1,76 @@
+.checkout-index-index{
+    background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%); 
+    .page-main{
+        margin: 50px auto !important;
+        padding: 25px;
+        background-color: #f6f3f1;
+    }
+    .opc-summary-wrapper{
+        right: 30px;
+        top: 50px;
+    }
+    .page-title{
+        span{
+            font-size: 38px;
+            font-weight: 500;
+        }
+    }
+    .opc-progress-bar{
+        margin-bottom: 25px;
+        li{
+            span{
+                font-size: 14px;
+            }
+        }
+    }
+    .estimated-block{
+        .estimated-label{
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        .estimated-price{
+            font-size: 14px;
+        }
+    }
+
+    #checkoutSteps{
+        li{
+            list-style: none;
+        }
+        &.step-title{
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        &#opc-shipping_method{
+            margin-top: 50px;
+        }
+    }
+
+
+    //Loader
+    .loader{
+        padding: 50px;
+    }
+
+    .discount-code{
+        display: none;
+    }
+}
+
+.checkout-onepage-success{
+    background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%);
+    .page-main{
+        max-width: 750px;
+        margin:0 auto;
+        padding: 50px;
+        background-color: $body_background_color;
+        .page-title-wrapper{
+            .page-title{
+                span{
+                    font-size: 38px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

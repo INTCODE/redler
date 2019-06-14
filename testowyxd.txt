@@ -633,3 +633,160 @@ Array
     [base_shipping_incl_tax] => 0.0000
     [free_shipping] => 0
 )
+
+=========================
+asd
+=========koszyk=============
+Array
+(
+)
+
+=========currentShip=============
+Array
+(
+    [0] => Array
+        (
+            [302] => Array
+                (
+                    [qty] => 1
+                    [address] => 1
+                )
+
+        )
+
+)
+
+=========error=============
+Notice: Undefined offset: 0 in /Users/bartektalar/Sites/projekty/blm/redler/app/code/Blm/AddToCart/Controller/Cart/Add.php on line 415
+=========================
+asd
+===========newqty==============
+2
+=========koszyk=============
+Array
+(
+)
+
+=========currentShip=============
+Array
+(
+    [0] => Array
+        (
+            [303] => Array
+                (
+                    [qty] => 2
+                    [address] => 1
+                )
+
+        )
+
+)
+
+=========error=============
+Notice: Undefined offset: 0 in /Users/bartektalar/Sites/projekty/blm/redler/app/code/Blm/AddToCart/Controller/Cart/Add.php on line 415
+=========tab=============
+to tu
+=========tab=============
+27
+=========================
+asd
+=========================
+asd
+=========koszyk=============
+Array
+(
+)
+
+=========currentShip=============
+Array
+(
+    [0] => Array
+        (
+            [304] => Array
+                (
+                    [qty] => 1
+                    [address] => 2
+                )
+
+        )
+
+)
+
+=========error=============
+Notice: Undefined offset: 0 in /Users/bartektalar/Sites/projekty/blm/redler/app/code/Blm/AddToCart/Controller/Cart/Add.php on line 415
+=========================
+asd
+===========newqty==============
+1
+=========koszyk=============
+Array
+(
+)
+
+=========currentShip=============
+Array
+(
+    [0] => Array
+        (
+            [305] => Array
+                (
+                    [qty] => 1
+                    [address] => 2
+                )
+
+        )
+
+)
+
+=========error=============
+Notice: Undefined offset: 0 in /Users/bartektalar/Sites/projekty/blm/redler/app/code/Blm/AddToCart/Controller/Cart/Add.php on line 415
+=========================
+asd
+=========================
+asd
+=========================
+asd
+=========================
+asd
+=========================
+asd
+=========================
+asd
+=========================
+asd
+=========================
+asd
+=========================
+asd
+=========================
+asd
+=========================
+asd
+=========================
+asd
+=========================
+asd
+=========================
+asd
+=========error=============
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 3, query was: SELECT *
+                            FROM blm_crontab b
+                            WHERE b.productId=34 AND b.quoteId=34 AND  b.`type`=
+=========================
+asd
+=========error=============
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 3, query was: SELECT *
+                            FROM blm_crontab b
+                            WHERE b.productId=34 AND b.quoteId=34 AND  b.`type`=
+=========================
+asd
+=========error=============
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 3, query was: SELECT *
+                            FROM blm_crontab b
+                            WHERE b.productId=34 AND b.quoteId=34 AND  b.`type`=
+=========================
+asd
+=========error=============
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 3, query was: SELECT *
+                            FROM blm_crontab b
+                            WHERE b.productId=34 AND b.quoteId=34 AND  b.`type`=
