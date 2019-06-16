@@ -198,7 +198,7 @@ class Hello implements HelloInterface
 
         $CartData=json_decode($CartData);
 
-        $CartData=array('address'=>6,'quoteid'=>28,'quote'=>array(array('productid'=>34,'type'=>21),array('productid'=>34,'type'=>22),array('productid'=>27,'type'=>0)));
+        //$CartData=array('address'=>6,'quoteid'=>28,'quote'=>array(array('productid'=>34,'type'=>21),array('productid'=>34,'type'=>22),array('productid'=>27,'type'=>0)));
 
         $products=null;
         $types=null;
