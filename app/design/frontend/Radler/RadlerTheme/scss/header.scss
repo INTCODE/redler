@@ -27,8 +27,23 @@
         .addressSelect{
             float: left;
             margin-left: 150px;
+            width: 350px;
+            padding-left: 50px; 
+            position: relative;
+            &::before{
+                position: absolute;
+                content: "Store:";
+                font-size: 14px;
+                top:7px;
+                left: 10px;
+                color:#000; 
+                z-index: 100;
+            }
             #addresses{
-                width: 350px;
+                width: 350px; 
+                padding-left: 60px;
+                font-size: 14px;
+                color: #5c5b5a;
             }
         }
         .minicart-wrapper{
@@ -43,10 +58,12 @@
                 display: none;
             }
             .counter-label{
+                width: 160px;
+                text-align: center;
                 span{
                     &:first-child{
                         color: #000;
-                        margin-right: 30px;
+                        margin-right: 10px;
                     }
                 }
             }
@@ -339,11 +356,36 @@
             position: absolute;
             right: 175px;
         }
-        .logoutBtnHeader{
-            color: #cfa773;
-            margin-left: 10px;
+        .myAccountBtnHeader{
+            &:hover{
+                text-decoration: underline; 
+            }
+        }
+        .logoutBtnHeader{ 
+            margin-left: 15px;
+            margin-right: 10px;
+            position: relative;
             &:hover{
                 text-decoration: underline;
+            }
+            &:after{
+                position: absolute;
+                content: "";
+                left: -10px;
+                top:-3px;
+                height: 21px;
+                width: 1px;
+                background: #f6f3f1;
+            } 
+            &:before{
+                position: absolute;
+                content: "";
+                right: -22px;
+                top:0px;
+                height: 15px;
+                width: 15px;
+                background-image: url("../images/icons/logout.png");
+
             }
         }  
 
@@ -428,12 +470,25 @@
             flex-wrap: wrap;
             display: flex;
             justify-content: center;
-            .addressSelect{
-                width: 90%;
-                max-width: 350px;
+            .addressSelect{ 
+                width: 350px;
+                padding-left: 50px;
                 margin: 5px 0;
+                position: relative;
+                &::before{
+                    position: absolute;
+                    content: "Store:";
+                    font-size: 14px;
+                    top:7px;
+                    left: 30px;
+                    color:#000; 
+                    z-index: 100;
+                }
                 #addresses{
                     width: 100%;
+                    padding-left: 60px;
+                    font-size: 14px;
+                    color: #5c5b5a;
                 }
             }
             .links{

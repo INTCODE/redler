@@ -12,7 +12,7 @@ require([
             focusOnSelect: true,
             slidesToShow: 5,
             infinite: true,
-            arrows:false,
+            arrows:true,
             centerPadding:'0px',
             responsive:[{
                 breakpoint: 991,

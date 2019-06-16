@@ -14,10 +14,26 @@
     width: 25px;
     cursor: pointer;
 }
-#faq{
+
+.cms-faq{
+    background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%);
+} 
+
+#faq{ 
+    margin: 0 auto;
+    min-height: 800px;
+    .wrapper{
+        max-width: 750px;
+        margin:0 auto;
+        padding: 50px;
+        background-color: $body_background_color;
+        h1{
+            font-size: 38px;
+            font-weight: 500;           
+        }
+    } 
     .faq-table{
-        width: 90%;
-        max-width: 800px;
+        width: 100%; 
         margin:0 auto;
         .question{
             border-bottom: 1px solid #eadfcf;
@@ -28,6 +44,10 @@
                 align-items: center;
                 padding: 10px;
                 font-size: 18px;
+                span{
+                    font-weight: 500;
+                    font-size: 14px;
+                }
                 .collapse-btn{
                     margin-left: 10px;
                 }

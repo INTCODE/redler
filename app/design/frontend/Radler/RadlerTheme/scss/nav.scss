@@ -26,6 +26,16 @@
                 color: $primary_text_color;
                 font-size:$f-13;
                 text-transform: uppercase;
+                span{
+                    &:hover{
+                        color: #000;
+                    }
+                } 
+                &.active{
+                   span{
+                       color: #000;
+                   }     
+                }
             }
         }
     }
