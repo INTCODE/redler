@@ -27,4 +27,12 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+
+            <route url="/V1/blmCart/getCartQty/" method="POST">
+        <service class="Blm\AddToCart\Api\HelloInterface" method="getCartQty"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
 </routes>

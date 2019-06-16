@@ -61,4 +61,16 @@ interface HelloInterface
      * @return string The sum of the numbers.
      */
      public function getCart($quoteId);
+
+
+                                /**
+     * Sum an array of numbers.
+     *
+     * @api
+
+     * @param string $CartData The array of numbers to sum.
+     * @return string The sum of the numbers.
+     */
+     public function getCartQty($CartData);
+
 }
