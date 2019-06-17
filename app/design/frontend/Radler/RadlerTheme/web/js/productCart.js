@@ -2,16 +2,19 @@ require(["jquery"], function($) {
 
     // click +/-
     $('.increaseQty, .decreaseQty').on("click", function() {
-        switch ($(this).attr("data-action")) {
-            case "-":
-                if ($("[data-id=" + $(this).attr("data-target") + "]").val() > 0) $("[data-id=" + $(this).attr("data-target") + "]").val(parseInt($("[data-id=" + $(this).attr("data-target") + "]").val()) - 1);
-                break;
-            case "+":
-                $("[data-id=" + $(this).attr("data-target") + "]").val(parseInt($("[data-id=" + $(this).attr("data-target")).val() + "]") + 1);
-                break;
+        if(!$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled")){
+            switch ($(this).attr("data-action")) {
+                case "-":
+                    if ($("[data-id=" + $(this).attr("data-target") + "]").val() > 0) 
+                    $("[data-id=" + $(this).attr("data-target") + "]").val(parseInt($("[data-id=" + $(this).attr("data-target") + "]").val()) - 1);
+                    break;
+                case "+":
+                    $("[data-id=" + $(this).attr("data-target") + "]").val(parseInt($("[data-id=" + $(this).attr("data-target")).val() + "]") + 1);
+                    break;
+            }
+            // data changed
+            $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
         }
-        // data changed
-        $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
     });
 
     // change input
@@ -34,7 +37,7 @@ require(["jquery"], function($) {
         $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "false");
     });
     $('.increaseQty, .decreaseQty').on("mouseleave", function() {
-        if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true") {
+        if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true" &&  !$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled")) {
             // add to cart
             $("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
             console.info("Add to cart");
@@ -116,7 +119,7 @@ function updateQtyAllItems(){
             var addr = $("#addresses").val();
             var type = 0;
 
-            $("[data-target='product-qty-"+pid+"']").attr("disabled", "true");
+            $("[data-id='product-qty-"+pid+"']").attr("disabled", "true");
 
             if($(this).parent().find(".swatch-option[aria-checked='true']").length > 0) {
                 type = $(this).parent().find(".swatch-option[aria-checked='true']").attr("option-id");
@@ -139,14 +142,13 @@ function updateQtyAllItems(){
             cache: false,
             contentType: 'application/json',
             processData: false,
-            async: true,
             /** @inheritdoc */
             success: function(res) {
                 var json = JSON.parse(res);
                 $(".inputProductQty").val(0);
                 $.each(json, function(){
-                    $("[data-target='product-qty-"+this.productId+"']").val(this.qty);
-                    $("[data-target='product-qty-"+this.productId+"']").removeAttr("disabled");
+                    $("[data-id='product-qty-"+this.productId+"']").val(this.qty);
+                    $("[data-id='product-qty-"+this.productId+"']").removeAttr("disabled");
                 });
                 $(".inputProductQty").removeAttr("disabled");
             },
@@ -165,7 +167,7 @@ function updateQtyAllItems(){
 function updateQtyItem(productId, type){
     if(productId && type)
     require(["jquery"], function($) {
-        $("[data-target='product-qty-"+productId+"']").attr("disabled", "true");
+        $("[data-id='product-qty-"+productId+"']").attr("disabled", "true");
         var j = {
             productId: productId, 
             addressId: $("#addresses").val(), 
@@ -185,8 +187,8 @@ function updateQtyItem(productId, type){
             success: function(res) {
                 var json = JSON.parse(res);
                 //console.info(res);
-                $("[data-target='product-qty-"+productId+"']").val(json.qty);
-                $("[data-target='product-qty-"+productId+"']").removeAttr("disabled");;
+                $("[data-id='product-qty-"+productId+"']").val(json.qty);
+                $("[data-id='product-qty-"+productId+"']").removeAttr("disabled");;
             },
             
             /** @inheritdoc */
