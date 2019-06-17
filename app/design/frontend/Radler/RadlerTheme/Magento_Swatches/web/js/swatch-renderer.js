@@ -662,7 +662,7 @@ define([
                 if($(this).attr("index") == 1){
                     $(this).parent().children("[index=0]").click();
                 }
-                updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"),$("#addresses").val(),$(this).attr('option-id'));
+                updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"),$(this).attr('option-id'));
                 if(!isChecked) {
                     return $widget._OnClick($(this), $widget);
                 }
@@ -982,7 +982,6 @@ define([
                     cache: false,
                     contentType: 'application/json',
                     processData: false,
-                    async: true,
                     /** @inheritdoc */
                     success: function(res) {
                         var json = JSON.parse(res);
@@ -991,7 +990,7 @@ define([
                     
                     /** @inheritdoc */
                     error: function(res) {
-                        console.info("error update - productCart.js");
+                        console.info("error update - swatch-render.js");
                         //console.log(res);
                     }
                 });

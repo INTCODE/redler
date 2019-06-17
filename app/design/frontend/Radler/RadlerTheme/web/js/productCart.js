@@ -48,7 +48,6 @@ require(["jquery"], function($) {
     });
 
     $(document).on("ready", function(){
-        var iterChecker = 0;
         updateQtyAllItems();
     });
 
@@ -91,7 +90,7 @@ function updateQtySomeProduct(productId){
     require(["jquery"], function($) {
         var pid = productId;
         var addr = $("#addresses").val();
-        var type = -1;
+        var type = 0;
         if($("[data-product-id="+pid+"]").parent().find(".swatch-option[aria-checked='true']").length > 0) {
             type = $("[data-product-id="+pid+"]").parent().find(".swatch-option[aria-checked='true']").attr("option-id");
         }
@@ -99,25 +98,15 @@ function updateQtySomeProduct(productId){
     });
 }
 
-function updateQtyConfAllItems(){
-    require(["jquery"], function($) {
-        $("#addresses").attr("disabled", "true");
-        setTimeout(() => {
-            $("#addresses").removeAttr("disabled");
-        }, 5000);
-        $(".swatch-attribute-options").each(function(){
-            var me = $(this).parents(".product-item-details").find("[data-product-id]");
-            var pid = $(me).attr("data-product-id");
-            var addr = $("#addresses").val();
-            var type = $(this).find(".swatch-option.selected").attr("option-id");
-            updateQtyItem(pid, addr, type);
-        });
-    });
-    
-}
 
 function updateQtyAllItems(){
     require(["jquery"], function($) {
+        var updateProducts = {
+                address: $("#addresses").val(),
+                quoteid: parseInt($("#quoteId").text()),
+                quote: []
+        }
+        
         $("#addresses").attr("disabled", "true");
         setTimeout(() => {
             $("#addresses").removeAttr("disabled");
@@ -125,34 +114,61 @@ function updateQtyAllItems(){
         $("[data-product-id]").each(function(){
             var pid = $(this).attr("data-product-id");
             var addr = $("#addresses").val();
-            var type = -1;
+            var type = 0;
+
+            $("[data-target='product-qty-"+pid+"']").attr("disabled", "true");
+
             if($(this).parent().find(".swatch-option[aria-checked='true']").length > 0) {
                 type = $(this).parent().find(".swatch-option[aria-checked='true']").attr("option-id");
             }
-            updateQtyItem(pid, addr, type);
+            updateProducts.quote[updateProducts.quote.length] = {
+                productid: pid,
+                type: type
+            };
+
         });
+
+        var j = JSON.stringify({
+            CartData: JSON.stringify(updateProducts)
+        });
+        $.ajax({
+            url: $("#homePath").text()+"/rest/V1/blmCart/getCartQty/",
+            data: j,
+            type: 'POST',
+            dataType: 'json',
+            cache: false,
+            contentType: 'application/json',
+            processData: false,
+            async: true,
+            /** @inheritdoc */
+            success: function(res) {
+                var json = JSON.parse(res);
+                $(".inputProductQty").val(0);
+                $.each(json, function(){
+                    $("[data-target='product-qty-"+this.productId+"']").val(this.qty);
+                    $("[data-target='product-qty-"+this.productId+"']").removeAttr("disabled");
+                });
+                $(".inputProductQty").removeAttr("disabled");
+            },
+            
+            /** @inheritdoc */
+            error: function(res) {
+                console.info("error update - productCart.js");
+                //console.log(res);
+            }
+        });
+        
+
     });
 }
 
-/*
-{
-"data":[
-    parseInt(productId),
-    parseInt(addressId),
-    parseInt(type),
-    parseInt($("#quoteId").text())
-]
-}
-*/
-
-async function updateQtyItem(productId, addressId, type){
-    if(productId && addressId && type)
+function updateQtyItem(productId, type){
+    if(productId && type)
     require(["jquery"], function($) {
-        
-        //console.log("updateQtyItem: "+productId+" "+addressId+" "+type);
+        $("[data-target='product-qty-"+productId+"']").attr("disabled", "true");
         var j = {
             productId: productId, 
-            addressId: addressId, 
+            addressId: $("#addresses").val(), 
             type: type,
             quoteId: parseInt($("#quoteId").text())
         };
@@ -165,18 +181,18 @@ async function updateQtyItem(productId, addressId, type){
             cache: false,
             contentType: 'application/json',
             processData: false,
-            async: true,
             /** @inheritdoc */
             success: function(res) {
                 var json = JSON.parse(res);
-                console.info(res);
+                //console.info(res);
                 $("[data-target='product-qty-"+productId+"']").val(json.qty);
+                $("[data-target='product-qty-"+productId+"']").removeAttr("disabled");;
             },
             
             /** @inheritdoc */
             error: function(res) {
                 console.info("error update - productCart.js");
-                console.log(res);
+                //console.log(res);
             }
         });
     });

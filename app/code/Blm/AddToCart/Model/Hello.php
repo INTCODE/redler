@@ -185,8 +185,7 @@ class Hello implements HelloInterface
 
      }
 
-
-                                /**
+    /**
      * Sum an array of numbers.
      *
      * @api
@@ -217,12 +216,10 @@ class Hello implements HelloInterface
      }
 
 
-                                /**
-     * Sum an array of numbers.
-     *
+     /**
      * @api
 
-     * @param string $CartData The array of numbers to sum.
+     * @param string $CartData
      * @return string The sum of the numbers.
      */
      public function getCartQty($CartData){
@@ -237,17 +234,16 @@ class Hello implements HelloInterface
 
         $products=null;
         $types=null;
-        $addressid=$CartData['address'];
-        $quoteid=$CartData['quoteid'];
+        $addressid=$CartData->address;
+        $quoteid=$CartData->quoteid;
 
-        foreach ($CartData['quote'] as $key => $value) {
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($value, true));
-           $products.='(productId='.$value['productid'].' AND '.'type='.$value['type'].') OR ';
-
+        foreach ($CartData->quote as $key => $value) {
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($value, true));
+           $products.='(productId='.$value->productid.' AND '.'type='.$value->type.') OR ';
         }
         $products=rtrim($products,' OR ');
 
-        $sql="SELECT q.productId,q.`type`,q.qty
+        $sql="SELECT q.productId,q.qty
         FROM blm_crontab q
         WHERE q.quoteId=$quoteid AND q.address=$addressid AND($products)";
         // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========products=============\n".print_r($products, true));
@@ -260,7 +256,7 @@ class Hello implements HelloInterface
         if($result){
             return json_encode($result);
         }else{
-            return 'not found';
+            return "[]";
 
         }
 
