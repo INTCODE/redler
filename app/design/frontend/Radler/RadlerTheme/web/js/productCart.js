@@ -89,7 +89,6 @@ function addToCartProduct(productId, type, qty){
             cache: false,
             contentType: 'application/json',
             processData: false,
-            async: true,
             /** @inheritdoc */
             success: function(res) {
                 //console.log(res);
