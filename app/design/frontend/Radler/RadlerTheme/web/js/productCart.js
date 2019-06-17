@@ -21,6 +21,7 @@ require(["jquery"], function($) {
     $(".inputProductQty").on("change", function() {
         // data changed
         $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
+        $("[data-id=" + $(this).attr("data-target") + "]").val($(this).val());
     });
 
     // blur input
