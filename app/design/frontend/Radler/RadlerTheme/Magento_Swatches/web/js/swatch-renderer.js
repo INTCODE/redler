@@ -659,10 +659,12 @@ define([
 
             $widget.element.on('click', '.' + options.optionClass, function () {
                 var isChecked = ($(this).hasClass('selected'));
-                if($(this).attr("index") == 1){
-                    $(this).parent().children("[index=0]").click();
+                if($(this).attr("index") == 1){ // disable second and enable first when click on second selected
+                    $(this).parent().children("[index=0]").addClass("selected");
+                    $(this).parent().children("[index=0]").attr("aria-checked", "true");
+                    $(this).parent().children("[index=1]").removeClass("selected");
+                    $(this).parent().children("[index=1]").attr("aria-checked", "false");
                 }
-                updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"),$(this).attr('option-id'));
                 if(!isChecked) {
                     return $widget._OnClick($(this), $widget);
                 }

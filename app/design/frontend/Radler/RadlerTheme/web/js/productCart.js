@@ -21,11 +21,10 @@ require(["jquery"], function($) {
     $(".inputProductQty").on("change", function() {
         // data changed
         $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
-        $("[data-id=" + $(this).attr("data-target") + "]").val($(this).val());
     });
 
-    // blur input
-    $(".inputProductQty").on("blur", function() {
+    // focusout input
+    $(".inputProductQty").on("focusout", function() {
         if (parseInt($(this).val()) < 0) {
             $(this).val(0);
             $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
@@ -37,6 +36,7 @@ require(["jquery"], function($) {
         }
         $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "false");
     });
+
     $('.increaseQty, .decreaseQty').on("mouseleave", function() {
         if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true" &&  !$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled")) {
             // add to cart
@@ -52,12 +52,26 @@ require(["jquery"], function($) {
     });
 
     $(document).on("ready", function(){
-        updateQtyAllItems();
+        var checkSwatch = setInterval(() => {
+            if($(".swatch-option.selected").length>0){
+                updateQtyAllItems();
+
+                $(".swatch-option").on("click", function(){
+                    updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"),$(this).attr('option-id'));
+                });
+
+                clearInterval(checkSwatch);
+            }
+        }, 200);
+        
     });
+
+
 
 });
 
 function addToCartProduct(productId, type, qty){
+    console.info("Add to cart : new");
     require(["jquery"], function($) {
         var j = {
             productId:productId,
@@ -91,6 +105,7 @@ function addToCartProduct(productId, type, qty){
 }
 
 function updateQtySomeProduct(productId){
+    console.log("update qty some item");
     require(["jquery"], function($) {
         var pid = productId;
         var addr = $("#addresses").val();
@@ -104,6 +119,7 @@ function updateQtySomeProduct(productId){
 
 
 function updateQtyAllItems(){
+    console.log("update qty all items");
     require(["jquery"], function($) {
         var updateProducts = {
                 address: $("#addresses").val(),
@@ -166,6 +182,7 @@ function updateQtyAllItems(){
 }
 
 function updateQtyItem(productId, type){
+    console.log("update qty item "+productId);
     if(productId && type)
     require(["jquery"], function($) {
         $("[data-id='product-qty-"+productId+"']").attr("disabled", "true");
