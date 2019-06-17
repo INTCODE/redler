@@ -33,13 +33,48 @@ class Hello implements HelloInterface
         $connection = $resource->getConnection();
 
         $product = $objectManager->get('Magento\Catalog\Model\Product')->load($productId);
-        $cart = $objectManager->get('\Magento\Checkout\Model\Cart');
 
+        $quoteFactory = $objectManager->create('\Magento\Quote\Model\QuoteFactory');
+        $q = $quoteFactory->create()->load($quoteId);
+           //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($q->getAllItems(), true));
+        foreach ($q->getAllItems() as $key => $value) {
 
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($cart->debug(), true));
+            if($type!=0){
+            if($value->getParentItemId()){
+                $product = $objectManager->get('Magento\Catalog\Model\Product')->load($value->getProductId());
+                $packageId=$product->getCustomAttribute('package_type')->getValue();
+                if($packageId==$type){
 
+       
+                 $itemChenge=$q->getItemById($value->getParentItemId());
+                 $itemChenge->setQty($qty);
+                 $itemChenge->save();
+                    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($itemChenge->debug(), true));
+                //     file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($itemChenge, true));
+                //     file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($value->getParentItemId()), true));
+               }
+                
+            }
+        }elseif($type==0){
+            if(!$value->getParentItemId() && $value->getProductType()=='simple'){
+                if($value->getProductId()==$productId){
+                    $itemChenge=$q->getItemById($value->getId());
+                    $itemChenge->setQty($qty);
+                    $itemChenge->save();
+                    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($value->getId(), true));
 
-        return $product->getId();
+                }
+                // $itemChenge=$q->getItemById($value->getParentItemId());
+                // $itemChenge->setQty($qty);
+                // $itemChenge->save();
+
+            }
+
+        }
+            
+        }
+
+      //  return $product->getId();
 
         $sql="SELECT b.crontab_id
         FROM blm_crontab b
