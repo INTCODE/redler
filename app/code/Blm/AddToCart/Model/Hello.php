@@ -243,7 +243,7 @@ class Hello implements HelloInterface
 
                 if($addressId==$value['address']){
                 $url=$configProduct->getProductUrl();
-                $image=$configProduct->getData('image');
+                $image=$configProduct->getImage();
                 $result[$key]['url']=$url;
                 $result[$key]['image']=$image;
 
@@ -434,7 +434,7 @@ class Hello implements HelloInterface
 
         $CartData=json_decode($CartData);
 
-        //$CartData=array('address'=>6,'quoteid'=>28,'quote'=>array(array('productid'=>34,'type'=>21),array('productid'=>34,'type'=>22),array('productid'=>27,'type'=>0)));
+       // $CartData=array('address'=>6,'quoteid'=>28,'quote'=>array(array('productid'=>34,'type'=>21),array('productid'=>34,'type'=>22),array('productid'=>27,'type'=>0)));
 
         $products=null;
         $types=null;
@@ -459,20 +459,6 @@ class Hello implements HelloInterface
             return "[]";
 
         }
-
-
-
-        // $sql="SELECT *
-        // FROM blm_crontab b
-        // Where b.quoteId=$quoteId";
-        // $result = $connection->fetchAll($sql);
-
-        // if($result){
-        //     return json_encode($result);
-
-        // }else{
-        //     return 'not found';
-        // }
 
 
      }
