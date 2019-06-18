@@ -388,6 +388,7 @@ file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=======
                         }
                     }
                    }
+                   if($ship_elem)
                    array_push($dbArray,$ship_elem);
                 }
                    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========fin=============\n".print_r($dbArray, true));
