@@ -1,0 +1,35 @@
+.multishipping-checkout-addresses{
+    background: linear-gradient(0deg, #d5b68f 0%, #e9decd 100%); 
+    .page-main{ 
+        max-width: 1460px;
+         width: 98%;
+         margin: auto !important;
+         .page-title{
+            margin-bottom: 25px;
+             span{
+                font-size: 38px;
+                font-weight: 500;
+                position: relative;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    left: -30px;
+                    top: 16px;
+                    width: 30px;
+                    height: 30px;
+                    background: url("../images/icons/arrow-left.png")no-repeat;
+                }
+             }  
+         }
+         .multicheckout{
+             padding: 15px;
+             background: #f6f3f1;
+             .title{
+                font-size: 16px;
+                font-weight: 300;
+                padding: 15px 0;
+                color: #6c757d;
+             }
+         }
+        }
+}

@@ -27,21 +27,20 @@
         .addressSelect{
             float: left;
             margin-left: 150px;
-            width: 350px;
-            padding-left: 50px; 
+            width: 350px;  
             position: relative;
             &::before{
                 position: absolute;
                 content: "Store:";
                 font-size: 14px;
                 top:7px;
-                left: 10px;
+                left: 30px;
                 color:#000; 
                 z-index: 100;
             }
             #addresses{
                 width: 350px; 
-                padding-left: 60px;
+                padding-left: 70px;
                 font-size: 14px;
                 color: #5c5b5a;
             }
@@ -123,6 +122,10 @@
                 background-color: #f6f3f1;
                 -webkit-box-shadow: 0 0 4px #ccc;
                 box-shadow: 0 0 4px #ccc;
+
+                .items-total{
+                    display: none;
+                }
                 .empty{
                     font-weight: 500;
                     font-size: 14px; 
@@ -136,24 +139,45 @@
                     width: 100%;
                     margin: 0 0 15px 0;
                     border-bottom: 1px solid #e6d9c5;
+                    display: none;
                     .label{
                         display: inline-block;
                         float: left;
                         position: relative;
                         top: 10px;
                         span{
-                            font-weight: bold;
-                            margin:10px 0;
+                            font-weight: 300; 
+                            margin: 10px 0;     
+                            font-size: 14px;
                         }
                     }
                     .price-container{
                         display: inline-block;
                         float: right;
                         margin:10px 0;
+                        .price{
+                            font-weight: bold;
+                        }
+                    }
+
+                    .details-qty{
+                        display: inline-flex;
+                        .cart-item-qty{
+                            display: flex;
+                            order: 2; 
+                        }
+                        .buttonMinicartQty{
+                            display: flex;
+                            order:1;
+                            &:nth-child(2){
+                                order:3;
+                            }
+                        }
                     }
                 }  
                 .subtitle{
-                    font-weight: bold;
+                    border-bottom: 1px solid #eadfcf; 
+                    padding-bottom: 10px;
                     font-size: 12px;
                     margin:10px 0;
                     display: block;
@@ -182,6 +206,10 @@
                             &:not(:last-child){
                                 border-bottom: 1px solid $secondary_bg_color;
                             }
+
+                            .product-image-photo{
+                                max-width: 100%;
+                            }
                             .product-image-container{
                                 min-height: auto;
                                 height: auto;
@@ -190,33 +218,50 @@
                             .product-item-details{
                                 padding-left: 87px;
                                 .product-item-name{
-                                    font-size: 14px;
-                                    text-align: left;
+                                    font-size: 12px;
+                                    text-align: left; 
+                                }
+                                .options{
+                                    display: none;
                                 }
                                 .price-container{
                                     text-align: left;
                                     .price{
-                                        font-weight: bold; 
+                                        font-weight: bold;
+                                        font-size: 12px; 
                                     }
                                 }
                                 .details-qty{
                                     text-align: left;
+                                    display: inline-flex;
+                                    margin-top: 5px;
                                     .label{
                                         display: none;
                                     }
                                     input{
-                                        width: 50px;
-                                        height: 40px;
+                                        width: 35px;
+                                        height: 25px;
                                         text-align: center;
                                         border: 1px solid #efeae6;
+                                        display: flex;
+                                        order: 2;
                                     }
-                                    .update-cart-item{
-                                        @extend .btn;
+                                    .buttonMinicartQty{ 
                                         color: $primary_text_color;
                                         background-color: $primary_bg_color;
-                                        padding: 4px 13px;
-                                        font-size: 12px;
-                                        margin-left: 10px;
+                                        padding: 5px 9px;
+                                        font-size: 13px; 
+                                        height: 25px;
+                                        order: 3;
+                                        cursor: pointer;
+                                        // &:first-child{
+                                        //     display: flex;
+                                        //     order: 1;
+                                        // }
+                                        // &:nth-child(2){
+                                        //     display: flex;
+                                        //     order: 3;
+                                        // }
                                     }
                                 }
                                 .product.options{
@@ -246,9 +291,11 @@
                                         @extend .btn-remove;
                                         background-image: url('../images/icons/cross.svg');
                                         background-position: center;
-                                        background-size: 8px;
+                                        background-size: 5px;
                                         background-repeat: no-repeat;
                                         position: absolute;
+                                        width: 10px;
+                                        height: 10px;
                                         bottom: 10px;
                                         right: 25px;
                                         span{
@@ -272,7 +319,12 @@
                     @extend .btn;
                     @extend .btn-gold;
                     margin: 15px auto 0; 
-                    display: block; 
+                    display: block;
+                    &:hover{
+                        background: transparent;
+                        color: $primary_text_color;
+                        border: 1px solid $primary_text_color;
+                    } 
                 } 
             }
         }

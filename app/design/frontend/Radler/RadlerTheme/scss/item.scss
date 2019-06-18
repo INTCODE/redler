@@ -1,6 +1,6 @@
 .product-item{
     background-color: #fff;
-    display: inline-block;
+    display: inline-flex;
     text-align: center;
     padding: 25px 10px;
     box-shadow: -2.5px 15.8px 68px #B49D7f48;
@@ -83,7 +83,7 @@
     }
 
     .stock{
-        background: #e4d5be;
+        background: #1c644194;
         padding: 3px 10px;
         position: relative;
         top: 11px;
@@ -91,6 +91,9 @@
         color: #fff;
         border-radius: 73px;
         right: -15px;
+        &.unavailable{
+            background: #ff00007a;
+        }
     }
 
     .special-price{ 

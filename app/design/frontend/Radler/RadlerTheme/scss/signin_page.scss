@@ -95,6 +95,8 @@
                     .field{ 
                         padding-bottom: 15px;
                         position: relative;
+                        font-weight: 300;
+                        padding-top: 5px;
                         .label{
                             font-size: 14px;
                             font-weight: 600;
@@ -315,7 +317,7 @@
         .mage-error{
             color: red;
             font-size: 10px;
-            position: absolute;
+            position: relative;
             bottom: 0px;
             letter-spacing: 1px;
         } 
@@ -340,8 +342,9 @@
         padding: 0 5px;   
        }
        .additional{
-           width: 100%;
-         
+        width: 100%;
+        padding-left: 0px;
+        padding-right: 0px;
        } 
     }
     .actions-toolbar{ 
@@ -482,7 +485,7 @@
                     .mage-error{
                         color: red;
                         font-size: 10px;
-                        position: absolute;
+                        position: relative;
                         bottom: 0px;
                         letter-spacing: 1px;
                     } 
@@ -537,7 +540,7 @@
                             .mage-error{
                                 color: red;
                                 font-size: 10px;
-                                position: absolute;
+                                position: relative;
                                 bottom: 0px;
                                 letter-spacing: 1px;
                             } 
@@ -568,20 +571,36 @@
                         } 
                     }
                 }
-                .block-new-customer{
-                    margin:15px 0;
-                    .block-content{
-                        p{
-                            color: #a09792;
-                            font-weight: 600;
-                            font-size: 14px;   
-                        }
-                    }
-                }
+               
             }
         } 
     }
 }
+
+.block-new-customer{ 
+    padding-top: 15px;
+    .block-title{
+        margin-bottom: 5px;
+    }
+    .block-content{
+        p{
+            color: #a09792; 
+            font-size: 14px;   
+        }
+    }
+    .primary{
+        a{
+            margin-top: 15px;
+            display: inline-block;
+            color: #1c6441;
+            font-size: 14px;
+            &:hover{
+                text-decoration: underline;
+            } 
+        }
+    }
+}
+
 @media (max-width:991px){
     .customer-account-create .columns .column{
         padding: 0;
