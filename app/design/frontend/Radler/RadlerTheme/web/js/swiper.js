@@ -4,26 +4,28 @@ require([
 ], function ($) {
     $(document).ready(function () {
         $('#maincontent .widget-product-grid').slick({
-            dots:true,
-            autoplay:false,
-            swipeToSlide:true,
+             
+            autoplay:false, 
             autoplaySpeed:5000,
-            centerMode:true,
+            centerMode: true,
+            dots: true,
+            initialSlide: 3,
             focusOnSelect: true,
-            slidesToShow: 5,
-            infinite: true,
+            slidesToShow: 5, 
             arrows:true,
             centerPadding:'0px',
             responsive:[{
                 breakpoint: 991,
                 settings: {
                   slidesToShow: 3,
+                  initialSlide: 2,
                 }
             },
             {
                 breakpoint:767,
                 settings:{
                     slidesToShow: 1,
+                    initialSlide: 1,
                 }
             }
         ]
