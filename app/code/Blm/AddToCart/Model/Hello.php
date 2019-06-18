@@ -206,6 +206,14 @@ class Hello implements HelloInterface
         Where b.quoteId=$quoteId";
         $result = $connection->fetchAll($sql);
 
+        foreach ($result as $key => $value) {
+            $productId=$value['productId'];
+            $product = $objectManager->get('Magento\Catalog\Model\Product')->load($productId);
+            
+         file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========addressid=============\n".print_r($product->debug(), true));
+    
+        }
+
         if($result){
             return json_encode($result);
 
@@ -231,17 +239,16 @@ class Hello implements HelloInterface
         $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
         $connection = $resource->getConnection();
 
-        $CartData=json_decode($CartData);
+       $CartData=json_decode($CartData);
 
         //$CartData=array('address'=>6,'quoteid'=>28,'quote'=>array(array('productid'=>34,'type'=>21),array('productid'=>34,'type'=>22),array('productid'=>27,'type'=>0)));
-
+        return $CartData;
         $products=null;
         $types=null;
         $addressid=$CartData['address'];
         $quoteid=$CartData['quoteid'];
-
         foreach ($CartData['quote'] as $key => $value) {
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($value, true));
+      
            $products.='(productId='.$value['productid'].' AND '.'type='.$value['type'].') OR ';
 
         }
@@ -250,34 +257,9 @@ class Hello implements HelloInterface
         $sql="SELECT q.productId,q.`type`,q.qty
         FROM blm_crontab q
         WHERE q.quoteId=$quoteid AND q.address=$addressid AND($products)";
-        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========products=============\n".print_r($products, true));
-        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========addressid=============\n".print_r($addressid, true));
-        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========quoteid=============\n".print_r($quoteid, true));
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========sql=============\n".print_r($sql, true));
         $result = $connection->fetchAll($sql);
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========result=============\n".print_r($result, true));
 
-        if($result){
             return json_encode($result);
-        }else{
-            return 'not found';
-
-        }
-
-
-
-        // $sql="SELECT *
-        // FROM blm_crontab b
-        // Where b.quoteId=$quoteId";
-        // $result = $connection->fetchAll($sql);
-
-        // if($result){
-        //     return json_encode($result);
-
-        // }else{
-        //     return 'not found';
-        // }
-
 
      }
     
