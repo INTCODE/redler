@@ -1,16 +1,23 @@
 .checkout-cart-index{   
     padding: 40px 0 0 0;
     position: relative;
-    margin-top: -40px; 
-    
+    margin-top: -40px;  
+    background: linear-gradient(0deg, #d5b68f 0%, #e9decd 100%);
+    .cart-container{
+        .form-cart{
+            background: #f6f3f1;
+            padding: 30px!important;;      
+        }
+    }
     .page-main{ 
         max-width: 1460px;
          width: 98%;
          margin: auto !important;
          .page-title{
+            margin-bottom: 25px;
              span{
-                font-size: 32px;
-                font-weight: 600;
+                font-size: 38px;
+                font-weight: 500;
              }
          }
          .cart-container{
@@ -199,6 +206,7 @@
                 .title{ 
                     display: block;
                     font-size: 20px;
+                    font-weight: 300;
                 }
                 .shipping{
                     margin: 15px 0;
@@ -207,6 +215,7 @@
                     text-align: center;
                     font-size: 14px;
                     color: #a09792;
+                    display: none;
                 }
                 .cart-totals{
                     margin: 20px 0 15px;
@@ -222,6 +231,9 @@
                         display: block;
                         margin: auto;
                     }
+                }
+                .multicheckout{
+                    @extend .btn-gold;
                 }
                 .table-wrapper{
                     tbody{
@@ -661,6 +673,8 @@
     order:5;
     margin: 15px 0;
 }
+
+
 @media (max-width:991px){
     .page-layout-checkout .opc-summary-wrapper{
         position: relative;

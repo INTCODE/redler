@@ -26,6 +26,9 @@
                         font-weight: 600;
                         font-size: $f-13;
                         color: $primary_text_color;
+                        &:hover{
+                            text-decoration: underline;
+                        }
                     }
                 }
             }

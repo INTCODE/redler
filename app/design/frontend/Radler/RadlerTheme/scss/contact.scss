@@ -10,6 +10,8 @@
 }
 #contact{
     background: linear-gradient( to right, rgb(213,182,143) 0%, rgb(233,222,205) 100%);
+    position: relative;
+    top: -45px;     
     .wrapper{
         @extend .row;
         #contact-info{
