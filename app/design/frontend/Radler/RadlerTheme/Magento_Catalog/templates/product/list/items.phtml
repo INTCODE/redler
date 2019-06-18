@@ -230,9 +230,9 @@ switch ($type = $block->getType()) {
                                                                     data-id="product-qty-<?= $_item->getId() ?>" 
                                                                     maxlength="12" 
                                                                     data-target="product-qty-<?= $_item->getId() ?>" 
-                                                                    value="<?php
+                                                                    value="0<?php
                                                                     // GET COUNT IN CART
-                                                                    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                                                                    /*$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
                                                                     $cart = $objectManager->get('\Magento\Checkout\Model\Cart'); 
                                                                     $items = $cart->getQuote()->getAllItems();
                                                                     $count = 0;
@@ -242,7 +242,7 @@ switch ($type = $block->getType()) {
                                                                             break;
                                                                         }   
                                                                     }
-                                                                    echo $count;
+                                                                    echo $count;*/
                                                                     ?>" 
                                                                     title="<?= /* @escapeNotVerified */ __('Qty') ?>" 
                                                                     class="input-text qty inputProductQty"/>

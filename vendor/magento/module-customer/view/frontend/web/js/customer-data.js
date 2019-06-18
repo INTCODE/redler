@@ -88,7 +88,7 @@ define([
             parameters['force_new_section_timestamp'] = forceNewSectionTimestamp;
 
             return $.getJSON(options.sectionLoadUrl, parameters).fail(function (jqXHR) {
-                throw new Error(jqXHR);
+                //throw new Error(jqXHR);
             });
         }
     };

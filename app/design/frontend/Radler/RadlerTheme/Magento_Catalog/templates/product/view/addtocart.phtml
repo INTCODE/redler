@@ -25,9 +25,9 @@
                 data-id="product-qty-<?= $_product->getId() ?>" 
                 maxlength="12" 
                 data-target="product-qty-<?= $_product->getId() ?>" 
-                value="<?php
+                value="0<?php
                 // GET COUNT IN CART
-                $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                /*$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
                 $cart = $objectManager->get('\Magento\Checkout\Model\Cart'); 
                 $items = $cart->getQuote()->getAllItems();
                 $count = 0;
@@ -37,7 +37,7 @@
                         break;
                     }   
                 }
-                echo $count;
+                echo $count;*/
                 ?>" 
                 title="<?= /* @escapeNotVerified */ __('Qty') ?>" 
                 class="input-text qty inputProductQty"/>
