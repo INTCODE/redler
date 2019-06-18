@@ -2,16 +2,19 @@ require(["jquery"], function($) {
 
     // click +/-
     $('.increaseQty, .decreaseQty').on("click", function() {
-        switch ($(this).attr("data-action")) {
-            case "-":
-                if ($("[data-id=" + $(this).attr("data-target") + "]").val() > 0) $("[data-id=" + $(this).attr("data-target") + "]").val(parseInt($("[data-id=" + $(this).attr("data-target") + "]").val()) - 1);
-                break;
-            case "+":
-                $("[data-id=" + $(this).attr("data-target") + "]").val(parseInt($("[data-id=" + $(this).attr("data-target")).val() + "]") + 1);
-                break;
+        if(!$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled")){
+            switch ($(this).attr("data-action")) {
+                case "-":
+                    if ($("[data-id=" + $(this).attr("data-target") + "]").val() > 0) 
+                    $("[data-id=" + $(this).attr("data-target") + "]").val(parseInt($("[data-id=" + $(this).attr("data-target") + "]").val()) - 1);
+                    break;
+                case "+":
+                    $("[data-id=" + $(this).attr("data-target") + "]").val(parseInt($("[data-id=" + $(this).attr("data-target")).val() + "]") + 1);
+                    break;
+            }
+            // data changed
+            $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
         }
-        // data changed
-        $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
     });
 
     // change input
@@ -20,8 +23,8 @@ require(["jquery"], function($) {
         $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
     });
 
-    // blur input
-    $(".inputProductQty").on("blur", function() {
+    // focusout input
+    $(".inputProductQty").on("focusout", function() {
         if (parseInt($(this).val()) < 0) {
             $(this).val(0);
             $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
@@ -33,8 +36,9 @@ require(["jquery"], function($) {
         }
         $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "false");
     });
+
     $('.increaseQty, .decreaseQty').on("mouseleave", function() {
-        if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true") {
+        if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true" &&  !$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled")) {
             // add to cart
             $("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
             console.info("Add to cart");
@@ -48,13 +52,26 @@ require(["jquery"], function($) {
     });
 
     $(document).on("ready", function(){
-        var iterChecker = 0;
-        updateQtyAllItems();
+        var checkSwatch = setInterval(() => {
+            if($(".swatch-option.selected").length>0){
+                updateQtyAllItems();
+
+                $(".swatch-option").on("click", function(){
+                    updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"),$(this).attr('option-id'));
+                });
+
+                clearInterval(checkSwatch);
+            }
+        }, 200);
+        
     });
+
+
 
 });
 
 function addToCartProduct(productId, type, qty){
+    console.info("Add to cart : new");
     require(["jquery"], function($) {
         var j = {
             productId:productId,
@@ -72,7 +89,6 @@ function addToCartProduct(productId, type, qty){
             cache: false,
             contentType: 'application/json',
             processData: false,
-            async: true,
             /** @inheritdoc */
             success: function(res) {
                 //console.log(res);
@@ -88,10 +104,11 @@ function addToCartProduct(productId, type, qty){
 }
 
 function updateQtySomeProduct(productId){
+    console.log("update qty some item");
     require(["jquery"], function($) {
         var pid = productId;
         var addr = $("#addresses").val();
-        var type = -1;
+        var type = 0;
         if($("[data-product-id="+pid+"]").parent().find(".swatch-option[aria-checked='true']").length > 0) {
             type = $("[data-product-id="+pid+"]").parent().find(".swatch-option[aria-checked='true']").attr("option-id");
         }
@@ -99,25 +116,16 @@ function updateQtySomeProduct(productId){
     });
 }
 
-function updateQtyConfAllItems(){
-    require(["jquery"], function($) {
-        $("#addresses").attr("disabled", "true");
-        setTimeout(() => {
-            $("#addresses").removeAttr("disabled");
-        }, 5000);
-        $(".swatch-attribute-options").each(function(){
-            var me = $(this).parents(".product-item-details").find("[data-product-id]");
-            var pid = $(me).attr("data-product-id");
-            var addr = $("#addresses").val();
-            var type = $(this).find(".swatch-option.selected").attr("option-id");
-            updateQtyItem(pid, addr, type);
-        });
-    });
-    
-}
 
 function updateQtyAllItems(){
+    console.log("update qty all items");
     require(["jquery"], function($) {
+        var updateProducts = {
+                address: $("#addresses").val(),
+                quoteid: parseInt($("#quoteId").text()),
+                quote: []
+        }
+        
         $("#addresses").attr("disabled", "true");
         setTimeout(() => {
             $("#addresses").removeAttr("disabled");
@@ -125,34 +133,61 @@ function updateQtyAllItems(){
         $("[data-product-id]").each(function(){
             var pid = $(this).attr("data-product-id");
             var addr = $("#addresses").val();
-            var type = -1;
+            var type = 0;
+
+            $("[data-id='product-qty-"+pid+"']").attr("disabled", "true");
+
             if($(this).parent().find(".swatch-option[aria-checked='true']").length > 0) {
                 type = $(this).parent().find(".swatch-option[aria-checked='true']").attr("option-id");
             }
-            updateQtyItem(pid, addr, type);
+            updateProducts.quote[updateProducts.quote.length] = {
+                productid: pid,
+                type: type
+            };
+
         });
+
+        var j = JSON.stringify({
+            CartData: JSON.stringify(updateProducts)
+        });
+        $.ajax({
+            url: $("#homePath").text()+"/rest/V1/blmCart/getCartQty/",
+            data: j,
+            type: 'POST',
+            dataType: 'json',
+            cache: false,
+            contentType: 'application/json',
+            processData: false,
+            /** @inheritdoc */
+            success: function(res) {
+                var json = JSON.parse(res);
+                $(".inputProductQty").val(0);
+                $.each(json, function(){
+                    $("[data-id='product-qty-"+this.productId+"']").val(this.qty);
+                    $("[data-id='product-qty-"+this.productId+"']").removeAttr("disabled");
+                });
+                $(".inputProductQty").removeAttr("disabled");
+            },
+            
+            /** @inheritdoc */
+            error: function(res) {
+                console.info("error update - productCart.js");
+                //console.log(res);
+            }
+        });
+        
+
     });
 }
 
-/*
-{
-"data":[
-    parseInt(productId),
-    parseInt(addressId),
-    parseInt(type),
-    parseInt($("#quoteId").text())
-]
-}
-*/
-
-async function updateQtyItem(productId, addressId, type){
-    if(productId && addressId && type)
+function updateQtyItem(productId, type){
+    console.log("update qty item "+productId);
+    if(productId && type)
     require(["jquery"], function($) {
-        
-        //console.log("updateQtyItem: "+productId+" "+addressId+" "+type);
+        $("[data-id='product-qty-"+productId+"']").attr("disabled", "true");
         var j = {
             productId: productId, 
-            addressId: addressId, 
+            addressId: $("#addresses").val(), 
             type: type,
             quoteId: parseInt($("#quoteId").text())
         };
@@ -165,18 +200,18 @@ async function updateQtyItem(productId, addressId, type){
             cache: false,
             contentType: 'application/json',
             processData: false,
-            async: true,
             /** @inheritdoc */
             success: function(res) {
                 var json = JSON.parse(res);
-                console.info(res);
-                $("[data-target='product-qty-"+productId+"']").val(json.qty);
+                //console.info(res);
+                $("[data-id='product-qty-"+productId+"']").val(json.qty);
+                $("[data-id='product-qty-"+productId+"']").removeAttr("disabled");;
             },
             
             /** @inheritdoc */
             error: function(res) {
                 console.info("error update - productCart.js");
-                console.log(res);
+                //console.log(res);
             }
         });
     });

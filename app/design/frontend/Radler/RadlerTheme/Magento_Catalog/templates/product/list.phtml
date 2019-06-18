@@ -105,9 +105,9 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                                                                     data-id="product-qty-<?= $_product->getId() ?>" 
                                                                     maxlength="12" 
                                                                     data-target="product-qty-<?= $_product->getId() ?>" 
-                                                                    value="<?php
+                                                                    value="0<?php
                                                                     // GET COUNT IN CART
-                                                                    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                                                                    /*$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
                                                                     $cart = $objectManager->get('\Magento\Checkout\Model\Cart'); 
                                                                     $items = $cart->getQuote()->getAllItems();
                                                                     $count = 0;
@@ -117,7 +117,7 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                                                                             break;
                                                                         }   
                                                                     }
-                                                                    echo $count;
+                                                                    echo $count;*/
                                                                     
                                                                     ?>" 
                                                                     title="<?= /* @escapeNotVerified */ __('Qty') ?>" 

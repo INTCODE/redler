@@ -287,7 +287,6 @@ define([
             $.extend(data, {
                 'form_key': $.mage.cookies.get('form_key')
             });
-
             $.ajax({
                 url: url,
                 data: data,
