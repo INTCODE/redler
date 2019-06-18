@@ -174,12 +174,42 @@ class Hello implements HelloInterface
         FROM blm_crontab b
         Where b.quoteId=$quoteId AND b.address=$addressId";
         $result = $connection->fetchAll($sql);
-        if($result){
-            return json_encode($result);
 
-        }else{
-            return 'not found';
-        }
+        foreach ($result as $key => $value) {
+            $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($value['productId']);
+            $type=$value['type'];
+    
+            if($type!=0){
+                $_children = $configProduct->getTypeInstance()->getUsedProducts($configProduct);
+           
+                foreach ($_children as $k => $v) {
+                $packageId=$v->getCustomAttribute('package_type')->getValue();
+        
+                    if($type==$packageId){
+                        $url=$v->getProductUrl();
+                        $image=$v->getData('image');
+                        $result[$key]['url']=$url;
+                        $result[$key]['image']=$image;
+               //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($value, true));
+                    }
+                }
+            }else{
+                $url=$configProduct->getProductUrl();
+                $image=$configProduct->getData('image');
+                $result[$key]['url']=$url;
+                $result[$key]['image']=$image;
+               // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($configProduct->debug(), true));
+    
+            }
+            }
+    
+                //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($result, true));
+    
+            if($result){
+                return json_encode($result);
+            }else{
+                return "[]";
+            }
 
 
 
@@ -200,20 +230,48 @@ class Hello implements HelloInterface
         $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
         $connection = $resource->getConnection();
 
-
         $sql="SELECT *
         FROM blm_crontab b
         Where b.quoteId=$quoteId";
         $result = $connection->fetchAll($sql);
 
-        if($result){
-            return json_encode($result);
+        foreach ($result as $key => $value) {
+        $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($value['productId']);
+        $type=$value['type'];
 
+        if($type!=0){
+            $_children = $configProduct->getTypeInstance()->getUsedProducts($configProduct);
+       
+            foreach ($_children as $k => $v) {
+            $packageId=$v->getCustomAttribute('package_type')->getValue();
+    
+                if($type==$packageId){
+                    $url=$v->getProductUrl();
+                    $image=$v->getData('image');
+                    $result[$key]['url']=$url;
+                    $result[$key]['image']=$image;
+           //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($value, true));
+
+    
+                }
+            }
         }else{
-            return 'not found';
+            $url=$configProduct->getProductUrl();
+            $image=$configProduct->getData('image');
+            $result[$key]['url']=$url;
+            $result[$key]['image']=$image;
+           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($configProduct->debug(), true));
+
+        }
         }
 
+            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($result, true));
 
+        if($result){
+            return json_encode($result);
+        }else{
+            return "[]";
+        }
      }
 
 
@@ -237,30 +295,25 @@ class Hello implements HelloInterface
 
         $products=null;
         $types=null;
-        $addressid=$CartData['address'];
-        $quoteid=$CartData['quoteid'];
+        $addressid=$CartData->address;
+        $quoteid=$CartData->quoteid;
 
-        foreach ($CartData['quote'] as $key => $value) {
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($value, true));
-           $products.='(productId='.$value['productid'].' AND '.'type='.$value['type'].') OR ';
-
+        foreach ($CartData->quote as $key => $value) {
+     
+           $products.='(productId='.$value->productid.' AND '.'type='.$value->type.') OR ';
         }
         $products=rtrim($products,' OR ');
 
-        $sql="SELECT q.productId,q.`type`,q.qty
+        $sql="SELECT q.productId,q.qty
         FROM blm_crontab q
         WHERE q.quoteId=$quoteid AND q.address=$addressid AND($products)";
-        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========products=============\n".print_r($products, true));
-        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========addressid=============\n".print_r($addressid, true));
-        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========quoteid=============\n".print_r($quoteid, true));
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========sql=============\n".print_r($sql, true));
+
         $result = $connection->fetchAll($sql);
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========result=============\n".print_r($result, true));
 
         if($result){
             return json_encode($result);
         }else{
-            return 'not found';
+            return "[]";
 
         }
 
