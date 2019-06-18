@@ -52,18 +52,19 @@ require(["jquery"], function($) {
     });
 
     $(document).on("ready", function(){
-        var checkSwatch = setInterval(() => {
-            if($(".swatch-option.selected").length>0){
-                updateQtyAllItems();
+        if($("#addresses").length>0){
+            var checkSwatch = setInterval(() => {
+                if($(".swatch-option.selected").length>0){
+                    updateQtyAllItems();
 
-                $(".swatch-option").on("click", function(){
-                    updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"),$(this).attr('option-id'));
-                });
+                    $(".swatch-option").on("click", function(){
+                        updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"),$(this).attr('option-id'));
+                    });
 
-                clearInterval(checkSwatch);
-            }
-        }, 200);
-        
+                    clearInterval(checkSwatch);
+                }
+            }, 200);
+        }
     });
 
 
@@ -73,146 +74,155 @@ require(["jquery"], function($) {
 function addToCartProduct(productId, type, qty){
     console.info("Add to cart : new");
     require(["jquery"], function($) {
-        var j = {
-            productId:productId,
-            quoteId:parseInt($("#quoteId").text()),
-            type:type,
-            addressId:$("#addresses").val(),
-            qty:qty
-        };
-        j = JSON.stringify(j);
-        $.ajax({
-            url: $("#homePath").text()+"/rest/V1/blmCart/add/",
-            data: j,
-            type: 'POST',
-            dataType: 'json',
-            cache: false,
-            contentType: 'application/json',
-            processData: false,
-            /** @inheritdoc */
-            success: function(res) {
-                //console.log(res);
-            },
-            
-            /** @inheritdoc */
-            error: function(res) {
-                console.info("error add - productCart.js");
-                //console.log(res);
-            }
-        });
+        if($("#addresses").length>0){
+            var j = {
+                productId:productId,
+                quoteId:parseInt($("#quoteId").text()),
+                type:type,
+                addressId:$("#addresses").val(),
+                qty:qty
+            };
+            j = JSON.stringify(j);
+            $.ajax({
+                url: $("#homePath").text()+"/rest/V1/blmCart/add/",
+                data: j,
+                type: 'POST',
+                dataType: 'json',
+                cache: false,
+                contentType: 'application/json',
+                processData: false,
+                /** @inheritdoc */
+                success: function(res) {
+                    //console.log(res);
+                },
+                
+                /** @inheritdoc */
+                error: function(res) {
+                    console.error("error add - productCart.js");
+                    //console.log(res);
+                }
+            });
+        }
     });
 }
 
 function updateQtySomeProduct(productId){
     console.log("update qty some item");
     require(["jquery"], function($) {
-        var pid = productId;
-        var addr = $("#addresses").val();
-        var type = 0;
-        if($("[data-product-id="+pid+"]").parent().find(".swatch-option[aria-checked='true']").length > 0) {
-            type = $("[data-product-id="+pid+"]").parent().find(".swatch-option[aria-checked='true']").attr("option-id");
+        if($("#addresses").length>0){
+            var pid = productId;
+            var addr = $("#addresses").val();
+            var type = 0;
+            if($("[data-product-id="+pid+"]").parent().find(".swatch-option[aria-checked='true']").length > 0) {
+                type = $("[data-product-id="+pid+"]").parent().find(".swatch-option[aria-checked='true']").attr("option-id");
+            }
+            updateQtyItem(pid, addr, type);
         }
-        updateQtyItem(pid, addr, type);
     });
 }
 
 
 function updateQtyAllItems(){
     console.log("update qty all items");
-    require(["jquery"], function($) {
-        var updateProducts = {
-                address: $("#addresses").val(),
-                quoteid: parseInt($("#quoteId").text()),
-                quote: []
-        }
-        
-        $("#addresses").attr("disabled", "true");
-        setTimeout(() => {
-            $("#addresses").removeAttr("disabled");
-        }, 5000);
-        $("[data-product-id]").each(function(){
-            var pid = $(this).attr("data-product-id");
-            var addr = $("#addresses").val();
-            var type = 0;
 
-            $("[data-id='product-qty-"+pid+"']").attr("disabled", "true");
-
-            if($(this).parent().find(".swatch-option[aria-checked='true']").length > 0) {
-                type = $(this).parent().find(".swatch-option[aria-checked='true']").attr("option-id");
+    require(["jquery"], function($) {    
+        if($("#addresses").length>0){
+            var updateProducts = {
+                    address: $("#addresses").val(),
+                    quoteid: parseInt($("#quoteId").text()),
+                    quote: []
             }
-            updateProducts.quote[updateProducts.quote.length] = {
-                productid: pid,
-                type: type
-            };
-
-        });
-
-        var j = JSON.stringify({
-            CartData: JSON.stringify(updateProducts)
-        });
-        $.ajax({
-            url: $("#homePath").text()+"/rest/V1/blmCart/getCartQty/",
-            data: j,
-            type: 'POST',
-            dataType: 'json',
-            cache: false,
-            contentType: 'application/json',
-            processData: false,
-            /** @inheritdoc */
-            success: function(res) {
-                var json = JSON.parse(res);
-                $(".inputProductQty").val(0);
-                $.each(json, function(){
-                    $("[data-id='product-qty-"+this.productId+"']").val(this.qty);
-                    $("[data-id='product-qty-"+this.productId+"']").removeAttr("disabled");
-                });
-                $(".inputProductQty").removeAttr("disabled");
-            },
             
-            /** @inheritdoc */
-            error: function(res) {
-                console.info("error update - productCart.js");
-                //console.log(res);
-            }
-        });
-        
+            $("#addresses").attr("disabled", "true");
+            setTimeout(() => {
+                $("#addresses").removeAttr("disabled");
+            }, 5000);
+            $("[data-product-id]").each(function(){
+                var pid = $(this).attr("data-product-id");
+                var addr = $("#addresses").val();
+                var type = 0;
 
+                $("[data-id='product-qty-"+pid+"']").attr("disabled", "true");
+
+                if($(this).parent().find(".swatch-option[aria-checked='true']").length > 0) {
+                    type = $(this).parent().find(".swatch-option[aria-checked='true']").attr("option-id");
+                }
+                updateProducts.quote[updateProducts.quote.length] = {
+                    productid: pid,
+                    type: type
+                };
+
+            });
+
+            var j = JSON.stringify({
+                CartData: JSON.stringify(updateProducts)
+            });
+            $.ajax({
+                url: $("#homePath").text()+"/rest/V1/blmCart/getCartQty/",
+                data: j,
+                type: 'POST',
+                dataType: 'json',
+                cache: false,
+                contentType: 'application/json',
+                processData: false,
+                /** @inheritdoc */
+                success: function(res) {
+                    var json = JSON.parse(res);
+                    $(".inputProductQty").val(0);
+                    $.each(json, function(){
+                        $("[data-id='product-qty-"+this.productId+"']").val(this.qty);
+                        $("[data-id='product-qty-"+this.productId+"']").removeAttr("disabled");
+                    });
+                    $(".inputProductQty").removeAttr("disabled");
+                    console.log("updated all products");
+                },
+                
+                /** @inheritdoc */
+                error: function(res) {
+                    console.error("error update - productCart.js");
+                    //console.log(res);
+                }
+            });
+        
+        }
     });
 }
 
 function updateQtyItem(productId, type){
     console.log("update qty item "+productId);
-    if(productId && type)
+    
     require(["jquery"], function($) {
-        $("[data-id='product-qty-"+productId+"']").attr("disabled", "true");
-        var j = {
-            productId: productId, 
-            addressId: $("#addresses").val(), 
-            type: type,
-            quoteId: parseInt($("#quoteId").text())
-        };
-        j = JSON.stringify(j);
-        $.ajax({
-            url: $("#homePath").text()+"/rest/V1/blmCart/get/",
-            data: j,
-            type: 'POST',
-            dataType: 'json',
-            cache: false,
-            contentType: 'application/json',
-            processData: false,
-            /** @inheritdoc */
-            success: function(res) {
-                var json = JSON.parse(res);
-                //console.info(res);
-                $("[data-id='product-qty-"+productId+"']").val(json.qty);
-                $("[data-id='product-qty-"+productId+"']").removeAttr("disabled");;
-            },
-            
-            /** @inheritdoc */
-            error: function(res) {
-                console.info("error update - productCart.js");
-                //console.log(res);
-            }
-        });
+        if(productId && type && $("#addresses").length>0){
+            $("[data-id='product-qty-"+productId+"']").attr("disabled", "true");
+            var j = {
+                productId: productId, 
+                addressId: $("#addresses").val(), 
+                type: type,
+                quoteId: parseInt($("#quoteId").text())
+            };
+            j = JSON.stringify(j);
+            $.ajax({
+                url: $("#homePath").text()+"/rest/V1/blmCart/get/",
+                data: j,
+                type: 'POST',
+                dataType: 'json',
+                cache: false,
+                contentType: 'application/json',
+                processData: false,
+                /** @inheritdoc */
+                success: function(res) {
+                    var json = JSON.parse(res);
+                    //console.info(res);
+                    $("[data-id='product-qty-"+productId+"']").val(json.qty);
+                    $("[data-id='product-qty-"+productId+"']").removeAttr("disabled");
+                },
+                
+                /** @inheritdoc */
+                error: function(res) {
+                    console.error("error update - productCart.js");
+                    //console.log(res);
+                }
+            });
+        }
     });
 }
