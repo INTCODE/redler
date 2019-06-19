@@ -172,6 +172,7 @@ function updateQtyAllItems(){
                         $("[data-id='product-qty-"+this.productId+"']").removeAttr("disabled");
                     });
                     $(".inputProductQty").removeAttr("disabled");
+                    $("#addresses").removeAttr("disabled");
                     console.log("updated all products");
                 },
                 
