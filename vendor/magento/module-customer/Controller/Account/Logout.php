@@ -93,7 +93,8 @@ class Logout extends AbstractAccount implements HttpGetActionInterface, HttpPost
 
         /** @var \Magento\Framework\Controller\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
-        $resultRedirect->setPath('*/*/logoutSuccess');
+        //$resultRedirect->setPath('*/*/logoutSuccess');
+        $resultRedirect->setPath('/');
         return $resultRedirect;
     }
 }
