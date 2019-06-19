@@ -220,6 +220,8 @@ class Hello implements HelloInterface
                         $res['image']=$rootPath.$image;
                         $res['productId']=$value['productId'];
                         $res['name']=$v->getName();
+                        $res['price']=$v->getPrice();
+
                         $res['type']=$value['type'];
                         $res['qty']=$value['qty'];
                         $res['cost']=$v->getPrice();
@@ -253,6 +255,7 @@ class Hello implements HelloInterface
                 $res['type']=$value['type'];
                 $res['name']=$configProduct->getName();
                 $res['qty']=$value['qty'];
+                $res['price']=$v->getPrice();
                 $res['cost']=$configProduct->getPrice();
                 $res['address']=$value['address'];
 
