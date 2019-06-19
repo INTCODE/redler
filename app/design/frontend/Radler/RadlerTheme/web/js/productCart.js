@@ -134,9 +134,7 @@ function updateQtyAllItems(){
             }
             
             $("#addresses").attr("disabled", "true");
-            setTimeout(() => {
-                $("#addresses").removeAttr("disabled");
-            }, 5000);
+
             $("[data-product-id]").each(function(){
                 var pid = $(this).attr("data-product-id");
                 var addr = $("#addresses").val();
@@ -181,6 +179,7 @@ function updateQtyAllItems(){
                 error: function(res) {
                     console.error("error update - productCart.js");
                     //console.log(res);
+                    $("#addresses").removeAttr("disabled");
                 }
             });
         
