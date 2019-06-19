@@ -193,7 +193,8 @@
                         overflow-x: hidden;
                         box-sizing: content-box;
                         .price{
-                            color: #000;
+                            color: #CFA773;
+                            font-size: 14px;
                         }
                     }
                     .minicart-items{
@@ -202,10 +203,7 @@
                             background-color: transparent;
                             box-shadow: none;
                             padding: 8px 0px;
-                            width: 110%;
-                            &:not(:last-child){
-                                border-bottom: 1px solid $secondary_bg_color;
-                            }
+                            width: 110%; 
 
                             .product-image-photo{
                                 max-width: 100%;

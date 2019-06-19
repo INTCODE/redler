@@ -18,6 +18,16 @@
              span{
                 font-size: 38px;
                 font-weight: 500;
+                position: relative;
+                &::after{
+                    content: "";
+                    position: absolute;
+                    left: -30px;
+                    top: 16px;
+                    width: 30px;
+                    height: 30px;
+                    background: url("../images/icons/arrow-left.png")no-repeat;
+                }
              }
          }
          .cart-container{
@@ -214,22 +224,62 @@
                     padding: 10px;
                     text-align: center;
                     font-size: 14px;
-                    color: #a09792;
+                    color: #a09792; 
+                }
+                #block-shipping{
                     display: none;
                 }
                 .cart-totals{
                     margin: 20px 0 15px;
                     padding: 15px 0;
                     border-top: 1px solid #eadfcf;
+                    border-bottom: 1px solid #eadfcf;
+                    .table-wrapper{
+                        .table{
+                            .table-caption{
+                                display: none;
+                            }
+                            .sub{
+                                .mark{
+                                    text-align: left;
+                                    font-weight:300;
+                                    color:#000;
+                                }  
+                            }
+                            .excl{
+                                background: transparent;
+                                border-top: 1px solid #eadfcf;
+                                border-bottom: 1px solid #eadfcf;
+                                .mark{
+                                    text-align: left;
+                                    font-weight:300;
+                                    color:#000;
+                                }
+                                .amout{
+                                    color: #000;
+                                }
+                            }
+                        }
+                    }
                 }
-                .checkout{
+              
+                .checkout-methods-items{
                     list-style: none;
                     button{
                         @extend .btn;
-                        @extend .btn-green;
-                        
+                        @extend .btn-green; 
                         display: block;
                         margin: auto;
+                        width: 100%;
+                    }
+                    .multicheckout{
+                        @extend .btn;
+                        @extend .btn-gold;
+                        display: block;
+                        margin: 10px auto;
+                        width: 100%;
+                        background: #f6f3f1!important;
+                        padding: 10px!important;
                     }
                 }
                 .multicheckout{
@@ -399,6 +449,7 @@
         padding: 15px 0 5px;
     }
     .table-checkout-shipping-method{
+        width: 100%;
         th{
             background-color: #EFE9E6;
         }
@@ -474,8 +525,7 @@
         position: absolute;
         z-index: 9;
         right: 0;
-        top: 0;
-        max-height: 630px;
+        top: 0; 
         overflow-y: auto;
         .modal-header, .table-caption{
             display: none;
@@ -555,6 +605,7 @@
                         text-align: left;
                         .product-item-name{
                             font-size: 14px;
+                            margin-top: 10px;
                         }
                         .details-qty{
                             font-size: 12px;
@@ -562,6 +613,8 @@
                         .price{
                             font-size: 16px;
                             font-weight: 600;
+                            position: relative;
+                            top: 10px;
                         }
                     }
                 }

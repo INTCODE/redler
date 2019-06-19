@@ -65,7 +65,7 @@
             .test{
                 color: #CFA773;
                 font-size: 24px;
-                padding-bottom: 60px;
+                padding-bottom: 30px;
                 font-weight: 300;
             }
             .additional-attributes{
@@ -363,43 +363,42 @@
     .upsell{
         @extend .block-static-block;
         order: 4;
-        margin-top: 20px;
-        background-color: $body_background_color;
+        margin-top: 20px; 
         position: relative;
-        padding: 20px;
+        padding: 25px 0;
         .block-title{
             padding-bottom: 10px;
-        }
-        &::after{
-            content: "";
-            width: calc((100vw - 100% - 18px) / 2);
-            height: calc(100%);
-            background-color: $body_background_color;
-            position: absolute;
-            left: 100%;
-            top: 0px;
+        } 
+
+        .products{
+            padding: 0!important
         }
         .product-items{
             @extend .row;
             .product-item{
-                @extend .col-lg-2;
+                flex: 0 0 20%;
+                max-width: 20%;
+                .product-image-container{
+                    width: 100%;
+                }
             }
         }
     }
     .block.related{
-        @extend .block-static-block;
-        background-color: $body_background_color;
+        @extend .block-static-block; 
         order: 4;
-        padding: 50px 10px 10px 10px;
-        position: relative;
-        &::after{
-            content: "";
-            width: calc((100vw - 100% - 18px) / 2);
-            height: calc(100%);
-            background-color: $body_background_color;
-            position: absolute;
-            left: 100%;
-            top: 0px;
+        padding: 50px 0;
+        position: relative; 
+        .block-actions{
+            display: none;
+        }
+        .products{
+            padding: 20px 0!important;
+            .item{
+               .choice{
+                   display: none;
+               } 
+            }
         }
         .action.select{
             font-weight: 600;

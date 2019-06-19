@@ -24,6 +24,7 @@
          .multicheckout{
              padding: 15px;
              background: #f6f3f1;
+             min-height: 700px;
              .title{
                 font-size: 16px;
                 font-weight: 300;
@@ -136,9 +137,8 @@
                         }
                      }
                      .update{
-                         span{
-                            @extend .btn-green;
-                         } 
+                        @extend .btn;
+                        @extend .btn-green; 
                      }
                  }
                  .primary{

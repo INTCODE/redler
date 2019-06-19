@@ -28,12 +28,12 @@
                 text-transform: uppercase;
                 span{
                     &:hover{
-                        color: #000;
+                        text-decoration: underline;
                     }
                 } 
                 &.active{
                    span{
-                       color: #000;
+                        śtext-decoration: underline;
                    }     
                 }
             }
