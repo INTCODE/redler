@@ -117,8 +117,11 @@ define([
             events['mouseleave ' + this.options.item.button] = function (event) {
                 //event.stopPropagation();
 
+                var type = 0;
+                if(this._getProductById(Number(event.currentTarget.dataset.cartItem)).options.length > 0)
+                    type = this._getProductById(Number(event.currentTarget.dataset.cartItem)).options[0].option_value;
+                
                 var productId = this._getProductById(Number(event.currentTarget.dataset.cartItem)).product_id;
-                var type = this._getProductById(Number(event.currentTarget.dataset.cartItem)).options[0].option_value;
                 var qty = $("#cart-item-"+event.currentTarget.dataset.cartItem+"-qty").val();
 
                 addToCartProduct(productId, type, qty);
