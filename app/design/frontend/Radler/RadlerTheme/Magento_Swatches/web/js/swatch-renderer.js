@@ -969,33 +969,8 @@ define([
                 $(".product-buy [data-price-type='finalPrice']>span").text("£"+result.finalPrice.amount.toFixed(2));
 
                 var pid = $(".product-buy input[name=item]").attr("value");
-                var j = {
-                    productId: pid, 
-                    addressId: $("#addresses").val(), 
-                    type: $(".product-buy .swatch-attribute-options>div.selected").attr("option-id"),
-                    quoteId: parseInt($("#quoteId").text())
-                };
-                j = JSON.stringify(j);
-                $.ajax({
-                    url: $("#homePath").text()+"/rest/V1/blmCart/get/",
-                    data: j,
-                    type: 'POST',
-                    dataType: 'json',
-                    cache: false,
-                    contentType: 'application/json',
-                    processData: false,
-                    /** @inheritdoc */
-                    success: function(res) {
-                        var json = JSON.parse(res);
-                        $("[data-target='product-qty-"+pid+"']").val(json.qty);
-                    },
-                    
-                    /** @inheritdoc */
-                    error: function(res) {
-                        console.info("error update - swatch-render.js");
-                        //console.log(res);
-                    }
-                });
+                updateQtyItem(pid, $(".product-buy .swatch-attribute-options>div.selected").attr("option-id"));
+               
             }
 
             $productPrice.trigger(
