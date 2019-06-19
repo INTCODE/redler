@@ -171,9 +171,16 @@ class Hello implements HelloInterface
 
         $directory = $objectManager->get('\Magento\Framework\Filesystem\DirectoryList');
 
-        $rootPath  =  $directory->getRoot();
-        $rootPath=$rootPath.'/pub/media/catalog/product';
+        
+
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+    $root= $storeManager->getStore()->getBaseUrl();
+
+
+        $rootPath=$root.'/pub/media/catalog/product';
         file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($rootPath, true));
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============root=============\n".print_r($root, true));
 
         $totalCost=null;
         $addressCost=null;
@@ -198,6 +205,8 @@ class Hello implements HelloInterface
             $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($value['productId']);  
         
             $type=$value['type'];
+
+            
     
             if($type!=0){
                 $_children = $configProduct->getTypeInstance()->getUsedProducts($configProduct);
@@ -221,7 +230,6 @@ class Hello implements HelloInterface
                         $res['productId']=$value['productId'];
                         $res['name']=$v->getName();
                         $res['price']=$v->getPrice();
-
                         $res['type']=$value['type'];
                         $res['qty']=$value['qty'];
                         $res['cost']=$v->getPrice();
