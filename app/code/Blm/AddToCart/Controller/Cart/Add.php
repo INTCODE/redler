@@ -99,6 +99,38 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
 
         $params = $this->getRequest()->getParams();
         $idQuote=$this->cart->getQuote()->getId();
+
+        if(!$idQuote){
+            $cartManagementInterface=$objectManager->create('Magento\Quote\Api\CartManagementInterface');
+            $cartRepositoryInterface=$objectManager->create('Magento\Quote\Api\CartRepositoryInterface');
+
+            $customerSession = $objectManager->get('Magento\Customer\Model\Session');
+
+            $cartId = $cartManagementInterface->createEmptyCart();
+
+            $quote = $cartRepositoryInterface->get($cartId);
+
+       
+
+            $customerRepository = $objectManager->create('Magento\Customer\Api\CustomerRepositoryInterface');
+
+            $customer= $customerRepository->getById($customerSession->getCustomerId());
+
+
+
+            $quote->setCurrency();
+            $quote->assignCustomer($customer);
+            $quote->save();
+            $this->cart->setQuote($quote);
+
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============cartID=============\n".print_r($cartId, true));
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============quote=============\n".print_r($quote->debug(), true));;
+
+        }else{
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============quote=============\n".print_r($idQuote, true));
+
+        }
+
         $id=$params['product'];
         $qty=$params['qty'];
         $address=$params['addressId'];
@@ -112,7 +144,12 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
         FROM blm_crontab
         WHERE quoteId=$idQuote";
 
+//        $test=$this->checkoutSession->isLoggedIn();
 file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r('xd', true));
+
+file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=============product============\n".print_r($id, true));
+file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============quote=============\n".print_r($idQuote, true));
+file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n===========address==============\n".print_r($address, true));
             $result = $connection->fetchAll($sel); 
             $flag=false;
 
