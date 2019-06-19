@@ -277,57 +277,62 @@ function updateProductCart(){
 
 
 function getItemTemplate(item){
-    return `<li class="item product product-item" data-role="product-item">
-            <div class="product">
-                <a tabindex="-1" class="product-item-photo"
-                    href="${item.url}"
-                    title="${item.name}">
-                    <span class="product-image-container">
-                        <span class="product-image-wrapper">
-                            <img class="product-image-photo"
-                                src="${item.image}"
-                                alt="${item.name}" style="width: 75px; height: 75px;">
-                        </span>
-                    </span>
-                </a>
-                <div class="product-item-details">
-                    <strong class="product-item-name">
-                        <a href="${item.url}">${item.name}</a>
-                    </strong>
-                    <div class="product-item-pricing">
-                        <div class="price-container">
-                            <span class="price-wrapper">
-                                <span class="price-excluding-tax" data-label="Excl. Tax">
-                                    <span class="minicart-price">
-                                        <span class="price">£3.00</span> </span>
-                                </span>
-                            </span>
-                        </div>
-                        <div class="details-qty qty">
-                            <label class="label" for="cart-item-${item.quoteId}-qty">Qty</label>
-                            <input type="number" size="${item.qty}" value="${item.qty}" class="item-qty cart-item-qty" id="cart-item-${item.quoteId}-qty"
-                                data-cart-item="${item.quoteId}" data-item-qty="${item.qty}" data-cart-item-id="${item.name}">
-                            <button class="update-cart-item" style="display: none" id="update-cart-item-${item.quoteId}"
-                                data-cart-item="${item.quoteId}" title="Update">
-                                <span>Update</span>
-                            </button>
-                            <div class="buttonMinicartQty"
-                                onclick="jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())+1)"
-                                id="update-cart-item-${item.quoteId}" data-cart-item="${item.quoteId}">+</div>
-                            <div class="buttonMinicartQty"
-                                onclick="if(jQuery(this).parent().find('.cart-item-qty').val() > 0) jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())-1)"
-                                id="update-cart-item-${item.quoteId}" data-cart-item="${item.quoteId}">-</div>
-                            </div>
-                    </div>
-                    <div class="product actions">
-                        <div class="secondary">
-                            <a href="#" class="action delete" data-cart-item="${item.quoteId}" title="Remove item">
-                                <span>Remove</span>
-                            </a>
-                        </div>
-                    </div>
+    item.price=parseFloat(item.price).toFixed(2);
+    return `
+    <li class="item product product-item odd last" data-role="product-item" data-collapsible="true">
+    <div class="product">
+       
+        <a tabindex="-1" class="product-item-photo" href="${item.url}" title="${item.name}">
+
+<span class="product-image-container" style="width: 75px;">
+    <span class="product-image-wrapper" style="padding-bottom: 100%;">
+        <img class="product-image-photo" src="${item.image}" alt="${item.name}" style="width: 75px; height: 75px;">
+    </span>
+</span>
+
+        <div class="product-item-details">
+            <strong class="product-item-name">
+                <a href="${item.url}">${item.name}</a>
+            </strong>
+
+            <div class="product options" role="tablist" data-collapsible="true">
+                <span data-role="title" class="toggle" role="tab" aria-selected="false" aria-expanded="false" tabindex="0"><span>See Details</span></span>
+
+                <div data-role="content" class="content" role="tabpanel" aria-hidden="true" style="display: none;">
+                    <strong class="subtitle"><span>Options Details</span></strong>
+                    <dl class="product options list">
+                        <dt class="label">Package Type</dt>
+                        <dd class="values">
+                                <span>Box</span>
+                        </dd>
+                       
+                    </dl>
                 </div>
             </div>
-        </li>`
+            <div class="product-item-pricing">
+<div class="price-container">
+  <span class="price-wrapper">   <span class="price-excluding-tax" data-label="Excl. Tax"> <span class="minicart-price"> <span class="price">£${item.price}</span></span> </span>  </span>
+</div>
 
+                <div class="details-qty qty">
+                    <label class="label" for="cart-item-${item.productId}-qty">Qty</label>
+                    <input value: qty" type="number" value="${item.qty}" size="4" class="item-qty cart-item-qty" id="cart-item-${item.productId}-qty" data-cart-item="${item.productId}" data-item-qty="${item.qty}" data-cart-item-id="${item.name}">
+                    <button class="update-cart-item" style="display: none" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" title="Update">
+                        <span>Update</span>
+                    </button>
+                    <div class="buttonMinicartQty" onclick="jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())+1)" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}">+</div>
+                    <div class="buttonMinicartQty" onclick="if(jQuery(this).parent().find('.cart-item-qty').val() > 0) jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())-1)" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}">-</div>
+                </div>
+            </div>
+
+            <div class="product actions">
+                <div class="secondary">
+                    <a href="#" class="action delete" data-cart-item="${item.productId}" title="Remove item">
+                        <span>Remove</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>`;
 };
