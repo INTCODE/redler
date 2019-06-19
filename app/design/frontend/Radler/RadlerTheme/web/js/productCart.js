@@ -32,6 +32,8 @@ require(["jquery"], function($) {
         if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true") {
             // add to cart
             $("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
+            updateProductCart();
+
             console.info("Add to cart");
         }
         $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "false");
@@ -41,6 +43,8 @@ require(["jquery"], function($) {
         if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true" &&  !$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled")) {
             // add to cart
             $("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
+            updateProductCart();
+
             console.info("Add to cart");
         }
         $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "false");
@@ -172,6 +176,7 @@ function updateQtyAllItems(){
                         $("[data-id='product-qty-"+this.productId+"']").removeAttr("disabled");
                     });
                     $(".inputProductQty").removeAttr("disabled");
+                    $("#addresses").removeAttr("disabled");
                     console.log("updated all products");
                 },
                 
@@ -225,3 +230,104 @@ function updateQtyItem(productId, type){
         }
     });
 }
+
+
+function updateProductCart(){
+    require(["jquery"], function ($) {
+        var j = {
+            quoteId: parseInt($("#quoteId").text()),
+            addressId: $("#addresses").val(),
+        };
+        j = JSON.stringify(j);
+        $.ajax({
+            url: $("#homePath").text() + "/rest/V1/blmCart/getCartByAddress/",
+            data: j,
+            type: 'POST',
+            dataType: 'json',
+            cache: false,
+            contentType: 'application/json',
+            processData: false,
+            /** @inheritdoc */
+            success: function (res) {
+
+                var itemsOutput = JSON.parse(res);
+                var output="";
+                $.each(itemsOutput.data,(index,item)=>{
+                    output+=getItemTemplate(item);
+                })
+                $("#mini-cart").append(output);
+                $("#itemCount").html(itemsOutput.TotalData.addressQty);
+                $("#sidebarItemCount").html(`${itemsOutput.TotalData.addressQty} items`);
+                $("#itemPrice").html(`£${itemsOutput.TotalData.addressCost}`);
+                $("#sidebaritemCost").html(`£${itemsOutput.TotalData.addressCost}`);
+                
+
+                console.log(JSON.parse(res));
+            },
+
+            /** @inheritdoc */
+            error: function (res) {
+                console.info("error add - productCart.js");
+                //console.log(res);
+            }
+        });
+    });
+}
+
+
+
+function getItemTemplate(item){
+    return `<li class="item product product-item" data-role="product-item">
+            <div class="product">
+                <a tabindex="-1" class="product-item-photo"
+                    href="${item.url}"
+                    title="${item.name}">
+                    <span class="product-image-container">
+                        <span class="product-image-wrapper">
+                            <img class="product-image-photo"
+                                src="${item.image}"
+                                alt="${item.name}" style="width: 75px; height: 75px;">
+                        </span>
+                    </span>
+                </a>
+                <div class="product-item-details">
+                    <strong class="product-item-name">
+                        <a href="${item.url}">${item.name}</a>
+                    </strong>
+                    <div class="product-item-pricing">
+                        <div class="price-container">
+                            <span class="price-wrapper">
+                                <span class="price-excluding-tax" data-label="Excl. Tax">
+                                    <span class="minicart-price">
+                                        <span class="price">£3.00</span> </span>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="details-qty qty">
+                            <label class="label" for="cart-item-${item.quoteId}-qty">Qty</label>
+                            <input type="number" size="${item.qty}" value="${item.qty}" class="item-qty cart-item-qty" id="cart-item-${item.quoteId}-qty"
+                                data-cart-item="${item.quoteId}" data-item-qty="${item.qty}" data-cart-item-id="${item.name}">
+                            <button class="update-cart-item" style="display: none" id="update-cart-item-${item.quoteId}"
+                                data-cart-item="${item.quoteId}" title="Update">
+                                <span>Update</span>
+                            </button>
+                            <div class="buttonMinicartQty"
+                                onclick="jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())+1)"
+                                id="update-cart-item-${item.quoteId}" data-cart-item="${item.quoteId}">+</div>
+                            <div class="buttonMinicartQty"
+                                onclick="if(jQuery(this).parent().find('.cart-item-qty').val() > 0) jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())-1)"
+                                id="update-cart-item-${item.quoteId}" data-cart-item="${item.quoteId}">-</div>
+                            </div>
+                    </div>
+                    <div class="product actions">
+                        <div class="secondary">
+                            <a href="#" class="action delete" data-cart-item="${item.quoteId}" title="Remove item">
+                                <span>Remove</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>`
+
+};

@@ -54,6 +54,10 @@ echo "<div id='quoteId' style='display: none'>$idQuote</div>";
 
 echo "<div id='homePath' style='display: none'>".$this->getBaseUrl()."</div>";
 
+
+$mediaConfig = $objectManager->get(\Magento\Catalog\Model\Product\Media\Config::class);
+$targetDirPath = $mediaConfig->getBaseMediaPath();
+echo "<div id='mediaPath' style='display: none'>".$targetDirPath."</div>";
 ?>
 
 
@@ -80,23 +84,10 @@ echo "<div id='homePath' style='display: none'>".$this->getBaseUrl()."</div>";
             <span class="counter-number"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span>
             
             <span class="counter-label">
-            <!-- ko if: getCartParam('summary_count') == 1 -->
-                <span data-bind="html: getCartParam('subtotal')"></span>
-                <span>
-                <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
-                <!-- ko text: 'item' --><!-- /ko -->
+                <span><span class="price" id="sidebaritemCost">£0</span>
+                <span id="sidebarItemCount">
+                    
                 </span>
-            <!-- /ko -->
-            <!-- ko if: getCartParam('summary_count') > 1 -->
-                <span data-bind="html: getCartParam('subtotal')"></span>
-                <span>
-                <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
-                <!-- ko text: 'items' --><!-- /ko -->
-                </span>
-            <!-- /ko -->
-            <!-- ko ifnot: getCartParam('summary_count') -->
-                <span>£0</span> <span>0 items</span>
-            <!-- /ko -->
             </span>
         </span>
     </a>
@@ -113,8 +104,57 @@ echo "<div id='homePath' style='display: none'>".$this->getBaseUrl()."</div>";
                 "parentClass":"active",
                 "buttons":[]}}'>
             <div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'">
-                <!-- ko template: getTemplate() --><!-- /ko -->
-            </div>
+            <!-- tutaj wywoływany jest kontent mini koszyka -->
+                <div class="block-title">
+                    <strong>
+                        <span class="text">My Cart</span>
+                        <span class="qty" id="contentMiniCartItemCount" title="Items in Cart"></span>
+                    </strong>
+                </div>
+                <div class="block-content">
+                    <div class="items-total">
+                        <span class="count" id="itemCount"></span>
+                        <span>Items in Cart</span>
+                    </div>
+                    <div class="subtotal">
+                        <span class="label">
+                        </span>
+                        <div class="amount price-container">
+                            <span class="price-wrapper" id="itemPrice"><span class="price"></span></span>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <div class="primary">
+                            <button id="top-cart-btn-checkout" type="button" class="action primary checkout" data-action="close"
+                                title="Proceed to Checkout">Proceed to Checkout</button>
+                            <div></div>
+                        </div>
+                    </div>
+                    <strong class="subtitle">Recently added item(s)</strong>
+                    <div data-action="scroll" class="minicart-items-wrapper overflowed" style="height: 813px;">
+                        <ol id="mini-cart" class="minicart-items">
+                        
+                        </ol>
+                    </div>
+                    <div class="actions">
+                        <div class="secondary">
+                            <a class="action viewcart"
+                                href="window.checkout.shoppingCartUrl">
+                                <span>View and Edit Cart</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+             </div>
+    <script>
+        require(['jquery'], function ($) {
+            $(document).on("ready", function(){
+                updateProductCart();
+            });
+        });
+    </script>
+</div>
+
             <?= $block->getChildHtml('minicart.addons') ?>
         </div>
     <?php else: ?>
@@ -139,6 +179,8 @@ echo "<div id='homePath' style='display: none'>".$this->getBaseUrl()."</div>";
             "Magento_Ui/js/block-loader": "<?= /* @escapeNotVerified */ $block->getViewFileUrl('images/loader-1.gif') ?>"
         }
     }
+
+    
     </script>
 </div>
 
