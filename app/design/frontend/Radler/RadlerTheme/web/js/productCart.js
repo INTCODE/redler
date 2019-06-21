@@ -2,6 +2,7 @@ require(["jquery"], function($) {
 
     // click +/-
     $('.increaseQty, .decreaseQty').on("click", function() {
+        console.log($(this));
         if(!$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled")){
             switch ($(this).attr("data-action")) {
                 case "-":
@@ -71,6 +72,14 @@ require(["jquery"], function($) {
         }
     });
 
+    jQuery("#mini-cart .buttonMinicartQty").click((e)=>{
+        var obj = e.target;
+        console.log(obj);
+        //var $input = jQuery(jQuery(obj).parents(".product-item-details")).find("input")
+ 
+     
+       
+    })
 
 
 });
@@ -340,7 +349,7 @@ function getItemTemplate(item){
                     <button class="update-cart-item" style="display: none" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" title="Update">
                         <span>Update</span>
                     </button>
-                    <div class="buttonMinicartQty" onclick="jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())+1)" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" data-cart-item-crontab="${item.crontab_id}">+</div>
+                    <div class="buttonMinicartQty" onclick="if(jQuery(this).parent().find('.cart-item-qty').val() < ${item.stock})jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())+1)" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" data-cart-item-crontab="${item.crontab_id}">+</div>
                     <div class="buttonMinicartQty" onclick="if(jQuery(this).parent().find('.cart-item-qty').val() > 0) jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())-1)" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" data-cart-item-crontab="${item.crontab_id}">-</div>
                 </div>
             </div>
