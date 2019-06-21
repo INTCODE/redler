@@ -139,7 +139,7 @@ class Hello implements HelloInterface
         }else{
             $sql="SELECT b.qty
             FROM blm_crontab b
-            WHERE b.productId= $productId AND b.address=$addressId AND b.`type`=$type AND b.quoteId=$quoteId";
+            WHERE b.productId=$productId AND b.address=$addressId AND b.`type`=$type AND b.quoteId=$quoteId";
         }
 
 
@@ -149,9 +149,10 @@ class Hello implements HelloInterface
 
 
         if(isset($result[0])){
-            return json_encode($result[0]);
+            $arr = array("qty" => $result[0]['qty'], "productId" => $productId);
+            return json_encode($arr);
         }else{
-            return json_encode(array("qty" => 0));
+            return json_encode(array("qty" => 0, "productId" => $productId));
         }
 
         //return $productId.",".$quoteId.",".$type;
