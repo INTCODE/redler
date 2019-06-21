@@ -276,7 +276,7 @@ function updateProductCart(){
                 $("#sidebarItemCount").html(`${itemCount} items`);
                 $("#itemPrice").html(`£${itemPrice}`);
                 $("#sidebaritemCost").html(`£${itemPrice}`);
-                setTimeout( ()=>{
+                setTimeout( function(){
                     $("#minicart-content-wrapper").css("display","block");
 
                 },300);
@@ -288,7 +288,7 @@ function updateProductCart(){
 
             /** @inheritdoc */
             error: function (res) {
-                setTimeout( ()=>{
+                setTimeout( function(){
                     $("#minicart-content-wrapper").css("display","block");
 
                 },300);
