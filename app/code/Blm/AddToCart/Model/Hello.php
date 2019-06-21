@@ -470,8 +470,13 @@ class Hello implements HelloInterface
         $result = $connection->fetchAll($sql);
 
         foreach ($result as $key => $value) {
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============addressQty=============\n".print_r($value, true));
-            $productDel = $objectManager->get('Magento\Catalog\Model\Product')->load($value['productId']);
+           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============getCartQty=============\n".print_r($value, true));
+           
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============getCartQty=============\n".print_r($value['productId'], true));
+           
+           
+            //$productDel = $objectManager->get('Magento\Catalog\Model\Product')->load($value['productId']);
+            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============getCartQty=============\n".print_r($productDel->debug(), true));
      
 
             // $_children = $productDel->getTypeInstance()->getUsedProducts($productDel);
