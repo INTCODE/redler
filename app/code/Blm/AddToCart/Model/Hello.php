@@ -538,8 +538,26 @@ class Hello implements HelloInterface
 
             $output = array_map("unserialize",
             array_unique(array_map("serialize", $result)));
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============output=============\n".print_r($output, true));
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($result, true));
+         //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============output=============\n".print_r($output, true));
+        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($result, true));
+
+        foreach ($output as $key => $value) {
+
+            if($value['qty']>0){
+                for ($i=$key+1; $i <sizeof($output) ; $i++) { 
+                   if($value['productId']==$output[$i]['productId']){
+                       if($value['type']==$output[$i]['type']){
+                        //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============toDelete=============\n".print_r($output[$i], true));
+                        unset($output[$i]);
+                       }
+                   }
+                }
+            }
+            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============fin=============\n".print_r($output, true));
+
+       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($value, true));
+        # code...
+        }
 
             return json_encode($output);
         }else{
