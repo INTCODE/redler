@@ -480,6 +480,9 @@ class Hello implements HelloInterface
         $addressid=$CartData->address;
         $quoteid=$CartData->quoteid;
 
+        if(empty($CartData->quote)){
+            return "[]";
+        }
         foreach ($CartData->quote as $key => $value) {
 
            $products.='(productId='.$value->productid.' AND '.'type='.$value->type.') OR ';
