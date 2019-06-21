@@ -130,13 +130,27 @@ class Hello implements HelloInterface
         $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
         $connection = $resource->getConnection();
 
+        $StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInterface');
+
+
+        $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
 
         if($type==0){
-
+           $stock=$StockState->getStockQty($configProduct->getId(), $configProduct->getStore()->getWebsiteId());
             $sql="SELECT qty
             FROM blm_crontab b
        WHERE b.quoteId=$quoteId AND b.productId=$productId AND b.`type`=$type AND b.address=$addressId";
         }else{
+
+            $_children = $configProduct->getTypeInstance()->getUsedProducts($configProduct);
+
+            foreach ($_children as $key => $child) {
+                $packageId=$child->getCustomAttribute('package_type')->getValue();
+                if($type==$packageId){
+                    $stock=$StockState->getStockQty($child->getId(), $child->getStore()->getWebsiteId());
+                }
+            }
+
             $sql="SELECT b.qty
             FROM blm_crontab b
             WHERE b.productId=$productId AND b.address=$addressId AND b.`type`=$type AND b.quoteId=$quoteId";
@@ -149,7 +163,7 @@ class Hello implements HelloInterface
 
 
         if(isset($result[0])){
-            $arr = array("qty" => $result[0]['qty'], "productId" => $productId);
+            $arr = array("qty" => $result[0]['qty'], "productId" => $productId,"stock"=>$stock);
             return json_encode($arr);
         }else{
             return json_encode(array("qty" => 0, "productId" => $productId));
