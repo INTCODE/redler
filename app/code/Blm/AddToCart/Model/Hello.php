@@ -542,15 +542,17 @@ class Hello implements HelloInterface
         // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($result, true));
 
         foreach ($output as $key => $value) {
-
             if($value['qty']>0){
-                for ($i=$key+1; $i <sizeof($output) ; $i++) { 
-                   if($value['productId']==$output[$i]['productId']){
-                       if($value['type']==$output[$i]['type']){
-                        //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============toDelete=============\n".print_r($output[$i], true));
-                        unset($output[$i]);
-                       }
-                   }
+                for ($i=sizeof($output); $i>=0; $i--) { 
+                    if(isset($output[$i])){
+                        if($value['productId']==$output[$i]['productId']){
+                            if($value['type']==$output[$i]['type']){
+                                //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============toDelete=============\n".print_r($output[$i], true));
+                                unset($output[$i]);
+                                break;
+                            }
+                        }
+                    }
                 }
             }
             //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============fin=============\n".print_r($output, true));
