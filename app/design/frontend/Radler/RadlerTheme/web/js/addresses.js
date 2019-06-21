@@ -10,6 +10,8 @@ require(["jquery"], function($) {
     $("#addresses").on("change", function() {
         var idAddress= $( "#addresses" ).val();
         $('input[name="addressId"]').val(idAddress);
+
+        updateProductCart();
     });
 
 });
