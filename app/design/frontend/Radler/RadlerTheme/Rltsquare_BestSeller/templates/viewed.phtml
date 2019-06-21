@@ -12,9 +12,11 @@
     $showWishlist = 1;
     $showReview = 1;
     $viewMode = 'grid';
+	$configProduct = array();
     $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
     ?>
     <?php if ($collection->getData()): ?>
+
         <div class="products wrapper most_viewed-wrapper custom_grid-wrapper content-products">
             <?php $iterator = 1; ?>
             <div class="block-title">
@@ -22,10 +24,11 @@
             </div>
             <ol class="products list items product-items">
                 <?php foreach ($collection->getData() as $data) { ?>
-                    <?php $product_id = $data['product_id']; ?>
+                    <?php 
+                        $product_id = $data['product_id']; ?>
                     <?php $_product = $block->getLoadProduct($product_id); ?>
                     <?php if (isset($_product)): ?>
-                        <?php if ($_product->getID()): ?>
+                        <?php $productID = $_product->getID(); if ($_product->getID() && (!in_array($productID,$configProduct))): ?>
                             <?php /* @escapeNotVerified */ ?>
                             <?php echo ($iterator++ == 1) ? '<li class="product-item">' : '</li><li class="product-item">' ?>
                             <div class="product-item-info" data-container="product-grid">
@@ -50,7 +53,13 @@
                                                 </a>
                                             </strong>
 
-                                            <?php
+                                <?php  
+                                if($_product->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE){
+									$swatchBlock = $this->getLayout()->createBlock("Magento\Swatches\Block\Product\Renderer\Listing\Configurable")->setTemplate("Magento_Swatches::product/listing/renderer.phtml");
+                                    echo $swatchBlock->setProduct($_product)->toHtml();  
+                                    $id = $_product->getID();
+                                    array_push($configProduct,$id);                         
+								} 
                                     $size = $_product->getResource()->getAttribute('size')->getFrontend()->getValue($_product);
                                     $alcoholByVolume = $_product->getResource()->getAttribute('alcohol_by_volume')->getFrontend()->getValue($_product);
                                     $isReturnable = $_product->getResource()->getAttribute('returnable_bottle')->getFrontend()->getValue($_product);
@@ -60,7 +69,9 @@
                                     <?php echo (empty($alcoholByVolume)? "" : $alcoholByVolume.'%');?>
                                     <?php echo ($isReturnable == "Yes" ? "" : "NRB"); ?>       
                                 </div>
-                                        <?php echo $list_product->getProductPrice($_product) ?>
+                                        <?php 
+                                        $block->getProductDetailsHtml($_product);
+                                        echo $list_product->getProductPrice($_product) ?>
                                         <?php if ($showWishlist || $showCompare): ?>
                                             <div class="actions-secondary" data-role="add-to-links">
                                                 <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow() && $showWishlist): ?>

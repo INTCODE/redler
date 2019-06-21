@@ -17,6 +17,7 @@
         <css src="RLTSquare_BestSeller::css/slick.css"/>
         <css src="RLTSquare_BestSeller::css/slick-theme.css"/>
         <css src="RLTSquare_BestSeller::css/custom-slick.css"/>
+        <css src="Magento_Swatches::css/swatches.css"/>	
     </head>
     <body>
         <referenceContainer name="content">

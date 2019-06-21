@@ -102,9 +102,11 @@ class GridProduct extends \Magento\Backend\Block\Dashboard\Tab\Products\Ordered
         \Magento\Framework\Module\Manager $moduleManager,
         \Magento\Sales\Model\ResourceModel\Report\Bestsellers\CollectionFactory $collectionFactory,
         \Magento\CatalogInventory\Api\StockRegistryInterface $stockRegistry,
+        \Magento\ConfigurableProduct\Model\Product\Type\Configurable $configurable,
         array $data = []
     ){
         parent::__construct($context, $backendHelper, $moduleManager, $collectionFactory);
+        $this->configurable = $configurable;
         $this->productloader = $productloader;
         $this->storeManager = $storeManager;
         $this->listProduct = $listProduct;
@@ -157,10 +159,17 @@ class GridProduct extends \Magento\Backend\Block\Dashboard\Tab\Products\Ordered
      */
     public function getLoadProduct($id)
     {
-        if($this->stockStatus($id))
+        if($this->stockStatus($id)) {
+            $parentConfigObject = $this->configurable->getParentIdsByChild($id);
+            if($parentConfigObject) {
+                return $this->productloader->create()->load($parentConfigObject[0]);
+           }
+           else {
             return $this->productloader->create()->load($id);
+           }
+        }
         else
-            return null;
+        return null;
     }
 
     /**
@@ -176,6 +185,15 @@ class GridProduct extends \Magento\Backend\Block\Dashboard\Tab\Products\Ordered
      */
     public function getListProduct(){
         return $this->listProduct;
+    }
+
+    public function getParentProductId($childProductId)
+    {
+        $parentConfigObject = $this->configurable->getParentIdsByChild($childProductId);
+        if($parentConfigObject) {
+            return $parentConfigObject;
+        }
+        return false;
     }
 
     /**
