@@ -479,15 +479,18 @@ class Hello implements HelloInterface
         $types=null;
         $addressid=$CartData->address;
         $quoteid=$CartData->quoteid;
+        $tab=array();
 
         if(empty($CartData->quote)){
             return "[]";
         }
         foreach ($CartData->quote as $key => $value) {
 
+            array_push($tab,array('productId'=>$value->productid,'type'=>$value->type,'qty'=>0,'stock'=>0));
            $products.='(productId='.$value->productid.' AND '.'type='.$value->type.') OR ';
         }
         $products=rtrim($products,' OR ');
+       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============tab=============\n".print_r($tab, true));
 
         $sql="SELECT q.productId,q.qty,q.type
         FROM blm_crontab q
@@ -499,7 +502,7 @@ class Hello implements HelloInterface
 
        
         $StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInterface');
-        foreach ($result as $key => $value) {
+        foreach ($tab as $key => $value) {
 
             $productId=$value['productId'];
             $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
@@ -509,18 +512,28 @@ class Hello implements HelloInterface
             
            if($value['type']==0){
             $result[$key]['stock']=$StockState->getStockQty($product->getId(), $product->getStore()->getWebsiteId());
+            if(!isset($result[$key]['productId'])){
+                $result[$key]['productId']=$value['productId'];
+                $result[$key]['type']=$value['type'];
+                $result[$key]['qty']=0;
+            }
            
            }else{
            $_children = $product->getTypeInstance()->getUsedProducts($product);
                 foreach ($_children as $k => $child) {
                     $packageId=$child->getCustomAttribute('package_type')->getValue();
                     if($packageId==$value['type']){
-                        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============stock=============\n".print_r($StockState->getStockQty($child->getId(), $child->getStore()->getWebsiteId()), true));
                         $result[$key]['stock']=$StockState->getStockQty($child->getId(), $child->getStore()->getWebsiteId());
+                        if(!isset($result[$key]['productId'])){
+                            $result[$key]['productId']=$value['productId'];
+                            $result[$key]['type']=$value['type'];
+                            $result[$key]['qty']=0;
+                        }
                     }
                 }
            }
         }
+     //   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============stock=============\n".print_r($result, true));
 
         if($result){
             return json_encode($result);
