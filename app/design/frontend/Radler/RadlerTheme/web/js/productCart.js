@@ -83,6 +83,7 @@ require(["jquery"], function($) {
 
 function addToCartProduct(productId, type, qty){
     console.info("Add to cart : new");
+    $("#minicart-content-wrapper").attr("data-change","false");
     require(["jquery"], function($) {
         if($("#addresses").length>0){
             var j = {
@@ -252,6 +253,7 @@ function updateProductCart(){
             addressId: $("#addresses").val(),
         };
         j = JSON.stringify(j);
+        
         $.ajax({
             url: $("#homePath").text() + "/rest/V1/blmCart/getCartByAddress/",
             data: j,
@@ -278,8 +280,8 @@ function updateProductCart(){
                 setTimeout( ()=>{
                     $("#minicart-content-wrapper").css("display","block");
 
-                },100);
-                $("#minicart-content-wrapper").attr("data-change","false");
+                },300);
+                
                 addRemoveListener();
                 addListenerPlusMinusProduct();
                 console.log(JSON.parse(res));
@@ -287,7 +289,10 @@ function updateProductCart(){
 
             /** @inheritdoc */
             error: function (res) {
-                $("#minicart-content-wrapper").css("display","block");
+                setTimeout( ()=>{
+                    $("#minicart-content-wrapper").css("display","block");
+
+                },300);
                 console.info("error add - productCart.js");
                 console.log(res);
             }
