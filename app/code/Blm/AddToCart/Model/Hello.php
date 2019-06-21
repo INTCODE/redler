@@ -83,10 +83,15 @@ class Hello implements HelloInterface
         $result = $connection->fetchAll($sql);
 
         if(isset($result[0])){
-            $sql="UPDATE blm_crontab
-            SET
-                qty='$qty'
-            WHERE quoteId=$quoteId AND productId=$productId AND `type`=$type AND address=$addressId ";
+            if($qty==0){
+                $sql="DELETE FROM blm_crontab WHERE quoteId=$quoteId AND productId=$productId AND `type`=$type AND address=$addressId";
+            }else{
+                $sql="UPDATE blm_crontab
+                SET
+                    qty='$qty'
+                WHERE quoteId=$quoteId AND productId=$productId AND `type`=$type AND address=$addressId ";
+            }
+     
         }else{
             $sql="INSERT INTO blm_crontab
             (quoteId, productId, `type`, qty, address)
@@ -200,6 +205,13 @@ class Hello implements HelloInterface
         Where b.quoteId=$quoteId";
         $result = $connection->fetchAll($sqlTotal);
 
+
+
+
+
+
+
+        $StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInterface');
         foreach ($result as $key => $value) {
 
             $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($value['productId']);
@@ -235,6 +247,8 @@ class Hello implements HelloInterface
                         $res['qty']=$value['qty'];
                         $res['cost']=$v->getPrice();
                         $res['address']=$value['address'];
+                        $res['stock']=$StockState->getStockQty($v->getId(), $v->getStore()->getWebsiteId());
+                        
 
                         array_push($addressRes,$res);
 
@@ -268,6 +282,8 @@ class Hello implements HelloInterface
                 $res['price']=$configProduct->getPrice();
                 $res['cost']=$configProduct->getPrice();
                 $res['address']=$value['address'];
+                $res['stock']=$StockState->getStockQty($configProduct->getId(), $configProduct->getStore()->getWebsiteId());
+
 
                 array_push($addressRes,$res);
 
@@ -340,6 +356,11 @@ class Hello implements HelloInterface
         Where b.quoteId=$quoteId";
         $result = $connection->fetchAll($sqlTotal);
 
+
+
+          
+  
+        $StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInterface');
         foreach ($result as $key => $value) {
 
             $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($value['productId']);
@@ -370,6 +391,7 @@ class Hello implements HelloInterface
                         $res['type']=$value['type'];
                         $res['qty']=$value['qty'];
                         $res['address']=$value['address'];
+                        $res['stock']=$StockState->getStockQty($v->getId(), $v->getStore()->getWebsiteId());
 
                         array_push($addressRes,$res);
 
@@ -400,6 +422,8 @@ class Hello implements HelloInterface
                 $res['name']=$configProduct->getName();
                 $res['qty']=$value['qty'];
                 $res['address']=$value['address'];
+                $res['stock']=$StockState->getStockQty($configProduct->getId(), $configProduct->getStore()->getWebsiteId());
+
 
                 array_push($addressRes,$res);
 
@@ -447,6 +471,7 @@ class Hello implements HelloInterface
         $connection = $resource->getConnection();
 
         $CartData=json_decode($CartData);
+        //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============quoteid=============\n".print_r($CartData, true));
 
        // $CartData=array('address'=>6,'quoteid'=>28,'quote'=>array(array('productid'=>34,'type'=>21),array('productid'=>34,'type'=>22),array('productid'=>27,'type'=>0)));
 
@@ -465,28 +490,33 @@ class Hello implements HelloInterface
         FROM blm_crontab q
         WHERE q.quoteId=$quoteid AND q.address=$addressid AND($products)";
 
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============quoteid=============\n".print_r($quoteid, true));
 
         $result = $connection->fetchAll($sql);
+       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============quoteid=============\n".print_r($result, true));
 
+       
+        $StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInterface');
         foreach ($result as $key => $value) {
-           // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============getCartQty=============\n".print_r($value, true));
+
+            $productId=$value['productId'];
+            $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
+
+            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============getCartQty=============\n".print_r($value, true));
+            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============productId=============\n".print_r($productId, true));
+            
+           if($value['type']==0){
+            $result[$key]['stock']=$StockState->getStockQty($product->getId(), $product->getStore()->getWebsiteId());
            
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============getCartQty=============\n".print_r($value['productId'], true));
-           
-           
-            //$productDel = $objectManager->get('Magento\Catalog\Model\Product')->load($value['productId']);
-            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============getCartQty=============\n".print_r($productDel->debug(), true));
-     
-
-            // $_children = $productDel->getTypeInstance()->getUsedProducts($productDel);
-            // foreach ($_children as $key => $value) {
-            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============addressQty=============\n".print_r($value->debug(), true));
-            // # code...
-            // }
-
-
-
+           }else{
+           $_children = $product->getTypeInstance()->getUsedProducts($product);
+                foreach ($_children as $k => $child) {
+                    $packageId=$child->getCustomAttribute('package_type')->getValue();
+                    if($packageId==$value['type']){
+                        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============stock=============\n".print_r($StockState->getStockQty($child->getId(), $child->getStore()->getWebsiteId()), true));
+                        $result[$key]['stock']=$StockState->getStockQty($child->getId(), $child->getStore()->getWebsiteId());
+                    }
+                }
+           }
         }
 
         if($result){
@@ -498,6 +528,7 @@ class Hello implements HelloInterface
 
 
      }
+
 
 
 }
