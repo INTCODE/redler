@@ -99,37 +99,37 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
 
         $params = $this->getRequest()->getParams();
         $idQuote=$this->cart->getQuote()->getId();
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($idQuote, true));
 
-        if(!$idQuote){
-            $cartManagementInterface=$objectManager->create('Magento\Quote\Api\CartManagementInterface');
-            $cartRepositoryInterface=$objectManager->create('Magento\Quote\Api\CartRepositoryInterface');
+        // if(!$idQuote){
+        //     $cartManagementInterface=$objectManager->create('Magento\Quote\Api\CartManagementInterface');
+        //     $cartRepositoryInterface=$objectManager->create('Magento\Quote\Api\CartRepositoryInterface');
 
-            $customerSession = $objectManager->get('Magento\Customer\Model\Session');
+        //     $customerSession = $objectManager->get('Magento\Customer\Model\Session');
 
-            $cartId = $cartManagementInterface->createEmptyCart();
+        //     $cartId = $cartManagementInterface->createEmptyCart();
 
-            $quote = $cartRepositoryInterface->get($cartId);
+        //     $quote = $cartRepositoryInterface->get($cartId);
 
        
 
-            $customerRepository = $objectManager->create('Magento\Customer\Api\CustomerRepositoryInterface');
+        //     $customerRepository = $objectManager->create('Magento\Customer\Api\CustomerRepositoryInterface');
 
-            $customer= $customerRepository->getById($customerSession->getCustomerId());
+        //     $customer= $customerRepository->getById($customerSession->getCustomerId());
 
 
+        //     $quote->setCurrency();
+        //     $quote->assignCustomer($customer);
+        //     $quote->save();
+        //     $this->cart->setQuote($quote);
 
-            $quote->setCurrency();
-            $quote->assignCustomer($customer);
-            $quote->save();
-            $this->cart->setQuote($quote);
+        //     file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============cartID=============\n".print_r($cartId, true));
+        //     file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============quote=============\n".print_r($quote->debug(), true));;
 
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============cartID=============\n".print_r($cartId, true));
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============quote=============\n".print_r($quote->debug(), true));;
+        // }else{
+        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============quote=============\n".print_r($idQuote, true));
 
-        }else{
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============quote=============\n".print_r($idQuote, true));
-
-        }
+        // }
 
         $id=$params['product'];
         $qty=$params['qty'];
@@ -423,10 +423,17 @@ file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=======
                             $ship_elem = array($value['parent_item_id'] => $product_ship);
                         
                         }
+                    } elseif ($type==0) {
+                        $product_ship=array('qty'=>$qty,'address'=>$address);
+                        $ship_elem = array($value['item_id'] => $product_ship);
+                        # code...
                     }
                    }
-                   if($ship_elem)
-                   array_push($dbArray,$ship_elem);
+                   if(isset($ship_elem)){
+                    array_push($dbArray,$ship_elem);
+                    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========fin=============\n".print_r($value, true));
+
+                   }
                 }
                    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========fin=============\n".print_r($dbArray, true));
                    

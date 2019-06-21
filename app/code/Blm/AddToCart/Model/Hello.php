@@ -265,7 +265,7 @@ class Hello implements HelloInterface
                         $res['type']=$value['type'];
                 $res['name']=$configProduct->getName();
                 $res['qty']=$value['qty'];
-                $res['price']=$v->getPrice();
+                $res['price']=$configProduct->getPrice();
                 $res['cost']=$configProduct->getPrice();
                 $res['address']=$value['address'];
 
@@ -474,11 +474,11 @@ class Hello implements HelloInterface
             $productDel = $objectManager->get('Magento\Catalog\Model\Product')->load($value['productId']);
      
 
-            $_children = $configProduct->getTypeInstance()->getUsedProducts($configProduct);
-            foreach ($_children as $key => $value) {
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============addressQty=============\n".print_r($value->debug(), true));
-            # code...
-            }
+            // $_children = $productDel->getTypeInstance()->getUsedProducts($productDel);
+            // foreach ($_children as $key => $value) {
+            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============addressQty=============\n".print_r($value->debug(), true));
+            // # code...
+            // }
 
 
 
