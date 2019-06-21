@@ -3,7 +3,8 @@ require(["jquery"], function($) {
     // click +/-
     $('.increaseQty, .decreaseQty').on("click", function() {
         console.log($(this));
-        if(!$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled")){
+        if(!$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled") &&
+        parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) <= parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())) {
             switch ($(this).attr("data-action")) {
                 case "-":
                     if ($("[data-id=" + $(this).attr("data-target") + "]").val() > 0) 
@@ -26,29 +27,33 @@ require(["jquery"], function($) {
 
     // focusout input
     $(".inputProductQty").on("focusout", function() {
-        if (parseInt($(this).val()) < 0) {
-            $(this).val(0);
-            $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
-        }
-        if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true") {
-            // add to cart
-            $("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
-            updateProductCart();
+        if(parseInt($(this).attr("max")) <= parseInt($(this).val())){
+            if (parseInt($(this).val()) < 0) {
+                $(this).val(0);
+                $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
+            }
+            if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true") {
+                // add to cart
+                $("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
+                updateProductCart();
 
-            console.info("Add to cart");
+                console.info("Add to cart");
+            }
+            $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "false");
         }
-        $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "false");
     });
 
     $('.increaseQty, .decreaseQty').on("mouseleave", function() {
-        if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true" &&  !$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled")) {
-            // add to cart
-            $("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
-            updateProductCart();
+        if(parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) <= parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())){
+            if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true" &&  !$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled")) {
+                // add to cart
+                $("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
+                updateProductCart();
 
-            console.info("Add to cart");
+                console.info("Add to cart");
+            }
+            $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "false");
         }
-        $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "false");
     });
 
 

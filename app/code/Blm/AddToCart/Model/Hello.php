@@ -241,7 +241,7 @@ class Hello implements HelloInterface
                         $res['image']=$rootPath.$image;
                         $res['productId']=$value['productId'];
                         $res['crontab_id']=$value['crontab_id'];
-                        $res['name']=$v->getName();
+                        $res['name']=$configProduct->getName();
                         $res['price']=$v->getPrice();
                         $res['type']=$value['type'];
                         $res['qty']=$value['qty'];
@@ -533,10 +533,15 @@ class Hello implements HelloInterface
                 }
            }
         }
-     //   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============stock=============\n".print_r($result, true));
 
         if($result){
-            return json_encode($result);
+
+            $output = array_map("unserialize",
+            array_unique(array_map("serialize", $result)));
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============output=============\n".print_r($output, true));
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($result, true));
+
+            return json_encode($output);
         }else{
             return "[]";
 
