@@ -97,6 +97,7 @@ function addToCartProduct(productId, type, qty){
                 processData: false,
                 /** @inheritdoc */
                 success: function(res) {
+                    updateProductCart();
                     //console.log(res);
                 },
                 
@@ -239,6 +240,7 @@ function updateProductCart(){
             addressId: $("#addresses").val(),
         };
         j = JSON.stringify(j);
+        
         $.ajax({
             url: $("#homePath").text() + "/rest/V1/blmCart/getCartByAddress/",
             data: j,
@@ -249,7 +251,7 @@ function updateProductCart(){
             processData: false,
             /** @inheritdoc */
             success: function (res) {
-
+                $("#mini-cart").html("");
                 var itemsOutput = JSON.parse(res);
                 var output="";
                 $.each(itemsOutput.data,(index,item)=>{
@@ -316,12 +318,12 @@ function getItemTemplate(item){
 
                 <div class="details-qty qty">
                     <label class="label" for="cart-item-${item.productId}-qty">Qty</label>
-                    <input value: qty" type="number" value="${item.qty}" size="4" class="item-qty cart-item-qty" id="cart-item-${item.productId}-qty" data-cart-item="${item.productId}" data-item-qty="${item.qty}" data-cart-item-id="${item.name}">
+                    <input value: qty" type="number" value="${item.qty}" size="4" class="item-qty cart-item-qty" id="cart-item-${item.crontab_id}-qty" product-type="${item.type}" data-cart-crontab-id="${item.crontab_id}" data-cart-item="${item.productId}" data-item-qty="${item.qty}" data-cart-item-id="${item.name}">
                     <button class="update-cart-item" style="display: none" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" title="Update">
                         <span>Update</span>
                     </button>
-                    <div class="buttonMinicartQty" onclick="jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())+1)" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}">+</div>
-                    <div class="buttonMinicartQty" onclick="if(jQuery(this).parent().find('.cart-item-qty').val() > 0) jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())-1)" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}">-</div>
+                    <div class="buttonMinicartQty" onclick="jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())+1)" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" data-cart-item-crontab="${item.crontab_id}">+</div>
+                    <div class="buttonMinicartQty" onclick="if(jQuery(this).parent().find('.cart-item-qty').val() > 0) jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())-1)" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" data-cart-item-crontab="${item.crontab_id}">-</div>
                 </div>
             </div>
 

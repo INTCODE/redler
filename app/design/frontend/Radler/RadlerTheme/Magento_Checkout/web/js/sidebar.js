@@ -116,16 +116,21 @@ define([
              */
             events['mouseleave ' + this.options.item.button] = function (event) {
                 //event.stopPropagation();
-
                 var type = 0;
-                if(this._getProductById(Number(event.currentTarget.dataset.cartItem)).options.length > 0)
-                    type = this._getProductById(Number(event.currentTarget.dataset.cartItem)).options[0].option_value;
+                //if(this._getProductById(Number(event.currentTarget.dataset.cartItem)).options.length > 0)
+                    // type = this._getProductById(Number(event.currentTarget.dataset.cartItem)).options[0].option_value;
                 
-                var productId = this._getProductById(Number(event.currentTarget.dataset.cartItem)).product_id;
-                var qty = $("#cart-item-"+event.currentTarget.dataset.cartItem+"-qty").val();
-
-                addToCartProduct(productId, type, qty);
-                updateQtySomeProduct(productId);
+                //var productId = this._getProductById(Number(event.currentTarget.dataset.cartItem)).product_id;
+                var $inputObject= $("#cart-item-"+event.currentTarget.dataset.cartItemCrontab+"-qty");
+                var qty = $inputObject.val();
+                var type = $inputObject.attr("product-type");
+                console.log(event.currentTarget.dataset.cartItem);
+                console.log(qty);
+                console.log($inputObject);
+                console.log(event.currentTarget.dataset);
+                
+                addToCartProduct(event.currentTarget.dataset.cartItem, type, qty);
+                updateQtySomeProduct(event.currentTarget.dataset.cartItem);
 
                 //self._updateItemQty($(event.currentTarget));
             };
