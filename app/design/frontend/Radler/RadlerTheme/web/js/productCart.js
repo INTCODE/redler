@@ -106,7 +106,6 @@ function addToCartProduct(productId, type, qty){
                 processData: false,
                 /** @inheritdoc */
                 success: function(res) {
-                    updateProductCart();
                     //console.log(res);
                 },
                 
@@ -180,9 +179,12 @@ function updateQtyAllItems(){
                 /** @inheritdoc */
                 success: function(res) {
                     var json = JSON.parse(res);
+                    console.log(json);
+
                     $(".inputProductQty").val(0);
                     $.each(json, function(){
                         $("[data-id='product-qty-"+this.productId+"']").val(this.qty);
+                        $("[data-id='product-qty-"+this.productId+"']").attr("max",this.stock);
                         $("[data-id='product-qty-"+this.productId+"']").removeAttr("disabled");
                     });
                     $(".inputProductQty").removeAttr("disabled");
@@ -193,7 +195,7 @@ function updateQtyAllItems(){
                 /** @inheritdoc */
                 error: function(res) {
                     console.error("error update - productCart.js");
-                    //console.log(res);
+                    console.log(res);
                     $("#addresses").removeAttr("disabled");
                 }
             });
@@ -228,6 +230,7 @@ function updateQtyItem(productId, type){
                     var json = JSON.parse(res);
                     //console.info(res);
                     $("[data-id='product-qty-"+productId+"']").val(json.qty);
+                    $("[data-id='product-qty-"+productId+"']").attr("max",json.stock);
                     $("[data-id='product-qty-"+productId+"']").removeAttr("disabled");
                 },
                 
@@ -249,7 +252,6 @@ function updateProductCart(){
             addressId: $("#addresses").val(),
         };
         j = JSON.stringify(j);
-        
         $.ajax({
             url: $("#homePath").text() + "/rest/V1/blmCart/getCartByAddress/",
             data: j,
@@ -260,30 +262,25 @@ function updateProductCart(){
             processData: false,
             /** @inheritdoc */
             success: function (res) {
-                $("#mini-cart").html("");
+
                 var itemsOutput = JSON.parse(res);
                 var output="";
                 $.each(itemsOutput.data,(index,item)=>{
                     output+=getItemTemplate(item);
-                });
-
-                var itemPrice=itemsOutput.TotalData.addressCost!=null?itemsOutput.TotalData.addressCost:0;
-                var itemCount = itemsOutput.TotalData.addressQty!=null?itemsOutput.TotalData.addressQty:0;
+                })
                 $("#mini-cart").append(output);
-                $("#itemCount").html(itemCount);
-                $("#sidebarItemCount").html(`${itemCount} items`);
-                $("#itemPrice").html(`£${itemPrice}`);
-                $("#sidebaritemCost").html(`£${itemPrice}`);
+                $("#itemCount").html(itemsOutput.TotalData.addressQty);
+                $("#sidebarItemCount").html(`${itemsOutput.TotalData.addressQty} items`);
+                $("#itemPrice").html(`£${itemsOutput.TotalData.addressCost}`);
+                $("#sidebaritemCost").html(`£${itemsOutput.TotalData.addressCost}`);
                 
-                $("#minicart-content-wrapper").css("display","block");
-                addRemoveListener();
+
                 console.log(JSON.parse(res));
             },
 
             /** @inheritdoc */
             error: function (res) {
                 console.info("error add - productCart.js");
-                $("#minicart-content-wrapper").css("display","block");
                 //console.log(res);
             }
         });
@@ -294,16 +291,6 @@ function updateProductCart(){
 
 function getItemTemplate(item){
     item.price=parseFloat(item.price).toFixed(2);
-    var typeString="";
-    switch(item.type){
-        case "21":
-            typeString="BOX"
-            break;
-        case "22":
-            typeString="Palette"
-            break
-    }
-
     return `
     <li class="item product product-item odd last" data-role="product-item" data-collapsible="true">
     <div class="product">
@@ -312,7 +299,7 @@ function getItemTemplate(item){
 
 <span class="product-image-container" style="width: 75px;">
     <span class="product-image-wrapper" style="padding-bottom: 100%;">
-        <img class="product-image-photo" src="${item.image}" alt="${item.name}" style="max-width: 75px; max-height: 75px;">
+        <img class="product-image-photo" src="${item.image}" alt="${item.name}" style="width: 75px; height: 75px;">
     </span>
 </span>
 
@@ -336,16 +323,13 @@ function getItemTemplate(item){
                 </div>
             </div>
             <div class="product-item-pricing">
-                <div class="price-container">
-                    <span class="price-wrapper">   <span class="price-excluding-tax" data-label="Excl. Tax"> <span class="minicart-price"> <span class="price">${typeString}</span></span> </span>  </span>
-                </div>
-                <div class="price-container">
-                    <span class="price-wrapper">   <span class="price-excluding-tax" data-label="Excl. Tax"> <span class="minicart-price"> <span class="price">£${item.price}</span></span> </span>  </span>
-                </div>
+<div class="price-container">
+  <span class="price-wrapper">   <span class="price-excluding-tax" data-label="Excl. Tax"> <span class="minicart-price"> <span class="price">£${item.price}</span></span> </span>  </span>
+</div>
 
                 <div class="details-qty qty">
                     <label class="label" for="cart-item-${item.productId}-qty">Qty</label>
-                    <input value: qty" type="number" value="${item.qty}" size="4" class="item-qty cart-item-qty" product-id="${item.productId}" id="cart-item-${item.crontab_id}-qty" product-type="${item.type}" data-cart-crontab-id="${item.crontab_id}" data-cart-item="${item.productId}" data-item-qty="${item.qty}" data-cart-item-id="${item.name}">
+                    <input value: qty" type="number" value="${item.qty}" size="4" class="item-qty cart-item-qty" id="cart-item-${item.productId}-qty" data-cart-item="${item.productId}" data-item-qty="${item.qty}" data-cart-item-id="${item.name}">
                     <button class="update-cart-item" style="display: none" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" title="Update">
                         <span>Update</span>
                     </button>
@@ -356,7 +340,7 @@ function getItemTemplate(item){
 
             <div class="product actions">
                 <div class="secondary">
-                    <a class="action delete" data-cart-item="${item.productId}" title="Remove item">
+                    <a href="#" class="action delete" data-cart-item="${item.productId}" title="Remove item">
                         <span>Remove</span>
                     </a>
                 </div>
@@ -367,15 +351,15 @@ function getItemTemplate(item){
 };
 
 function addRemoveListener(){
-jQuery("#mini-cart a.action.delete").click((e)=>{
-    var obj = e.target;
-    var $input = jQuery(jQuery(obj).parents(".product-item-details")).find("input")
-    var type = $input.attr("product-type");
-    var id=$input.attr("product-id");
-    console.log(type);
-    console.log(id);
-    addToCartProduct(id, type, 0);
-   
-})
+    jQuery("#mini-cart a.action.delete").click((e)=>{
+        var obj = e.target;
+        var $input = jQuery(jQuery(obj).parents(".product-item-details")).find("input")
+        var type = $input.attr("product-type");
+        var id=$input.attr("product-id");
+        console.log(type);
+        console.log(id);
+        addToCartProduct(id, type, 0);
+    
+    })
 
 }
