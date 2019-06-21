@@ -274,14 +274,15 @@ function updateProductCart(){
                 $("#itemPrice").html(`£${itemsOutput.TotalData.addressCost}`);
                 $("#sidebaritemCost").html(`£${itemsOutput.TotalData.addressCost}`);
                 
-
+                $("#minicart-content-wrapper").css("display","block");
                 console.log(JSON.parse(res));
             },
 
             /** @inheritdoc */
             error: function (res) {
+                $("#minicart-content-wrapper").css("display","block");
                 console.info("error add - productCart.js");
-                //console.log(res);
+                console.log(res);
             }
         });
     });
@@ -299,7 +300,7 @@ function getItemTemplate(item){
 
 <span class="product-image-container" style="width: 75px;">
     <span class="product-image-wrapper" style="padding-bottom: 100%;">
-        <img class="product-image-photo" src="${item.image}" alt="${item.name}" style="width: 75px; height: 75px;">
+        <img class="product-image-photo" src="${item.image}" alt="${item.name}" style="max-width: 75px; max-height: 75px;">
     </span>
 </span>
 
