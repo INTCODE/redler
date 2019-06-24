@@ -73,7 +73,11 @@ require(["jquery"], function($) {
                     clearInterval(checkSwatch);
                 }
             }, 200);
+            $("#minicart-content-wrapper").css("display", "block");
+            
         }
+
+
     });
 
 });
@@ -271,7 +275,7 @@ function updateProductCart() {
                     $("#itemPrice").html(`£${itemPrice}`);
                     $("#sidebaritemCost").html(`£${itemPrice}`);
 
-                    $("#minicart-content-wrapper").css("display", "block");
+                    
                     $("#minicart-content-wrapper").attr("data-change","false");
                     addRemoveListener();
                     addListenerPlusMinusProduct();
@@ -378,6 +382,7 @@ function addRemoveListener() {
 }
 
 function addListenerPlusMinusProduct(){
+    jQuery("#minicart-content-wrapper").css("display", "block");
     jQuery("#mini-cart .buttonMinicartQty").on("click",function(e){
         jQuery("#minicart-content-wrapper").attr("data-change","true");
     })
