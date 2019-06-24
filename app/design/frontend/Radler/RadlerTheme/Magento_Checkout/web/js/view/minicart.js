@@ -49,7 +49,6 @@ define([
             },
             'button': {
                 'checkout': '#top-cart-btn-checkout',
-                'remove': '#mini-cart a.action.delete',
                 'close': '#btn-minicart-close'
             },
             'showcart': {

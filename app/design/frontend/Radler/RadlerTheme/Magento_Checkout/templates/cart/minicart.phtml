@@ -103,7 +103,7 @@ echo "<div id='mediaPath' style='display: none'>".$targetDirPath."</div>";
                 "triggerClass":"active",
                 "parentClass":"active",
                 "buttons":[]}}'>
-            <div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'">
+            <div id="minicart-content-wrapper" style="display:none" data-bind="scope: 'minicart_content'">
             <!-- tutaj wywoływany jest kontent mini koszyka -->
                 <div class="block-title">
                     <strong>
@@ -151,9 +151,10 @@ echo "<div id='mediaPath' style='display: none'>".$targetDirPath."</div>";
             $(document).on("ready", function(){
                 updateProductCart();
             });
+
+            
         });
     </script>
-
             <?= $block->getChildHtml('minicart.addons') ?>
         </div>
     <?php else: ?>
