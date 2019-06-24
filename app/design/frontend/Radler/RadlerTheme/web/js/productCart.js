@@ -76,22 +76,12 @@ require(["jquery"], function($) {
         }
     });
 
-    jQuery("#mini-cart .buttonMinicartQty").click((e) => {
-        var obj = e.target;
-        console.log(obj);
-        //var $input = jQuery(jQuery(obj).parents(".product-item-details")).find("input")
-
-
-
-    })
-
-
 });
 
 function addToCartProduct(productId, type, qty) {
     console.info("Add to cart : new");
     require(["jquery"], function($) {
-        if ($("#addresses").length > 0) {
+        if ($("#addresses").length > 0 && $("#minicart-content-wrapper").attr("data-change")=="true") {
             var j = {
                 productId: productId,
                 quoteId: parseInt($("#quoteId").text()),
@@ -100,8 +90,6 @@ function addToCartProduct(productId, type, qty) {
                 qty: qty
             };
             j = JSON.stringify(j);
-
-            console.log(j);
             $.ajax({
                 url: $("#homePath").text() + "/rest/V1/blmCart/add/",
                 data: j,
@@ -129,7 +117,7 @@ function addToCartProduct(productId, type, qty) {
 function updateQtySomeProduct(productId) {
     console.log("update qty some item");
     require(["jquery"], function($) {
-        if ($("#addresses").length > 0) {
+        if ($("#addresses").length > 0 && $("#minicart-content-wrapper").attr("data-change")=="true") {
             var pid = productId;
             var type = 0;
             if ($("[data-product-id=" + pid + "]").parent().find(".swatch-option[aria-checked='true']").length > 0) {
@@ -201,7 +189,6 @@ function updateQtyAllItems() {
                 /** @inheritdoc */
                 error: function(res) {
                     console.error("error update - productCart.js");
-                    console.log(res);
                     $("#addresses").removeAttr("disabled");
                 }
             });
@@ -244,7 +231,6 @@ function updateQtyItem(productId, type) {
                 /** @inheritdoc */
                 error: function(res) {
                     console.error("error update - productCart.js");
-                    console.log(res);
                 }
             });
         }
@@ -254,48 +240,52 @@ function updateQtyItem(productId, type) {
 
 function updateProductCart() {
     require(["jquery"], function($) {
-        var j = {
-            quoteId: parseInt($("#quoteId").text()),
-            addressId: $("#addresses").val(),
-        };
-        j = JSON.stringify(j);
-        $.ajax({
-            url: $("#homePath").text() + "/rest/V1/blmCart/getCartByAddress/",
-            data: j,
-            type: 'POST',
-            dataType: 'json',
-            cache: false,
-            contentType: 'application/json',
-            processData: false,
-            /** @inheritdoc */
-            success: function(res) {
-                $("#mini-cart").html('');
-                var itemsOutput = JSON.parse(res);
-                var output = "";
-                $.each(itemsOutput.data, (index, item) => {
-                    output += getItemTemplate(item);
-                })
-                var itemPrice = itemsOutput.TotalData.addressCost != null ? itemsOutput.TotalData.addressCost : 0;
-                var itemCount = itemsOutput.TotalData.addressQty != null ? itemsOutput.TotalData.addressQty : 0;
-                $("#mini-cart").append(output);
-                $("#itemCount").html(itemCount);
-                $("#sidebarItemCount").html(`${itemCount} items`);
-                $("#itemPrice").html(`£${itemPrice}`);
-                $("#sidebaritemCost").html(`£${itemPrice}`);
+        if ($("#addresses").length > 0) {
+            var j = {
+                quoteId: parseInt($("#quoteId").text()),
+                addressId: $("#addresses").val(),
+            };
+            $("#minicart-content-wrapper").css("display", "none");
+            j = JSON.stringify(j);
+            $.ajax({
+                url: $("#homePath").text() + "/rest/V1/blmCart/getCartByAddress/",
+                data: j,
+                type: 'POST',
+                dataType: 'json',
+                cache: false,
+                contentType: 'application/json',
+                processData: false,
+                /** @inheritdoc */
+                success: function(res) {
+                    $("#mini-cart").html('');
+                    var itemsOutput = JSON.parse(res);
+                    var output = "";
+                    $.each(itemsOutput.data, (index, item) => {
+                        output += getItemTemplate(item);
+                    })
+                    var itemPrice = itemsOutput.TotalData.addressCost != null ? itemsOutput.TotalData.addressCost : 0;
+                    var itemCount = itemsOutput.TotalData.addressQty != null ? itemsOutput.TotalData.addressQty : 0;
+                    $("#mini-cart").append(output);
+                    $("#itemCount").html(itemCount);
+                    $("#sidebarItemCount").html(`${itemCount} items`);
+                    $("#itemPrice").html(`£${itemPrice}`);
+                    $("#sidebaritemCost").html(`£${itemPrice}`);
 
-                $("#minicart-content-wrapper").css("display", "block");
-                addRemoveListener();
-                console.log(JSON.parse(res));
-            },
+                    $("#minicart-content-wrapper").css("display", "block");
+                    $("#minicart-content-wrapper").attr("data-change","false");
+                    addRemoveListener();
+                    addListenerPlusMinusProduct();
+                },
 
-            /** @inheritdoc */
-            error: function(res) {
-                $("#minicart-content-wrapper").css("display", "block");
-                console.info("error add - productCart.js");
-                console.log(res);
-            }
-        });
+                /** @inheritdoc */
+                error: function(res) {
+                    $("#minicart-content-wrapper").css("display", "block");
+                    console.info("error add - productCart.js");
+                }
+            });
+        }
     });
+
 }
 
 
@@ -353,11 +343,11 @@ function getItemTemplate(item) {
 
                 <div class="details-qty qty">
                     <label class="label" for="cart-item-${item.productId}-qty">Qty</label>
-                    <input value: qty" type="number" value="${item.qty}" size="4" class="item-qty cart-item-qty" product-id="${item.productId}" id="cart-item-${item.crontab_id}-qty" product-type="${item.type}" data-cart-crontab-id="${item.crontab_id}" data-cart-item="${item.productId}" data-item-qty="${item.qty}" data-cart-item-id="${item.name}">
+                    <input value: qty" type="number" max="${item.stock}" value="${item.qty}" size="4" class="item-qty cart-item-qty" product-id="${item.productId}" id="cart-item-${item.crontab_id}-qty" product-type="${item.type}" data-cart-crontab-id="${item.crontab_id}" data-cart-item="${item.productId}" data-item-qty="${item.qty}" data-cart-item-id="${item.name}">
                     <button class="update-cart-item" style="display: none" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" title="Update">
                         <span>Update</span>
                     </button>
-                    <div class="buttonMinicartQty" onclick="if(jQuery(this).parent().find('.cart-item-qty').val() < ${item.stock})jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())+1)" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" data-cart-item-crontab="${item.crontab_id}">+</div>
+                    <div class="buttonMinicartQty" onclick="jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())+1)" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" data-cart-item-crontab="${item.crontab_id}">+</div>
                     <div class="buttonMinicartQty" onclick="if(jQuery(this).parent().find('.cart-item-qty').val() > 0) jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())-1)" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" data-cart-item-crontab="${item.crontab_id}">-</div>
                 </div>
             </div>
@@ -380,10 +370,15 @@ function addRemoveListener() {
         var $input = jQuery(jQuery(obj).parents(".product-item-details")).find("input")
         var type = $input.attr("product-type");
         var id = $input.attr("product-id");
-        console.log(type);
-        console.log(id);
+        jQuery("#minicart-content-wrapper").attr("data-change","true");
         addToCartProduct(id, type, 0);
 
     })
 
+}
+
+function addListenerPlusMinusProduct(){
+    jQuery("#mini-cart .buttonMinicartQty").on("click",function(e){
+        jQuery("#minicart-content-wrapper").attr("data-change","true");
+    })
 }

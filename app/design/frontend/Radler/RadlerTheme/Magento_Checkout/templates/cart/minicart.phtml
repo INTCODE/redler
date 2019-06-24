@@ -103,7 +103,7 @@ echo "<div id='mediaPath' style='display: none'>".$targetDirPath."</div>";
                 "triggerClass":"active",
                 "parentClass":"active",
                 "buttons":[]}}'>
-            <div id="minicart-content-wrapper" style="display:none" data-bind="scope: 'minicart_content'">
+            <div id="minicart-content-wrapper" style="display:none" data-change="false">
             <!-- tutaj wywoływany jest kontent mini koszyka -->
                 <div class="block-title">
                     <strong>
@@ -139,7 +139,7 @@ echo "<div id='mediaPath' style='display: none'>".$targetDirPath."</div>";
                     <div class="actions">
                         <div class="secondary">
                             <a class="action viewcart"
-                                href="window.checkout.shoppingCartUrl">
+                                href="<?php echo $this->getUrl('checkout') ?>">
                                 <span>View and Edit Cart</span>
                             </a>
                         </div>

@@ -122,20 +122,15 @@ define([
                 
                 //var productId = this._getProductById(Number(event.currentTarget.dataset.cartItem)).product_id;
 
-
-                if($("#minicart-content-wrapper").attr("data-change")=="true"){
                     var type = 0;
                     var $inputObject= $("#cart-item-"+event.currentTarget.dataset.cartItemCrontab+"-qty");
                     var qty = $inputObject.val();
                     var type = $inputObject.attr("product-type");
-                    console.log(event.currentTarget.dataset.cartItem);
-                    console.log(qty);
-                    console.log($inputObject);
-                    console.log(event.currentTarget.dataset);
-                    
-                    addToCartProduct(event.currentTarget.dataset.cartItem, type, qty);
-                    updateQtySomeProduct(event.currentTarget.dataset.cartItem);
-                }
+                    var stock = $inputObject.attr("max");
+                    if(parseInt(qty)<=parseInt(stock)){
+                        addToCartProduct(event.currentTarget.dataset.cartItem, type, qty);
+                        updateQtySomeProduct(event.currentTarget.dataset.cartItem);
+                    }
                 //self._updateItemQty($(event.currentTarget));
             };
 
