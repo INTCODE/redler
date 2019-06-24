@@ -6,4 +6,5 @@
     <type name="Magento\Customer\Model\Account\Redirect">
         <plugin name="AmitshreeCustomer:redirect" type="Amitshree\Customer\Plugin\Redirect" disabled="false" sortOrder="1"/>
     </type>
+    <preference for="Magento\Customer\Controller\Account\Logout" type="Amitshree\Customer\Controller\Account\Logout" />
 </config>
