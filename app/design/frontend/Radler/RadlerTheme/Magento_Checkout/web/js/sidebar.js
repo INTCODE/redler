@@ -213,13 +213,14 @@ define([
          */
         _updateItemQty: function (elem) {
             var itemId = elem.data('cart-item');
-
+            var dataCartCrontabId = elem.data('cartCrontabId');
+            console.log(elem.data());
             if($('#cart-item-' + itemId + '-qty').val() <= 0){
                 this._removeItem(elem);
             }else{
                 this._ajax(this.options.url.update, {
                     'item_id': itemId,
-                    'item_qty': parseInt($('#cart-item-' + itemId + '-qty').val()) 
+                    'item_qty': parseInt($('#cart-item-' + dataCartCrontabId + '-qty').val()) 
                 }, elem, this._updateItemQtyAfter);
             }
 
