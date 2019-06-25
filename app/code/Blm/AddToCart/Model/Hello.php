@@ -351,7 +351,7 @@ class Hello implements HelloInterface
 
         $rootPath  =  $directory->getRoot();
         $rootPath=$rootPath.'/pub/media/catalog/product';
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($rootPath, true));
+       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($rootPath, true));
 
         $totalCost=null;
         $addressCost=null;
@@ -398,7 +398,7 @@ class Hello implements HelloInterface
                         $totalCost+=$v->getPrice() * $value['qty'];
                         $totalQty+= $value['qty'];
 
-                        if($addressId==$value['address']){
+                       
                         $res['url']=$url;
                         $res['image']=$rootPath.$image;
                         $res['productId']=$value['productId'];
@@ -416,7 +416,7 @@ class Hello implements HelloInterface
                         $qty=$value['qty'];
                         $addressCost+=$price*$qty;
                         $addressQty+=$qty;
-                    }
+                    
                 }
             }
             }else{
@@ -460,6 +460,7 @@ class Hello implements HelloInterface
 
 
             file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============addressQty=============\n".print_r($array, true));
+
 
 
             if($array){
