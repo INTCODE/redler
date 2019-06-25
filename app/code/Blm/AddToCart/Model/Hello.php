@@ -38,21 +38,34 @@ class Hello implements HelloInterface
         $q = $quoteFactory->create()->load($quoteId);
            //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($q->getAllItems(), true));
         foreach ($q->getAllItems() as $key => $value) {
+            $cart = $objectManager->get('\Magento\Checkout\Model\Cart'); 
 
             if($type!=0){
             if($value->getParentItemId()){
                 $product = $objectManager->get('Magento\Catalog\Model\Product')->load($value->getProductId());
                 $packageId=$product->getCustomAttribute('package_type')->getValue();
                 if($packageId==$type){
+                    if($qty==0){
+                        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========xd=============\n".print_r('xd', true));
 
+                        $quote = $quoteFactory->create()->load($quoteId);
+                        $quote->removeItem($value->getParentItemId());
+                        $quote->save();
 
-                 $itemChenge=$q->getItemById($value->getParentItemId());
-                 $itemChenge->setQty($qty);
-                 $itemChenge->save();
-                    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($itemChenge->debug(), true));
+                    }else{
+                        $itemChenge=$q->getItemById($value->getParentItemId());
+                        $itemChenge->setQty($qty);
+                        $itemChenge->save();
+                    }
+
+                    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cart=============\n".print_r('xd', true));
+
+             
+                    //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($itemChenge->debug(), true));
                 //     file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($itemChenge, true));
                 //     file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($value->getParentItemId()), true));
                }
+               file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cart=============\n".print_r('xd', true));
 
             }
         }elseif($type==0){
