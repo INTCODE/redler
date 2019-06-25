@@ -14,123 +14,168 @@
  * @var $block \Magento\Multishipping\Block\Checkout\Addresses
  */
 ?>
-<form id="checkout_multishipping_form"
-      data-mage-init='{
-          "multiShipping":{},
-          "cartUpdate": {
-               "validationURL": "/multishipping/checkout/checkItems",
-               "eventName": "updateMulticartItemQty"
-          }}'
-      action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>"
-      
-      method="post"
-      class="multicheckout address form">
-    <div class="title">
-        <strong><?= $block->escapeHtml(__('Please select a shipping address for applicable items.')) ?></strong>
-    </div>
-    <input type="hidden" name="continue" value="0" id="can_continue_flag"/>
-    <input type="hidden" name="new_address" value="0" id="add_new_address_flag"/>
-    <div class="table-wrapper">
-        <table class="items data table" id="multiship-addresses-table">
-            <caption class="table-caption">
-                <?= $block->escapeHtml(__('Please select a shipping address for applicable items.')) ?>
-            </caption>
-            <thead>
-            <tr>
-                <th class="col product" scope="col"><?= $block->escapeHtml(__('Product')) ?></th>
-                <th class="col qty" scope="col"><?= $block->escapeHtml(__('Qty')) ?></th>
-                <th class="col address" scope="col"><?= $block->escapeHtml(__('Send To')) ?></th>
-                <th class="col actions" scope="col">&nbsp;</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($block->getItems() as $_index => $_item): ?>
-                <?php if ($_item->getQuoteItem()) : ?>
-                    <tr>
-                        <td class="col product" data-th="<?= $block->escapeHtml(__('Product')) ?>">
-                            <?= $block->getItemHtml($_item->getQuoteItem()) ?>
-                        </td>
-                        <td class="col qty" data-th="<?= $block->escapeHtml(__('Qty')) ?>">
-                            <div class="field qty">
-                                <label for="ship-<?= $block->escapeHtml($_index) ?>-<?= $block->escapeHtml($_item->getQuoteItemId()) ?>-qty"
-                                       class="label">
-                                    <span><?= $block->escapeHtml(__('Qty')) ?></span>
-                                </label>
-                                <div class="control">
-                                    <input type="number"
-                                           data-multiship-item-id="<?= $block->escapeHtml($_item->getSku()) ?>"
-                                           id="ship-<?= $block->escapeHtml($_index) ?>-<?= $block->escapeHtml($_item->getQuoteItemId()) ?>-qty"
-                                           name="ship[<?= $block->escapeHtml($_index) ?>][<?= $block->escapeHtml($_item->getQuoteItemId()) ?>][qty]"
-                                           value="<?= $block->escapeHtml($_item->getQty()) ?>"
-                                           size="2"
-                                           class="input-text qty"
-                                           data-validate="{number: true}"/>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="col address" data-th="<?= $block->escapeHtml(__('Send To')) ?>">
-                            <?php if ($_item->getProduct()->getIsVirtual()): ?>
-                                <div class="applicable">
-                                    <?= $block->escapeHtml(__('A shipping selection is not applicable.')) ?>
-                                </div>
-                            <?php else: ?>
-                                <div class="field address">
-                                    <label for="ship_<?= $block->escapeHtml($_index) ?>_<?= $block->escapeHtml($_item->getQuoteItemId()) ?>_address"
-                                           class="label">
-                                        <span><?= $block->escapeHtml(__('Send To')) ?></span>
-                                    </label>
-                                    <div class="control">
-                                        <?= $block->getAddressesHtmlSelect($_item, $_index) ?>
-                                    </div>
-                                </div>
-                            <?php                      
-                        endif; ?>
-                        </td>
-                        <td class="col actions" data-th="<?= $block->escapeHtml(__('Actions')) ?>">
-                            <a href="<?= $block->escapeUrl($block->getItemDeleteUrl($_item)) ?>"
-                               title="<?= $block->escapeHtml(__('Remove Item')) ?>"
-                               class="action delete"
-                               data-multiship-item-remove="">
-                                <span><?= $block->escapeHtml(__('Remove item')) ?></span>
-                            </a>
-                        </td>
-                    </tr>
-                <?php endif; ?>
-            <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-    <div class="actions-toolbar">
-        <div class="primary">
-            <button type="submit"
-                    title="<?= $block->escapeHtml(__('Go to Shipping Information')) ?>"
-                    class="action primary continue<?php if ($block->isContinueDisabled()):?> disabled<?php endif; ?>"
-                    data-role="can-continue"
-                    data-flag="1"
-                <?php if ($block->isContinueDisabled()):?>
-                    disabled="disabled"
-                <?php endif; ?>>
-                <span><?= $block->escapeHtml(__('Go to Shipping Information')) ?></span>
-            </button>
+
+<div class="wrapper">
+    <a class="return-arrow" href="#"></a>
+    <p class="heading">Shopping Cart</p>
+    <form id="checkout_multishipping_form" action="<?= $block->escapeUrl($block->getPostActionUrl()) ?>" method="post" class="multicheckout address form">
+    <input type="hidden" name="continue" value="1" id="can_continue_flag">
+    <div>
+        <div class="basket-list">
+            <div class="head">
+                <span>Item</span>
+                <span>Price</span>
+                <span>Quantity</span>
+                <span>Address</span>
+                <span>Subtotal</span>
+            </div>
+            <div id="container-items">
+                
+            </div>
         </div>
-        <div class="secondary">
-            <button type="submit"
-                    data-multiship-item-update=""
-                    class="action update"
-                    data-role="can-continue"
-                    data-flag="0">
-                <span><?= $block->escapeHtml(__('Update Qty &amp; Addresses')) ?></span>
-            </button>
-            <button type="button"
-                    title="<?= $block->escapeHtml(__('Enter a New Address')) ?>"
-                    class="action add"
-                    data-role="add-new-address">
-                <span><?= $block->escapeHtml(__('Enter a New Address')) ?></span>
-            </button>
-            <a href="<?= $block->escapeUrl($block->getBackUrl()) ?>"
-               class="action back">
-                <span><?= $block->escapeHtml(__('Back to Shopping Cart')) ?></span>
-            </a>
+        <div class="panel">
+            <div class="summary" id="multiShippingSummary">
+                
+            </div>
         </div>
     </div>
-</form>
+    <div class="bottom">
+        <label class="input-with-button">
+            <span>Apply Discount Code</span>
+            <input type="text">
+            <button class="btn btn-gold btn-rectangle">Apply</button>
+        </label>
+    </div>
+    </form>
+</div>
+
+<script>
+require(['jquery'], function ($) {
+    $(document).on("ready", function(){
+        function updateMultiShippingCart() {
+            require(["jquery"], function ($) {
+                var j = {
+                    quoteId: 40,
+                };
+                j = JSON.stringify(j);
+                $.ajax({
+                    url: "http://localhost/projekty/blm/redler//rest/V1/blmCart/getCart/",
+                    data: j,
+                    type: 'POST',
+                    dataType: 'json',
+                    cache: false,
+                    contentType: 'application/json',
+                    processData: false,
+                    /** @inheritdoc */
+                    success: function (res) {
+                        $("#container-items").html('');
+                        $("#multiShippingSummary").html('');
+                        console.log(JSON.parse(res));
+                        var itemsOutput = JSON.parse(res);
+                        var output = "";
+                        var selectAddresses = multiShippingCreateSelect(itemsOutput.addresses);
+                        $.each(itemsOutput.data, (index, item) => {
+                            output += getMultiShippingTemplate(item,selectAddresses);
+                        });
+
+                        $("#container-items").append(output);
+                        $("#multiShippingSummary").append(getMultiShippingSummary(itemsOutput.TotalData));
+                    },
+
+                    /** @inheritdoc */
+                    error: function (res) {
+
+                        console.info("error add - multishipping.js");
+                    }
+                });
+            });
+        }
+
+
+        function getMultiShippingTemplate(item,selectAddresses) {
+            item.price = parseFloat(item.price).toFixed(2);
+            return `<div class="basket-item">
+        <div class="img" >
+            <img style="max-width: 25%; max-height: 25%;" src="${item.image}" alt="">
+        </div>
+        <div class="text">
+            <p class="name">${item.name}</p>
+        </div>
+        <div class="price">
+            £${item.price}
+            <div class="switch">
+                <input type="checkbox" ${item.type == 21 ? ' checked="checked"' : ' ""'}>
+                <span class="switch-body"></span>
+                <span class="icons">
+                    <span class="left">
+                        <img src="./assets/img/icons/view_1.png" alt="">
+                    </span>
+                    <span class="right">
+                        <img src="./assets/img/icons/view_2.png" alt="">
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="quantity">
+            <div class="custom-input-number">
+                <input type="number" value="${item.qty}">
+                <span class="increment" onClick="multiShippingAddItem(this,1)">+</span>
+                <span class="decrement" onClick="multiShippingAddItem(this,2)">-</span>
+            </div>
+        </div>
+        <div>
+            <div class="field address">
+                <div class="control">
+                ${selectAddresses}
+                </div>
+            </div>
+        </div>
+        <div class="subtotal">£${item.price * parseFloat(item.qty)}</div>
+        <span class="btn-remove"></span>
+    </div>`;
+        }
+        function getMultiShippingSummary(total) {
+            var output = `<p class="heading">Summary</p>
+        <div class="borders">
+        <p>
+            <span>Subtotal</span>
+            <span>£${total.totalCost}</span>
+        </p>
+        </div>
+            <p class="total">
+                <span>Order Total</span>
+                <span>£${total.totalCost}</span>
+            </p>
+        <button class="btn btn-green" type="submit">
+            Proceed to checkout
+        </button>`;
+            return output;
+
+        }
+
+
+        function multiShippingAddItem(obj, mode) {//mode=1- add, mode=2- remove
+            var $input = jQuery(obj).parent().find("input");
+            var value = $input.val();
+            var outputValue = parseInt(value);
+            (mode == 1) ? outputValue++ : outputValue--;
+            $input.val(outputValue < 0 ? 0 : outputValue);
+
+        }
+       function multiShippingCreateSelect(addresses){
+        var output='<select id="ship_0_1070_address" class="" title="">';
+            $.each(addresses, (index, item) => {
+                output +=`<option value="${item.entity_id}">${item.city}, ${item.company}, ${item.firstname} ${item.lastname} ,${item.postcode}, ${item.country_id}</option>`;
+            });
+               
+        output+="</select>";
+
+        return output;
+       }
+        
+        
+        
+        updateMultiShippingCart();
+    });
+});
+    </script>

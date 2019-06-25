@@ -1,7 +1,7 @@
-require(["jquery"], function($) {
+require(["jquery"], function ($) {
 
     // click +/-
-    $('.increaseQty, .decreaseQty').on("click", function() {
+    $('.increaseQty, .decreaseQty').on("click", function () {
         if (!$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled") &&
             parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) > parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())) {
             switch ($(this).attr("data-action")) {
@@ -19,13 +19,13 @@ require(["jquery"], function($) {
     });
 
     // change input
-    $(".inputProductQty").on("change", function() {
+    $(".inputProductQty").on("change", function () {
         // data changed
         $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
     });
 
     // focusout input
-    $(".inputProductQty").on("focusout", function() {
+    $(".inputProductQty").on("focusout", function () {
         if (parseInt($(this).attr("max")) > parseInt($(this).val())) {
             if (parseInt($(this).val()) < 0) {
                 $(this).val(0);
@@ -42,7 +42,7 @@ require(["jquery"], function($) {
         }
     });
 
-    $('.increaseQty, .decreaseQty').on("mouseleave", function() {
+    $('.increaseQty, .decreaseQty').on("mouseleave", function () {
         if (parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) > parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())) {
             if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true" && !$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled")) {
                 // add to cart
@@ -56,17 +56,17 @@ require(["jquery"], function($) {
     });
 
 
-    $("#addresses").on("change", function() {
+    $("#addresses").on("change", function () {
         updateQtyAllItems();
     });
 
-    $(document).on("ready", function() {
+    $(document).on("ready", function () {
         if ($("#addresses").length > 0) {
             var checkSwatch = setInterval(() => {
                 if ($(".swatch-option.selected").length > 0) {
                     updateQtyAllItems();
 
-                    $(".swatch-option").on("click", function() {
+                    $(".swatch-option").on("click", function () {
                         updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"), $(this).attr('option-id'));
                     });
 
@@ -74,7 +74,7 @@ require(["jquery"], function($) {
                 }
             }, 200);
             $("#minicart-content-wrapper").css("display", "block");
-            
+
         }
 
 
@@ -84,8 +84,8 @@ require(["jquery"], function($) {
 
 function addToCartProduct(productId, type, qty) {
     console.info("Add to cart : new");
-    require(["jquery"], function($) {
-        if ($("#addresses").length > 0 && $("#minicart-content-wrapper").attr("data-change")=="true") {
+    require(["jquery"], function ($) {
+        if ($("#addresses").length > 0 && $("#minicart-content-wrapper").attr("data-change") == "true") {
             var j = {
                 productId: productId,
                 quoteId: parseInt($("#quoteId").text()),
@@ -103,13 +103,13 @@ function addToCartProduct(productId, type, qty) {
                 contentType: 'application/json',
                 processData: false,
                 /** @inheritdoc */
-                success: function(res) {
+                success: function (res) {
                     updateProductCart();
                     //console.log(res);
                 },
 
                 /** @inheritdoc */
-                error: function(res) {
+                error: function (res) {
                     console.error("error add - productCart.js");
                     //console.log(res);
                 }
@@ -120,8 +120,8 @@ function addToCartProduct(productId, type, qty) {
 
 function updateQtySomeProduct(productId) {
     console.log("update qty some item");
-    require(["jquery"], function($) {
-        if ($("#addresses").length > 0 && $("#minicart-content-wrapper").attr("data-change")=="true") {
+    require(["jquery"], function ($) {
+        if ($("#addresses").length > 0 && $("#minicart-content-wrapper").attr("data-change") == "true") {
             var pid = productId;
             var type = 0;
             if ($("[data-product-id=" + pid + "]").parent().find(".swatch-option[aria-checked='true']").length > 0) {
@@ -136,7 +136,7 @@ function updateQtySomeProduct(productId) {
 function updateQtyAllItems() {
     console.log("update qty all items");
 
-    require(["jquery"], function($) {
+    require(["jquery"], function ($) {
         if ($("#addresses").length > 0) {
             var updateProducts = {
                 address: $("#addresses").val(),
@@ -146,7 +146,7 @@ function updateQtyAllItems() {
 
             $("#addresses").attr("disabled", "true");
 
-            $("[data-product-id]").each(function() {
+            $("[data-product-id]").each(function () {
                 var pid = $(this).attr("data-product-id");
                 var addr = $("#addresses").val();
                 var type = 0;
@@ -175,12 +175,12 @@ function updateQtyAllItems() {
                 contentType: 'application/json',
                 processData: false,
                 /** @inheritdoc */
-                success: function(res) {
+                success: function (res) {
                     var json = JSON.parse(res);
                     console.log(json);
 
                     $(".inputProductQty").val(0);
-                    $.each(json, function() {
+                    $.each(json, function () {
                         $("[data-id='product-qty-" + this.productId + "']").val(this.qty);
                         $("[data-id='product-qty-" + this.productId + "']").attr("max", this.stock);
                         $("[data-id='product-qty-" + this.productId + "']").removeAttr("disabled");
@@ -191,7 +191,7 @@ function updateQtyAllItems() {
                 },
 
                 /** @inheritdoc */
-                error: function(res) {
+                error: function (res) {
                     console.error("error update - productCart.js");
                     $("#addresses").removeAttr("disabled");
                 }
@@ -204,7 +204,7 @@ function updateQtyAllItems() {
 function updateQtyItem(productId, type) {
     console.log("update qty item " + productId);
 
-    require(["jquery"], function($) {
+    require(["jquery"], function ($) {
         if (productId && type && $("#addresses").length > 0) {
             $("[data-id='product-qty-" + productId + "']").attr("disabled", "true");
             var j = {
@@ -224,7 +224,7 @@ function updateQtyItem(productId, type) {
                 contentType: 'application/json',
                 processData: false,
                 /** @inheritdoc */
-                success: function(res) {
+                success: function (res) {
                     var json = JSON.parse(res);
                     console.info(json);
                     $("[data-id='product-qty-" + json.productId + "']").val(json.qty);
@@ -233,7 +233,7 @@ function updateQtyItem(productId, type) {
                 },
 
                 /** @inheritdoc */
-                error: function(res) {
+                error: function (res) {
                     console.error("error update - productCart.js");
                 }
             });
@@ -243,7 +243,7 @@ function updateQtyItem(productId, type) {
 
 
 function updateProductCart() {
-    require(["jquery"], function($) {
+    require(["jquery"], function ($) {
         if ($("#addresses").length > 0) {
             var j = {
                 quoteId: parseInt($("#quoteId").text()),
@@ -260,7 +260,7 @@ function updateProductCart() {
                 contentType: 'application/json',
                 processData: false,
                 /** @inheritdoc */
-                success: function(res) {
+                success: function (res) {
                     $("#mini-cart").html('');
                     var itemsOutput = JSON.parse(res);
                     var output = "";
@@ -275,14 +275,14 @@ function updateProductCart() {
                     $("#itemPrice").html(`£${itemPrice}`);
                     $("#sidebaritemCost").html(`£${itemPrice}`);
 
-                    
-                    $("#minicart-content-wrapper").attr("data-change","false");
+
+                    $("#minicart-content-wrapper").attr("data-change", "false");
                     addRemoveListener();
                     addListenerPlusMinusProduct();
                 },
 
                 /** @inheritdoc */
-                error: function(res) {
+                error: function (res) {
                     $("#minicart-content-wrapper").css("display", "block");
                     console.info("error add - productCart.js");
                 }
@@ -374,16 +374,20 @@ function addRemoveListener() {
         var $input = jQuery(jQuery(obj).parents(".product-item-details")).find("input")
         var type = $input.attr("product-type");
         var id = $input.attr("product-id");
-        jQuery("#minicart-content-wrapper").attr("data-change","true");
+        jQuery("#minicart-content-wrapper").attr("data-change", "true");
         addToCartProduct(id, type, 0);
 
     })
 
 }
 
-function addListenerPlusMinusProduct(){
+function addListenerPlusMinusProduct() {
     jQuery("#minicart-content-wrapper").css("display", "block");
-    jQuery("#mini-cart .buttonMinicartQty").on("click",function(e){
-        jQuery("#minicart-content-wrapper").attr("data-change","true");
+    jQuery("#mini-cart .buttonMinicartQty").on("click", function (e) {
+        jQuery("#minicart-content-wrapper").attr("data-change", "true");
     })
 }
+
+
+
+
