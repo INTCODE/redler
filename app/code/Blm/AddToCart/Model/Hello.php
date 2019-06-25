@@ -424,7 +424,6 @@ class Hello implements HelloInterface
             $totalCost+=$configProduct->getPrice() * $value['qty'];
             $totalQty+= $value['qty'];
 
-                if($addressId==$value['address']){
                 $url=$configProduct->getProductUrl();
                 $image=$configProduct->getData('image');
                 $result[$key]['url']=$url;
@@ -448,7 +447,7 @@ class Hello implements HelloInterface
                 $addressQty+=$qty;
                }
             }
-            }
+            
 
             // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($addressCost, true));
             // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============addressQty=============\n".print_r($addressQty, true));
