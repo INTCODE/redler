@@ -97,8 +97,11 @@ class Hello implements HelloInterface
 
         if(isset($result[0])){
             if($qty==0){
+                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========DELETE=============\n".print_r('xd', true));
                 $sql="DELETE FROM blm_crontab WHERE quoteId=$quoteId AND productId=$productId AND `type`=$type AND address=$addressId";
             }else{
+                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========UPDATE=============\n".print_r('xd', true));
+
                 $sql="UPDATE blm_crontab
                 SET
                     qty='$qty'
@@ -351,6 +354,7 @@ class Hello implements HelloInterface
      *
      * @api
 
+ 
      * @param int $quoteId The array of numbers to sum.
      * @return string The sum of the numbers.
      */
@@ -363,10 +367,23 @@ class Hello implements HelloInterface
         $directory = $objectManager->get('\Magento\Framework\Filesystem\DirectoryList');
         $storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
        $root= $storeManager->getStore()->getBaseUrl();
-
-
+      
+      
+       $qf= $objectManager->get('\Magento\Quote\Api\CartRepositoryInterface');
+       $quote=$qf->get($quoteId);
+       $customerId = $quote->getCustomer()->getId();
+       $customerAddress=array();
         $rootPath=$root.'/pub/media/catalog/product';
-       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($rootPath, true));
+       file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($customerId, true));
+       $customerObj = $objectManager->create('Magento\Customer\Model\Customer')->load($customerId);
+       foreach ($customerObj->getAddresses() as $address)
+        {
+            $customerAddress[] = $address->toArray();
+
+
+
+        }
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($customerAddress, true));
 
         $totalCost=null;
         $addressCost=null;
@@ -472,7 +489,7 @@ class Hello implements HelloInterface
             // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============totalCost=============\n".print_r($totalCost, true));
             $ad=array('addressCost'=>$addressCost,'addressQty'=>$addressQty,'totalCost'=>$totalCost,'totalQty'=>$totalQty);
 
-            $array=array('data'=>$addressRes,'TotalData'=>$ad);
+            $array=array('data'=>$addressRes,'TotalData'=>$ad,'addresses'=>$customerAddress);
 
 
             file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============addressQty=============\n".print_r($array, true));
