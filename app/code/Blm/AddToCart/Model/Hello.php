@@ -290,8 +290,8 @@ class Hello implements HelloInterface
                 $res['url']=$url;
                 $res['image']=$rootPath.$image;
                 $res['productId']=$value['productId'];
-                        $res['crontab_id']=$value['crontab_id'];
-                        $res['type']=$value['type'];
+                $res['crontab_id']=$value['crontab_id'];
+                 $res['type']=$value['type'];
                 $res['name']=$configProduct->getName();
                 $res['qty']=$value['qty'];
                 $res['price']=$configProduct->getPrice();
@@ -348,9 +348,11 @@ class Hello implements HelloInterface
         $connection = $resource->getConnection();
 
         $directory = $objectManager->get('\Magento\Framework\Filesystem\DirectoryList');
+        $storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+       $root= $storeManager->getStore()->getBaseUrl();
 
-        $rootPath  =  $directory->getRoot();
-        $rootPath=$rootPath.'/pub/media/catalog/product';
+
+        $rootPath=$root.'/pub/media/catalog/product';
        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($rootPath, true));
 
         $totalCost=null;
@@ -402,6 +404,7 @@ class Hello implements HelloInterface
                         $res['url']=$url;
                         $res['image']=$rootPath.$image;
                         $res['productId']=$value['productId'];
+                        $res['price']=$v->getPrice();
                         $res['name']=$v->getName();
                         $res['type']=$value['type'];
                         $res['qty']=$value['qty'];
@@ -433,6 +436,7 @@ class Hello implements HelloInterface
                 $res['image']=$rootPath.$image;
                 $res['productId']=$value['productId'];
                 $res['type']=$value['type'];
+                $res['price']=$configProduct->getPrice();
                 $res['name']=$configProduct->getName();
                 $res['qty']=$value['qty'];
                 $res['address']=$value['address'];
