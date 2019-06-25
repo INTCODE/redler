@@ -55,36 +55,49 @@ class AddressesPost extends \Magento\Multishipping\Controller\Checkout
              $sql="SELECT *
              FROM blm_crontab b
              WHERE b.quoteId=$idQuote";
-
-              $sql2="SELECT *
-              FROM quote_item q
-              WHERE q.quote_id=$idQuote";
-
-              $re = $connection->fetchAll($sql2); 
-
+     
               $dbArray=array();
              $result = $connection->fetchAll($sql); 
              foreach ($result as $key => $value) {
-
+     
                  $productId=$value['productId'];
                  $address=$value['address'];
                  $qty=$value['qty'];
                  $type=$value['type'];
-
-                 
-
-                 foreach ($re as $key => $value) {
-                  if($value['parent_item_id']){
-                      $product = $objectManager->create('Magento\Catalog\Model\Product')->load($value['product_id']);
-                      $packageId=$product->getCustomAttribute('package_type')->getValue();
-                      if($packageId==$type){
-                          $product_ship=array('qty'=>$qty,'address'=>$address);
-                          $ship_elem = array($value['parent_item_id'] => $product_ship);
-                      
-                      }
+     
+                 file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========value=============\n".print_r($value, true));
+                 $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
+                 //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========value=============\n".print_r($product->debug(), true));
+     
+                 $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
+                 $_children = $configProduct->getTypeInstance()->getUsedProducts($configProduct);
+                 //$quoteID = $this->cart->getQuote()->getId();
+                 foreach ($_children as $child){
+                  $packageId=$child->getCustomAttribute('package_type')->getValue();
+                  if($packageId==$type){
+                      $children = $objectManager->create('Magento\Catalog\Model\Product')->load($child->getId());
+                      //$item= $items->getItemByProduct($children);
+                      // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($children->getId(), true));
+                       //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($quoteID, true));
+                      $childID=$children->getId();
+     
+                      $getItemID="SELECT *
+                      FROM quote_item
+                      WHERE quote_id=$idQuote AND product_id=$childID";
+                       $itemIDres = $connection->fetchAll($getItemID);
+                       $ItemID=$itemIDres[0]['parent_item_id'];
+     
+                       $product_ship=array('qty'=>$qty,'address'=>$address);
+                       $ship_elem = array($ItemID => $product_ship);
+                       file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($ItemID, true));
+     
                   }
                  }
-                 array_push($dbArray,$ship_elem);
+                 if(isset($ship_elem)){
+                  array_push($dbArray,$ship_elem);
+               
+     
+                 }
               }
 
                 file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============function=============\n".print_r($dbArray, true));
