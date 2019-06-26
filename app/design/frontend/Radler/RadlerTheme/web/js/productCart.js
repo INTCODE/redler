@@ -4,6 +4,7 @@ require(["jquery"], function ($) {
     $('.increaseQty, .decreaseQty').on("click", function () {
         if (!$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled") &&
             parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) > parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())) {
+                console.log($(this));
             switch ($(this).attr("data-action")) {
                 case "-":
                     if($(this).parent().find("[data-id=" + $(this).attr("data-target") + "]").val() > 0)
@@ -180,6 +181,9 @@ function updateQtyAllItems() {
                         var me = this;
                         $.each($("[data-id='product-qty-" + me.productId + "']"), function(){
                             if($(this).parents(".product-item-details").find(".swatch-option.selected").attr("option-id") == me.type){
+                                $(this).val(me.qty);
+                                $(this).attr("max", me.stock);
+                            }else if($(this).parents(".product-item-details").find(".swatch-option").length == 0){
                                 $(this).val(me.qty);
                                 $(this).attr("max", me.stock);
                             }
