@@ -249,8 +249,6 @@ function updateQtyAllItems() {
 function updateQtyItem(productId, type) {
     console.log("update qty item " + productId);
 
-    console.log(productId);
-    console.log(type);
     require(["jquery"], function ($) {
         if (productId && type && $("#addresses").length > 0) {
             $("[data-id='product-qty-" + productId + "']").attr("disabled", "true");
