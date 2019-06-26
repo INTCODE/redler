@@ -59,7 +59,6 @@ require(["jquery"], function ($) {
     $("#addresses").on("change", function () {
         updateQtyAllItems();
     });
-
     $(document).on("ready", function () {
         if ($("#addresses").length > 0) {
             var checkSwatch = setInterval(() => {
@@ -74,10 +73,7 @@ require(["jquery"], function ($) {
                 }
             }, 200);
             $("#minicart-content-wrapper").css("display", "block");
-
         }
-
-
     });
 
 });
@@ -431,7 +427,7 @@ function updateMultiShippingCart() {
 
 function getMultiShippingTemplate(item, selectAddresses) {
     item.price = parseFloat(item.price).toFixed(2);
-    return `<div class="basket-item" id="product_multishipping_${item.productId}" product_id="${item.productId}" addressId="${item.address}">
+    return `<div class="basket-item" id="product_multishipping_${item.productId}" product_id="${item.productId}">
 <div class="img" >
     <img style="max-width: 25%; max-height: 25%;" src="${item.image}" alt="">
 </div>
@@ -559,7 +555,7 @@ function getTypedMultiShipping(obj) {
 }
 
 function getAddressIdMultiShipping(obj) {
-    return jQuery(obj).parents(".basket-item").attr("addressId");
+    return jQuery(obj).parents(".basket-item").find(".field.address select").val();
 }
 
 function getQtyMultiShipping(obj) {
