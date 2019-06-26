@@ -134,9 +134,9 @@ function addToCartProduct(productId, type, qty) {
 }
 
 function updateQtySomeProduct(productId) {
-    console.log("update qty some item");
     require(["jquery"], function ($) {
         if ($("#addresses").length > 0 && $("#minicart-content-wrapper").attr("data-change") == "true") {
+            console.log("update qty some item");
             var pid = productId;
             var type = 0;
             if ($("[data-product-id=" + pid + "]").parent().find(".swatch-option[aria-checked='true']").length > 0) {
@@ -161,12 +161,11 @@ function updateQtyAllItems() {
 
             $("#addresses").attr("disabled", "true");
 
-            $("[data-product-id]").each(function () {
+            $(".product-item-details [data-product-id]").each(function () {
                 var pid = $(this).attr("data-product-id");
-                var addr = $("#addresses").val();
                 var type = 0;
 
-                $("[data-id='product-qty-" + pid + "']").attr("disabled", "true");
+                $(".product-item-details [data-id='product-qty-" + pid + "']").attr("disabled", "true");
 
                 if ($(this).parent().find(".swatch-option[aria-checked='true']").length > 0) {
                     type = $(this).parent().find(".swatch-option[aria-checked='true']").attr("option-id");
@@ -174,13 +173,25 @@ function updateQtyAllItems() {
                 updateProducts.quote[updateProducts.quote.length] = {
                     productid: pid,
                     type: type
-                };
-
+                }
             });
+            if($(".product-buy").length>0){
+                var pid = $(".product-buy form>input[name=item]").val();
+                var type = 0;
+
+                if($(".product-buy .swatch-option.selected").length>0){
+                    type = $(".product-buy .swatch-option.selected").attr("option-id");
+                }
+                updateProducts.quote[updateProducts.quote.length] = {
+                    productid: pid,
+                    type: type
+                }
+            }
 
             var j = JSON.stringify({
                 CartData: JSON.stringify(updateProducts)
             });
+
             $.ajax({
                 url: $("#homePath").text() + "/rest/V1/blmCart/getCartQty/",
                 data: j,
@@ -195,13 +206,20 @@ function updateQtyAllItems() {
                     console.log(json);
 
                     $(".inputProductQty").val(0);
-                    $.each(json, function () {
+                    $.each(json, function() {
                         var me = this;
-                        $.each($("[data-id='product-qty-" + me.productId + "']"), function(){
-                            if($(this).parents(".product-item-details").find(".swatch-option.selected").attr("option-id") == me.type){
+
+                        $("[data-id='product-qty-" + me.productId + "']").each(function(){
+
+                            var parent = ".product-item-details";
+                            if($(this).parents(parent).length <= 0){
+                                parent = ".product-buy";
+                            }
+
+                            if($(this).parents(parent).find(".swatch-option.selected").attr("option-id") == me.type){
                                 $(this).val(me.qty);
                                 $(this).attr("max", me.stock);
-                            }else if($(this).parents(".product-item-details").find(".swatch-option").length == 0){
+                            }else if($(this).parents(parent).find(".swatch-option").length == 0){
                                 $(this).val(me.qty);
                                 $(this).attr("max", me.stock);
                             }
@@ -251,10 +269,17 @@ function updateQtyItem(productId, type) {
                     var json = JSON.parse(res);
                     console.info(json);
                     $.each($("[data-id='product-qty-" + json.productId + "']"), function(){
-                        if($(this).parents(".product-item-details").find(".swatch-option.selected").attr("option-id") == json.type){
+
+                        var parent = ".product-item-details";
+                        if($(this).parents(parent).length <= 0){
+                            parent = ".product-buy";
+                        }
+
+                        if($(this).parents(parent).find(".swatch-option.selected").attr("option-id") == json.type){
                             $(this).val(json.qty);
                             $(this).attr("max", json.stock);
                         }
+                        
                         $(this).removeAttr("disabled");
                     });
 
