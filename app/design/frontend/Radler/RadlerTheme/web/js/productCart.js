@@ -6,11 +6,11 @@ require(["jquery"], function ($) {
             parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) > parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())) {
             switch ($(this).attr("data-action")) {
                 case "-":
-                    if ($("[data-id=" + $(this).attr("data-target") + "]").val() > 0)
-                        $("[data-id=" + $(this).attr("data-target") + "]").val(parseInt($("[data-id=" + $(this).attr("data-target") + "]").val()) - 1);
+                    if($(this).parent().find("[data-id=" + $(this).attr("data-target") + "]").val() > 0)
+                        $(this).parent().find("[data-id=" + $(this).attr("data-target") + "]").val(parseInt($(this).parent().find("[data-id=" + $(this).attr("data-target") + "]").val())-1);
                     break;
                 case "+":
-                    $("[data-id=" + $(this).attr("data-target") + "]").val(parseInt($("[data-id=" + $(this).attr("data-target")).val() + "]") + 1);
+                    $(this).parent().find("[data-id=" + $(this).attr("data-target") + "]").val(parseInt($(this).parent().find("[data-id=" + $(this).attr("data-target") + "]").val())+1);
                     break;
             }
             // data changed
