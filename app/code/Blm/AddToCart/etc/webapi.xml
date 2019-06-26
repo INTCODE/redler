@@ -34,6 +34,12 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+                <route url="/V1/blmCart/editCart/" method="POST">
+        <service class="Blm\AddToCart\Api\HelloInterface" method="editCart"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
 
 
 </routes>
