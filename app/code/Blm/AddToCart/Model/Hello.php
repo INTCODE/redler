@@ -140,9 +140,10 @@ class Hello implements HelloInterface
      * @param int $type The array of numbers to sum.
      * @param int $addressId The array of numbers to sum.
      * @param int $qty The array of numbers to sum.
+     * @param string $flag The array of numbers to sum.
      * @return string The sum of the numbers.
      */
-     public function editCart($quoteId,$productId,$type,$addressId,$qty){
+     public function editCart($quoteId,$productId,$type,$addressId,$qty,$flag){
 
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
@@ -153,11 +154,167 @@ class Hello implements HelloInterface
         $quoteFactory = $objectManager->create('\Magento\Quote\Model\QuoteFactory');
         $quote = $quoteFactory->create()->load($quoteId);
 
+
+
+  
+
+        switch ($flag) 
+            {
+            case 'addressId':
+
+
+            
         $sql="SELECT *
         FROM blm_crontab b
-        WHERE b.productId= $productId AND b.address=$addressId AND b.`type`=$type AND b.quoteId=$quoteId";
+        WHERE b.productId= $productId AND b.quoteId=$quoteId AND b.`type`=$type";
+        
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========UPDATE=============\n".print_r($sql, true));
 
-        return 'xd';
+
+        $result = $connection->fetchAll($sql);
+
+        if(!$result){
+            return 'not found';
+        }
+
+            $sql="UPDATE blm_crontab
+            SET
+                address='$addressId'
+            WHERE quoteId=$quoteId AND productId=$productId AND `type`=$type ";
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========UPDATE=============\n".print_r($sql, true));
+
+
+            if($connection->query($sql)){
+                return 'updated product address';
+            }else{
+                return 'error';
+            }
+
+            break;
+
+
+
+
+            case 'qty':
+         
+            $sql="SELECT *
+            FROM blm_crontab b
+            WHERE b.productId= $productId AND b.address=$addressId AND b.`type`=$type AND b.quoteId=$quoteId";
+
+            $result = $connection->fetchAll($sql);
+
+            if(!$result){
+                return 'not found';
+            }
+
+            if($qty==0){
+                $sql="DELETE FROM blm_crontab WHERE quoteId=$quoteId AND productId=$productId AND `type`=$type AND address=$addressId ";
+                if($connection->query($sql)){
+                    return 'updated product qty';
+                }else{
+                    return 'error';
+                }
+            }
+
+            $sql="UPDATE blm_crontab
+            SET
+                qty='$qty'
+                WHERE quoteId=$quoteId AND productId=$productId AND `type`=$type AND address=$addressId ";
+
+                if($connection->query($sql)){
+                    return 'updated product qty';
+                }else{
+                    return 'error';
+                }
+            
+
+            break;
+
+            case 'type':
+            
+            if($type==21){
+                $currType=22;
+            }else{
+                $currType=21;
+            }
+            $sql="SELECT *
+            FROM blm_crontab b
+            WHERE b.productId= $productId AND b.address=$addressId AND b.`type`=$currType AND b.quoteId=$quoteId";
+            
+            $result = $connection->fetchAll($sql);
+
+            
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========UPDATE=============\n".print_r($result, true));
+            
+            if(!$result){
+                return 'not found';
+            }
+            $sql="SELECT *
+            FROM blm_crontab b
+            WHERE b.productId= $productId AND b.address=$addressId AND b.`type`=$type AND b.quoteId=$quoteId";
+
+
+            $result = $connection->fetchAll($sql);
+
+            if(!$result){
+                $sql="UPDATE blm_crontab
+                SET
+                    `type`='$type'
+                    WHERE quoteId=$quoteId AND productId=$productId AND `type`=$currType AND address=$addressId";    
+
+
+                
+            }else{
+               // $qtyCurr=$result[0]['qty'];
+                $finalQty=$result[0]['qty']+$qty;
+                $del="DELETE FROM blm_crontab WHERE productId= $productId AND address=$addressId AND `type`=$currType AND quoteId=$quoteId";  
+                $connection->query($del);
+
+                $sql="UPDATE blm_crontab
+                SET
+                    qty='$finalQty'
+                    WHERE productId= $productId AND address=$addressId AND`type`=$type AND quoteId=$quoteId";
+                    
+                    
+
+
+            }
+
+
+            if($connection->query($sql)){
+                return 'updated product type';
+            }else{
+                return 'error';
+            }
+
+            // $sql="UPDATE blm_crontab
+            // SET
+            //     `type`='$type'
+            //     WHERE quoteId=$quoteId AND productId=$productId AND `type`=$type AND address=$addressId";
+
+
+            //     if($connection->query($sql)){
+            //         return 'updated product qty';
+            //     }else{
+            //         return 'error';
+            //     }
+   
+            break;
+
+            default:
+            return 'error';
+            break;
+            }
+
+
+
+
+
+        //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($result, true));
+
+
+        return 'error';
+
      }
 
 
