@@ -373,7 +373,7 @@ class Hello implements HelloInterface
             $arr = array("qty" => $result[0]['qty'], "productId" => $productId,"stock"=>$stock,'type'=>$result[0]['type']);
             return json_encode($arr);
         }else{
-            return json_encode(array("qty" => 0, "productId" => $productId));
+            return json_encode(array("qty" => 0, "productId" => $productId, "stock"=>$stock,'type'=>$type));
         }
 
         //return $productId.",".$quoteId.",".$type;

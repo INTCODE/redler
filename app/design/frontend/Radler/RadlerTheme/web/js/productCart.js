@@ -4,16 +4,34 @@ require(["jquery"], function ($) {
     $('.increaseQty, .decreaseQty').on("click", function () {
         if (!$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled") &&
             parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) > parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())) {
-                console.log($(this));
-            switch ($(this).attr("data-action")) {
-                case "-":
-                    if($(this).parent().find("[data-id=" + $(this).attr("data-target") + "]").val() > 0)
-                        $(this).parent().find("[data-id=" + $(this).attr("data-target") + "]").val(parseInt($(this).parent().find("[data-id=" + $(this).attr("data-target") + "]").val())-1);
-                    break;
-                case "+":
-                    $(this).parent().find("[data-id=" + $(this).attr("data-target") + "]").val(parseInt($(this).parent().find("[data-id=" + $(this).attr("data-target") + "]").val())+1);
-                    break;
+            
+            var selectedOption = 0;
+            if($("[data-id=" + $(this).attr("data-target") + "]").parents(".product-item-details").find(".swatch-option.selected").length > 0){
+                selectedOption = $(this).parent().find("[data-id=" + $(this).attr("data-target") + "]").parents(".product-item-details").find(".swatch-option.selected").attr("option-id");
             }
+
+            var me = this;
+            var val = parseInt($(this).parent().find("[data-id=" + $(this).attr("data-target") + "]").val());
+
+            switch ($(me).attr("data-action")) {
+                case "-":
+                    if($(me).parent().find("[data-id=" + $(me).attr("data-target") + "]").val() > 0) val--;
+                break;
+                case "+":
+                    val++;
+                break;
+            }
+            
+            $("[data-id=" + $(me).attr("data-target") + "]").each(function(){
+                if($(this).parents(".product-item-details").find(".swatch-option.selected").length > 0){
+                    if($(this).parents(".product-item-details").find(".swatch-option.selected").attr("option-id") == selectedOption){
+                        $(this).val(val);
+                    }
+                }else{
+                    $(this).val(val);
+                }
+            });
+
             // data changed
             $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
         }
@@ -108,7 +126,7 @@ function addToCartProduct(productId, type, qty) {
                 /** @inheritdoc */
                 error: function (res) {
                     console.error("error add - productCart.js");
-                    //console.log(res);
+                    console.log(res);
                 }
             });
         }
@@ -294,7 +312,8 @@ function updateProductCart() {
                 /** @inheritdoc */
                 error: function (res) {
                     $("#minicart-content-wrapper").css("display", "block");
-                    console.info("error add - productCart.js");
+                    console.error("error add - productCart.js");
+                    console.log(res);
                 }
             });
         }
@@ -432,7 +451,8 @@ function updateMultiShippingCart() {
             /** @inheritdoc */
             error: function (res) {
 
-                console.info("error add - multishipping.js");
+                console.error("error add - multishipping.js");
+                console.log(res);
             }
         });
     });
