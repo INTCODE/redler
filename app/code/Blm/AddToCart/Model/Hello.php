@@ -160,10 +160,11 @@ class Hello implements HelloInterface
 
         switch ($flag) 
             {
-            case 'addressId':
 
 
-            
+
+            case 'address':
+
         $sql="SELECT *
         FROM blm_crontab b
         WHERE b.productId= $productId AND b.quoteId=$quoteId AND b.`type`=$type";
