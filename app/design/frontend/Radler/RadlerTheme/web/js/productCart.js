@@ -162,12 +162,11 @@ function updateQtyAllItems() {
             }
 
             $("#addresses").attr("disabled", "true");
+            $(".inputProductQty").attr("disabled", "true");
 
             $(".product-item-details [data-product-id]").each(function () {
                 var pid = $(this).attr("data-product-id");
                 var type = 0;
-
-                $(".product-item-details [data-id='product-qty-" + pid + "']").attr("disabled", "true");
 
                 if ($(this).parent().find(".swatch-option[aria-checked='true']").length > 0) {
                     type = $(this).parent().find(".swatch-option[aria-checked='true']").attr("option-id");
