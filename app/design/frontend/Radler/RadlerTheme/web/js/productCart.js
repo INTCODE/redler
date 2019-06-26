@@ -451,7 +451,7 @@ function getMultiShippingTemplate(item, selectAddresses) {
 </div>
 <div class="quantity">
     <div class="custom-input-number">
-        <input type="number" value="${item.qty}">
+        <input type="number" max="${item.stock}" value="${item.qty}">
         <span class="increment">+</span>
         <span class="decrement">-</span>
     </div>
@@ -472,12 +472,12 @@ function getMultiShippingSummary(total) {
 <div class="borders">
 <p>
     <span>Subtotal</span>
-    <span>£${total.totalCost}</span>
+    <span>£${total.totalCost==null?0:total.totalCost}</span>
 </p>
 </div>
     <p class="total">
         <span>Order Total</span>
-        <span>£${total.totalCost}</span>
+        <span>£${total.totalCost ==null?0: total.totalCost}</span>
     </p>
 <button class="btn btn-green" type="submit">
     Proceed to checkout
@@ -528,13 +528,34 @@ function addListenerUpdateMultiShippingCart() {
     jQuery("#checkout_multishipping_form .quantity .increment").click((e) => {
         console.log("Zwiększam");
         multiShippingAddItem(e.target, 1);
-        getValuesMultiShipping(e.target, 2);
+        var avaValue= parseInt(jQuery(e.target).parent().find("input").attr("max"));
+        var currValue = parseInt(jQuery(e.target).parent().find("input").val());
+        if(currValue<=avaValue)
+            getValuesMultiShipping(e.target, 2);
     });
     jQuery("#checkout_multishipping_form .quantity .decrement").click((e) => {
         console.log("Zmniejszam");
-        multiShippingAddItem(e.target, 2)
-        getValuesMultiShipping(e.target, 2);
+        
+        multiShippingAddItem(e.target, 2);
+        var avaValue= parseInt(jQuery(e.target).parent().find("input").attr("max"));
+        var currValue = parseInt(jQuery(e.target).parent().find("input").val());
+        console.log(avaValue);
+        console.log(currValue);
+        if(currValue<=avaValue)
+            getValuesMultiShipping(e.target, 2);
     });
+
+    jQuery("#checkout_multishipping_form .custom-input-number input").change((e) => {
+        console.log("Zmieniam ilość");
+        console.log(e.target);
+        console.log(jQuery(e.target).attr("max"))
+
+        var avaValue= parseInt(jQuery(e.target).attr("max"));
+        var currValue = parseInt(jQuery(e.target).val());
+        if(currValue<=avaValue)
+            getValuesMultiShipping(e.target, 2);
+    });
+    
 
 }
 
