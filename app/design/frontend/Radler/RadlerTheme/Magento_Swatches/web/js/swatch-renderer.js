@@ -965,13 +965,13 @@ define([
 
             result = $widget.options.jsonConfig.optionPrices[_.findKey($widget.options.jsonConfig.index, options)];
 
-            if($(".product-buy").length>0){
+            /*if($(".product-buy").length>0){         PRODUCT PAGE  -  UPDATE PRICE & QTY
                 $(".product-buy [data-price-type='finalPrice']>span").text("£"+result.finalPrice.amount.toFixed(2));
 
                 var pid = $(".product-buy input[name=item]").attr("value");
                 updateQtyItem(pid, $(".product-buy .swatch-attribute-options>div.selected").attr("option-id"));
                
-            }
+            }*/
 
             $productPrice.trigger(
                 'updatePrice',

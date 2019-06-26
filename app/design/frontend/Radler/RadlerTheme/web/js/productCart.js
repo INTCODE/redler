@@ -141,6 +141,8 @@ function updateQtySomeProduct(productId) {
             var type = 0;
             if ($("[data-product-id=" + pid + "]").parent().find(".swatch-option[aria-checked='true']").length > 0) {
                 type = $("[data-product-id=" + pid + "]").parent().find(".swatch-option[aria-checked='true']").attr("option-id");
+            }else if($("[data-product-id=" + pid + "]").parents(".product-buy").find(".swatch-option.selected").length > 0){
+                type = $("[data-product-id=" + pid + "]").parents(".product-buy").find(".swatch-option.selected").attr("option-id");
             }
             updateQtyItem(pid, type);
         }
@@ -173,7 +175,7 @@ function updateQtyAllItems() {
                 updateProducts.quote[updateProducts.quote.length] = {
                     productid: pid,
                     type: type
-                }
+                };
             });
             if($(".product-buy").length>0){
                 var pid = $(".product-buy form>input[name=item]").val();
@@ -185,8 +187,10 @@ function updateQtyAllItems() {
                 updateProducts.quote[updateProducts.quote.length] = {
                     productid: pid,
                     type: type
-                }
+                };
             }
+
+            console.warn(updateProducts);
 
             var j = JSON.stringify({
                 CartData: JSON.stringify(updateProducts)
@@ -203,7 +207,7 @@ function updateQtyAllItems() {
                 /** @inheritdoc */
                 success: function (res) {
                     var json = JSON.parse(res);
-                    console.log(json);
+                    console.info(json);
 
                     $(".inputProductQty").val(0);
                     $.each(json, function() {
@@ -228,7 +232,7 @@ function updateQtyAllItems() {
                     });
                     $(".inputProductQty").removeAttr("disabled");
                     $("#addresses").removeAttr("disabled");
-                    console.log("updated all products");
+                    console.info("updated all products");
                 },
 
                 /** @inheritdoc */
@@ -245,6 +249,8 @@ function updateQtyAllItems() {
 function updateQtyItem(productId, type) {
     console.log("update qty item " + productId);
 
+    console.log(productId);
+    console.log(type);
     require(["jquery"], function ($) {
         if (productId && type && $("#addresses").length > 0) {
             $("[data-id='product-qty-" + productId + "']").attr("disabled", "true");

@@ -129,7 +129,7 @@ define([
                     var stock = $inputObject.attr("max");
                     if(parseInt(qty)<=parseInt(stock)){
                         addToCartProduct(event.currentTarget.dataset.cartItem, type, qty);
-                        updateQtySomeProduct(event.currentTarget.dataset.cartItem);
+                        updateQtySomeProduct(event.currentTarget.dataset.cartItem, type);
                     }
                 //self._updateItemQty($(event.currentTarget));
             };

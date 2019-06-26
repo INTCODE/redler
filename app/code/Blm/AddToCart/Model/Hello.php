@@ -789,7 +789,7 @@ class Hello implements HelloInterface
                         if($value['productId']==$output[$i]['productId']){
                             if($value['type']==$output[$i]['type']){
                                 //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============toDelete=============\n".print_r($output[$i], true));
-                                unset($output[$i]);
+                                if(sizeof($output) > 1) unset($output[$i]);
                                 break;
                             }
                         }
