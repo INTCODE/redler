@@ -56,7 +56,43 @@ class Success extends Action
 
         $this->_view->loadLayout();
         $ids = $this->multishipping->getOrderIds();
+
+
+        
+
+
         $this->_eventManager->dispatch('multishipping_checkout_controller_success_action', ['order_ids' => $ids]);
+
+
+                //dodawanie koszyka//
+                $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+                $cartManagementInterface=$objectManager->create('Magento\Quote\Api\CartManagementInterface');
+                $cartRepositoryInterface=$objectManager->create('Magento\Quote\Api\CartRepositoryInterface');
+        
+                $customerSession = $objectManager->get('Magento\Customer\Model\Session');
+        
+                $cartId = $cartManagementInterface->createEmptyCart();
+        
+                $quote = $cartRepositoryInterface->get($cartId);
+        
+           
+        
+                $customerRepository = $objectManager->create('Magento\Customer\Api\CustomerRepositoryInterface');
+        
+                $customer= $customerRepository->getById($customerSession->getCustomerId());
+        
+                $quote->setCurrency();
+                $quote->assignCustomer($customer);
+                $quote->save();
+                //$session->setQuote($quote);
+        
+                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============addressQty=============\n".print_r('poszło', true));
+        
+        
+                //dodawanie koszyka//
+
+
         $this->_view->renderLayout();
     }
 }

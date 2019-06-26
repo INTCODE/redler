@@ -53,6 +53,9 @@ class Index extends \Magento\Checkout\Controller\Cart implements HttpGetActionIn
      */
     public function execute()
     {
+
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r('xd', true));
+
         $resultPage = $this->resultPageFactory->create();
         $resultPage->getConfig()->getTitle()->set(__('Shopping Cart'));
         return $resultPage;

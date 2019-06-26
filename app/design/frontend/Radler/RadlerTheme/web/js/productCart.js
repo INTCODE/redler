@@ -376,9 +376,7 @@ function addRemoveListener() {
         var id = $input.attr("product-id");
         jQuery("#minicart-content-wrapper").attr("data-change", "true");
         addToCartProduct(id, type, 0);
-
     })
-
 }
 
 function addListenerPlusMinusProduct() {
@@ -389,6 +387,121 @@ function addListenerPlusMinusProduct() {
 }
 
 //multishipping
+function updateMultiShippingCart() {
+    require(["jquery"], function ($) {
+        var j = {
+            quoteId: parseInt($("#quoteId").text()),
+        };
+        j = JSON.stringify(j);
+        $.ajax({
+            url: $("#homePath").text() + "/rest/V1/blmCart/getCart/",
+            data: j,
+            type: 'POST',
+            dataType: 'json',
+            cache: false,
+            contentType: 'application/json',
+            processData: false,
+            /** @inheritdoc */
+            success: function (res) {
+                $("#container-items").html('');
+                $("#multiShippingSummary").html('');
+                console.log(JSON.parse(res));
+                var itemsOutput = JSON.parse(res);
+                var output = "";
+
+                $.each(itemsOutput.data, (index, item) => {
+                    var selectAddresses = multiShippingCreateSelect(itemsOutput.addresses, item.address);
+                    output += getMultiShippingTemplate(item, selectAddresses);
+                });
+
+                $("#container-items").append(output);
+                $("#multiShippingSummary").append(getMultiShippingSummary(itemsOutput.TotalData));
+                addListenerUpdateMultiShippingCart();
+            },
+
+            /** @inheritdoc */
+            error: function (res) {
+
+                console.info("error add - multishipping.js");
+            }
+        });
+    });
+}
+
+
+function getMultiShippingTemplate(item, selectAddresses) {
+    item.price = parseFloat(item.price).toFixed(2);
+    return `<div class="basket-item" id="product_multishipping_${item.productId}" product_id="${item.productId}" addressId="${item.address}">
+<div class="img" >
+    <img style="max-width: 25%; max-height: 25%;" src="${item.image}" alt="">
+</div>
+<div class="text">
+    <p class="name">${item.name}</p>
+</div>
+<div class="price">
+    £${item.price}
+    <div class="switch">
+        <input type="checkbox" ${item.type == 21 ? ' checked="checked"' : ' ""'}>
+        <span class="switch-body"></span>
+        <span class="icons">
+            <span class="left">
+                <img src="./assets/img/icons/view_1.png" alt="">
+            </span>
+            <span class="right">
+                <img src="./assets/img/icons/view_2.png" alt="">
+            </span>
+        </span>
+    </div>
+</div>
+<div class="quantity">
+    <div class="custom-input-number">
+        <input type="number" value="${item.qty}">
+        <span class="increment">+</span>
+        <span class="decrement">-</span>
+    </div>
+</div>
+<div>
+    <div class="field address">
+        <div class="control">
+        ${selectAddresses}
+        </div>
+    </div>
+</div>
+<div class="subtotal">£${item.price * parseFloat(item.qty)}</div>
+<span class="btn-remove"></span>
+</div>`;
+}
+function getMultiShippingSummary(total) {
+    var output = `<p class="heading">Summary</p>
+<div class="borders">
+<p>
+    <span>Subtotal</span>
+    <span>£${total.totalCost}</span>
+</p>
+</div>
+    <p class="total">
+        <span>Order Total</span>
+        <span>£${total.totalCost}</span>
+    </p>
+<button class="btn btn-green" type="submit">
+    Proceed to checkout
+</button>`;
+    return output;
+
+}
+
+function multiShippingCreateSelect(addresses, toSelect) {
+    var output = '<select title="">';
+    jQuery.each(addresses, (index, item) => {
+        output += `<option ${toSelect == item.entity_id ? selected = "selected" : ""} value="${item.entity_id}">${item.city}, ${item.company}, ${item.firstname} ${item.lastname} ,${item.postcode}, ${item.country_id}</option>`;
+    });
+
+    output += "</select>";
+
+    return output;
+}
+
+
 function multiShippingAddItem(obj, mode) {//mode=1- add, mode=2- remove
     var $input = jQuery(obj).parent().find("input");
     var value = $input.val();
@@ -398,3 +511,108 @@ function multiShippingAddItem(obj, mode) {//mode=1- add, mode=2- remove
 
 };
 
+
+function addListenerUpdateMultiShippingCart() {
+    jQuery("#checkout_multishipping_form .basket-list .switch input").change((e) => {
+        console.log("Zmieniam typ");
+        getValuesMultiShipping(e.target, 1);
+
+    });
+    jQuery("#checkout_multishipping_form .basket-list .btn-remove").click((e) => {
+        console.log("usuwam");
+        var productId = getProductIdMultiShipping(e.target);
+        var type = getTypedMultiShipping(e.target);
+        var addressId = getAddressIdMultiShipping(e.target);
+        ajaxUpdateShippingCart(2, productId, type, addressId, 0);
+    })
+    jQuery("#checkout_multishipping_form .field.address select").change((e) => {
+        console.log("Zmieniam adres");
+        getValuesMultiShipping(e.target, 3);
+    });
+    jQuery("#checkout_multishipping_form .quantity .increment").click((e) => {
+        console.log("Zwiększam");
+        multiShippingAddItem(e.target, 1);
+        getValuesMultiShipping(e.target, 2);
+    });
+    jQuery("#checkout_multishipping_form .quantity .decrement").click((e) => {
+        console.log("Zmniejszam");
+        multiShippingAddItem(e.target, 2)
+        getValuesMultiShipping(e.target, 2);
+    });
+
+}
+
+function getValuesMultiShipping(target, mode) {//1- change type, 2- change qty, 3- change adres
+    var productId = getProductIdMultiShipping(target);
+    var type = getTypedMultiShipping(target);
+    var qty = getQtyMultiShipping(target);
+    var addressId = getAddressIdMultiShipping(target);
+    ajaxUpdateShippingCart(mode, productId, type, addressId, qty);
+}
+
+function getProductIdMultiShipping(obj) {
+    return jQuery(obj).parents(".basket-item").attr("product_id");
+}
+
+function getTypedMultiShipping(obj) {
+    return jQuery(obj).parents(".basket-item").find(".price input").prop("checked");
+}
+
+function getAddressIdMultiShipping(obj) {
+    return jQuery(obj).parents(".basket-item").attr("addressId");
+}
+
+function getQtyMultiShipping(obj) {
+    return jQuery(obj).parents(".basket-item").find(".quantity input").val();
+}
+
+
+function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- change type, 2- change qty, 3- change adres
+    var arrayMode = [
+        {
+            mode: 1,
+            value: "type"
+        },
+        {
+            mode: 2,
+            value: "qty"
+        },
+        {
+            mode: 3,
+            value: "address"
+        },
+    ];
+
+
+    var j = {
+        quoteId: parseInt(jQuery("#quoteId").text()),
+        productId: productId,
+        type: type ? "21" : "22",
+        addressId: addressId,
+        qty: qty,
+        flag: arrayMode.filter(f => f.mode == mode)[0].value
+    };
+
+    j = JSON.stringify(j);
+    console.log(j);
+    jQuery.ajax({
+        url: jQuery("#homePath").text() + "/rest/V1/blmCart/editCart/",
+        data: j,
+        type: 'POST',
+        dataType: 'json',
+        cache: false,
+        contentType: 'application/json',
+        processData: false,
+        /** @inheritdoc */
+        success: function (res) {
+            updateMultiShippingCart();
+        },
+
+        /** @inheritdoc */
+        error: function (res) {
+
+            console.info("error update - updateMultiShipping.js");
+        }
+    });
+
+}
