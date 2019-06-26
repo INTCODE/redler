@@ -20,6 +20,8 @@ class Index extends \Magento\Checkout\Controller\Onepage implements HttpGetActio
      */
     public function execute()
     {
+        return $this->resultRedirectFactory->create()->setPath('multishipping/checkout/addresses');
+       
         /** @var \Magento\Checkout\Helper\Data $checkoutHelper */
         $checkoutHelper = $this->_objectManager->get(\Magento\Checkout\Helper\Data::class);
         if (!$checkoutHelper->canOnepageCheckout()) {
