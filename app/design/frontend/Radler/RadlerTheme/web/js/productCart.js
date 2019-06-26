@@ -181,9 +181,14 @@ function updateQtyAllItems() {
 
                     $(".inputProductQty").val(0);
                     $.each(json, function () {
-                        $("[data-id='product-qty-" + this.productId + "']").val(this.qty);
-                        $("[data-id='product-qty-" + this.productId + "']").attr("max", this.stock);
-                        $("[data-id='product-qty-" + this.productId + "']").removeAttr("disabled");
+                        var me = this;
+                        $.each($("[data-id='product-qty-" + me.productId + "']"), function(){
+                            if($(this).parents(".product-item-details").find(".swatch-option.selected").attr("option-id") == me.type){
+                                $(this).val(me.qty);
+                                $(this).attr("max", me.stock);
+                            }
+                            $(this).removeAttr("disabled");
+                        });
                     });
                     $(".inputProductQty").removeAttr("disabled");
                     $("#addresses").removeAttr("disabled");
@@ -227,9 +232,14 @@ function updateQtyItem(productId, type) {
                 success: function (res) {
                     var json = JSON.parse(res);
                     console.info(json);
-                    $("[data-id='product-qty-" + json.productId + "']").val(json.qty);
-                    $("[data-id='product-qty-" + json.productId + "']").attr("max", json.stock);
-                    $("[data-id='product-qty-" + json.productId + "']").removeAttr("disabled");
+                    $.each($("[data-id='product-qty-" + json.productId + "']"), function(){
+                        if($(this).parents(".product-item-details").find(".swatch-option.selected").attr("option-id") == json.type){
+                            $(this).val(json.qty);
+                            $(this).attr("max", json.stock);
+                        }
+                        $(this).removeAttr("disabled");
+                    });
+
                 },
 
                 /** @inheritdoc */
