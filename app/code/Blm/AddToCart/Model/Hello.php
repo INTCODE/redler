@@ -129,6 +129,39 @@ class Hello implements HelloInterface
 
      }
 
+
+                                /**
+     * Sum an array of numbers.
+     *
+     * @api
+
+     * @param int $quoteId The array of numbers to sum.
+     * @param int $productId The array of numbers to sum.
+     * @param int $type The array of numbers to sum.
+     * @param int $addressId The array of numbers to sum.
+     * @param int $qty The array of numbers to sum.
+     * @return string The sum of the numbers.
+     */
+     public function editCart($quoteId,$productId,$type,$addressId,$qty){
+
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+        $connection = $resource->getConnection();
+
+        $product = $objectManager->get('Magento\Catalog\Model\Product')->load($productId);
+
+        $quoteFactory = $objectManager->create('\Magento\Quote\Model\QuoteFactory');
+        $quote = $quoteFactory->create()->load($quoteId);
+
+        $sql="SELECT *
+        FROM blm_crontab b
+        WHERE b.productId= $productId AND b.address=$addressId AND b.`type`=$type AND b.quoteId=$quoteId";
+
+        return 'xd';
+     }
+
+
+
             /**
      * Sum an array of numbers.
      *
@@ -167,7 +200,7 @@ class Hello implements HelloInterface
                 }
             }
 
-            $sql="SELECT b.qty
+            $sql="SELECT b.qty,b.type
             FROM blm_crontab b
             WHERE b.productId=$productId AND b.address=$addressId AND b.`type`=$type AND b.quoteId=$quoteId";
         }
@@ -179,7 +212,7 @@ class Hello implements HelloInterface
 
 
         if(isset($result[0])){
-            $arr = array("qty" => $result[0]['qty'], "productId" => $productId,"stock"=>$stock);
+            $arr = array("qty" => $result[0]['qty'], "productId" => $productId,"stock"=>$stock,'type'=>$result[0]['type']);
             return json_encode($arr);
         }else{
             return json_encode(array("qty" => 0, "productId" => $productId));
@@ -347,6 +380,7 @@ class Hello implements HelloInterface
 
 
      }
+
 
 
                                 /**
