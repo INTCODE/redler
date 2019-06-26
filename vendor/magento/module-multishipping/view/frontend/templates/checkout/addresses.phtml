@@ -13,8 +13,16 @@
  *
  * @var $block \Magento\Multishipping\Block\Checkout\Addresses
  */
-?>
 
+ 
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$cart = $objectManager->get('\Magento\Checkout\Model\Cart');
+$idQuote=$cart->getQuote()->getId();
+
+echo "<div id='quoteId' style='display: none'>$idQuote</div>";
+
+echo "<div id='homePath' style='display: none'>".$this->getBaseUrl()."</div>";
+?>
 <div class="wrapper">
     <a class="return-arrow" href="#"></a>
     <p class="heading">Shopping Cart</p>
@@ -55,11 +63,11 @@ require(['jquery'], function ($) {
         function updateMultiShippingCart() {
             require(["jquery"], function ($) {
                 var j = {
-                    quoteId: 40,
+                    quoteId: parseInt($("#quoteId").text()),
                 };
                 j = JSON.stringify(j);
                 $.ajax({
-                    url: "http://localhost/projekty/blm/redler//rest/V1/blmCart/getCart/",
+                    url: $("#homePath").text() + "/rest/V1/blmCart/getCart/",
                     data: j,
                     type: 'POST',
                     dataType: 'json',
@@ -73,8 +81,9 @@ require(['jquery'], function ($) {
                         console.log(JSON.parse(res));
                         var itemsOutput = JSON.parse(res);
                         var output = "";
-                        var selectAddresses = multiShippingCreateSelect(itemsOutput.addresses);
+                        
                         $.each(itemsOutput.data, (index, item) => {
+                            var selectAddresses = multiShippingCreateSelect(itemsOutput.addresses,item.address);
                             output += getMultiShippingTemplate(item,selectAddresses);
                         });
 
@@ -153,19 +162,10 @@ require(['jquery'], function ($) {
 
         }
 
-
-        function multiShippingAddItem(obj, mode) {//mode=1- add, mode=2- remove
-            var $input = jQuery(obj).parent().find("input");
-            var value = $input.val();
-            var outputValue = parseInt(value);
-            (mode == 1) ? outputValue++ : outputValue--;
-            $input.val(outputValue < 0 ? 0 : outputValue);
-
-        }
-       function multiShippingCreateSelect(addresses){
-        var output='<select id="ship_0_1070_address" class="" title="">';
+       function multiShippingCreateSelect(addresses,toSelect){
+        var output='<select title="">';
             $.each(addresses, (index, item) => {
-                output +=`<option value="${item.entity_id}">${item.city}, ${item.company}, ${item.firstname} ${item.lastname} ,${item.postcode}, ${item.country_id}</option>`;
+                output +=`<option ${toSelect==item.entity_id?selected="selected":""} value="${item.entity_id}">${item.city}, ${item.company}, ${item.firstname} ${item.lastname} ,${item.postcode}, ${item.country_id}</option>`;
             });
                
         output+="</select>";

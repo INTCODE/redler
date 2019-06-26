@@ -388,6 +388,13 @@ function addListenerPlusMinusProduct() {
     })
 }
 
+//multishipping
+function multiShippingAddItem(obj, mode) {//mode=1- add, mode=2- remove
+    var $input = jQuery(obj).parent().find("input");
+    var value = $input.val();
+    var outputValue = parseInt(value);
+    (mode == 1) ? outputValue++ : outputValue--;
+    $input.val(outputValue < 0 ? 0 : outputValue);
 
-
+};
 
