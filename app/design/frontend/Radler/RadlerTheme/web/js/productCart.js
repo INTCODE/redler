@@ -121,6 +121,7 @@ function addToCartProduct(productId, type, qty) {
                 /** @inheritdoc */
                 success: function (res) {
                     updateProductCart();
+                    updateQtyItem(productId, type);
                     //console.log(res);
                 },
 
