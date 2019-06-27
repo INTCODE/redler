@@ -572,46 +572,34 @@ function multiShippingAddItem(obj, mode) {//mode=1- add, mode=2- remove
 
 function addListenerUpdateMultiShippingCart() {
     jQuery("#checkout_multishipping_form .basket-list .switch input").change((e) => {
-        console.log("Zmieniam typ");
         getValuesMultiShipping(e.target, 1);
 
     });
     jQuery("#checkout_multishipping_form .basket-list .btn-remove").click((e) => {
-        console.log("usuwam");
         var productId = getProductIdMultiShipping(e.target);
         var type = getTypedMultiShipping(e.target);
         var addressId = getAddressIdMultiShipping(e.target);
         ajaxUpdateShippingCart(2, productId, type, addressId, 0);
     })
     jQuery("#checkout_multishipping_form .field.address select").change((e) => {
-        console.log("Zmieniam adres");
         getValuesMultiShipping(e.target, 3);
     });
     jQuery("#checkout_multishipping_form .quantity .increment").click((e) => {
-        console.log("Zwiększam");
         multiShippingAddItem(e.target, 1);
         var avaValue= parseInt(jQuery(e.target).parent().find("input").attr("max"));
         var currValue = parseInt(jQuery(e.target).parent().find("input").val());
         if(currValue<=avaValue)
             getValuesMultiShipping(e.target, 2);
     });
-    jQuery("#checkout_multishipping_form .quantity .decrement").click((e) => {
-        console.log("Zmniejszam");
-        
+    jQuery("#checkout_multishipping_form .quantity .decrement").click((e) => {    
         multiShippingAddItem(e.target, 2);
         var avaValue= parseInt(jQuery(e.target).parent().find("input").attr("max"));
         var currValue = parseInt(jQuery(e.target).parent().find("input").val());
-        console.log(avaValue);
-        console.log(currValue);
         if(currValue<=avaValue)
             getValuesMultiShipping(e.target, 2);
     });
 
     jQuery("#checkout_multishipping_form .custom-input-number input").change((e) => {
-        console.log("Zmieniam ilość");
-        console.log(e.target);
-        console.log(jQuery(e.target).attr("max"))
-
         var avaValue= parseInt(jQuery(e.target).attr("max"));
         var currValue = parseInt(jQuery(e.target).val());
         if(currValue<=avaValue)
@@ -661,8 +649,6 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
             value: "address"
         },
     ];
-
-
     var j = {
         quoteId: parseInt(jQuery("#quoteId").text()),
         productId: productId,
@@ -686,7 +672,6 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
         success: function (res) {
             updateMultiShippingCart();
         },
-
         /** @inheritdoc */
         error: function (res) {
 
