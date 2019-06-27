@@ -129,7 +129,9 @@ define([
                     var stock = $inputObject.attr("max");
                     if(parseInt(qty)<=parseInt(stock)){
                         addToCartProduct(event.currentTarget.dataset.cartItem, type, qty);
-                        updateQtySomeProduct(event.currentTarget.dataset.cartItem, type);
+                        //updateQtySomeProduct(event.currentTarget.dataset.cartItem, type);
+                        if ($("#addresses").length > 0 && $("#minicart-content-wrapper").attr("data-change") == "true") 
+                            updateQtyItem(event.currentTarget.dataset.cartItem, type);
                     }
                 //self._updateItemQty($(event.currentTarget));
             };

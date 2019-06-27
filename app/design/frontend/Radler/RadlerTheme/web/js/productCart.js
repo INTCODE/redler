@@ -85,6 +85,7 @@ require(["jquery"], function ($) {
                     updateQtyAllItems();
 
                     $(".swatch-option").on("click", function () {
+                        console.log()
                         updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"), $(this).attr('option-id'));
                     });
 
@@ -140,8 +141,10 @@ function updateQtySomeProduct(productId) {
             var pid = productId;
             var type = 0;
             if ($("[data-product-id=" + pid + "]").parent().find(".swatch-option[aria-checked='true']").length > 0) {
+                console.log($("[data-product-id=" + pid + "]").parent().find(".swatch-option[aria-checked='true']"));
                 type = $("[data-product-id=" + pid + "]").parent().find(".swatch-option[aria-checked='true']").attr("option-id");
             }else if($("[data-product-id=" + pid + "]").parents(".product-buy").find(".swatch-option.selected").length > 0){
+                console.log($("[data-product-id=" + pid + "]").parents(".product-buy").find(".swatch-option.selected"));
                 type = $("[data-product-id=" + pid + "]").parents(".product-buy").find(".swatch-option.selected").attr("option-id");
             }
             updateQtyItem(pid, type);
@@ -247,9 +250,9 @@ function updateQtyAllItems() {
 
 function updateQtyItem(productId, type) {
     console.log("update qty item " + productId);
-
+    console.log("update type item " + type);
     require(["jquery"], function ($) {
-        if (productId && type && $("#addresses").length > 0) {
+        if ($("#addresses").length > 0) {
             $("[data-id='product-qty-" + productId + "']").attr("disabled", "true");
             var j = {
                 productId: productId,
