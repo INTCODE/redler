@@ -468,7 +468,7 @@ function updateMultiShippingCart() {
 
                 $.each(itemsOutput.data, (index, item) => {
                     var selectAddresses = multiShippingCreateSelect(itemsOutput.addresses, item.address);
-                    output += getMultiShippingTemplate(item, selectAddresses);
+                    output += getMultiShippingTemplate(item,index, selectAddresses);
                 });
 
                 $("#container-items").append(output);
@@ -487,7 +487,7 @@ function updateMultiShippingCart() {
 }
 
 
-function getMultiShippingTemplate(item, selectAddresses) {
+function getMultiShippingTemplate(item,index, selectAddresses) {
     item.price = parseFloat(item.price).toFixed(2);
     return `<div class="basket-item" id="product_multishipping_${item.productId}" product_id="${item.productId}">
 <div class="img" >
@@ -514,8 +514,8 @@ function getMultiShippingTemplate(item, selectAddresses) {
 <div class="quantity">
     <div class="custom-input-number">
         <input type="number" max="${item.stock}" value="${item.qty}"
-        id="ship-0-${item.productId}-qty"
-        name="ship[0][${item.productId}][qty]"
+        id="ship-${index}-${item.productId}-qty"
+        name="ship[${index}][${item.productId}][qty]"
         >
         <span class="increment">+</span>
         <span class="decrement">-</span>
