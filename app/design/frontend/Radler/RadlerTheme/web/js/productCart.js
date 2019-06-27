@@ -513,7 +513,10 @@ function getMultiShippingTemplate(item, selectAddresses) {
 </div>
 <div class="quantity">
     <div class="custom-input-number">
-        <input type="number" max="${item.stock}" value="${item.qty}">
+        <input type="number" max="${item.stock}" value="${item.qty}"
+        id="ship-0-${item.productId}-qty"
+        name="ship[0][${item.productId}][qty]"
+        >
         <span class="increment">+</span>
         <span class="decrement">-</span>
     </div>
