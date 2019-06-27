@@ -442,6 +442,7 @@ class Hello implements HelloInterface
 
 
         $StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInterface');
+        $StockStateSel = $objectManager->get('\Magento\InventorySalesApi\Api\GetProductSalableQtyInterface');
         foreach ($result as $key => $value) {
 
             $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($value['productId']);
@@ -477,7 +478,9 @@ class Hello implements HelloInterface
                         $res['qty']=$value['qty'];
                         $res['cost']=$v->getPrice();
                         $res['address']=$value['address'];
-                        $res['stock']=$StockState->getStockQty($v->getId(), $v->getStore()->getWebsiteId());
+                        $sku=$v->getSku();
+                        $salable = $StockStateSel->execute($sku,1); 
+                        $res['stock']=$salable;
                         
 
                         array_push($addressRes,$res);
@@ -512,7 +515,9 @@ class Hello implements HelloInterface
                 $res['price']=$configProduct->getPrice();
                 $res['cost']=$configProduct->getPrice();
                 $res['address']=$value['address'];
-                $res['stock']=$StockState->getStockQty($configProduct->getId(), $configProduct->getStore()->getWebsiteId());
+                $sku=$configProduct->getSku();
+                $salable = $StockStateSel->execute($sku,1); 
+                $res['stock']=$salable;
 
 
                 array_push($addressRes,$res);
@@ -608,6 +613,7 @@ class Hello implements HelloInterface
           
   
         $StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInterface');
+        $StockStateSel = $objectManager->get('\Magento\InventorySalesApi\Api\GetProductSalableQtyInterface');
         foreach ($result as $key => $value) {
 
             $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($value['productId']);
@@ -639,7 +645,9 @@ class Hello implements HelloInterface
                         $res['type']=$value['type'];
                         $res['qty']=$value['qty'];
                         $res['address']=$value['address'];
-                        $res['stock']=$StockState->getStockQty($v->getId(), $v->getStore()->getWebsiteId());
+                        $sku=$v->getSku();
+                        $salable = $StockStateSel->execute($sku,1); 
+                        $res['stock']=$salable;
 
                         array_push($addressRes,$res);
 
@@ -670,7 +678,10 @@ class Hello implements HelloInterface
                 $res['name']=$configProduct->getName();
                 $res['qty']=$value['qty'];
                 $res['address']=$value['address'];
-                $res['stock']=$StockState->getStockQty($configProduct->getId(), $configProduct->getStore()->getWebsiteId());
+
+                $sku=$configProduct->getSku();
+                $salable = $StockStateSel->execute($sku,1); 
+                $res['stock']=$salable;
 
 
                 array_push($addressRes,$res);
