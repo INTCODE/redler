@@ -4,15 +4,34 @@ require(["jquery"], function ($) {
     $('.increaseQty, .decreaseQty').on("click", function () {
         if (!$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled") &&
             parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) > parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())) {
-            switch ($(this).attr("data-action")) {
-                case "-":
-                    if ($("[data-id=" + $(this).attr("data-target") + "]").val() > 0)
-                        $("[data-id=" + $(this).attr("data-target") + "]").val(parseInt($("[data-id=" + $(this).attr("data-target") + "]").val()) - 1);
-                    break;
-                case "+":
-                    $("[data-id=" + $(this).attr("data-target") + "]").val(parseInt($("[data-id=" + $(this).attr("data-target")).val() + "]") + 1);
-                    break;
+            
+            var selectedOption = 0;
+            if($("[data-id=" + $(this).attr("data-target") + "]").parents(".product-item-details").find(".swatch-option.selected").length > 0){
+                selectedOption = $(this).parent().find("[data-id=" + $(this).attr("data-target") + "]").parents(".product-item-details").find(".swatch-option.selected").attr("option-id");
             }
+
+            var me = this;
+            var val = parseInt($(this).parent().find("[data-id=" + $(this).attr("data-target") + "]").val());
+
+            switch ($(me).attr("data-action")) {
+                case "-":
+                    if($(me).parent().find("[data-id=" + $(me).attr("data-target") + "]").val() > 0) val--;
+                break;
+                case "+":
+                    val++;
+                break;
+            }
+            
+            $("[data-id=" + $(me).attr("data-target") + "]").each(function(){
+                if($(this).parents(".product-item-details").find(".swatch-option.selected").length > 0){
+                    if($(this).parents(".product-item-details").find(".swatch-option.selected").attr("option-id") == selectedOption){
+                        $(this).val(val);
+                    }
+                }else{
+                    $(this).val(val);
+                }
+            });
+
             // data changed
             $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
         }
@@ -107,7 +126,7 @@ function addToCartProduct(productId, type, qty) {
                 /** @inheritdoc */
                 error: function (res) {
                     console.error("error add - productCart.js");
-                    //console.log(res);
+                    console.log(res);
                 }
             });
         }
@@ -115,13 +134,15 @@ function addToCartProduct(productId, type, qty) {
 }
 
 function updateQtySomeProduct(productId) {
-    console.log("update qty some item");
     require(["jquery"], function ($) {
         if ($("#addresses").length > 0 && $("#minicart-content-wrapper").attr("data-change") == "true") {
+            console.log("update qty some item");
             var pid = productId;
             var type = 0;
             if ($("[data-product-id=" + pid + "]").parent().find(".swatch-option[aria-checked='true']").length > 0) {
                 type = $("[data-product-id=" + pid + "]").parent().find(".swatch-option[aria-checked='true']").attr("option-id");
+            }else if($("[data-product-id=" + pid + "]").parents(".product-buy").find(".swatch-option.selected").length > 0){
+                type = $("[data-product-id=" + pid + "]").parents(".product-buy").find(".swatch-option.selected").attr("option-id");
             }
             updateQtyItem(pid, type);
         }
@@ -141,13 +162,11 @@ function updateQtyAllItems() {
             }
 
             $("#addresses").attr("disabled", "true");
+            $(".inputProductQty").attr("disabled", "true");
 
-            $("[data-product-id]").each(function () {
+            $(".product-item-details [data-product-id]").each(function () {
                 var pid = $(this).attr("data-product-id");
-                var addr = $("#addresses").val();
                 var type = 0;
-
-                $("[data-id='product-qty-" + pid + "']").attr("disabled", "true");
 
                 if ($(this).parent().find(".swatch-option[aria-checked='true']").length > 0) {
                     type = $(this).parent().find(".swatch-option[aria-checked='true']").attr("option-id");
@@ -156,12 +175,26 @@ function updateQtyAllItems() {
                     productid: pid,
                     type: type
                 };
-
             });
+            if($(".product-buy").length>0){
+                var pid = $(".product-buy form>input[name=item]").val();
+                var type = 0;
+
+                if($(".product-buy .swatch-option.selected").length>0){
+                    type = $(".product-buy .swatch-option.selected").attr("option-id");
+                }
+                updateProducts.quote[updateProducts.quote.length] = {
+                    productid: pid,
+                    type: type
+                };
+            }
+
+            console.warn(updateProducts);
 
             var j = JSON.stringify({
                 CartData: JSON.stringify(updateProducts)
             });
+
             $.ajax({
                 url: $("#homePath").text() + "/rest/V1/blmCart/getCartQty/",
                 data: j,
@@ -173,17 +206,32 @@ function updateQtyAllItems() {
                 /** @inheritdoc */
                 success: function (res) {
                     var json = JSON.parse(res);
-                    console.log(json);
+                    console.info(json);
 
                     $(".inputProductQty").val(0);
-                    $.each(json, function () {
-                        $("[data-id='product-qty-" + this.productId + "']").val(this.qty);
-                        $("[data-id='product-qty-" + this.productId + "']").attr("max", this.stock);
-                        $("[data-id='product-qty-" + this.productId + "']").removeAttr("disabled");
+                    $.each(json, function() {
+                        var me = this;
+
+                        $("[data-id='product-qty-" + me.productId + "']").each(function(){
+
+                            var parent = ".product-item-details";
+                            if($(this).parents(parent).length <= 0){
+                                parent = ".product-buy";
+                            }
+
+                            if($(this).parents(parent).find(".swatch-option.selected").attr("option-id") == me.type){
+                                $(this).val(me.qty);
+                                $(this).attr("max", me.stock);
+                            }else if($(this).parents(parent).find(".swatch-option").length == 0){
+                                $(this).val(me.qty);
+                                $(this).attr("max", me.stock);
+                            }
+                            $(this).removeAttr("disabled");
+                        });
                     });
                     $(".inputProductQty").removeAttr("disabled");
                     $("#addresses").removeAttr("disabled");
-                    console.log("updated all products");
+                    console.info("updated all products");
                 },
 
                 /** @inheritdoc */
@@ -223,9 +271,21 @@ function updateQtyItem(productId, type) {
                 success: function (res) {
                     var json = JSON.parse(res);
                     console.info(json);
-                    $("[data-id='product-qty-" + json.productId + "']").val(json.qty);
-                    $("[data-id='product-qty-" + json.productId + "']").attr("max", json.stock);
-                    $("[data-id='product-qty-" + json.productId + "']").removeAttr("disabled");
+                    $.each($("[data-id='product-qty-" + json.productId + "']"), function(){
+
+                        var parent = ".product-item-details";
+                        if($(this).parents(parent).length <= 0){
+                            parent = ".product-buy";
+                        }
+
+                        if($(this).parents(parent).find(".swatch-option.selected").attr("option-id") == json.type){
+                            $(this).val(json.qty);
+                            $(this).attr("max", json.stock);
+                        }
+                        
+                        $(this).removeAttr("disabled");
+                    });
+
                 },
 
                 /** @inheritdoc */
@@ -280,7 +340,8 @@ function updateProductCart() {
                 /** @inheritdoc */
                 error: function (res) {
                     $("#minicart-content-wrapper").css("display", "block");
-                    console.info("error add - productCart.js");
+                    console.error("error add - productCart.js");
+                    console.log(res);
                 }
             });
         }
@@ -418,7 +479,8 @@ function updateMultiShippingCart() {
             /** @inheritdoc */
             error: function (res) {
 
-                console.info("error add - multishipping.js");
+                console.error("error add - multishipping.js");
+                console.log(res);
             }
         });
     });

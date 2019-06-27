@@ -160,10 +160,11 @@ class Hello implements HelloInterface
 
         switch ($flag) 
             {
-            case 'addressId':
 
 
-            
+
+            case 'address':
+
         $sql="SELECT *
         FROM blm_crontab b
         WHERE b.productId= $productId AND b.quoteId=$quoteId AND b.`type`=$type";
@@ -372,7 +373,7 @@ class Hello implements HelloInterface
             $arr = array("qty" => $result[0]['qty'], "productId" => $productId,"stock"=>$stock,'type'=>$result[0]['type']);
             return json_encode($arr);
         }else{
-            return json_encode(array("qty" => 0, "productId" => $productId));
+            return json_encode(array("qty" => 0, "productId" => $productId, "stock"=>$stock,'type'=>$type));
         }
 
         //return $productId.",".$quoteId.",".$type;
@@ -788,7 +789,7 @@ class Hello implements HelloInterface
                         if($value['productId']==$output[$i]['productId']){
                             if($value['type']==$output[$i]['type']){
                                 //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============toDelete=============\n".print_r($output[$i], true));
-                                unset($output[$i]);
+                                if(sizeof($output) > 1) unset($output[$i]);
                                 break;
                             }
                         }
