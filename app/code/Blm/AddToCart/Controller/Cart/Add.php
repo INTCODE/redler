@@ -426,15 +426,15 @@ file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=======
             }
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
             if ($this->_checkoutSession->getUseNotice(true)) {
-                $this->messageManager->addNoticeMessage(
-                    $this->_objectManager->get(\Magento\Framework\Escaper::class)->escapeHtml($e->getMessage())
-                );
+                // $this->messageManager->addNoticeMessage(
+                //     $this->_objectManager->get(\Magento\Framework\Escaper::class)->escapeHtml($e->getMessage())
+                // );
             } else {
                 $messages = array_unique(explode("\n", $e->getMessage()));
                 foreach ($messages as $message) {
-                    $this->messageManager->addErrorMessage(
-                        $this->_objectManager->get(\Magento\Framework\Escaper::class)->escapeHtml($message)
-                    );
+                    // $this->messageManager->addErrorMessage(
+                    //     $this->_objectManager->get(\Magento\Framework\Escaper::class)->escapeHtml($message)
+                    // );
                 }
             }
 
@@ -446,13 +446,13 @@ file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=======
 
             return $this->goBack($url);
         } catch (\Exception $e) {
-             file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========error=============\n".print_r($e->getMessage(), true));
+             //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========error=============\n".print_r($e->getMessage(), true));
 
-            $this->messageManager->addExceptionMessage(
-                $e,
-                __('We can\'t add this item to your shopping cart right now.')
-            );
-            $this->_objectManager->get(\Psr\Log\LoggerInterface::class)->critical($e);
+            // $this->messageManager->addExceptionMessage(
+            //     $e,
+            //     __('We can\'t add this item to your shopping cart right now.')
+            // );
+            // $this->_objectManager->get(\Psr\Log\LoggerInterface::class)->critical($e);
              return $this->goBack();
         }
     }
