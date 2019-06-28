@@ -299,8 +299,7 @@ function updateQtyItem(productId, type) {
                         if($(this).parents(parent).find(".swatch-option.selected").attr("option-id") == json.type){
                             $(this).val(json.qty);
                             $(this).attr("max", json.stock);
-                            var currMax=  $(this).parents(".product-item-details").find(".input-text.qty.inputProductQty").attr("max");
-                            if(parseInt(currMax)>0){
+                            if(parseInt(json.stock)>0){
                                 $(this).parent().css("display","flex");
                                 $(this).parents(".product-item-inner").find(".product.actions.product-item-actions.outofstock").css("display","none");
                             }
