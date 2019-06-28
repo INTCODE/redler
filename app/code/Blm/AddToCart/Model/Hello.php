@@ -435,9 +435,9 @@ class Hello implements HelloInterface
             if (!array_key_exists("type",$result)){
                 $typeRes=0;
             }else{
-              
+                $typeRes=$result[0]['type'];
             }
-            $arr = array("qty" => $result[0]['qty'], "productId" => $productId,"stock"=>$stock,'type'=>$typeRes);
+            $arr = array("qty" => $result[0]['qty'], "productId" => $productId,"stock"=>$stock,'type'=>$type);
             return json_encode($arr);
         }else{
             return json_encode(array("qty" => 0, "productId" => $productId, "stock"=>$stock,'type'=>$type));
