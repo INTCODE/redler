@@ -242,6 +242,7 @@ class Hello implements HelloInterface
             FROM blm_crontab b
             WHERE b.productId= $productId AND b.address=$addressId AND b.`type`=$currType AND b.quoteId=$quoteId";
             
+
             $result = $connection->fetchAll($sql);
 
             
@@ -264,6 +265,10 @@ class Hello implements HelloInterface
                     WHERE quoteId=$quoteId AND productId=$productId AND `type`=$currType AND address=$addressId";    
 
 
+                     $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
+                     $quote=$objectManager->create('Magento\Quote\Model\QuoteFactory')->create()->load($quoteId);
+                    //  $items = $cart->getQuote()->getAllItems();
+
                 
             }else{
                // $qtyCurr=$result[0]['qty'];
@@ -275,10 +280,6 @@ class Hello implements HelloInterface
                 SET
                     qty='$finalQty'
                     WHERE productId= $productId AND address=$addressId AND`type`=$type AND quoteId=$quoteId";
-                    
-                    
-
-
             }
 
 
@@ -786,14 +787,6 @@ class Hello implements HelloInterface
         $StockStateSel = $objectManager->get('\Magento\InventorySalesApi\Api\GetProductSalableQtyInterface');
 
 
-
-
-
-
-
-
-
-
         foreach ($res as $key => $value) {
 
             $productId=$value['productId'];
@@ -828,69 +821,6 @@ class Hello implements HelloInterface
          file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($result, true));
 
         if($result){
-
-        //     $output = array_map("unserialize",
-        //     array_unique(array_map("serialize", $result)));
-        // // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============output=============\n".print_r($output, true));
-        //  $StockStateSel = $objectManager->get('\Magento\InventorySalesApi\Api\GetProductSalableQtyInterface');
-
-
-
-
-        // foreach ($output as $key => $value) {
-        //     if($value['qty']>0){
-        //         for ($i=sizeof($output); $i>=0; $i--) { 
-        //             if(isset($output[$i])){
-        //                 if($value['productId']==$output[$i]['productId']){
-        //                     if($value['type']==$output[$i]['type']){
-        //                         //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============toDelete=============\n".print_r($output[$i], true));
-        //                         if(sizeof($output) > 1) unset($output[$i]);
-        //                         break;
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
-
-
-        // foreach ($output as $key => $value) {
-
-        //     $product = $objectManager->create('Magento\Catalog\Model\Product')->load($value['productId']);
-
-        //     if($value['type']==0){
-
-        //         $sku=$product->getSku();
-        //     $salable = $StockStateSel->execute($sku,1);
-        //     //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============data=============\n".print_r($product->getId().' - '.'simple'.' - '.$salable, true));
-        //         $output[$key]['stock']=$salable;
-
-        //     }else{
-        //         $_children = $product->getTypeInstance()->getUsedProducts($product);
-        //         foreach ($_children as $k => $child) {
-        //             $packageId=$child->getCustomAttribute('package_type')->getValue();
-        //             if($packageId==$value['type']){
-        //                 $sku=$child->getSku();
-        //                 $salable = $StockStateSel->execute($sku,1); 
-        //                  $output[$key]['stock']=$salable;
-               
-
-        //            //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============data=============\n".print_r($product->getId().' - '.$child->getId().' - '.$salable, true));
-
-        //             } 
-        //         }
-
-
-        //     }
-        // }
-      //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============data=============\n".print_r($output, true));
-
-
-       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($value, true));
-        # code...
-        
-       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============fin=============\n".print_r($output, true));
-
             return json_encode($result);
         }else{
             return "[]";
