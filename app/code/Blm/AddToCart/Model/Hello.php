@@ -71,9 +71,17 @@ class Hello implements HelloInterface
         }elseif($type==0){
             if(!$value->getParentItemId() && $value->getProductType()=='simple'){
                 if($value->getProductId()==$productId){
-                    $itemChenge=$q->getItemById($value->getId());
-                    $itemChenge->setQty($qty);
-                    $itemChenge->save();
+
+                    if($qty==0){
+                        $quote = $quoteFactory->create()->load($quoteId);
+                        $quote->removeItem($value->getId());
+                        $quote->save();
+                    }else{
+                        $itemChenge=$q->getItemById($value->getId());
+                        $itemChenge->setQty($qty);
+                        $itemChenge->save();
+                    }
+             
                     file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($value->getId(), true));
 
                 }
@@ -231,6 +239,11 @@ class Hello implements HelloInterface
 
             break;
 
+
+
+
+
+
             case 'type':
             
             if($type==21){
@@ -241,11 +254,16 @@ class Hello implements HelloInterface
             $sql="SELECT *
             FROM blm_crontab b
             WHERE b.productId= $productId AND b.address=$addressId AND b.`type`=$currType AND b.quoteId=$quoteId";
+
             
+
 
             $result = $connection->fetchAll($sql);
 
-            
+            $quoteFactory = $objectManager->create('\Magento\Quote\Model\QuoteFactory');
+            $quote = $quoteFactory->create()->load($quoteId);
+             $cart = $objectManager->get('\Magento\Checkout\Model\Cart'); 
+         
             file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========UPDATE=============\n".print_r($result, true));
             
             if(!$result){
@@ -255,18 +273,50 @@ class Hello implements HelloInterface
             FROM blm_crontab b
             WHERE b.productId= $productId AND b.address=$addressId AND b.`type`=$type AND b.quoteId=$quoteId";
 
-
             $result = $connection->fetchAll($sql);
 
             if(!$result){
+                $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
+                if($type==0){
+
+                }else{
+                    $_children = $product->getTypeInstance()->getUsedProducts($product);
+                    foreach ($_children as $key => $value) {
+                        $packageId=$value->getCustomAttribute('package_type')->getValue();
+                     if($packageId==$type){
+                         $prod = $objectManager->create('Magento\Catalog\Model\Product')->load($value->getId());
+                           
+                         $value->save();
+                     }
+                        # code...
+                    }
+                }
+                // $paramsParent = array(
+                //     'product' => $product->getId(), //product Id
+                //     'qty'   =>1 //quantity of product                        
+                // );
+
+                // $cart->addProduct($product, $paramsParent);
+
+                $option = array('152'=>$type);
+                $formKey = $objectManager->create('\Magento\Framework\Data\Form\FormKey')->getFormKey(); 
+                $params = array(
+                    'form_key' => $formKey,
+                    'product' => $prod->getId(), //product Id
+                    'qty'   =>$qty, //quantity of product            
+                    'super_attribute'   =>$option //quantity of product            
+                ); 
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========UPDATE=============\n".print_r($params, true));
+                
+                $cart->addProduct($prod, $params);
+                $cart->save();
+
+
                 $sql="UPDATE blm_crontab
                 SET
                     `type`='$type'
                     WHERE quoteId=$quoteId AND productId=$productId AND `type`=$currType AND address=$addressId";    
 
-
-                     $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
-                     $quote=$objectManager->create('Magento\Quote\Model\QuoteFactory')->create()->load($quoteId);
                     //  $items = $cart->getQuote()->getAllItems();
 
                 
@@ -377,9 +427,17 @@ class Hello implements HelloInterface
         $result = $connection->fetchAll($sql);
 
 
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($result, true));
+
+        
 
         if(isset($result[0])){
-            $arr = array("qty" => $result[0]['qty'], "productId" => $productId,"stock"=>$stock,'type'=>$result[0]['type']);
+            if (!array_key_exists("type",$result)){
+                $typeRes=0;
+            }else{
+              
+            }
+            $arr = array("qty" => $result[0]['qty'], "productId" => $productId,"stock"=>$stock,'type'=>$typeRes);
             return json_encode($arr);
         }else{
             return json_encode(array("qty" => 0, "productId" => $productId, "stock"=>$stock,'type'=>$type));

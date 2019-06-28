@@ -77,7 +77,10 @@ class Addresses extends \Magento\Multishipping\Controller\Checkout implements Ht
                      $getItemID="SELECT *
                      FROM quote_item
                      WHERE quote_id=$idQuote AND product_id=$childID";
+                     
                       $itemIDres = $connection->fetchAll($getItemID);
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========value=============\n".print_r($itemIDres, true));
+                      
                       $ItemID=$itemIDres[0]['parent_item_id'];
     
                       $product_ship=array('qty'=>$qty,'address'=>$address);
