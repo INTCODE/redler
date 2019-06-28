@@ -449,6 +449,7 @@ function addListenerPlusMinusProduct() {
 
 //multishipping
 function updateMultiShippingCart() {
+    
     require(["jquery"], function ($) {
         var j = {
             quoteId: parseInt($("#quoteId").text()),
@@ -478,6 +479,7 @@ function updateMultiShippingCart() {
                 $("#container-items").append(output);
                 $("#multiShippingSummary").append(getMultiShippingSummary(itemsOutput.TotalData));
                 addListenerUpdateMultiShippingCart();
+                turnOnLoader(2);
             },
 
             /** @inheritdoc */
@@ -485,6 +487,7 @@ function updateMultiShippingCart() {
 
                 console.error("error add - multishipping.js");
                 console.log(res);
+                turnOnLoader(2);
             }
         });
     });
@@ -664,7 +667,7 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
         qty: qty,
         flag: arrayMode.filter(f => f.mode == mode)[0].value
     };
-
+    turnOnLoader(1);
     j = JSON.stringify(j);
     console.log(j);
     jQuery.ajax({
@@ -677,13 +680,19 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
         processData: false,
         /** @inheritdoc */
         success: function (res) {
+            
             updateMultiShippingCart();
         },
         /** @inheritdoc */
         error: function (res) {
-
+            turnOnLoader(2);
             console.info("error update - updateMultiShipping.js");
         }
     });
 
+}
+
+
+function turnOnLoader(mode){//1-on, 2-off
+    jQuery("#lds-spinner").css("display",mode==1?"flex":"none");
 }
