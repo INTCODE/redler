@@ -3,7 +3,10 @@ require(["jquery"], function ($) {
     // click +/-
     $('.increaseQty, .decreaseQty').on("click", function () {
         if (!$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled") &&
-            parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) > parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())) {
+            (parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) > 
+            parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())
+            || $(this).hasClass("decreaseQty")
+            )) {
             
             var selectedOption = 0;
             if($("[data-id=" + $(this).attr("data-target") + "]").parents(".product-item-details").find(".swatch-option.selected").length > 0){
@@ -45,7 +48,7 @@ require(["jquery"], function ($) {
 
     // focusout input
     $(".inputProductQty").on("focusout", function () {
-        if (parseInt($(this).attr("max")) > parseInt($(this).val())) {
+        if (parseInt($(this).attr("max")) >= parseInt($(this).val())) {
             if (parseInt($(this).val()) < 0) {
                 $(this).val(0);
                 $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
@@ -62,7 +65,7 @@ require(["jquery"], function ($) {
     });
 
     $('.increaseQty, .decreaseQty').on("mouseleave", function () {
-        if (parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) > parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())) {
+        if (parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) >= parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())) {
             if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true" && !$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled")) {
                 // add to cart
                 $("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
@@ -225,6 +228,7 @@ function updateQtyAllItems() {
                                 parent = ".product-buy";
                             }
 
+                            if(me.stock < 0) me.stock = 0;
                             if($(this).parents(parent).find(".swatch-option.selected").attr("option-id") == me.type){
                                 $(this).val(me.qty);
                                 $(this).attr("max", me.stock);
@@ -295,7 +299,7 @@ function updateQtyItem(productId, type) {
                         if($(this).parents(parent).length <= 0){
                             parent = ".product-buy";
                         }
-
+                        if(json.stock < 0) json.stock = 0;
                         if($(this).parents(parent).find(".swatch-option.selected").attr("option-id") == json.type){
                             $(this).val(json.qty);
                             $(this).attr("max", json.stock);
@@ -518,6 +522,7 @@ function updateMultiShippingCart() {
 
 function getMultiShippingTemplate(item,index, selectAddresses) {
     item.price = parseFloat(item.price).toFixed(2);
+    if(item.stock < 0) item.stock = 0;
     return `<div class="basket-item" id="product_multishipping_${item.productId}" product_id="${item.productId}">
 <div class="img" >
     <img style="max-width: 25%; max-height: 25%;" src="${item.image}" alt="">
