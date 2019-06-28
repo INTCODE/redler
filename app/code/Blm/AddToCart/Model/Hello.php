@@ -758,29 +758,33 @@ class Hello implements HelloInterface
 
 
         $result = $connection->fetchAll($sql);
-       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============quoteid=============\n".print_r($result, true));
+       //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($result, true));
+      // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============tab=============\n".print_r($tab, true));
 
        
+       $res = array_merge($result, $tab);
+      // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============res=============\n".print_r($res, true));
+
+
         $StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInterface');
         $StockStateSel = $objectManager->get('\Magento\InventorySalesApi\Api\GetProductSalableQtyInterface');
 
-        foreach ($tab as $key => $value) {
+        foreach ($res as $key => $value) {
 
             $productId=$value['productId'];
             $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
       
 
-            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============getCartQty=============\n".print_r($value, true));
-            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============productId=============\n".print_r($productId, true));
             
            if($value['type']==0){
             $sku=$product->getSku();
             $salable = $StockStateSel->execute($sku,1);
             $result[$key]['stock']=$salable;
             if(!isset($result[$key]['productId'])){
+
                 $result[$key]['productId']=$value['productId'];
                 $result[$key]['type']=$value['type'];
-                $result[$key]['qty']=0;
+                $result[$key]['qty']=$value['qty'];
             }
            
            }else{
@@ -788,37 +792,29 @@ class Hello implements HelloInterface
                 foreach ($_children as $k => $child) {
                     $packageId=$child->getCustomAttribute('package_type')->getValue();
                     if($packageId==$value['type']){
-             //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============childID=============\n".print_r($child->getId(), true));
-            
-//              $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-// $productStockObj = $objectManager->get('Magento\CatalogInventory\Api\StockRegistryInterface')->getStockItem($child->getId());
-            
-            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============childID=============\n".print_r($StockState->debug(), true));
+
             $sku=$child->getSku();
             $salable = $StockStateSel->execute($sku,1);
-                      //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============salable=============\n".print_r($salable, true));
-
-                       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============data=============\n".print_r($productId.' - '.$child->getId().' - '.$salable, true));
-             
+                 
                         $result[$key]['stock']=$salable;
                         if(!isset($result[$key]['productId'])){
                             $result[$key]['productId']=$value['productId'];
                             $result[$key]['type']=$value['type'];
-                            $result[$key]['qty']=0;
+                            $result[$key]['qty']=$value['qty'];
                         }
                     }
                 }
            }
         }
-       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($result, true));
 
         if($result){
 
             $output = array_map("unserialize",
             array_unique(array_map("serialize", $result)));
-        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============output=============\n".print_r($output, true));
          $StockStateSel = $objectManager->get('\Magento\InventorySalesApi\Api\GetProductSalableQtyInterface');
 
+         file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============output=============\n".print_r($output, true));
+        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============output=============\n".print_r($result, true));
 
 
 
@@ -829,7 +825,7 @@ class Hello implements HelloInterface
                         if($value['productId']==$output[$i]['productId']){
                             if($value['type']==$output[$i]['type']){
                                 //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============toDelete=============\n".print_r($output[$i], true));
-                                if(sizeof($output) > 1) unset($output[$i]);
+                                if(sizeof($output) > 1) unset($value[$i]);
                                 break;
                             }
                         }
@@ -837,7 +833,7 @@ class Hello implements HelloInterface
                 }
             }
         }
-
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($output, true));
 
         foreach ($output as $key => $value) {
 
@@ -846,9 +842,9 @@ class Hello implements HelloInterface
             if($value['type']==0){
 
                 $sku=$product->getSku();
+               
             $salable = $StockStateSel->execute($sku,1);
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============data=============\n".print_r($product->getId().' - '.'simple'.' - '.$salable, true));
-                $output[$key]['stock']=$salable;
+               $output[$key]['stock']=$salable;
 
             }else{
                 $_children = $product->getTypeInstance()->getUsedProducts($product);
@@ -858,9 +854,6 @@ class Hello implements HelloInterface
                         $sku=$child->getSku();
                         $salable = $StockStateSel->execute($sku,1); 
                          $output[$key]['stock']=$salable;
-               
-
-                     file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============data=============\n".print_r($product->getId().' - '.$child->getId().' - '.$salable, true));
 
                     } 
                 }
@@ -868,13 +861,6 @@ class Hello implements HelloInterface
 
             }
         }
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============data=============\n".print_r($output, true));
-
-
-       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($value, true));
-        # code...
-        
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============fin=============\n".print_r($output, true));
 
             return json_encode($output);
         }else{
