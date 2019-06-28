@@ -78,15 +78,17 @@ require(["jquery"], function ($) {
     $("#addresses").on("change", function () {
         updateQtyAllItems();
     });
-    $(document).on("ready", function () {
+    $(document).on("ready",  function () {
         if ($("#addresses").length > 0) {
             var checkSwatch = setInterval(() => {
                 if ($(".swatch-option.selected").length > 0) {
                     updateQtyAllItems();
 
                     $(".swatch-option").on("click", function () {
-                        console.log()
-                        updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"), $(this).attr('option-id'));
+                        console.log($(this).parents(".product-item-details").find(".input-text.qty.inputProductQty").attr("max"));
+                         updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"), $(this).attr('option-id'));
+                        
+                        
                     });
 
                     clearInterval(checkSwatch);
@@ -226,6 +228,13 @@ function updateQtyAllItems() {
                             if($(this).parents(parent).find(".swatch-option.selected").attr("option-id") == me.type){
                                 $(this).val(me.qty);
                                 $(this).attr("max", me.stock);
+
+                                if(me.stock=="0"){
+                                    $(this).parent().css("display", "none");
+                                    var $currobj = $(this);
+                                    var $currobjcont = $currobj.parents(".product-item-inner");
+                                    addOutOfStock($currobjcont);
+                                }
                             }else if($(this).parents(parent).find(".swatch-option").length == 0){
                                 $(this).val(me.qty);
                                 $(this).attr("max", me.stock);
@@ -248,7 +257,12 @@ function updateQtyAllItems() {
         }
     });
 }
-
+function addOutOfStock(obj){
+    jQuery(obj).append(`
+    <div class="product actions product-item-actions outofstock">
+    <div class="stock unavailable"><span>Out of stock</span></div>
+    </div>`)
+}
 function updateQtyItem(productId, type) {
     console.log("update qty item " + productId);
     console.log("update type item " + type);
@@ -285,11 +299,20 @@ function updateQtyItem(productId, type) {
                         if($(this).parents(parent).find(".swatch-option.selected").attr("option-id") == json.type){
                             $(this).val(json.qty);
                             $(this).attr("max", json.stock);
+                            var currMax=  $(this).parents(".product-item-details").find(".input-text.qty.inputProductQty").attr("max");
+                            if(parseInt(currMax)>0){
+                                $(this).parent().css("display","flex");
+                                $(this).parents(".product-item-inner").find(".product.actions.product-item-actions.outofstock").css("display","none");
+                            }
+                            else{
+                                $(this).parent().css("display","none");
+                                $(this).parents(".product-item-inner").find(".product.actions.product-item-actions").css("display","");
+                            }
                         }
                         
                         $(this).removeAttr("disabled");
                     });
-
+                    
                 },
 
                 /** @inheritdoc */
@@ -506,7 +529,7 @@ function getMultiShippingTemplate(item,index, selectAddresses) {
 <div class="price">
     £${item.price}
     <div class="switch">
-        <input type="checkbox" ${item.type == 21 ? ' checked="checked"' : ' ""'}>
+        <input type="checkbox" ${item.type == 21 ? ' disabled="disabled" checked="checked"' : ' ""'}>
         <span class="switch-body"></span>
         <span class="icons">
             <span class="left">
@@ -581,10 +604,10 @@ function multiShippingAddItem(obj, mode) {//mode=1- add, mode=2- remove
 
 
 function addListenerUpdateMultiShippingCart() {
-    jQuery("#checkout_multishipping_form .basket-list .switch input").change((e) => {
-        getValuesMultiShipping(e.target, 1);
+    // jQuery("#checkout_multishipping_form .basket-list .switch input").change((e) => {
+    //     getValuesMultiShipping(e.target, 1);
 
-    });
+    // });
     jQuery("#checkout_multishipping_form .basket-list .btn-remove").click((e) => {
         var productId = getProductIdMultiShipping(e.target);
         var type = getTypedMultiShipping(e.target);
