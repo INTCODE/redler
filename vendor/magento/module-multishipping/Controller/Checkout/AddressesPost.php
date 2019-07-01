@@ -89,7 +89,12 @@ class AddressesPost extends \Magento\Multishipping\Controller\Checkout
                          FROM quote_item
                          WHERE quote_id=$idQuote AND product_id=$childID";
                           $itemIDres = $connection->fetchAll($getItemID);
-                          $ItemID=$itemIDres[0]['parent_item_id'];
+                          if($itemIDres){
+                            $ItemID=$itemIDres[0]['parent_item_id'];
+                          }else{
+                            $ItemID=0;
+                          }
+        
         
                           $product_ship=array('qty'=>$qty,'address'=>$address);
                           $ship_elem = array($ItemID => $product_ship);

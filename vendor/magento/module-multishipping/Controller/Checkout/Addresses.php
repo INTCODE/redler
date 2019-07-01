@@ -79,13 +79,14 @@ class Addresses extends \Magento\Multishipping\Controller\Checkout implements Ht
                      WHERE quote_id=$idQuote AND product_id=$childID";
                      
                       $itemIDres = $connection->fetchAll($getItemID);
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========value=============\n".print_r($itemIDres, true));
-                      
-                      $ItemID=$itemIDres[0]['parent_item_id'];
+                        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========value=============\n".print_r($itemIDres, true));
+                      if($itemIDres){
+                        $ItemID=$itemIDres[0]['parent_item_id'];
+                      }
     
                       $product_ship=array('qty'=>$qty,'address'=>$address);
                       $ship_elem = array($ItemID => $product_ship);
-                      file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($ItemID, true));
+                    //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($ItemID, true));
     
                  }
                 }
@@ -112,7 +113,7 @@ class Addresses extends \Magento\Multishipping\Controller\Checkout implements Ht
         $tab=$_SESSION["curr"] ;
         if(isset($_SESSION["set"] ))
         $isset=$_SESSION["set"];
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========addresses=============\n".print_r($dbArray, true));
+       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========addresses=============\n".print_r($dbArray, true));
       //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========addresses=============\n".print_r($isset, true));
 
       $AddressPost = $this->_objectManager->get('Magento\Multishipping\Controller\Checkout\AddressesPost');
