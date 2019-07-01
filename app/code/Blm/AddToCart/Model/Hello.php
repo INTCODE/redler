@@ -582,10 +582,10 @@ class Hello implements HelloInterface
             
                         $resStock = $connection->fetchAll($stockSQL);
                         $qtyRest=0;
-                        foreach ($resStock as $key => $value) {
-                            $qtyRest+=$value['qty'];
+                        foreach ($resStock as $key => $val) {
+                            $qtyRest+=$val['qty'];
                         }
-                        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+                      //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
                         $stock=$salable;
                         $stock-=$qtyRest;
                         if($stock<0){
@@ -642,10 +642,10 @@ class Hello implements HelloInterface
     
                 $resStock = $connection->fetchAll($stockSQL);
                 $qtyRest=0;
-                foreach ($resStock as $key => $value) {
-                    $qtyRest+=$value['qty'];
+                foreach ($resStock as $key => $val) {
+                    $qtyRest+=$val['qty'];
                 }
-                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+               //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
                 $stock=$salable;
                 $stock-=$qtyRest;
                 if($stock<0){
@@ -653,7 +653,7 @@ class Hello implements HelloInterface
                 }
 
                 $res['stock']=$stock;
-                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============array=============\n".print_r($res, true));
+               // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============array=============\n".print_r($res, true));
 
 
                 array_push($addressRes,$res);
