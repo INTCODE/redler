@@ -105,7 +105,8 @@ require(["jquery"], function ($) {
 
 });
 function clickableBody(mode){//1-none, 2-auto
-    jQuery("body").css("pointer-events",mode==1?"none":"auto");
+    jQuery(".page-wrapper").css("pointer-events",mode==1?"none":"auto");
+    jQuery("body").css("cursor",mode==1?"wait":"auto");
 }
 
 
