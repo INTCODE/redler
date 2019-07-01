@@ -61,7 +61,6 @@ class Addresses extends \Magento\Multishipping\Controller\Checkout implements Ht
             $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
 
 
-
             if($type!=0){
                 $_children = $configProduct->getTypeInstance()->getUsedProducts($configProduct);
                 //$quoteID = $this->cart->getQuote()->getId();
@@ -77,16 +76,18 @@ class Addresses extends \Magento\Multishipping\Controller\Checkout implements Ht
                      $getItemID="SELECT *
                      FROM quote_item
                      WHERE quote_id=$idQuote AND product_id=$childID";
-                     
                       $itemIDres = $connection->fetchAll($getItemID);
-                        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========value=============\n".print_r($itemIDres, true));
                       if($itemIDres){
                         $ItemID=$itemIDres[0]['parent_item_id'];
-                      }
-    
+                        
                       $product_ship=array('qty'=>$qty,'address'=>$address);
                       $ship_elem = array($ItemID => $product_ship);
-                    //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($ItemID, true));
+                      }else{
+                        $ItemID=0;
+                      }
+    
+    
+                      file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($ItemID, true));
     
                  }
                 }
