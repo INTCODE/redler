@@ -91,13 +91,14 @@ class AddressesPost extends \Magento\Multishipping\Controller\Checkout
                           $itemIDres = $connection->fetchAll($getItemID);
                           if($itemIDres){
                             $ItemID=$itemIDres[0]['parent_item_id'];
+                            
+                          $product_ship=array('qty'=>$qty,'address'=>$address);
+                          $ship_elem = array($ItemID => $product_ship);
                           }else{
                             $ItemID=0;
                           }
         
         
-                          $product_ship=array('qty'=>$qty,'address'=>$address);
-                          $ship_elem = array($ItemID => $product_ship);
                           file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($ItemID, true));
         
                      }
