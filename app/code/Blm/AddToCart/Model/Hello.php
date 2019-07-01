@@ -398,7 +398,23 @@ class Hello implements HelloInterface
         if($type==0){
             $sku=$configProduct->getSku();
             $salable = $StockStateSel->execute($sku,1);
-           $stock=$salable;
+
+            $stockSQL="SELECT b.qty
+            FROM blm_crontab b
+            WHERE b.quoteId=$quoteId AND b.productId=$productId AND b.`type`=$type AND b.address !=$addressId
+            ";
+
+            $res = $connection->fetchAll($stockSQL);
+            $qtyRest=0;
+            foreach ($res as $key => $value) {
+                $qtyRest+=$value['qty'];
+            }
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+            $stock=$salable;
+            $stock-=$qtyRest;
+            if($stock<0){
+                $stock=0;
+            }
             $sql="SELECT qty
             FROM blm_crontab b
        WHERE b.quoteId=$quoteId AND b.productId=$productId AND b.`type`=$type AND b.address=$addressId";
@@ -413,7 +429,23 @@ class Hello implements HelloInterface
                     $sku=$child->getSku();
                     $salable = $StockStateSel->execute($sku,1);
 
+
+                    $stockSQL="SELECT b.qty
+                    FROM blm_crontab b
+                    WHERE b.quoteId=$quoteId AND b.productId=$productId AND b.`type`=$type AND b.address !=$addressId
+                    ";
+        
+                    $res = $connection->fetchAll($stockSQL);
+                    $qtyRest=0;
+                    foreach ($res as $key => $value) {
+                        $qtyRest+=$value['qty'];
+                    }
+                    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
                     $stock=$salable;
+                    $stock-=$qtyRest;
+                    if($stock<0){
+                        $stock=0;
+                    }
                 }
             }
 
@@ -539,7 +571,29 @@ class Hello implements HelloInterface
                         $res['address']=$value['address'];
                         $sku=$v->getSku();
                         $salable = $StockStateSel->execute($sku,1); 
-                        $res['stock']=$salable;
+
+                        $productId=$value['productId'];
+                        $type=$value['type'];
+
+                        $stockSQL="SELECT b.qty
+                        FROM blm_crontab b
+                        WHERE b.quoteId=$quoteId AND b.productId=$productId AND b.`type`=$type AND b.address !=$addressId
+                        ";
+            
+                        $resStock = $connection->fetchAll($stockSQL);
+                        $qtyRest=0;
+                        foreach ($resStock as $key => $value) {
+                            $qtyRest+=$value['qty'];
+                        }
+                        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+                        $stock=$salable;
+                        $stock-=$qtyRest;
+                        if($stock<0){
+                            $stock=0;
+                        }
+                        
+
+                        $res['stock']=$stock;
                         
 
                         array_push($addressRes,$res);
@@ -576,7 +630,30 @@ class Hello implements HelloInterface
                 $res['address']=$value['address'];
                 $sku=$configProduct->getSku();
                 $salable = $StockStateSel->execute($sku,1); 
-                $res['stock']=$salable;
+
+                
+                $productId=$value['productId'];
+                $type=$value['type'];
+                
+                $stockSQL="SELECT b.qty
+                FROM blm_crontab b
+                WHERE b.quoteId=$quoteId AND b.productId=$productId AND b.`type`=$type AND b.address !=$addressId
+                ";
+    
+                $resStock = $connection->fetchAll($stockSQL);
+                $qtyRest=0;
+                foreach ($resStock as $key => $value) {
+                    $qtyRest+=$value['qty'];
+                }
+                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+                $stock=$salable;
+                $stock-=$qtyRest;
+                if($stock<0){
+                    $stock=0;
+                }
+
+                $res['stock']=$stock;
+                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============array=============\n".print_r($res, true));
 
 
                 array_push($addressRes,$res);
@@ -598,7 +675,7 @@ class Hello implements HelloInterface
             $array=array('data'=>$addressRes,'TotalData'=>$ad);
 
 
-         //   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============addressQty=============\n".print_r($array, true));
+           file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============array=============\n".print_r($array, true));
 
 
             if($array){
@@ -706,6 +783,7 @@ class Hello implements HelloInterface
                         $res['address']=$value['address'];
                         $sku=$v->getSku();
                         $salable = $StockStateSel->execute($sku,1); 
+                        
                         $res['stock']=$salable;
 
                         array_push($addressRes,$res);
@@ -854,7 +932,34 @@ class Hello implements HelloInterface
            if($value['type']==0){
             $sku=$product->getSku();
             $salable = $StockStateSel->execute($sku,1);
-            $result[$key]['stock']=$salable;
+
+            $type=$value['type'];
+
+            $stockSQL="SELECT b.qty
+                FROM blm_crontab b
+                WHERE b.quoteId=$quoteid AND b.productId=$productId AND b.`type`=$type AND b.address !=$addressid
+                ";
+    
+                $qtyRes = $connection->fetchAll($stockSQL);
+                $qtyRest=0;
+                foreach ($res as $key => $var) {
+                    $qtyRest+=$var['qty'];
+                }
+                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+                $stock=$salable;
+                $stock-=$qtyRest;
+                if($stock<0){
+                    $stock=0;
+                }
+
+                $res['stock']=$stock;
+
+
+
+
+
+
+    
             $result[$key]['productId']=$value['productId'];
              $result[$key]['type']=$value['type'];
              $result[$key]['qty']=$value['qty'];
@@ -865,8 +970,33 @@ class Hello implements HelloInterface
                      if($packageId==$value['type']){
                          $sku=$child->getSku();
                            $salable = $StockStateSel->execute($sku,1);
-                           $result[$key]['stock']=$salable;
+
+                           $type=$value['type'];
+
+                           $stockSQL="SELECT b.qty
+                           FROM blm_crontab b
+                           WHERE b.quoteId=$quoteid AND b.productId=$productId AND b.`type`=$type AND b.address !=$addressid
+                           ";
+               
+                           $resStock = $connection->fetchAll($stockSQL);
+                           $qtyRest=0;
+                           foreach ($resStock as $key => $val) {
+                               $qtyRest+=$val['qty'];
+                           }
+                           file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+                           $stock=$salable;
+                           $stock-=$qtyRest;
+                           if($stock<0){
+                               $stock=0;
+                           }
+
+
+
+                           $result[$key]['stock']=$stock;
                         if(!isset($result[$key]['productId'])){
+                            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($result, true));
+                            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============value=============\n".print_r($value, true));
+
                             $result[$key]['productId']=$value['productId'];
                             $result[$key]['type']=$value['type'];
                             $result[$key]['qty']=$value['qty'];
