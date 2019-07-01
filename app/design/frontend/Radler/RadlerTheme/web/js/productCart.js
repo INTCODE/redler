@@ -633,6 +633,7 @@ function multiShippingAddItem(obj, mode) {//mode=1- add, mode=2- remove
     var outputValue = parseInt(value);
     (mode == 1) ? outputValue++ : outputValue--;
     $input.val(outputValue < 0 ? 0 : outputValue);
+    $input.val(outputValue > parseInt($input.attr("max")) ? parseInt($input.attr("max")) : outputValue);
 
 };
 
