@@ -916,97 +916,183 @@ class Hello implements HelloInterface
              }
 
              $res = array_merge($result, $tab);
-             file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============tab=============\n".print_r($res, true));
+             file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============RES=============\n".print_r($res, true));
 
 
         $StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInterface');
         $StockStateSel = $objectManager->get('\Magento\InventorySalesApi\Api\GetProductSalableQtyInterface');
 
 
-        foreach ($res as $key => $value) {
+//         foreach ($res as $key => $value) {
 
-            $productId=$value['productId'];
-            $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
+//             $productId=$value['productId'];
+//             $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
       
 
-           if($value['type']==0){
-            $sku=$product->getSku();
-            $salable = $StockStateSel->execute($sku,1);
+//            if($value['type']==0){
+//             $sku=$product->getSku();
+//             $salable = $StockStateSel->execute($sku,1);
 
-            $type=$value['type'];
+//             $type=$value['type'];
 
-            $stockSQL="SELECT b.qty
-                FROM blm_crontab b
-                WHERE b.quoteId=$quoteid AND b.productId=$productId AND b.`type`=$type AND b.address !=$addressid
-                ";
+//             $stockSQL="SELECT b.qty
+//                 FROM blm_crontab b
+//                 WHERE b.quoteId=$quoteid AND b.productId=$productId AND b.`type`=$type AND b.address !=$addressid
+//                 ";
     
-                $qtyRes = $connection->fetchAll($stockSQL);
-                $qtyRest=0;
-                foreach ($res as $key => $var) {
-                    $qtyRest+=$var['qty'];
-                }
-                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
-                $stock=$salable;
-                $stock-=$qtyRest;
-                if($stock<0){
-                    $stock=0;
-                }
+//                 $qtyRes = $connection->fetchAll($stockSQL);
+                
+//                 $qtyRest=0;
+//                 foreach ($res as $key => $var) {
+//                     $qtyRest+=$var['qty'];
+//                 }
+//                // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+//                 $stock=$salable;
+//                 $stock-=$qtyRest;
+//                 if($stock<0){
+//                     $stock=0;
+//                 }
 
-                $res['stock']=$stock;
+//             $result[$key]['stock']=$salable;
+//             $result[$key]['productId']=$value['productId'];
+//             $result[$key]['type']=$value['type'];
+//             $result[$key]['qty']=$value['qty'];
+//             }else{
+//            $_children = $product->getTypeInstance()->getUsedProducts($product);
+//                 foreach ($_children as $k => $child) {
+//                     $packageId=$child->getCustomAttribute('package_type')->getValue();
+//                      if($packageId==$value['type']){
+//                          $sku=$child->getSku();
+//                            $salable = $StockStateSel->execute($sku,1);
 
+//                            $type=$value['type'];
 
-
-
-
-
-    
-            $result[$key]['productId']=$value['productId'];
-             $result[$key]['type']=$value['type'];
-             $result[$key]['qty']=$value['qty'];
-            }else{
-           $_children = $product->getTypeInstance()->getUsedProducts($product);
-                foreach ($_children as $k => $child) {
-                    $packageId=$child->getCustomAttribute('package_type')->getValue();
-                     if($packageId==$value['type']){
-                         $sku=$child->getSku();
-                           $salable = $StockStateSel->execute($sku,1);
-
-                           $type=$value['type'];
-
-                           $stockSQL="SELECT b.qty
-                           FROM blm_crontab b
-                           WHERE b.quoteId=$quoteid AND b.productId=$productId AND b.`type`=$type AND b.address !=$addressid
-                           ";
+//                            $stockSQL="SELECT b.qty
+//                            FROM blm_crontab b
+//                            WHERE b.quoteId=$quoteid AND b.productId=$productId AND b.`type`=$type AND b.address !=$addressid
+//                            ";
                
-                           $resStock = $connection->fetchAll($stockSQL);
-                           $qtyRest=0;
-                           foreach ($resStock as $key => $val) {
-                               $qtyRest+=$val['qty'];
-                           }
-                           file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+//                            $resStock = $connection->fetchAll($stockSQL);
+//                            $qtyRest=0;
+//                            foreach ($resStock as $key => $val) {
+//                                $qtyRest+=$val['qty'];
+//                            }
+//                            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+//                            $stock=$salable;
+//                            $stock-=$qtyRest;
+//                            if($stock<0){
+//                                $stock=0;
+//                            }
+                           
+//                         if(!isset($result[$key]['productId'])){
+//                            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($result, true));
+//                          //   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============value=============\n".print_r($value, true));
+// //
+//                             $result[$key]['productId']=$value['productId'];
+//                             $result[$key]['type']=$value['type'];
+//                             $result[$key]['qty']=$value['qty'];
+//                             $result[$key]['stock']=$salable;
+//                         }
+//                     }
+//                 }
+//            }
+//         }
+    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============res=============\n".print_r($res, true));
+
+        $result=array();
+foreach ($res as $keyTemp => $tempVal) {
+    
+
+
+    $productId=$tempVal['productId'];
+    $type=$tempVal['type'];
+    $addressid=$CartData->address;
+    $quoteid=$CartData->quoteid;
+
+
+    $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
+
+    if($tempVal['type']!=0){
+   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============TYPE!=0=============\n".print_r($tempVal, true));
+
+        $_children = $product->getTypeInstance()->getUsedProducts($product);
+                       foreach ($_children as $k => $child) {
+                        
+                        $packageId=$child->getCustomAttribute('package_type')->getValue();
+                      if($packageId==$tempVal['type']){
+                        $sku=$child->getSku();
+                        $salable = $StockStateSel->execute($sku,1);
+
+                        $stock=null;
+                        $stockSQL="SELECT b.qty
+                                               FROM blm_crontab b
+                                                   WHERE b.quoteId=$quoteid AND b.productId=$productId AND b.`type`=$type AND b.address !=$addressid
+                                                   ";
+                                       
+                                                   $resStock = $connection->fetchAll($stockSQL);
+
+                        if($resStock){
+                            $qtyRest=0;
+                            foreach ($resStock as $key => $val) {
+                                $qtyRest+=$val['qty'];
+                          }
+                            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
                            $stock=$salable;
                            $stock-=$qtyRest;
                            if($stock<0){
                                $stock=0;
-                           }
-
-
-
-                           $result[$key]['stock']=$stock;
-                        if(!isset($result[$key]['productId'])){
-                            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($result, true));
-                            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============value=============\n".print_r($value, true));
-
-                            $result[$key]['productId']=$value['productId'];
-                            $result[$key]['type']=$value['type'];
-                            $result[$key]['qty']=$value['qty'];
+                            }
+                        }else{
+                            $stock=$salable;
                         }
+
+                        $result[$keyTemp]['productId']=$tempVal['productId'];
+                        $result[$keyTemp]['type']=$tempVal['type'];
+                        $result[$keyTemp]['qty']=$tempVal['qty'];
+                        $result[$keyTemp]['stock']=$stock;
+
+                      }
+                       }
+        // $sku=$product->getSku();
+        // $salable = $StockStateSel->execute($sku,1);
+    }else{
+
+        $sku=$product->getSku();
+        $salable = $StockStateSel->execute($sku,1);
+
+                       $stockSQL="SELECT b.qty
+                        FROM blm_crontab b
+                       WHERE b.quoteId=$quoteid AND b.productId=$productId AND b.`type`=$type AND b.address !=$addressid
+                         ";
+            
+                     $resStock = $connection->fetchAll($stockSQL);
+                        
+                     if($resStock){
+                        $qtyRest=0;
+                        foreach ($resStock as $key => $val) {
+                            $qtyRest+=$val['qty'];
+                      }
+                        //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+                       $stock=$salable;
+                       $stock-=$qtyRest;
+                       if($stock<0){
+                           $stock=0;
+                        }
+                    }else{
+                        $stock=$salable;
                     }
-                }
-           }
-        }
+
+        $result[$keyTemp]['productId']=$tempVal['productId'];
+        $result[$keyTemp]['type']=$tempVal['type'];
+        $result[$keyTemp]['qty']=$tempVal['qty'];
+        $result[$keyTemp]['stock']=$stock;
+
+    }
+
+
+}
         // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($result, true));
-         file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($result, true));
+         file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============RESULT=============\n".print_r($result, true));
 
         if($result){
             return json_encode($result);
