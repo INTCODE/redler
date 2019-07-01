@@ -345,11 +345,12 @@ function updateQtyItem(productId, type) {
 function updateProductCart() {
     require(["jquery"], function ($) {
         if ($("#addresses").length > 0) {
+            turnOnLoader("lds-spinner-minicart",1);
             var j = {
                 quoteId: parseInt($("#quoteId").text()),
                 addressId: $("#addresses").val(),
             };
-            $("#minicart-content-wrapper").css("display", "none");
+            //$("#minicart-content-wrapper").css("display", "none");
             j = JSON.stringify(j);
             $.ajax({
                 url: $("#homePath").text() + "/rest/V1/blmCart/getCartByAddress/",
@@ -380,6 +381,7 @@ function updateProductCart() {
                     addRemoveListener();
                     addListenerPlusMinusProduct();
                     clickableBody(2);
+                    turnOnLoader("lds-spinner-minicart",2);
                 },
 
                 /** @inheritdoc */
@@ -388,6 +390,7 @@ function updateProductCart() {
                     console.error("error add - productCart.js");
                     console.log(res);
                     clickableBody(2);
+                    turnOnLoader("lds-spinner-minicart",2);
                 }
             });
         }
@@ -530,7 +533,7 @@ function updateMultiShippingCart() {
                 $("#container-items").append(output);
                 $("#multiShippingSummary").append(getMultiShippingSummary(itemsOutput.TotalData));
                 addListenerUpdateMultiShippingCart();
-                turnOnLoader(2);
+                turnOnLoader("lds-spinner",2);
             },
 
             /** @inheritdoc */
@@ -538,7 +541,7 @@ function updateMultiShippingCart() {
 
                 console.error("error add - multishipping.js");
                 console.log(res);
-                turnOnLoader(2);
+                turnOnLoader("lds-spinner",2);
             }
         });
     });
@@ -719,7 +722,7 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
         qty: qty,
         flag: arrayMode.filter(f => f.mode == mode)[0].value
     };
-    turnOnLoader(1);
+    turnOnLoader("lds-spinner",1);
     j = JSON.stringify(j);
     console.log(j);
     jQuery.ajax({
@@ -737,7 +740,7 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
         },
         /** @inheritdoc */
         error: function (res) {
-            turnOnLoader(2);
+            turnOnLoader("lds-spinner",2);
             console.info("error update - updateMultiShipping.js");
         }
     });
@@ -745,6 +748,6 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
 }
 
 
-function turnOnLoader(mode){//1-on, 2-off
-    jQuery("#lds-spinner").css("display",mode==1?"flex":"none");
+function turnOnLoader(id,mode){//1-on, 2-off
+    jQuery(`#${id}`).css("display",mode==1?"flex":"none");
 }
