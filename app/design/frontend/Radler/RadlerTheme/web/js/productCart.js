@@ -99,7 +99,8 @@ require(["jquery"], function ($) {
                     clearInterval(checkSwatch);
                 }
             }, 200);
-            $("#minicart-content-wrapper").css("display", "block");
+           // $("#minicart-content-wrapper").css("display", "block");
+           // $("#minicart-content-wrapper").parents(".mage-dropdown-dialog").css("height", "auto");
         }
     });
 
@@ -352,7 +353,6 @@ function updateProductCart() {
                 quoteId: parseInt($("#quoteId").text()),
                 addressId: $("#addresses").val(),
             };
-            //$("#minicart-content-wrapper").css("display", "none");
             j = JSON.stringify(j);
             $.ajax({
                 url: $("#homePath").text() + "/rest/V1/blmCart/getCartByAddress/",
@@ -388,7 +388,8 @@ function updateProductCart() {
 
                 /** @inheritdoc */
                 error: function (res) {
-                    $("#minicart-content-wrapper").css("display", "block");
+                    //$("#minicart-content-wrapper").css("display", "block");
+                    $("#minicart-content-wrapper").parents(".mage-dropdown-dialog").css("height", "auto");
                     console.error("error add - productCart.js");
                     console.log(res);
                     clickableBody(2);

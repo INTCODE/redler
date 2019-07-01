@@ -97,7 +97,7 @@ echo "<div id='mediaPath' style='display: none'>".$targetDirPath."</div>";
              data-mage-init='{"dropdownDialog":{
                 "appendTo":"[data-block=minicart]",
                 "triggerTarget":".showcart",
-                "timeout": "2000",
+                "timeout": "4000",
                 "closeOnMouseLeave": false,
                 "closeOnEscape": true,
                 "triggerClass":"active",
@@ -152,6 +152,8 @@ echo "<div id='mediaPath' style='display: none'>".$targetDirPath."</div>";
         require(['jquery'], function ($) {
             $(document).on("ready", function(){
                 updateProductCart();
+                console.log($("#minicart-content-wrapper").parents(".mage-dropdown-dialog"));
+                $("#minicart-content-wrapper").parents(".mage-dropdown-dialog").css("height", "0px");
             });
 
             
