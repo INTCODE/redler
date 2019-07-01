@@ -275,10 +275,12 @@ function updateQtyAllItems() {
     });
 }
 function addOutOfStock(obj){
-    jQuery(obj).append(`
-    <div class="product actions product-item-actions outofstock">
-    <div class="stock unavailable"><span>Out of stock</span></div>
-    </div>`)
+    if(jQuery(obj).children(".outofstock").length==0){
+        jQuery(obj).append(`
+        <div class="product actions product-item-actions outofstock">
+        <div class="stock unavailable"><span>Out of stock</span></div>
+        </div>`);
+    }
 }
 function updateQtyItem(productId, type) {
     console.log("update qty item " + productId);
