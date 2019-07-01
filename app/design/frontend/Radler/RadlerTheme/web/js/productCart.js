@@ -454,8 +454,8 @@ function getItemTemplate(item) {
                     <button class="update-cart-item" style="display: none" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" title="Update">
                         <span>Update</span>
                     </button>
-                    <div class="buttonMinicartQty" onclick="jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())+1)" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" data-cart-item-crontab="${item.crontab_id}">+</div>
-                    <div class="buttonMinicartQty" onclick="if(jQuery(this).parent().find('.cart-item-qty').val() > 0) jQuery(this).parent().find('.cart-item-qty').val(parseInt(jQuery(this).parent().find('.cart-item-qty').val())-1)" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" data-cart-item-crontab="${item.crontab_id}">-</div>
+                    <div class="buttonMinicartQty plus" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" data-cart-item-crontab="${item.crontab_id}">+</div>
+                    <div class="buttonMinicartQty minus" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" data-cart-item-crontab="${item.crontab_id}">-</div>
                 </div>
             </div>
 
@@ -485,6 +485,15 @@ function addRemoveListener() {
 function addListenerPlusMinusProduct() {
     jQuery("#minicart-content-wrapper").css("display", "block");
     jQuery("#mini-cart .buttonMinicartQty").on("click", function (e) {
+        var $input = jQuery(this).parent().find("input");
+        if(jQuery(this).hasClass("plus")){
+            var max = $input.attr("max");
+            $input.val((parseInt($input.val())+1) > parseInt(max) ? max:parseInt($input.val())+1);
+        }else
+            $input.val((parseInt($input.val())-1) < 0 ? 0:parseInt($input.val())-1);
+
+        
+
         jQuery("#minicart-content-wrapper").attr("data-change", "true");
     })
 }
