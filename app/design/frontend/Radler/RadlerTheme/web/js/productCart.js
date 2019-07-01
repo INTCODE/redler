@@ -56,6 +56,7 @@ require(["jquery"], function ($) {
             if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true") {
                 // add to cart
                 $("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
+                clickableBody(1);
                 updateProductCart();
 
                 console.info("Add to cart");
@@ -68,6 +69,7 @@ require(["jquery"], function ($) {
         if (parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) >= parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())) {
             if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true" && !$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled")) {
                 // add to cart
+                clickableBody(1);
                 $("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
                 updateProductCart();
 
@@ -102,11 +104,16 @@ require(["jquery"], function ($) {
     });
 
 });
+function clickableBody(mode){//1-none, 2-auto
+    jQuery("body").css("pointer-events",mode==1?"none":"auto");
+}
+
 
 function addToCartProduct(productId, type, qty) {
     console.info("Add to cart : new");
     require(["jquery"], function ($) {
         if ($("#addresses").length > 0 && $("#minicart-content-wrapper").attr("data-change") == "true") {
+            clickableBody(1);
             var j = {
                 productId: productId,
                 quoteId: parseInt($("#quoteId").text()),
@@ -127,12 +134,15 @@ function addToCartProduct(productId, type, qty) {
                 success: function (res) {
                     updateProductCart();
                     updateQtyItem(productId, type);
+
                     //console.log(res);
                 },
 
                 /** @inheritdoc */
                 error: function (res) {
                     console.error("error add - productCart.js");
+                clickableBody(2);
+
                     console.log(res);
                 }
             });
@@ -249,10 +259,12 @@ function updateQtyAllItems() {
                     $(".inputProductQty").removeAttr("disabled");
                     $("#addresses").removeAttr("disabled");
                     console.info("updated all products");
+                    clickableBody(2);
                 },
 
                 /** @inheritdoc */
                 error: function (res) {
+                    clickableBody(2);
                     console.error("error update - productCart.js");
                     $("#addresses").removeAttr("disabled");
                 }
@@ -315,11 +327,12 @@ function updateQtyItem(productId, type) {
                         
                         $(this).removeAttr("disabled");
                     });
-                    
+                    clickableBody(2);
                 },
 
                 /** @inheritdoc */
                 error: function (res) {
+                    clickableBody(2);
                     console.error("error update - productCart.js");
                 }
             });
@@ -365,6 +378,7 @@ function updateProductCart() {
                     $("#minicart-content-wrapper").attr("data-change", "false");
                     addRemoveListener();
                     addListenerPlusMinusProduct();
+                    clickableBody(2);
                 },
 
                 /** @inheritdoc */
@@ -372,6 +386,7 @@ function updateProductCart() {
                     $("#minicart-content-wrapper").css("display", "block");
                     console.error("error add - productCart.js");
                     console.log(res);
+                    clickableBody(2);
                 }
             });
         }
@@ -578,7 +593,7 @@ function getMultiShippingSummary(total) {
         <span>Order Total</span>
         <span>£${total.totalCost ==null?0: total.totalCost}</span>
     </p>
-<button class="btn btn-green" type="submit">
+<button class="btn btn-green" type="submit" onClick="clickableBody(1)">
     Proceed to checkout
 </button>`;
     return output;
