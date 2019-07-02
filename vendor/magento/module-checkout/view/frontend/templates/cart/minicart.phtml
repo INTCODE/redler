@@ -30,13 +30,13 @@
              data-mage-init='{"dropdownDialog":{
                 "appendTo":"[data-block=minicart]",
                 "triggerTarget":".showcart",
-                "timeout": "2000",
+                "timeout": "4000",
                 "closeOnMouseLeave": false,
                 "closeOnEscape": true,
                 "triggerClass":"active",
                 "parentClass":"active",
                 "buttons":[]}}'>
-            <div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'">
+            <div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'" style="display:none">
                 <!-- ko template: getTemplate() --><!-- /ko -->
             </div>
             <?= $block->getChildHtml('minicart.addons') ?>
