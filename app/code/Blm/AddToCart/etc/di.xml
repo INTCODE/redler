@@ -1,6 +1,17 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
    <preference for="\Magento\Checkout\Controller\Cart\Add" type="Blm\AddToCart\Controller\Cart\Add" />
-      <preference for="Blm\AddToCart\Api\HelloInterface"
-                type="Blm\AddToCart\Model\Hello" />
+   <preference for="\Magento\Checkout\Controller\Cart\UpdatePost" type="Blm\AddToCart\Controller\Cart\UpdatePost" />
+   <preference for="\Magento\Checkout\Controller\Index\Index" type="Blm\AddToCart\Controller\Index\Index" />
+
+   <preference for="\Magento\Checkout\Controller\Onepage\Success" type="Blm\AddToCart\Controller\Onepage\Success" />
+
+   <preference for="\Magento\Checkout\Controller\Sidebar\RemoveItem" type="Blm\AddToCart\Controller\Sidebar\RemoveItem" />
+   <preference for="\Magento\Checkout\Controller\Sidebar\UpdateItemQty" type="Blm\AddToCart\Controller\Sidebar\UpdateItemQty" />
+
+   <preference for="\Magento\Multishipping\Controller\Checkout\Addresses" type="Blm\AddToCart\Controller\Checkout\Addresses" />
+   <preference for="\Magento\Multishipping\Controller\Checkout\AddressesPost" type="Blm\AddToCart\Controller\Checkout\AddressesPost" />
+   <preference for="\Magento\Multishipping\Controller\Checkout\Success" type="Blm\AddToCart\Controller\Checkout\Success" /> 
+   
+   <preference for="Blm\AddToCart\Api\HelloInterface" type="Blm\AddToCart\Model\Hello" />
 </config> 
