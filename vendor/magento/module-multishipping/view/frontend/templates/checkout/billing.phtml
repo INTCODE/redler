@@ -111,6 +111,15 @@
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </dl>
+                        <dl id="store-credit">
+                                <span><?= $block->escapeHtml(__('Store Credit')); ?></span>
+                                    <p id="customer_store_credit_balance"></p>
+                                    <input type="checkbox"
+                                    id="checkbox_store_credit"
+                                    class="checkbox solo method" />
+                                   
+                                   
+                        </dl>
                         <?= $block->getChildHtml('payment_methods_after') ?>
                         <?= $block->getChildHtml('checkout_billing_items') ?>
                     </div>
@@ -133,9 +142,27 @@
         </div>
     </div>
 </form>
+
+
 <script>
     require(['jquery', 'mage/mage'], function(jQuery) {
         var addtocartForm = jQuery('#multishipping-billing-form');
+
+        getData();
+        setState();
+
+      jQuery("#checkbox_store_credit").click((e)=>{
+          let status=jQuery(e.target).prop("checked");
+            if(status){
+                setData();
+               
+            }else{
+                deleteData();
+               
+            }
+      })
+
+
 
         addtocartForm.mage('payment', {
             checkoutPrice: <?= (float)$block->getQuoteBaseGrandTotal() ?>
@@ -150,5 +177,123 @@
                 }
             }
         });
+
+        function getData() {
+                   
+        var j = JSON.stringify({
+                customerId: <?= $customerID=$block->getQuote()->getCustomerId();  ?> 
+            });
+            jQuery.ajax({
+                url: jQuery("#homePath").text() + "/projekty/blm/redler/rest/V1/carts/mine/aw-get-customer-store-credit",
+                data: j,
+                type: 'GET',
+                dataType: 'json',
+                cache: false,
+                contentType: 'application/json',
+                processData: false,
+                /** @inheritdoc */
+                success: function (res) {
+                   // var json = JSON.parse(res);
+                    console.info(res);
+                    jQuery("#customer_store_credit_balance").append(res.customer_store_credit_balance);
+                    jQuery("#store_credit_amount").val(res.customer_store_credit_balance);
+                },
+
+                /** @inheritdoc */
+                error: function (res) {
+                  console.error("error update - productCart.js");
+                }
+            });
+            
+        }
+
+        function setState() {
+            jQuery.ajax({
+                url: jQuery("#homePath").text() + "/projekty/blm/redler/rest/V1/carts/mine/aw-store-credit",
+             
+                type: 'GET',
+                dataType: 'json',
+                cache: false,
+                contentType: 'application/json',
+                processData: false,
+                /** @inheritdoc */
+                success: function (res) {
+                   // var json = JSON.parse(res);
+                    console.info(res);
+                    if(res==1){
+                        jQuery("#checkbox_store_credit").prop("checked",true);
+                    }else{
+                        jQuery("#checkbox_store_credit").prop("checked",false);
+
+                    }
+
+                },
+
+                /** @inheritdoc */
+                error: function (res) {
+                  console.error("error update - productCart.js");
+                }
+            });
+        }
+
+
+        function setData() {
+                   
+                   var j = JSON.stringify({
+                           customerId: <?= $customerID=$block->getQuote()->getCustomerId();  ?> 
+                       });
+                       jQuery.ajax({
+                           url: jQuery("#homePath").text() + "/projekty/blm/redler/rest/V1/carts/mine/apply-aw-store-credit",
+                           data: j,
+                           type: 'PUT',
+                           dataType: 'json',
+                           cache: false,
+                           contentType: 'application/json',
+                           processData: false,
+                           /** @inheritdoc */
+                           success: function (res) {
+                              // var json = JSON.parse(res);
+                               console.info(res);
+                               location.reload();
+                        
+                           },
+           
+                           /** @inheritdoc */
+                           error: function (res) {
+                             console.error("error update - productCart.js");
+                           }
+                       });
+                       
+                   }
+
+                   function deleteData() {
+                   
+                   var j = JSON.stringify({
+                           customerId: <?= $customerID=$block->getQuote()->getCustomerId();  ?> 
+                       });
+                       jQuery.ajax({
+                           url: jQuery("#homePath").text() + "/projekty/blm/redler/rest/V1/carts/mine/remove-aw-store-credit",
+                           data: j,
+                           type: 'DELETE',
+                           dataType: 'json',
+                           cache: false,
+                           contentType: 'application/json',
+                           processData: false,
+                           /** @inheritdoc */
+                           success: function (res) {
+                              // var json = JSON.parse(res);
+                               console.info(res);
+                               location.reload();
+                           
+                           },
+           
+                           /** @inheritdoc */
+                           error: function (res) {
+                             console.error("error update - productCart.js");
+                           }
+                       });
+                       
+                   }
+
     });
 </script>
