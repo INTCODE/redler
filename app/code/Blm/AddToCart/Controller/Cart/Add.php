@@ -334,10 +334,11 @@ file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=======
               $this->cart->addProduct($product, $params);
        
                 if (!empty($related)) {
+           file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========PARAMS=============\n".print_r($related, true));
                     $this->cart->addProductsByIds(explode(',', $related));
                 }
             }
-
+            
             $this->cart->save();
           //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($this->cart->debug(), true));
 
@@ -361,35 +362,64 @@ file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=======
                    $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
                    //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========value=============\n".print_r($product->debug(), true));
 
-                   $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
-                   $_children = $configProduct->getTypeInstance()->getUsedProducts($configProduct);
-                   $quoteID = $this->cart->getQuote()->getId();
-                   foreach ($_children as $child){
-                    $packageId=$child->getCustomAttribute('package_type')->getValue();
-                    if($packageId==$type){
-                        $children = $objectManager->create('Magento\Catalog\Model\Product')->load($child->getId());
-                        //$item= $items->getItemByProduct($children);
-                        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($children->getId(), true));
-                         //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($quoteID, true));
-                        $childID=$children->getId();
-
-                        $getItemID="SELECT *
-                        FROM quote_item
-                        WHERE quote_id=$quoteID AND product_id=$childID";
-                         $itemIDres = $connection->fetchAll($getItemID);
-                         $ItemID=$itemIDres[0]['parent_item_id'];
-
-                         $product_ship=array('qty'=>$qty,'address'=>$address);
-                         $ship_elem = array($ItemID => $product_ship);
-                         file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($ItemID, true));
-
+                   try {
+                    $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
+                    $_children = $configProduct->getTypeInstance()->getUsedProducts($configProduct);
+                    $quoteID = $this->cart->getQuote()->getId();
+                    foreach ($_children as $child){
+                     $packageId=$child->getCustomAttribute('package_type')->getValue();
+                     if($packageId==$type){
+                         $children = $objectManager->create('Magento\Catalog\Model\Product')->load($child->getId());
+                         //$item= $items->getItemByProduct($children);
+                         // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($children->getId(), true));
+                          //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($quoteID, true));
+                         $childID=$children->getId();
+ 
+                         $getItemID="SELECT *
+                         FROM quote_item
+                         WHERE quote_id=$quoteID AND product_id=$childID";
+                          $itemIDres = $connection->fetchAll($getItemID);
+                          $ItemID=$itemIDres[0]['parent_item_id'];
+ 
+                          $product_ship=array('qty'=>$qty,'address'=>$address);
+                          $ship_elem = array($ItemID => $product_ship);
+                          file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($ItemID, true));
+ 
+                     }
                     }
-                   }
-                   if(isset($ship_elem)){
-                    array_push($dbArray,$ship_elem);
-                 
+                    if(isset($ship_elem)){
+                     array_push($dbArray,$ship_elem);
+                    }
+                   } catch (\Throwable $th) {
+                    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($th->getMessage(), true));    
+                   } 
+                //    $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
+                //    $_children = $configProduct->getTypeInstance()->getUsedProducts($configProduct);
+                //    $quoteID = $this->cart->getQuote()->getId();
+                //    foreach ($_children as $child){
+                //     $packageId=$child->getCustomAttribute('package_type')->getValue();
+                //     if($packageId==$type){
+                //         $children = $objectManager->create('Magento\Catalog\Model\Product')->load($child->getId());
+                //         //$item= $items->getItemByProduct($children);
+                //         // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($children->getId(), true));
+                //          //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($quoteID, true));
+                //         $childID=$children->getId();
 
-                   }
+                //         $getItemID="SELECT *
+                //         FROM quote_item
+                //         WHERE quote_id=$quoteID AND product_id=$childID";
+                //          $itemIDres = $connection->fetchAll($getItemID);
+                //          $ItemID=$itemIDres[0]['parent_item_id'];
+
+                //          $product_ship=array('qty'=>$qty,'address'=>$address);
+                //          $ship_elem = array($ItemID => $product_ship);
+                //          file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($ItemID, true));
+
+                //     }
+                //    }
+                //    if(isset($ship_elem)){
+                //     array_push($dbArray,$ship_elem);
+                //    }
                 }
                    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========fin=============\n".print_r($dbArray, true));
                    
