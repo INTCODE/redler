@@ -7,6 +7,18 @@
 // @codingStandardsIgnoreFile
 
 /* @var $block \Magento\Catalog\Block\Product\AbstractProduct */
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+  
+$customerAddress = array();
+$id=null;
+$customerSession = $objectManager->create("Magento\Customer\Model\Session");
+
+if($customerSession->isLoggedIn()){
+  $id= $customerSession->getCustomerId();
+}
+$customerObj = $objectManager->create('Magento\Customer\Model\Customer')->load($id);
+$GLOBALS['isActive'] = $customerObj['approve_account'];
+
 ?>
 
 <?php
@@ -217,10 +229,12 @@ switch ($type = $block->getType()) {
                             $listBlock = $objectManager->get('\Magento\Catalog\Block\Product\ListProduct');
                             $addToCartUrl =  $listBlock->getAddToCartUrl($_item);
                         ?>
-
-                                    <form data-role="tocart-form"  method="post">
+                                <?php $postParams = $block->getAddToCartPostParams($_item); ?>  
                                     <form data-role="tocart-form" data-product-sku="<?php echo $_item->getSku(); ?>" action="<?php echo $addToCartUrl; ?>" method="post">
                                             <?= $block->getBlockHtml('formkey') ?>
+
+                                            <input type="hidden" name="addressId" value="1">
+       
 
                                                 <div class="control">
                                                                 <input type="number" 
