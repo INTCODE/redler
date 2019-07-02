@@ -12,6 +12,7 @@ $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 $customerAddress = array();
 $id=null;
 $customerSession = $objectManager->create("Magento\Customer\Model\Session");
+$defaultAddres = $customerSession-> getCustomerData()->getDefaultShipping();
 
 if($customerSession->isLoggedIn()){
   $id= $customerSession->getCustomerId();
@@ -28,6 +29,7 @@ switch ($type = $block->getType()) {
         if ($exist = $block->hasItems()) {
             $type = 'related';
             $class = $type;
+
 
             $image = 'related_products_list';
             $title = __('Related Products');
@@ -121,9 +123,10 @@ switch ($type = $block->getType()) {
     case 'crosssell':
         /** @var \Magento\Catalog\Block\Product\ProductList\Crosssell $block */
         if ($exist = count($block->getItems())) {
+
             $type = 'crosssell';
             $class = $type;
-
+            
             $image = 'cart_cross_sell_products';
             $title = __('More Choices:');
             $items = $block->getItems();
@@ -184,6 +187,7 @@ switch ($type = $block->getType()) {
         <?php endif; ?>
         <div class="products wrapper grid products-grid products-<?= /* @escapeNotVerified */ $type ?>">
             <ol class="products list items product-items">
+            <input type="hidden" id="addresses" value="<?php echo $customerSession-> getCustomerData()->getDefaultShipping();?>">
                 <?php foreach ($items as $_item): ?>
                 <?php
                 //-------
@@ -233,8 +237,7 @@ switch ($type = $block->getType()) {
                                     <form data-role="tocart-form" data-product-sku="<?php echo $_item->getSku(); ?>" action="<?php echo $addToCartUrl; ?>" method="post">
                                             <?= $block->getBlockHtml('formkey') ?>
 
-                                            <input type="hidden" name="addressId" value="1">
-       
+                                            
 
                                                 <div class="control">
                                                                 <input type="number" 
