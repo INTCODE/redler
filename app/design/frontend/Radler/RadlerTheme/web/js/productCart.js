@@ -232,12 +232,10 @@ function updateQtyAllItems() {
                         var me = this;
 
                         $("[data-id='product-qty-" + me.productId + "']").each(function(){
-                            console.log($(this));
                             var parent = ".product-item-details"    ;
                             if($(this).parents(parent).length <= 0){
                                 parent = ".product-buy";
                             }
-
                             if(me.stock < 0) me.stock = 0;
                             if($(this).parents(parent).find(".swatch-option.selected").attr("option-id") == me.type){
                                 $(this).val(me.qty);
@@ -246,8 +244,9 @@ function updateQtyAllItems() {
                                 if(me.stock=="0"){
                                     $(this).parent().css("display", "none");
                                     var $currobj = $(this);
-                                    var $currobjcont = $currobj.parents(".product-item-inner");
-                                    addOutOfStock($currobjcont.length==0?$currobj.parents(".field.qty"):$currobjcont);
+                                    addOutOfStock($currobj.parents(".field.qty"));
+                                    addOutOfStock($currobj.parents(".control").parent());
+                                    
                                 }
                             }else if($(this).parents(parent).find(".swatch-option").length == 0){
                                 $(this).val(me.qty);
@@ -274,7 +273,8 @@ function updateQtyAllItems() {
     });
 }
 function addOutOfStock(obj){
-    if(jQuery(obj).children(".outofstock").length==0){
+    console.log(jQuery(obj));
+    if(jQuery(obj).find(".outofstock").length==0){
         jQuery(obj).append(`
         <div class="product actions product-item-actions outofstock">
         <div class="stock unavailable"><span>Out of stock</span></div>
@@ -319,14 +319,14 @@ function updateQtyItem(productId, type) {
                             $(this).attr("max", json.stock);
                             if(parseInt(json.stock)>0){
                                 $(this).parent().css("display","flex");
-                                $(this).parents(".product-item-inner").find(".product.actions.product-item-actions.outofstock").css("display","none");
                                 $(this).parents(".field.qty").find(".product.actions.product-item-actions.outofstock").css("display","none");
+                                $(this).parents(".control").parent().find(".product.actions.product-item-actions.outofstock").css("display","none");
 
                             }
                             else{
                                 $(this).parent().css("display","none");
-                                $(this).parents(".product-item-inner").find(".product.actions.product-item-actions").css("display","");
                                 $(this).parents(".field.qty").find(".product.actions.product-item-actions.outofstock").css("display","");
+                                $(this).parents(".control").parent().find(".product.actions.product-item-actions.outofstock").css("display","");
                             }
                         }
                         
