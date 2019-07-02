@@ -24,7 +24,6 @@ require(["jquery"], function ($) {
                     val++;
                 break;
             }
-            
             $("[data-id=" + $(me).attr("data-target") + "]").each(function(){
                 if($(this).parents(".product-item-details").find(".swatch-option.selected").length > 0){
                     if($(this).parents(".product-item-details").find(".swatch-option.selected").attr("option-id") == selectedOption){
@@ -88,11 +87,9 @@ require(["jquery"], function ($) {
             var checkSwatch = setInterval(() => {
                 if ($(".swatch-option.selected").length > 0) {
                     updateQtyAllItems();
-
                     $(".swatch-option").on("click", function () {
-                        console.log($(this).parents(".product-item-details").find(".input-text.qty.inputProductQty").attr("max"));
-                         updateQtyItem($(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id"), $(this).attr('option-id'));
-                        
+                        var productID= $(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id")
+                        updateQtyItem(productID===undefined?$("#product_addtocart_form").find("input[name='product']").val():productID, $(this).attr('option-id'));
                         
                     });
 
@@ -101,6 +98,8 @@ require(["jquery"], function ($) {
             }, 200);
            // $("#minicart-content-wrapper").css("display", "block");
            // $("#minicart-content-wrapper").parents(".mage-dropdown-dialog").css("height", "auto");
+
+          
         }
     });
 
@@ -188,7 +187,6 @@ function updateQtyAllItems() {
             $(".product-item-details [data-product-id]").each(function () {
                 var pid = $(this).attr("data-product-id");
                 var type = 0;
-
                 if ($(this).parent().find(".swatch-option[aria-checked='true']").length > 0) {
                     type = $(this).parent().find(".swatch-option[aria-checked='true']").attr("option-id");
                 }
@@ -234,8 +232,8 @@ function updateQtyAllItems() {
                         var me = this;
 
                         $("[data-id='product-qty-" + me.productId + "']").each(function(){
-
-                            var parent = ".product-item-details";
+                            console.log($(this));
+                            var parent = ".product-item-details"    ;
                             if($(this).parents(parent).length <= 0){
                                 parent = ".product-buy";
                             }
@@ -249,7 +247,7 @@ function updateQtyAllItems() {
                                     $(this).parent().css("display", "none");
                                     var $currobj = $(this);
                                     var $currobjcont = $currobj.parents(".product-item-inner");
-                                    addOutOfStock($currobjcont);
+                                    addOutOfStock($currobjcont.length==0?$currobj.parents(".field.qty"):$currobjcont);
                                 }
                             }else if($(this).parents(parent).find(".swatch-option").length == 0){
                                 $(this).val(me.qty);
@@ -322,10 +320,13 @@ function updateQtyItem(productId, type) {
                             if(parseInt(json.stock)>0){
                                 $(this).parent().css("display","flex");
                                 $(this).parents(".product-item-inner").find(".product.actions.product-item-actions.outofstock").css("display","none");
+                                $(this).parents(".field.qty").find(".product.actions.product-item-actions.outofstock").css("display","none");
+
                             }
                             else{
                                 $(this).parent().css("display","none");
                                 $(this).parents(".product-item-inner").find(".product.actions.product-item-actions").css("display","");
+                                $(this).parents(".field.qty").find(".product.actions.product-item-actions.outofstock").css("display","");
                             }
                         }
                         
