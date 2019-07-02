@@ -1002,8 +1002,6 @@ class Hello implements HelloInterface
         $result=array();
 foreach ($res as $keyTemp => $tempVal) {
     
-
-
     $productId=$tempVal['productId'];
     $type=$tempVal['type'];
     $addressid=$CartData->address;
@@ -1058,7 +1056,13 @@ foreach ($res as $keyTemp => $tempVal) {
     }else{
 
         $sku=$product->getSku();
+
+        try {
         $salable = $StockStateSel->execute($sku,1);
+        //code...
+        } catch (\Throwable $th) {
+            $salable=0;
+        }
 
                        $stockSQL="SELECT b.qty
                         FROM blm_crontab b
