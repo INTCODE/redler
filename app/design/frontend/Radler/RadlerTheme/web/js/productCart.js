@@ -36,6 +36,7 @@ require(["jquery"], function ($) {
 
             // data changed
             $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
+            $("#minicart-content-wrapper").attr("data-change", "true");
         }
     });
 
@@ -65,9 +66,11 @@ require(["jquery"], function ($) {
     });
 
     $('.increaseQty, .decreaseQty').on("mouseleave", function () {
+        
         if (parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) >= parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())) {
             if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true" && !$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled")) {
                 // add to cart
+                $("#minicart-content-wrapper").attr("data-change", "true");
                 clickableBody(1);
                 $("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
                 updateProductCart();
@@ -101,6 +104,7 @@ require(["jquery"], function ($) {
 
           
         }
+        addActionToFormCrossSell();
     });
 
 });
@@ -273,7 +277,6 @@ function updateQtyAllItems() {
     });
 }
 function addOutOfStock(obj){
-    console.log(jQuery(obj));
     if(jQuery(obj).find(".outofstock").length==0){
         jQuery(obj).append(`
         <div class="product actions product-item-actions outofstock">
@@ -318,7 +321,7 @@ function updateQtyItem(productId, type) {
                             $(this).val(json.qty);
                             $(this).attr("max", json.stock);
                             if(parseInt(json.stock)>0){
-                                $(this).parent().css("display","flex");
+                                $(this).parent().css("display","block");
                                 $(this).parents(".field.qty").find(".product.actions.product-item-actions.outofstock").css("display","none");
                                 $(this).parents(".control").parent().find(".product.actions.product-item-actions.outofstock").css("display","none");
 
@@ -538,6 +541,7 @@ function updateMultiShippingCart() {
                 $("#multiShippingSummary").append(getMultiShippingSummary(itemsOutput.TotalData));
                 addListenerUpdateMultiShippingCart();
                 turnOnLoader("lds-spinner",2);
+                addActionToFormCrossSell();
             },
 
             /** @inheritdoc */
@@ -755,4 +759,24 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
 
 function turnOnLoader(id,mode){//1-on, 2-off
     jQuery(`#${id}`).css("display",mode==1?"flex":"none");
+}
+
+
+function addActionToFormCrossSell(){
+    console.log(jQuery(".item.product.product-item form").toArray());
+    jQuery(".item.product.product-item form").each(()=>{
+
+        jQuery(this).submit((e)=>{
+            e.preventDefault();
+            console.log(jQuery(e.target).find(".input-text.qty.inputProductQty"));
+            var $input=jQuery(e.target).find(".input-text.qty.inputProductQty");
+            
+            var productId=$input.attr("product-id");
+            var qty=$input.val()
+            var type=$input.parents(".product.details.product-item-details").find(".swatch-attribute.package_type").attr("option-selected");
+            console.log(type);
+            addToCartProduct(productId,type,qty);
+
+        })
+    });
 }

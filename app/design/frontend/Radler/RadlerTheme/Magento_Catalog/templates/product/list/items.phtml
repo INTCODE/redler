@@ -194,10 +194,17 @@ switch ($type = $block->getType()) {
                     $size = $_item->getResource()->getAttribute('size')->getFrontend()->getValue($_item);
                     $alcoholByVolume = $_item->getResource()->getAttribute('alcohol_by_volume')->getFrontend()->getValue($_item);
                     $isReturnable = $_item->getResource()->getAttribute('returnable_bottle')->getFrontend()->getValue($_item);
+
+
+                   // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=cycki====\n".print_r(get_class_methods($swatchBlock), true));
+                   // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=cycki====\n".print_r($_item->getOptions(), true));
+
+                    
                 //------
                 ?>
 
-                <?php $available = ''; ?>
+                <?php $available = ''; 
+                ?>
                 <?php if (!$_item->isComposite() && $_item->isSaleable() && $type == 'related'): ?>
                     <?php if (!$_item->getRequiredOptions()): ?>
                         <?php $available = 'related-available'; ?>
@@ -232,6 +239,8 @@ switch ($type = $block->getType()) {
                             $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
                             $listBlock = $objectManager->get('\Magento\Catalog\Block\Product\ListProduct');
                             $addToCartUrl =  $listBlock->getAddToCartUrl($_item);
+                            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=cycki====\n".print_r(get_class_methods($swatchBlock), true));
+
                         ?>
                                 <?php $postParams = $block->getAddToCartPostParams($_item); ?>  
                                     <form data-role="tocart-form" data-product-sku="<?php echo $_item->getSku(); ?>" action="<?php echo $addToCartUrl; ?>" method="post">
@@ -240,6 +249,7 @@ switch ($type = $block->getType()) {
                                             
 
                                                 <div class="control">
+                                                    
                                                                 <input type="number" 
                                                                     name="qty" 
                                                                     min="0"
@@ -247,7 +257,9 @@ switch ($type = $block->getType()) {
                                                                     data-id="product-qty-<?= $_item->getId() ?>" 
                                                                     maxlength="12" 
                                                                     data-target="product-qty-<?= $_item->getId() ?>" 
+                                                                    product-id="<?= $_item->getId() ?>"      
                                                                     value="0<?php
+                                                                    
                                                                     // GET COUNT IN CART
                                                                     /*$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
                                                                     $cart = $objectManager->get('\Magento\Checkout\Model\Cart'); 
@@ -261,6 +273,7 @@ switch ($type = $block->getType()) {
                                                                     }
                                                                     echo $count;*/
                                                                     ?>" 
+                                                            
                                                                     title="<?= /* @escapeNotVerified */ __('Qty') ?>" 
                                                                     class="input-text qty inputProductQty"/>
 
