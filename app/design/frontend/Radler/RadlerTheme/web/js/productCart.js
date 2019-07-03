@@ -137,9 +137,9 @@ function addToCartProduct(productId, type, qty) {
                 processData: false,
                 /** @inheritdoc */
                 success: function (res) {
-                    updateProductCart();
                     updateQtyItem(productId, type);
-
+                    var link = location.href;
+                    (link.toLowerCase().indexOf("multishipping") >= 0)?updateMultiShippingCart():updateProductCart();
                     //console.log(res);
                 },
 
@@ -765,16 +765,13 @@ function turnOnLoader(id,mode){//1-on, 2-off
 function addActionToFormCrossSell(){
     console.log(jQuery(".item.product.product-item form").toArray());
     jQuery(".item.product.product-item form").each(()=>{
-
+        jQuery(this).unbind('submit').submit();
         jQuery(this).submit((e)=>{
             e.preventDefault();
-            console.log(jQuery(e.target).find(".input-text.qty.inputProductQty"));
             var $input=jQuery(e.target).find(".input-text.qty.inputProductQty");
-            
             var productId=$input.attr("product-id");
             var qty=$input.val()
             var type=$input.parents(".product.details.product-item-details").find(".swatch-attribute.package_type").attr("option-selected");
-            console.log(type);
             addToCartProduct(productId,type,qty);
 
         })
