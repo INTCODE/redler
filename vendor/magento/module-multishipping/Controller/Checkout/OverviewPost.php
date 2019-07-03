@@ -105,6 +105,73 @@ class OverviewPost extends \Magento\Multishipping\Controller\Checkout
                 $paymentInstance->setCcCid($payment['cc_cid']);
             }
             $this->_getCheckout()->createOrders();
+
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            $Multishipping = $objectManager->get('Magento\Multishipping\Model\Checkout\Type\Multishipping');
+            $orderRepository = $objectManager->get('Magento\Sales\Model\OrderRepository');
+            $ids = $Multishipping->getOrderIds();
+      
+            $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+            $connection = $resource->getConnection();
+
+            foreach ($ids as $key => $orderId) {
+                $order = $orderRepository->get($orderId);
+              
+                $array=$order->toArray();
+                
+                if($array['quote']['aw_use_store_credit']){
+                    $order->setAwUseStoreCredit(1);
+                     $order->setAwStoreCreditAmount($array['quote']['aw_store_credit_amount']);
+                     $order->setBaseAwStoreCreditAmount($array['quote']['aw_store_credit_amount']);
+                     $order->save();
+                        try {
+                            $customer_id=$array['customer_id'];
+                            $customer_email=$array['customer_email'];
+                            $customer_name=$array['customer_firstname'].' '.$array['customer_lastname'];
+                            $increment_id=$array['increment_id'];
+                            $comment_to_customer='Spent Store Credit on order #'.$increment_id;
+                            $comment_to_customer_placeolder='Spent Store Credit on order %order_id';
+                            $entity_type=1;
+                       
+                       $sql="SELECT *
+                            FROM aw_sc_summary a
+                            WHERE a.customer_id=$customer_id";
+    
+                            $result = $connection->fetchAll($sql); 
+                            $spended=$array['quote']['aw_store_credit_amount'];
+                            $newBalance=$result[0]['balance']+$array['quote']['aw_store_credit_amount'];
+                            $newSpend=$result[0]['spend']+abs($array['quote']['aw_store_credit_amount']);
+                            
+                            $insert1="INSERT INTO aw_sc_transaction
+                            (customer_id, customer_name, customer_email, comment_to_customer, comment_to_customer_placeholder, balance, current_balance, website_id, balance_update_notified, `type`)
+                            VALUES ($customer_id, '$customer_name', '$customer_email', '$comment_to_customer', '$comment_to_customer_placeolder', $spended, $newBalance, 1, 2, 5)";
+                            $connection->query($insert1);
+
+                            $insert2="INSERT INTO aw_sc_transaction_entity
+                            (entity_type, entity_id, entity_label)
+                            VALUES (1, $orderId, '$increment_id')";
+                           
+                            $connection->query($insert2);
+
+                            $update="UPDATE aw_sc_summary
+                            SET
+                                balance=$newBalance,
+                                spend=$newSpend
+                            WHERE customer_id=$customer_id";
+    
+                            $connection->query($update);
+                        } catch (\Throwable $th) {
+                     file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n===========result==============\n".print_r($th->getMessage(), true));
+          
+                        }
+              
+                }
+
+
+            }
+            
+
+
             $this->_getState()->setCompleteStep(State::STEP_OVERVIEW);
 
             if ($this->session->getAddressErrors()) {
@@ -156,6 +223,8 @@ class OverviewPost extends \Magento\Multishipping\Controller\Checkout
             } catch (\Exception $e) {
                 $this->logger->error($e->getMessage());
             }
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n===========result==============\n".print_r($e->getMessage(), true));
+
             $this->messageManager->addError(__('Order place error'));
             $this->_redirect('*/*/billing');
         }
