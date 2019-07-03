@@ -115,14 +115,20 @@ class OverviewPost extends \Magento\Multishipping\Controller\Checkout
             $connection = $resource->getConnection();
 
             foreach ($ids as $key => $orderId) {
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($orderId, true));
                 $order = $orderRepository->get($orderId);
               
                 $array=$order->toArray();
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($order->debug(), true));
                 
                 if($array['quote']['aw_use_store_credit']){
+
+                    $amount=-($array['subtotal_incl_tax']+$array['shipping_amount']);
+        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=============amount============\n".print_r($amount, true));
+
                     $order->setAwUseStoreCredit(1);
-                     $order->setAwStoreCreditAmount($array['quote']['aw_store_credit_amount']);
-                     $order->setBaseAwStoreCreditAmount($array['quote']['aw_store_credit_amount']);
+                     $order->setAwStoreCreditAmount($amount);
+                     $order->setBaseAwStoreCreditAmount($amount);
                      $order->save();
                         try {
                             $customer_id=$array['customer_id'];
@@ -138,9 +144,9 @@ class OverviewPost extends \Magento\Multishipping\Controller\Checkout
                             WHERE a.customer_id=$customer_id";
     
                             $result = $connection->fetchAll($sql); 
-                            $spended=$array['quote']['aw_store_credit_amount'];
-                            $newBalance=$result[0]['balance']+$array['quote']['aw_store_credit_amount'];
-                            $newSpend=$result[0]['spend']+abs($array['quote']['aw_store_credit_amount']);
+                            $spended=$amount;
+                            $newBalance=$result[0]['balance']+$spended;
+                            $newSpend=$result[0]['spend']+abs($spended);
                             
                             $insert1="INSERT INTO aw_sc_transaction
                             (customer_id, customer_name, customer_email, comment_to_customer, comment_to_customer_placeholder, balance, current_balance, website_id, balance_update_notified, `type`)
