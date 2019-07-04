@@ -124,9 +124,16 @@ abstract class Checkout extends \Magento\Checkout\Controller\Action implements
             if (!$this->_objectManager->get(
                 \Magento\Multishipping\Helper\Data::class
             )->isMultishippingCheckoutAvailable()) {
+
+               $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+               $storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+               $url =  $storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_WEB);
+
                 $error = $this->_getCheckout()->getMinimumAmountError();
+        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========Działa=============\n".print_r($error, true));
+
                 $this->messageManager->addError($error);
-                $this->getResponse()->setRedirect($this->_getHelper()->getCartUrl());
+                $this->getResponse()->setRedirect($url);
                 $this->_actionFlag->set('', self::FLAG_NO_DISPATCH, true);
                 return parent::dispatch($request);
             }
