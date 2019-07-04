@@ -414,12 +414,15 @@ function updateProductCart() {
 }
 function showMiniCart() {
     console.log(jQuery("body").attr("data-mage-init"));
-    if (jQuery("body").attr("data-mage-init") === undefined)
-        jQuery("#minicart-content-wrapper").css("display", "block");
+    if (jQuery("body").attr("data-mage-init") === undefined){
+        setTimeout(function(){
+            jQuery("#minicart-content-wrapper").css("display", "block");
+        },500);
+    }
     else
         setTimeout(function(){
             showMiniCart();
-        },200);
+        },500);
 }
 
 
