@@ -500,7 +500,7 @@ function addRemoveListener() {
 
 
 function addListenerPlusMinusProduct() {
-    //jQuery("#minicart-content-wrapper").css("display", "block");
+    jQuery("#minicart-content-wrapper").css("display", "block");
     jQuery("#mini-cart .buttonMinicartQty").on("click", function (e) {
         var $input = jQuery(this).parent().find("input");
         if (jQuery(this).hasClass("plus")) {
