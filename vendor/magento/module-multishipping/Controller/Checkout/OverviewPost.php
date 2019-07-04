@@ -126,6 +126,7 @@ class OverviewPost extends \Magento\Multishipping\Controller\Checkout
                     $amount=-($array['subtotal_incl_tax']+$array['shipping_amount']);
         file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=============amount============\n".print_r($amount, true));
 
+                    $amount=$amount+$array['grand_total'];
                     $order->setAwUseStoreCredit(1);
                      $order->setAwStoreCreditAmount($amount);
                      $order->setBaseAwStoreCreditAmount($amount);
@@ -152,10 +153,15 @@ class OverviewPost extends \Magento\Multishipping\Controller\Checkout
                             (customer_id, customer_name, customer_email, comment_to_customer, comment_to_customer_placeholder, balance, current_balance, website_id, balance_update_notified, `type`)
                             VALUES ($customer_id, '$customer_name', '$customer_email', '$comment_to_customer', '$comment_to_customer_placeolder', $spended, $newBalance, 1, 2, 5)";
                             $connection->query($insert1);
+                            $lastInsertId = $connection->lastInsertId();
 
                             $insert2="INSERT INTO aw_sc_transaction_entity
-                            (entity_type, entity_id, entity_label)
-                            VALUES (1, $orderId, '$increment_id')";
+                            (transaction_id, entity_type, entity_id, entity_label)
+                            VALUES ($lastInsertId, 1, $orderId, '$increment_id')";
+
+                            // $insert2="INSERT INTO aw_sc_transaction_entity
+                            // (entity_type, entity_id, entity_label)
+                            // VALUES (1, $orderId, '$increment_id')";
                            
                             $connection->query($insert2);
 
@@ -205,7 +211,9 @@ class OverviewPost extends \Magento\Multishipping\Controller\Checkout
             );
             $this->_getCheckout()->getCheckoutSession()->clearQuote();
             $this->messageManager->addError($e->getMessage());
-            $this->_redirect('*/cart');
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n===========result==============\n".print_r($e->getMessage(), true));
+
+            $this->_redirect('*/');
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
             $this->_objectManager->get(
                 \Magento\Checkout\Helper\Data::class
