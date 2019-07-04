@@ -108,8 +108,22 @@ class Items extends \Magento\Sales\Block\Items\AbstractItems
      * @since 100.1.7
      */
     public function getItems()
-    {
-        return $this->itemCollection->getItems();
+    {   
+        $items=$this->itemCollection->getItems();
+       
+       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========get_class_methods=============\n".print_r(get_class_methods($this->itemCollection), true));    
+        
+        foreach ($items as $key => $item) {
+            if($item->getPrice()<=0){
+               file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n======================\n".print_r($item->debug(), true));    
+               unset($items[$key]);
+            }
+        # code...
+        }
+
+        
+
+        return $items;
     }
 
     /**
