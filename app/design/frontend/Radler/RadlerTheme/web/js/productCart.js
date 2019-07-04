@@ -413,16 +413,13 @@ function updateProductCart() {
 
 }
 function showMiniCart() {
-    console.log(jQuery("#minicart-content-wrapper").parents(".minicart-wrapper").attr("data-block"));
-    if (jQuery("#minicart-content-wrapper").parents(".minicart-wrapper").attr("data-block") == "minicart")
+    console.log(jQuery("body").attr("data-mage-init"));
+    if (jQuery("body").attr("data-mage-init") === undefined)
         jQuery("#minicart-content-wrapper").css("display", "block");
     else
         setTimeout(function(){
             showMiniCart();
         },200);
-
-
-
 }
 
 
