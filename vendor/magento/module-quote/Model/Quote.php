@@ -2236,6 +2236,8 @@ class Quote extends AbstractExtensibleModel implements \Magento\Quote\Api\Data\C
      */
     public function validateMinimumAmount($multishipping = false)
     {
+
+        
         $storeId = $this->getStoreId();
         $minOrderActive = $this->_scopeConfig->isSetFlag(
             'sales/minimum_order/active',
@@ -2266,6 +2268,61 @@ class Quote extends AbstractExtensibleModel implements \Magento\Quote\Api\Data\C
             $storeId
         );
 
+
+        $object =  \Magento\Framework\App\ObjectManager::getInstance();
+        $quoteId = $object->create('Magento\Checkout\Model\Cart')->getQuote()->getId();
+
+      //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=============quoteId============\n".print_r($quoteId, true));
+
+        $resource = $object->get('Magento\Framework\App\ResourceConnection');
+        $connection = $resource->getConnection();
+       
+        $sql="SELECT *
+        FROM blm_crontab b
+        WHERE b.quoteId=$quoteId";
+         $result = $connection->fetchAll($sql);
+       //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=============quoteId============\n".print_r($result, true));
+
+         try {
+             $totalPrice=null;
+             foreach ($result as $key => $value) {
+                $product = $object->create('Magento\Catalog\Model\Product')->load($value['productId']);
+         file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=============quoteId============\n".print_r($product->debug(), true));
+
+                if($product->getTypeId()=='configurable'){
+
+                    
+                    $_children = $product->getTypeInstance()->getUsedProducts($product);
+                    foreach ($_children as $k => $child) {
+                        $packageId=$child->getCustomAttribute('package_type')->getValue();
+                        if($packageId==$value['type']){
+                            $price=$child->getPrice();
+                            $totalPrice+=$price*$value['qty'];
+                           file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=============totalPrice============\n".print_r($totalPrice, true));
+                        }
+
+                }
+
+             }else{
+                $price=$product->getPrice();
+                $totalPrice+=$price*$value['qty'];
+             }
+            }
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=============minAmount============\n".print_r($minAmount, true));
+            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=============totalPrice============\n".print_r($totalPrice, true));
+
+            if($minAmount<$totalPrice){
+                return true;
+            }else{
+                return false;
+
+            }
+         } catch (\Throwable $th) {
+            return false;
+         }
+
+         return false;
+      
         $addresses = $this->getAllAddresses();
 
         if (!$multishipping) {
