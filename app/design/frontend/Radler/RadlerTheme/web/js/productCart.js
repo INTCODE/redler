@@ -55,7 +55,8 @@ require(["jquery"], function ($) {
             }
             if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true") {
                 // add to cart
-                $("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
+
+                $(this).parents("form").find("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
                 clickableBody(1);
                 updateProductCart();
 
@@ -72,7 +73,8 @@ require(["jquery"], function ($) {
                 // add to cart
                 $("#minicart-content-wrapper").attr("data-change", "true");
                 clickableBody(1);
-                $("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
+                $(this).parents("form").find("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
+                
                 updateProductCart();
 
                 console.info("Add to cart");
@@ -322,7 +324,7 @@ function updateQtyItem(productId, type) {
                             $(this).val(json.qty);
                             $(this).attr("max", json.stock);
                             if (parseInt(json.stock) > 0) {
-                                $(this).parent().css("display", "block");
+                                $(this).parent().css("display", "flex");
                                 $(this).parents(".field.qty").find(".product.actions.product-item-actions.outofstock").css("display", "none");
                                 $(this).parents(".control").parent().find(".product.actions.product-item-actions.outofstock").css("display", "none");
 
