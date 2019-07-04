@@ -3,13 +3,13 @@ require(["jquery"], function ($) {
     // click +/-
     $('.increaseQty, .decreaseQty').on("click", function () {
         if (!$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled") &&
-            (parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) > 
-            parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())
-            || $(this).hasClass("decreaseQty")
+            (parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) >
+                parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())
+                || $(this).hasClass("decreaseQty")
             )) {
-            
+
             var selectedOption = 0;
-            if($("[data-id=" + $(this).attr("data-target") + "]").parents(".product-item-details").find(".swatch-option.selected").length > 0){
+            if ($("[data-id=" + $(this).attr("data-target") + "]").parents(".product-item-details").find(".swatch-option.selected").length > 0) {
                 selectedOption = $(this).parent().find("[data-id=" + $(this).attr("data-target") + "]").parents(".product-item-details").find(".swatch-option.selected").attr("option-id");
             }
 
@@ -18,18 +18,18 @@ require(["jquery"], function ($) {
 
             switch ($(me).attr("data-action")) {
                 case "-":
-                    if($(me).parent().find("[data-id=" + $(me).attr("data-target") + "]").val() > 0) val--;
-                break;
+                    if ($(me).parent().find("[data-id=" + $(me).attr("data-target") + "]").val() > 0) val--;
+                    break;
                 case "+":
                     val++;
-                break;
+                    break;
             }
-            $("[data-id=" + $(me).attr("data-target") + "]").each(function(){
-                if($(this).parents(".product-item-details").find(".swatch-option.selected").length > 0){
-                    if($(this).parents(".product-item-details").find(".swatch-option.selected").attr("option-id") == selectedOption){
+            $("[data-id=" + $(me).attr("data-target") + "]").each(function () {
+                if ($(this).parents(".product-item-details").find(".swatch-option.selected").length > 0) {
+                    if ($(this).parents(".product-item-details").find(".swatch-option.selected").attr("option-id") == selectedOption) {
                         $(this).val(val);
                     }
-                }else{
+                } else {
                     $(this).val(val);
                 }
             });
@@ -66,7 +66,7 @@ require(["jquery"], function ($) {
     });
 
     $('.increaseQty, .decreaseQty').on("mouseleave", function () {
-        
+
         if (parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) >= parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())) {
             if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true" && !$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled")) {
                 // add to cart
@@ -85,32 +85,32 @@ require(["jquery"], function ($) {
     $("#addresses").on("change", function () {
         updateQtyAllItems();
     });
-    $(document).on("ready",  function () {
+    $(document).on("ready", function () {
         if ($("#addresses").length > 0) {
             var checkSwatch = setInterval(() => {
                 if ($(".swatch-option.selected").length > 0) {
                     updateQtyAllItems();
                     $(".swatch-option").on("click", function () {
-                        var productID= $(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id")
-                        updateQtyItem(productID===undefined?$("#product_addtocart_form").find("input[name='product']").val():productID, $(this).attr('option-id'));
-                        
+                        var productID = $(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id")
+                        updateQtyItem(productID === undefined ? $("#product_addtocart_form").find("input[name='product']").val() : productID, $(this).attr('option-id'));
+
                     });
 
                     clearInterval(checkSwatch);
                 }
             }, 200);
-           // $("#minicart-content-wrapper").css("display", "block");
-           // $("#minicart-content-wrapper").parents(".mage-dropdown-dialog").css("height", "auto");
+            // $("#minicart-content-wrapper").css("display", "block");
+            // $("#minicart-content-wrapper").parents(".mage-dropdown-dialog").css("height", "auto");
 
-          
+
         }
         addActionToFormCrossSell();
     });
 
 });
-function clickableBody(mode){//1-none, 2-auto
-    jQuery(".page-wrapper").css("pointer-events",mode==1?"none":"auto");
-    jQuery("body").css("cursor",mode==1?"wait":"auto");
+function clickableBody(mode) {//1-none, 2-auto
+    jQuery(".page-wrapper").css("pointer-events", mode == 1 ? "none" : "auto");
+    jQuery("body").css("cursor", mode == 1 ? "wait" : "auto");
 }
 
 
@@ -127,30 +127,31 @@ function addToCartProduct(productId, type, qty) {
                 qty: qty
             };
             j = JSON.stringify(j);
-            $.ajax({
-                url: $("#homePath").text() + "/rest/V1/blmCart/add/",
-                data: j,
-                type: 'POST',
-                dataType: 'json',
-                cache: false,
-                contentType: 'application/json',
-                processData: false,
-                /** @inheritdoc */
-                success: function (res) {
-                    updateQtyItem(productId, type);
-                    var link = location.href;
-                    (link.toLowerCase().indexOf("multishipping") >= 0)?updateMultiShippingCart():updateProductCart();
-                    //console.log(res);
-                },
+            if (productId)
+                $.ajax({
+                    url: $("#homePath").text() + "/rest/V1/blmCart/add/",
+                    data: j,
+                    type: 'POST',
+                    dataType: 'json',
+                    cache: false,
+                    contentType: 'application/json',
+                    processData: false,
+                    /** @inheritdoc */
+                    success: function (res) {
+                        updateQtyItem(productId, type);
+                        var link = location.href;
+                        (link.toLowerCase().indexOf("multishipping") >= 0) ? updateMultiShippingCart() : updateProductCart();
+                        //console.log(res);
+                    },
 
-                /** @inheritdoc */
-                error: function (res) {
-                    console.error("error add - productCart.js");
-                clickableBody(2);
+                    /** @inheritdoc */
+                    error: function (res) {
+                        console.error("error add - productCart.js");
+                        clickableBody(2);
 
-                    console.log(res);
-                }
-            });
+                        console.log(res);
+                    }
+                });
         }
     });
 }
@@ -164,7 +165,7 @@ function updateQtySomeProduct(productId) {
             if ($("[data-product-id=" + pid + "]").parent().find(".swatch-option[aria-checked='true']").length > 0) {
                 console.log($("[data-product-id=" + pid + "]").parent().find(".swatch-option[aria-checked='true']"));
                 type = $("[data-product-id=" + pid + "]").parent().find(".swatch-option[aria-checked='true']").attr("option-id");
-            }else if($("[data-product-id=" + pid + "]").parents(".product-buy").find(".swatch-option.selected").length > 0){
+            } else if ($("[data-product-id=" + pid + "]").parents(".product-buy").find(".swatch-option.selected").length > 0) {
                 console.log($("[data-product-id=" + pid + "]").parents(".product-buy").find(".swatch-option.selected"));
                 type = $("[data-product-id=" + pid + "]").parents(".product-buy").find(".swatch-option.selected").attr("option-id");
             }
@@ -199,11 +200,11 @@ function updateQtyAllItems() {
                     type: type
                 };
             });
-            if($(".product-buy").length>0){
+            if ($(".product-buy").length > 0) {
                 var pid = $(".product-buy form>input[name=item]").val();
                 var type = 0;
 
-                if($(".product-buy .swatch-option.selected").length>0){
+                if ($(".product-buy .swatch-option.selected").length > 0) {
                     type = $(".product-buy .swatch-option.selected").attr("option-id");
                 }
                 updateProducts.quote[updateProducts.quote.length] = {
@@ -232,27 +233,27 @@ function updateQtyAllItems() {
                     console.info(json);
 
                     $(".inputProductQty").val(0);
-                    $.each(json, function() {
+                    $.each(json, function () {
                         var me = this;
 
-                        $("[data-id='product-qty-" + me.productId + "']").each(function(){
-                            var parent = ".product-item-details"    ;
-                            if($(this).parents(parent).length <= 0){
+                        $("[data-id='product-qty-" + me.productId + "']").each(function () {
+                            var parent = ".product-item-details";
+                            if ($(this).parents(parent).length <= 0) {
                                 parent = ".product-buy";
                             }
-                            if(me.stock < 0) me.stock = 0;
-                            if($(this).parents(parent).find(".swatch-option.selected").attr("option-id") == me.type){
+                            if (me.stock < 0) me.stock = 0;
+                            if ($(this).parents(parent).find(".swatch-option.selected").attr("option-id") == me.type) {
                                 $(this).val(me.qty);
                                 $(this).attr("max", me.stock);
 
-                                if(me.stock=="0"){
+                                if (me.stock == "0") {
                                     $(this).parent().css("display", "none");
                                     var $currobj = $(this);
                                     addOutOfStock($currobj.parents(".field.qty"));
                                     addOutOfStock($currobj.parents(".control").parent());
-                                    
+
                                 }
-                            }else if($(this).parents(parent).find(".swatch-option").length == 0){
+                            } else if ($(this).parents(parent).find(".swatch-option").length == 0) {
                                 $(this).val(me.qty);
                                 $(this).attr("max", me.stock);
                             }
@@ -276,8 +277,8 @@ function updateQtyAllItems() {
         }
     });
 }
-function addOutOfStock(obj){
-    if(jQuery(obj).find(".outofstock").length==0){
+function addOutOfStock(obj) {
+    if (jQuery(obj).find(".outofstock").length == 0) {
         jQuery(obj).append(`
         <div class="product actions product-item-actions outofstock">
         <div class="stock unavailable"><span>Out of stock</span></div>
@@ -310,29 +311,29 @@ function updateQtyItem(productId, type) {
                 success: function (res) {
                     var json = JSON.parse(res);
                     console.info(json);
-                    $.each($("[data-id='product-qty-" + json.productId + "']"), function(){
+                    $.each($("[data-id='product-qty-" + json.productId + "']"), function () {
 
                         var parent = ".product-item-details";
-                        if($(this).parents(parent).length <= 0){
+                        if ($(this).parents(parent).length <= 0) {
                             parent = ".product-buy";
                         }
-                        if(json.stock < 0) json.stock = 0;
-                        if($(this).parents(parent).find(".swatch-option.selected").attr("option-id") == json.type){
+                        if (json.stock < 0) json.stock = 0;
+                        if ($(this).parents(parent).find(".swatch-option.selected").attr("option-id") == json.type) {
                             $(this).val(json.qty);
                             $(this).attr("max", json.stock);
-                            if(parseInt(json.stock)>0){
-                                $(this).parent().css("display","block");
-                                $(this).parents(".field.qty").find(".product.actions.product-item-actions.outofstock").css("display","none");
-                                $(this).parents(".control").parent().find(".product.actions.product-item-actions.outofstock").css("display","none");
+                            if (parseInt(json.stock) > 0) {
+                                $(this).parent().css("display", "block");
+                                $(this).parents(".field.qty").find(".product.actions.product-item-actions.outofstock").css("display", "none");
+                                $(this).parents(".control").parent().find(".product.actions.product-item-actions.outofstock").css("display", "none");
 
                             }
-                            else{
-                                $(this).parent().css("display","none");
-                                $(this).parents(".field.qty").find(".product.actions.product-item-actions.outofstock").css("display","");
-                                $(this).parents(".control").parent().find(".product.actions.product-item-actions.outofstock").css("display","");
+                            else {
+                                $(this).parent().css("display", "none");
+                                $(this).parents(".field.qty").find(".product.actions.product-item-actions.outofstock").css("display", "");
+                                $(this).parents(".control").parent().find(".product.actions.product-item-actions.outofstock").css("display", "");
                             }
                         }
-                        
+
                         $(this).removeAttr("disabled");
                     });
                     clickableBody(2);
@@ -352,7 +353,7 @@ function updateQtyItem(productId, type) {
 function updateProductCart() {
     require(["jquery"], function ($) {
         if ($("#addresses").length > 0) {
-            turnOnLoader("lds-spinner-minicart",1);
+            turnOnLoader("lds-spinner-minicart", 1);
             var j = {
                 quoteId: parseInt($("#quoteId").text()),
                 addressId: $("#addresses").val(),
@@ -372,7 +373,8 @@ function updateProductCart() {
                     var itemsOutput = JSON.parse(res);
                     var output = "";
                     $.each(itemsOutput.data, (index, item) => {
-                        output += getItemTemplate(item);
+                        if (item.qty > 0)
+                            output += getItemTemplate(item);
                     })
                     var itemPrice = itemsOutput.TotalData.addressCost != null ? itemsOutput.TotalData.addressCost : 0;
                     var itemCount = itemsOutput.TotalData.addressQty != null ? itemsOutput.TotalData.addressQty : 0;
@@ -387,7 +389,7 @@ function updateProductCart() {
                     addRemoveListener();
                     addListenerPlusMinusProduct();
                     clickableBody(2);
-                    turnOnLoader("lds-spinner-minicart",2);
+                    turnOnLoader("lds-spinner-minicart", 2);
                 },
 
                 /** @inheritdoc */
@@ -397,7 +399,7 @@ function updateProductCart() {
                     console.error("error add - productCart.js");
                     console.log(res);
                     clickableBody(2);
-                    turnOnLoader("lds-spinner-minicart",2);
+                    turnOnLoader("lds-spinner-minicart", 2);
                 }
             });
         }
@@ -496,13 +498,13 @@ function addListenerPlusMinusProduct() {
     jQuery("#minicart-content-wrapper").css("display", "block");
     jQuery("#mini-cart .buttonMinicartQty").on("click", function (e) {
         var $input = jQuery(this).parent().find("input");
-        if(jQuery(this).hasClass("plus")){
+        if (jQuery(this).hasClass("plus")) {
             var max = $input.attr("max");
-            $input.val((parseInt($input.val())+1) > parseInt(max) ? max:parseInt($input.val())+1);
-        }else
-            $input.val((parseInt($input.val())-1) < 0 ? 0:parseInt($input.val())-1);
+            $input.val((parseInt($input.val()) + 1) > parseInt(max) ? max : parseInt($input.val()) + 1);
+        } else
+            $input.val((parseInt($input.val()) - 1) < 0 ? 0 : parseInt($input.val()) - 1);
 
-        
+
 
         jQuery("#minicart-content-wrapper").attr("data-change", "true");
     })
@@ -510,7 +512,7 @@ function addListenerPlusMinusProduct() {
 
 //multishipping
 function updateMultiShippingCart() {
-    
+
     require(["jquery"], function ($) {
         var j = {
             quoteId: parseInt($("#quoteId").text()),
@@ -534,13 +536,13 @@ function updateMultiShippingCart() {
 
                 $.each(itemsOutput.data, (index, item) => {
                     var selectAddresses = multiShippingCreateSelect(itemsOutput.addresses, item.address);
-                    output += getMultiShippingTemplate(item,index, selectAddresses);
+                    output += getMultiShippingTemplate(item, index, selectAddresses);
                 });
 
                 $("#container-items").append(output);
                 $("#multiShippingSummary").append(getMultiShippingSummary(itemsOutput.TotalData));
                 addListenerUpdateMultiShippingCart();
-                turnOnLoader("lds-spinner",2);
+                turnOnLoader("lds-spinner", 2);
                 addActionToFormCrossSell();
             },
 
@@ -549,16 +551,16 @@ function updateMultiShippingCart() {
 
                 console.error("error add - multishipping.js");
                 console.log(res);
-                turnOnLoader("lds-spinner",2);
+                turnOnLoader("lds-spinner", 2);
             }
         });
     });
 }
 
 
-function getMultiShippingTemplate(item,index, selectAddresses) {
+function getMultiShippingTemplate(item, index, selectAddresses) {
     item.price = parseFloat(item.price).toFixed(2);
-    if(item.stock < 0) item.stock = 0;
+    if (item.stock < 0) item.stock = 0;
     return `<div class="basket-item" id="product_multishipping_${item.productId}" product_id="${item.productId}">
 <div class="img" >
     <img style="max-width: 25%; max-height: 25%;" src="${item.image}" alt="">
@@ -607,12 +609,12 @@ function getMultiShippingSummary(total) {
 <div class="borders">
 <p>
     <span>Subtotal</span>
-    <span>£${total.totalCost==null?0:total.totalCost}</span>
+    <span>£${total.totalCost == null ? 0 : total.totalCost}</span>
 </p>
 </div>
     <p class="total">
         <span>Order Total</span>
-        <span>£${total.totalCost ==null?0: total.totalCost}</span>
+        <span>£${total.totalCost == null ? 0 : total.totalCost}</span>
     </p>
 <button class="btn btn-green" type="submit" onClick="clickableBody(1)">
     Proceed to checkout
@@ -660,26 +662,26 @@ function addListenerUpdateMultiShippingCart() {
     });
     jQuery("#checkout_multishipping_form .quantity .increment").click((e) => {
         multiShippingAddItem(e.target, 1);
-        var avaValue= parseInt(jQuery(e.target).parent().find("input").attr("max"));
+        var avaValue = parseInt(jQuery(e.target).parent().find("input").attr("max"));
         var currValue = parseInt(jQuery(e.target).parent().find("input").val());
-        if(currValue<=avaValue)
+        if (currValue <= avaValue)
             getValuesMultiShipping(e.target, 2);
     });
-    jQuery("#checkout_multishipping_form .quantity .decrement").click((e) => {    
+    jQuery("#checkout_multishipping_form .quantity .decrement").click((e) => {
         multiShippingAddItem(e.target, 2);
-        var avaValue= parseInt(jQuery(e.target).parent().find("input").attr("max"));
+        var avaValue = parseInt(jQuery(e.target).parent().find("input").attr("max"));
         var currValue = parseInt(jQuery(e.target).parent().find("input").val());
-        if(currValue<=avaValue)
+        if (currValue <= avaValue)
             getValuesMultiShipping(e.target, 2);
     });
 
     jQuery("#checkout_multishipping_form .custom-input-number input").change((e) => {
-        var avaValue= parseInt(jQuery(e.target).attr("max"));
+        var avaValue = parseInt(jQuery(e.target).attr("max"));
         var currValue = parseInt(jQuery(e.target).val());
-        if(currValue<=avaValue)
+        if (currValue <= avaValue)
             getValuesMultiShipping(e.target, 2);
     });
-    
+
 
 }
 
@@ -731,7 +733,7 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
         qty: qty,
         flag: arrayMode.filter(f => f.mode == mode)[0].value
     };
-    turnOnLoader("lds-spinner",1);
+    turnOnLoader("lds-spinner", 1);
     j = JSON.stringify(j);
     console.log(j);
     jQuery.ajax({
@@ -744,12 +746,12 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
         processData: false,
         /** @inheritdoc */
         success: function (res) {
-            
+
             updateMultiShippingCart();
         },
         /** @inheritdoc */
         error: function (res) {
-            turnOnLoader("lds-spinner",2);
+            turnOnLoader("lds-spinner", 2);
             console.info("error update - updateMultiShipping.js");
         }
     });
@@ -757,22 +759,22 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
 }
 
 
-function turnOnLoader(id,mode){//1-on, 2-off
-    jQuery(`#${id}`).css("display",mode==1?"flex":"none");
+function turnOnLoader(id, mode) {//1-on, 2-off
+    jQuery(`#${id}`).css("display", mode == 1 ? "flex" : "none");
 }
 
 
-function addActionToFormCrossSell(){
+function addActionToFormCrossSell() {
     console.log(jQuery(".item.product.product-item form").toArray());
-    jQuery(".item.product.product-item form").each(()=>{
+    jQuery(".item.product.product-item form").each(() => {
         jQuery(this).unbind('submit').submit();
-        jQuery(this).submit((e)=>{
+        jQuery(this).submit((e) => {
             e.preventDefault();
-            var $input=jQuery(e.target).find(".input-text.qty.inputProductQty");
-            var productId=$input.attr("product-id");
-            var qty=$input.val()
-            var type=$input.parents(".product.details.product-item-details").find(".swatch-attribute.package_type").attr("option-selected");
-            addToCartProduct(productId,type,qty);
+            var $input = jQuery(e.target).find(".input-text.qty.inputProductQty");
+            var productId = $input.attr("product-id");
+            var qty = $input.val()
+            var type = $input.parents(".product.details.product-item-details").find(".swatch-attribute.package_type").attr("option-selected");
+            addToCartProduct(productId, type, qty);
 
         })
     });
