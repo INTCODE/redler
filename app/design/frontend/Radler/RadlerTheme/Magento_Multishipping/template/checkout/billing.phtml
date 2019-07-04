@@ -114,9 +114,6 @@
                         <dl id="store-credit">
                                 <span><?= $block->escapeHtml(__('Store Credit')); ?></span>
                                     <p id="customer_store_credit_balance"></p>
-                                    <input type="checkbox"
-                                    id="checkbox_store_credit"
-                                    class="checkbox solo method" />
                                    
                                    
                         </dl>
@@ -148,8 +145,8 @@
     require(['jquery', 'mage/mage'], function(jQuery) {
         var addtocartForm = jQuery('#multishipping-billing-form');
 
-        getData();
-        setState();
+       getData();
+        
 
       jQuery("#checkbox_store_credit").click((e)=>{
           let status=jQuery(e.target).prop("checked");
@@ -195,8 +192,17 @@
                 success: function (res) {
                    // var json = JSON.parse(res);
                     console.info(res);
-                    jQuery("#customer_store_credit_balance").append(res.customer_store_credit_balance);
-                    jQuery("#store_credit_amount").val(res.customer_store_credit_balance);
+                    if(res.customer_store_credit_balance_currency==0){
+
+                    }else{
+                        jQuery("#store-credit").append('<input type="checkbox"
+                                    id="checkbox_store_credit"
+                                    class="checkbox solo method" />');
+                        jQuery("#customer_store_credit_balance").append(res.customer_store_credit_balance);
+                    
+                    setState();
+                    }
+                    
                 },
 
                 /** @inheritdoc */
