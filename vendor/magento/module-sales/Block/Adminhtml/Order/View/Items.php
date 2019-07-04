@@ -21,6 +21,7 @@ class Items extends \Magento\Sales\Block\Adminhtml\Items\AbstractItems
      */
     public function getColumns()
     {
+
         $columns = array_key_exists('columns', $this->_data) ? $this->_data['columns'] : [];
         return $columns;
     }
@@ -47,6 +48,14 @@ class Items extends \Magento\Sales\Block\Adminhtml\Items\AbstractItems
      */
     public function getItemsCollection()
     {
-        return $this->getOrder()->getItemsCollection();
+        $items=$this->getOrder()->getItemsCollection()->getItems();
+        foreach ($items as $key => $item) {
+            if($item->getPrice()<=0){
+                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n======================\n".print_r($item->debug(), true));    
+                unset($items[$key]);
+             }
+        }
+
+        return $items;
     }
 }

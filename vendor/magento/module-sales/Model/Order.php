@@ -1459,10 +1459,15 @@ class Order extends AbstractModel implements EntityInterface, OrderInterface
      */
     public function getAllItems()
     {
+
         $items = [];
         foreach ($this->getItems() as $item) {
             if (!$item->isDeleted()) {
-                $items[] = $item;
+                if($item->getPrice()>0){
+                    $items[] = $item;
+
+                }
+
             }
         }
         return $items;
@@ -1475,6 +1480,7 @@ class Order extends AbstractModel implements EntityInterface, OrderInterface
      */
     public function getAllVisibleItems()
     {
+                
         $items = [];
         foreach ($this->getItems() as $item) {
             if (!$item->isDeleted() && !$item->getParentItemId()) {
