@@ -160,6 +160,7 @@ function addToCartProduct(productId, type, qty) {
     });
 }
 
+
 function updateQtySomeProduct(productId) {
     require(["jquery"], function ($) {
         if ($("#addresses").length > 0 && $("#minicart-content-wrapper").attr("data-change") == "true") {
@@ -394,6 +395,7 @@ function updateProductCart() {
                     addListenerPlusMinusProduct();
                     clickableBody(2);
                     turnOnLoader("lds-spinner-minicart", 2);
+                    showMiniCart();
                 },
 
                 /** @inheritdoc */
@@ -410,6 +412,19 @@ function updateProductCart() {
     });
 
 }
+function showMiniCart() {
+    console.log(jQuery("#minicart-content-wrapper").parents(".minicart-wrapper").attr("data-block"));
+    if (jQuery("#minicart-content-wrapper").parents(".minicart-wrapper").attr("data-block") == "minicart")
+        jQuery("#minicart-content-wrapper").css("display", "block");
+    else
+        setTimeout(function(){
+            showMiniCart();
+        },200);
+
+
+
+}
+
 
 
 
@@ -500,7 +515,7 @@ function addRemoveListener() {
 
 
 function addListenerPlusMinusProduct() {
-    jQuery("#minicart-content-wrapper").css("display", "block");
+
     jQuery("#mini-cart .buttonMinicartQty").on("click", function (e) {
         var $input = jQuery(this).parent().find("input");
         if (jQuery(this).hasClass("plus")) {
@@ -675,7 +690,7 @@ function addListenerUpdateMultiShippingCart() {
     });
 
     jQuery("#checkout_multishipping_form .quantity ").mouseleave((e) => {
-        if (jQuery("#multiShippingSummary").attr("data-changed")=="true") {
+        if (jQuery("#multiShippingSummary").attr("data-changed") == "true") {
             var avaValue = parseInt(jQuery(e.target).parent().find("input").attr("max"));
             var currValue = parseInt(jQuery(e.target).parent().find("input").val());
             if (currValue <= avaValue)
@@ -756,12 +771,12 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
         /** @inheritdoc */
         success: function (res) {
             updateMultiShippingCart();
-            jQuery("#multiShippingSummary").attr("data-changed","false");
+            jQuery("#multiShippingSummary").attr("data-changed", "false");
         },
         /** @inheritdoc */
         error: function (res) {
             turnOnLoader("lds-spinner", 2);
-            jQuery("#multiShippingSummary").attr("data-changed","false");
+            jQuery("#multiShippingSummary").attr("data-changed", "false");
             console.info("error update - updateMultiShipping.js");
         }
     });
