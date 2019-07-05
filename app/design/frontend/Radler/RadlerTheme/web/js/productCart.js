@@ -610,7 +610,7 @@ function getMultiShippingTemplate(item, index, selectAddresses) {
 </div>
 <div class="quantity">
     <div class="custom-input-number">
-        <input type="number" max="${item.stock}" value="${item.qty}"
+        <input type="number" max="${item.stock}" value="${item.qty}" type-product="${item.type}"
         id="ship-${index}-${item.productId}-qty"
         name="ship[${index}][${item.productId}][qty]"
         >
@@ -727,7 +727,8 @@ function getProductIdMultiShipping(obj) {
 }
 
 function getTypedMultiShipping(obj) {
-    return jQuery(obj).parents(".basket-item").find(".price input").prop("checked");
+    console.log(jQuery(obj));
+    return jQuery(obj).find("input").attr("type-product");
 }
 
 function getAddressIdMultiShipping(obj) {
@@ -757,7 +758,7 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
     var j = {
         quoteId: parseInt(jQuery("#quoteId").text()),
         productId: productId,
-        type: type ? "21" : "22",
+        type: type,
         addressId: addressId,
         qty: qty,
         flag: arrayMode.filter(f => f.mode == mode)[0].value
