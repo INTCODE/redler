@@ -235,7 +235,7 @@ switch ($type = $block->getType()) {
                             $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
                             $listBlock = $objectManager->get('\Magento\Catalog\Block\Product\ListProduct');
                             $addToCartUrl =  $listBlock->getAddToCartUrl($_item);
-                            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=cycki====\n".print_r(get_class_methods($swatchBlock), true));
+                            
 
                         ?>
                                 <?php $postParams = $block->getAddToCartPostParams($_item); ?>  
