@@ -804,14 +804,14 @@ function turnOnLoader(id, mode) {//1-on, 2-off
 function addActionToFormCrossSell() {
     console.log(jQuery(".products.wrapper.grid.products-grid.products-crosssell form").toArray());
     jQuery(".products.wrapper.grid.products-grid.products-crosssell form").toArray().forEach((item, index) => {
+        jQuery(item).unbind('submit');
         jQuery(item).submit((e) => {
-            console.log(e);
             e.preventDefault();
             var $input = jQuery(e.target).find(".input-text.qty.inputProductQty");
             var productId = $input.attr("product-id");
             var qty = $input.val()
             var type = $input.parents(".product.details.product-item-details").find(".swatch-attribute.package_type").attr("option-selected");
-            addToCartProduct(productId, type, qty);
+            addToCartProduct(productId, type == undefined ? 0 : type, qty);
 
         })
     });
