@@ -108,7 +108,7 @@ require(["jquery"], function ($) {
 
 
         }
-       
+
         addActionToFormCrossSell();
     });
 
@@ -149,7 +149,7 @@ function addToCartProduct(productId, type, qty) {
                         updateQtyItem(productId, type);
                         var link = location.href;
                         $("#minicart-content-wrapper").attr("data-change", "false");
-                    
+
                         (link.toLowerCase().indexOf("multishipping") >= 0) ? updateMultiShippingCart() : updateProductCart();
                         //console.log(res);
                     },
@@ -420,15 +420,15 @@ function updateProductCart() {
 }
 function showMiniCart() {
     console.log(jQuery("body").attr("data-mage-init"));
-    if (jQuery("body").attr("data-mage-init") === undefined){
-        setTimeout(function(){
+    if (jQuery("body").attr("data-mage-init") === undefined) {
+        setTimeout(function () {
             jQuery("#minicart-content-wrapper").css("display", "block");
-        },500);
+        }, 500);
     }
     else
-        setTimeout(function(){
+        setTimeout(function () {
             showMiniCart();
-        },500);
+        }, 500);
 }
 
 
@@ -611,7 +611,7 @@ function getMultiShippingTemplate(item, index, selectAddresses) {
 </div>
 <div class="quantity">
     <div class="custom-input-number">
-        <input type="number" max="${item.stock}" value="${item.qty}" type-product="${item.type}"
+        <input type="number" max="${item.stock}" min="0" value="${item.qty}" type-product="${item.type}"
         id="ship-${index}-${item.productId}-qty"
         name="ship[${index}][${item.productId}][qty]"
         >
@@ -662,12 +662,16 @@ function multiShippingCreateSelect(addresses, toSelect) {
 
 
 function multiShippingAddItem(obj, mode) {//mode=1- add, mode=2- remove
+
+
     var $input = jQuery(obj).parent().find("input");
     var value = $input.val();
     var outputValue = parseInt(value);
+    console.log(outputValue);
     (mode == 1) ? outputValue++ : outputValue--;
-    $input.val(outputValue < 0 ? 0 : outputValue);
-    $input.val(outputValue > parseInt($input.attr("max")) ? parseInt($input.attr("max")) : outputValue);
+    (mode == 1) ? $input.val(outputValue > parseInt($input.attr("max")) ?
+        parseInt($input.attr("max")) : outputValue) :
+        $input.val(outputValue < 0 ? 0 : outputValue);
 
 };
 
@@ -798,8 +802,7 @@ function turnOnLoader(id, mode) {//1-on, 2-off
 
 function addActionToFormCrossSell() {
     console.log(jQuery(".products.wrapper.grid.products-grid.products-crosssell form").toArray());
-    jQuery(".products.wrapper.grid.products-grid.products-crosssell form").toArray().forEach((item,index) => {
-        jQuery(this).unbind('submit').submit();
+    jQuery(".products.wrapper.grid.products-grid.products-crosssell form").toArray().forEach((item, index) => {
         jQuery(item).submit((e) => {
             console.log(e);
             e.preventDefault();
