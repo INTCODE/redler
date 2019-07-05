@@ -12,7 +12,6 @@ $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 $customerAddress = array();
 $id=null;
 $customerSession = $objectManager->create("Magento\Customer\Model\Session");
-$defaultAddres = $customerSession-> getCustomerData()->getDefaultShipping();
 
 if($customerSession->isLoggedIn()){
   $id= $customerSession->getCustomerId();
