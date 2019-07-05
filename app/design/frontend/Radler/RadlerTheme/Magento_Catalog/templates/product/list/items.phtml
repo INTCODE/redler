@@ -186,7 +186,11 @@ switch ($type = $block->getType()) {
         <?php endif; ?>
         <div class="products wrapper grid products-grid products-<?= /* @escapeNotVerified */ $type ?>">
             <ol class="products list items product-items">
-            <input type="hidden" id="addresses" value="<?php echo $customerSession-> getCustomerData()->getDefaultShipping();?>">
+            <?php if ($GLOBALS['isActive'] == 2): ?>
+                <input type="hidden" id="addresses" value="<?php echo $customerSession-> getCustomerData()->getDefaultShipping() ?>">
+            <?php else: ?>
+                <input type="hidden" id="addresses" value="0">
+            <?php endif; ?>
             <div id="minicart-content-wrapper" style="display:none"></div>
                 <?php foreach ($items as $_item): ?>
                 <?php
