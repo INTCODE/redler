@@ -810,8 +810,8 @@ function addActionToFormCrossSell() {
             var type = $input.parents(".product.details.product-item-details").find(".swatch-attribute.package_type").attr("option-selected");
             var formKey = jQuery(e.target).find("input[name='form_key']").attr("value");
             console.log(formKey);
-
-            addToCartProduct(productId, type == undefined ? 0 : type, qty,formKey);
+            //addCrossSell($productId,$addressId,$type,$quoteId,$qty,$key)
+            addCrossSell(productId, type == undefined ? 0 : type, qty,formKey);
 
         })
     });
