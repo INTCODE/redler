@@ -57,6 +57,8 @@ require(["jquery"], function ($) {
                 // add to cart
 
                 $(this).parents("form").find("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
+                console.log($(this).parents("form").find("[data-id=addToCart_" + $(this).attr("data-target") + "]"));
+                $("#minicart-content-wrapper").attr("data-change", "true");
                 clickableBody(1);
                 updateProductCart();
 
@@ -122,6 +124,7 @@ function addToCartProduct(productId, type, qty) {
     console.info("Add to cart : new");
     require(["jquery"], function ($) {
         if ($("#addresses").length > 0 && $("#minicart-content-wrapper").attr("data-change") == "true") {
+
             clickableBody(1);
             var j = {
                 productId: productId,
@@ -144,6 +147,8 @@ function addToCartProduct(productId, type, qty) {
                     success: function (res) {
                         updateQtyItem(productId, type);
                         var link = location.href;
+                        $("#minicart-content-wrapper").attr("data-change", "false");
+                    
                         (link.toLowerCase().indexOf("multishipping") >= 0) ? updateMultiShippingCart() : updateProductCart();
                         //console.log(res);
                     },
