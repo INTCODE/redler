@@ -99,8 +99,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
 
         $params = $this->getRequest()->getParams();
         $idQuote=$this->cart->getQuote()->getId();
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($idQuote, true));
-
+      
         $id=$params['product'];
         $qty=$params['qty'];
         $address=$params['addressId'];
@@ -115,11 +114,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
         WHERE quoteId=$idQuote";
 
 //        $test=$this->checkoutSession->isLoggedIn();
-file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r('xd', true));
 
-file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=============product============\n".print_r($id, true));
-file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============quote=============\n".print_r($idQuote, true));
-file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n===========address==============\n".print_r($address, true));
             $result = $connection->fetchAll($sel); 
             $flag=false;
 
@@ -132,7 +127,7 @@ file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=======
                             qty='$qty'
                         WHERE crontab_id=$tabid";
 
-file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($tabid, true));
+//file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($tabid, true));
 
                         $connection->query($update);
                         $flag=true;
@@ -142,7 +137,7 @@ file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=======
                        $flag=true;
                     }
 
-               file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tabdata=============\n".print_r($value, true));
+             //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tabdata=============\n".print_r($value, true));
 
                 }
             }
@@ -331,10 +326,12 @@ file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=======
 
 
             if($params['qty'] > 0){
+                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========product=============\n".print_r($product->debug(), true));
+                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========PARAMS=============\n".print_r($params, true));
+
               $this->cart->addProduct($product, $params);
        
                 if (!empty($related)) {
-           file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========PARAMS=============\n".print_r($related, true));
                     $this->cart->addProductsByIds(explode(',', $related));
                 }
             }
@@ -393,33 +390,7 @@ file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=======
                    } catch (\Throwable $th) {
                     file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($th->getMessage(), true));    
                    } 
-                //    $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
-                //    $_children = $configProduct->getTypeInstance()->getUsedProducts($configProduct);
-                //    $quoteID = $this->cart->getQuote()->getId();
-                //    foreach ($_children as $child){
-                //     $packageId=$child->getCustomAttribute('package_type')->getValue();
-                //     if($packageId==$type){
-                //         $children = $objectManager->create('Magento\Catalog\Model\Product')->load($child->getId());
-                //         //$item= $items->getItemByProduct($children);
-                //         // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($children->getId(), true));
-                //          //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($quoteID, true));
-                //         $childID=$children->getId();
 
-                //         $getItemID="SELECT *
-                //         FROM quote_item
-                //         WHERE quote_id=$quoteID AND product_id=$childID";
-                //          $itemIDres = $connection->fetchAll($getItemID);
-                //          $ItemID=$itemIDres[0]['parent_item_id'];
-
-                //          $product_ship=array('qty'=>$qty,'address'=>$address);
-                //          $ship_elem = array($ItemID => $product_ship);
-                //          file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($ItemID, true));
-
-                //     }
-                //    }
-                //    if(isset($ship_elem)){
-                //     array_push($dbArray,$ship_elem);
-                //    }
                 }
                    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========fin=============\n".print_r($dbArray, true));
                    
@@ -452,6 +423,7 @@ file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=======
                         );*/
                     }
                 }
+               
                 return $this->goBack(null, $product);
             }
         } catch (\Magento\Framework\Exception\LocalizedException $e) {

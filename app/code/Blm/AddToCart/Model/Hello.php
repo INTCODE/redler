@@ -39,51 +39,91 @@ class Hello implements HelloInterface
            //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($q->getAllItems(), true));
         foreach ($q->getAllItems() as $key => $value) {
             $cart = $objectManager->get('\Magento\Checkout\Model\Cart'); 
-
+        //    file_put_contents("hello.txt", file_get_contents("hello.txt")."\n=========xd=============\n".print_r($value->debug(), true));
+//
             if($type!=0){
             if($value->getParentItemId()){
                 $product = $objectManager->get('Magento\Catalog\Model\Product')->load($value->getProductId());
                 $packageId=$product->getCustomAttribute('package_type')->getValue();
                 if($packageId==$type){
-                    if($qty==0){
-                        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========xd=============\n".print_r('xd', true));
+                    if($qty<=0){
+                     //   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========xd=============\n".print_r('xd', true));
 
                         $quote = $quoteFactory->create()->load($quoteId);
                         $quote->removeItem($value->getParentItemId());
                         $quote->save();
 
                     }else{
-                        $itemChenge=$q->getItemById($value->getParentItemId());
-                        $itemChenge->setQty($qty);
-                        $itemChenge->save();
+
+                        $quote = $quoteFactory->create()->load($quoteId);
+                        $state=$quote->hasProductId($productId);
+                        //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========state=============\n".print_r($productId, true));
+
+                       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========state=============\n".print_r($state, true));
+
+                        if($state==1){
+                            $itemChenge=$q->getItemById($value->getParentItemId());
+                            $itemChenge->setQty($qty);
+                            $itemChenge->save();
+                        }else{
+                            $prams=array('uenc'=>'uenc','product'=>$productId,'addressId'=>$addressId,'form_key'=>'IfRhR9Hl6mxQY1Mo','qty'=>$qty,'super_attribute'=>array('152'=>$type));
+                           // file_put_contents("hello.txt", file_get_contents("hello.txt")."\n=========prams=============\n".print_r($prams, true));
+
+                        $productAdd=$objectManager->get('Magento\Catalog\Model\Product')->load($productId);
+                        $cart->addProduct($productAdd, $prams);
+                        $cart->save();
+                        }
+      
                     }
 
-                    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cart=============\n".print_r('xd', true));
+                  //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cart=============\n".print_r('xd', true));
 
              
                     //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($itemChenge->debug(), true));
                 //     file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($itemChenge, true));
                 //     file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($value->getParentItemId()), true));
                }
-               file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cart=============\n".print_r('xd', true));
+              // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cart=============\n".print_r('xd', true));
 
             }
         }elseif($type==0){
             if(!$value->getParentItemId() && $value->getProductType()=='simple'){
                 if($value->getProductId()==$productId){
-
-                    if($qty==0){
-                        $quote = $quoteFactory->create()->load($quoteId);
+                    $quote = $quoteFactory->create()->load($quoteId);
+                  
+                    $state=$quote->hasProductId($productId);
+                    if($qty<=0){
                         $quote->removeItem($value->getId());
                         $quote->save();
                     }else{
-                        $itemChenge=$q->getItemById($value->getId());
-                        $itemChenge->setQty($qty);
-                        $itemChenge->save();
+
+                        if($state==1){
+                            $itemChenge=$q->getItemById($value->getId());
+                            $itemChenge->setQty($qty);
+                            $itemChenge->save();
+                       }else{
+                        $prams=array('uenc'=>'uenc','product'=>$productId,'addressId'=>$addressId,'form_key'=>'IfRhR9Hl6mxQY1Mo','qty'=>$qty);
+                        file_put_contents("hello.txt", file_get_contents("hello.txt")."\n=========prams=============\n".print_r($prams, true));
+
+                            $productAdd=$objectManager->get('Magento\Catalog\Model\Product')->load($productId);
+                            $cart->addProduct($productAdd, $prams);
+                            $cart->save();
+                       }
+                        file_put_contents("hello.txt", file_get_contents("hello.txt")."\n=========PRODUCTID=============\n".print_r($value->getProductId(), true));
+                        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========state=============\n".print_r($state, true));
+
+
                     }
              
                     file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($value->getId(), true));
 
+                }else{
+                    $prams=array('uenc'=>'uenc','product'=>$productId,'addressId'=>$addressId,'form_key'=>'IfRhR9Hl6mxQY1Mo','qty'=>$qty);
+                        file_put_contents("hello.txt", file_get_contents("hello.txt")."\n=========prams=============\n".print_r($prams, true));
+
+                            $productAdd=$objectManager->get('Magento\Catalog\Model\Product')->load($productId);
+                            $cart->addProduct($productAdd, $prams);
+                            $cart->save();
                 }
                 // $itemChenge=$q->getItemById($value->getParentItemId());
                 // $itemChenge->setQty($qty);
@@ -104,7 +144,7 @@ class Hello implements HelloInterface
         $result = $connection->fetchAll($sql);
 
         if(isset($result[0])){
-            if($qty==0){
+            if($qty<=0){
                 file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========DELETE=============\n".print_r('xd', true));
                 $sql="DELETE FROM blm_crontab WHERE quoteId=$quoteId AND productId=$productId AND `type`=$type AND address=$addressId";
             }else{
