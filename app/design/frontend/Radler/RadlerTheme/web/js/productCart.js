@@ -121,7 +121,7 @@ function clickableBody(mode) {//1-none, 2-auto
 }
 
 
-function addToCartProduct(productId, type, qty,formKey) {
+function addToCartProduct(productId, type, qty,formKey,mode) {
     console.info("Add to cart : new");
     require(["jquery"], function ($) {
         if ($("#addresses").length > 0 && $("#minicart-content-wrapper").attr("data-change") == "true") {
@@ -133,12 +133,12 @@ function addToCartProduct(productId, type, qty,formKey) {
                 type: type,
                 addressId: $("#addresses").val(),
                 qty: qty,
-                form_key:formKey
+                key:formKey
             };
             j = JSON.stringify(j);
             if (productId)
                 $.ajax({
-                    url: $("#homePath").text() + "/rest/V1/blmCart/add/",
+                    url: $("#homePath").text() + `/rest/V1/blmCart/${mode==1?'addCrossSell':'add'}/`,
                     data: j,
                     type: 'POST',
                     dataType: 'json',
@@ -810,8 +810,7 @@ function addActionToFormCrossSell() {
             var type = $input.parents(".product.details.product-item-details").find(".swatch-attribute.package_type").attr("option-selected");
             var formKey = jQuery(e.target).find("input[name='form_key']").attr("value");
             console.log(formKey);
-            //addCrossSell($productId,$addressId,$type,$quoteId,$qty,$key)
-            addCrossSell(productId, type == undefined ? 0 : type, qty,formKey);
+            addToCartProduct(productId, type == undefined ? 0 : type, qty,formKey,1);
 
         })
     });
