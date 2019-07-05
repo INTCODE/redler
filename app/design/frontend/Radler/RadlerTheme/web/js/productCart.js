@@ -664,12 +664,9 @@ function multiShippingCreateSelect(addresses, toSelect) {
 
 
 function multiShippingAddItem(obj, mode) {//mode=1- add, mode=2- remove
-
-
     var $input = jQuery(obj).parent().find("input");
     var value = $input.val();
     var outputValue = parseInt(value);
-    console.log(outputValue);
     (mode == 1) ? outputValue++ : outputValue--;
     (mode == 1) ? $input.val(outputValue > parseInt($input.attr("max")) ?
         parseInt($input.attr("max")) : outputValue) :
@@ -685,7 +682,7 @@ function addListenerUpdateMultiShippingCart() {
     // });
     jQuery("#checkout_multishipping_form .basket-list .btn-remove").click((e) => {
         var productId = getProductIdMultiShipping(e.target);
-        var type = getTypedMultiShipping(e.target);
+        var type = jQuery(e.target).parents(".basket-item").find(".quantity input").attr("type-product");
         var addressId = getAddressIdMultiShipping(e.target);
         ajaxUpdateShippingCart(2, productId, type, addressId, 0);
     })
@@ -734,7 +731,6 @@ function getProductIdMultiShipping(obj) {
 }
 
 function getTypedMultiShipping(obj) {
-    console.log(jQuery(obj));
     return jQuery(obj).find("input").attr("type-product");
 }
 
