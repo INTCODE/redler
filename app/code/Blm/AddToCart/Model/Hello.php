@@ -15,6 +15,58 @@ class Hello implements HelloInterface
         return "Hello, ";
     }
 
+
+                      /**
+     * Sum an array of numbers.
+     *
+     * @api
+     * @param int $productId The array of numbers to sum.
+     * @param int $addressId The array of numbers to sum.
+     * @param int $type The array of numbers to sum.
+     * @param int $quoteId The array of numbers to sum.
+     * @param int $qty The array of numbers to sum.
+     * @param string $key The array of numbers to sum.
+     * @return string The sum of the numbers.
+     */
+     public function addCrossSell($productId,$addressId,$type,$quoteId,$qty,$key){
+
+
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
+        $connection = $resource->getConnection();
+
+
+
+
+
+        try {
+
+            $sql="INSERT INTO blm_crontab
+            (quoteId, productId, `type`, qty, address)
+            VALUES ('$quoteId', '$productId', '$type', '$qty', '$addressId')";
+            $connection->query($sql);
+
+            $productAdd=$objectManager->get('Magento\Catalog\Model\Product')->load($productId);
+
+            $cart = $objectManager->get('\Magento\Checkout\Model\Cart'); 
+    
+            $prams=array('uenc'=>'uenc','product'=>$productId,'addressId'=>$addressId,'form_key'=>$key,'qty'=>$qty,'super_attribute'=>array('152'=>$type));
+    
+            $cart->addProduct($productAdd, $prams);
+            $cart->save();
+            return 'added';
+
+
+        } catch (\Throwable $th) {
+            return 'error';
+        }
+    
+
+
+
+
+     }
+
                      /**
      * Sum an array of numbers.
      *
