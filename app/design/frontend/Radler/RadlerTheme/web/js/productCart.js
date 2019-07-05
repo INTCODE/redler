@@ -596,6 +596,7 @@ function getMultiShippingTemplate(item, index, selectAddresses) {
 </div>
 <div class="price">
     £${item.price}
+    ${item.type != 0 ? `
     <div class="switch">
         <input type="checkbox" ${item.type == 21 ? ' disabled="disabled" checked="checked"' : ' ""'}>
         <span class="switch-body"></span>
@@ -607,7 +608,7 @@ function getMultiShippingTemplate(item, index, selectAddresses) {
                 <img src="./assets/img/icons/view_2.png" alt="">
             </span>
         </span>
-    </div>
+    </div>`: ""}
 </div>
 <div class="quantity">
     <div class="custom-input-number">
