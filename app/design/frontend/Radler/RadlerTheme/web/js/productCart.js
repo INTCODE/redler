@@ -152,6 +152,8 @@ function addToCartProduct(productId, type, qty,formKey,mode) {
                         $("#minicart-content-wrapper").attr("data-change", "false");
 
                         (link.toLowerCase().indexOf("multishipping") >= 0) ? updateMultiShippingCart() : updateProductCart();
+
+                        if($mode==1){location.reload();}
                         //console.log(res);
                     },
 
