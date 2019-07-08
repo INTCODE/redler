@@ -813,7 +813,15 @@ function turnOnLoader(id, mode) {//1-on, 2-off
 
 function addActionToFormCrossSell() {
     console.log(jQuery(".products.wrapper.grid.products-grid.products-crosssell form").toArray());
-    jQuery(".products.wrapper.grid.products-grid.products-crosssell form").toArray().forEach((item, index) => {
+
+    if(jQuery(".products.wrapper.grid.products-grid.products-upsell form").length > 0) {
+        var sellType = jQuery(".products.wrapper.grid.products-grid.products-upsell form").toArray();
+    }
+    else if(jQuery(".products.wrapper.grid.products-grid.products-crosssell form").length > 0) {
+        var sellType = jQuery(".products.wrapper.grid.products-grid.products-crosssell form").toArray();
+    }
+    
+    sellType.forEach((item, index) => {
         jQuery(item).unbind('submit');
         jQuery(item).submit((e) => {
             e.preventDefault();
