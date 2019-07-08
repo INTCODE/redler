@@ -130,7 +130,8 @@
         <div class="primary">
             <button id="payment-continue"
                     type="button"
-                    class="action primary continue">
+                    class="action primary continue"
+                    disabled=true >
                 <span><?= $block->escapeHtml(__('Go to Review Your Order')); ?></span>
             </button>
         </div>
@@ -146,11 +147,12 @@
 <script>
     require(['jquery', 'mage/mage'], function(jQuery) {
         var addtocartForm = jQuery('#multishipping-billing-form');
-
+        $('selector').css( 'cursor', 'wait' );
         getData();
 
         jQuery(document).on('click', '#checkbox_store_credit', function(e) {
-
+            
+            jQuery("#payment-continue").attr("disabled", true);
             let status=jQuery(e.target).prop("checked");
             console.log(status);
             if(status==true){
@@ -236,12 +238,16 @@
                 processData: false,
                 /** @inheritdoc */
                 success: function (res) {
+                 
                    // var json = JSON.parse(res);
                     console.info(res);
                     if(res==1){
                         jQuery("#checkbox_store_credit").prop("checked",true);
+                        jQuery("#payment-continue").attr("disabled", false);
                     }else{
                         jQuery("#checkbox_store_credit").prop("checked",false);
+                        jQuery("#payment-continue").attr("disabled", false);
+                        
 
                     }
 
