@@ -12,6 +12,12 @@
    <preference for="\Magento\Multishipping\Controller\Checkout\Addresses" type="Blm\AddToCart\Controller\Checkout\Addresses" />
    <preference for="\Magento\Multishipping\Controller\Checkout\AddressesPost" type="Blm\AddToCart\Controller\Checkout\AddressesPost" />
    <preference for="\Magento\Multishipping\Controller\Checkout\Success" type="Blm\AddToCart\Controller\Checkout\Success" /> 
+   <preference for="\Magento\Multishipping\Controller\Checkout\OverviewPost" type="Blm\AddToCart\Controller\Checkout\OverviewPost" /> 
+   <preference for="\Magento\Multishipping\Controller\Checkout" type="Blm\AddToCart\Controller\Checkout" />
+
+   <preference for="\Magento\Sales\Block\Adminhtml\Order\View\Items" type="Blm\AddToCart\Block\Adminhtml\Order\View\Items" /> 
+   <preference for="\Magento\Sales\Block\Order\Items" type="Blm\AddToCart\Block\Order\Items" /> 
+   <!-- <preference for="\Magento\Sales\Model\Order" type="Blm\AddToCart\Model\Order" />  -->
    
    <preference for="Blm\AddToCart\Api\HelloInterface" type="Blm\AddToCart\Model\Hello" />
 </config> 

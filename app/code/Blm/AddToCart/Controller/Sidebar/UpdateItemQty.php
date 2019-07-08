@@ -108,8 +108,10 @@ class UpdateItemQty extends Action
             $this->sidebar->updateQuoteItem($itemId, $itemQty);
             return $this->jsonResponse();
         } catch (LocalizedException $e) {
+
             return $this->jsonResponse($e->getMessage());
         } catch (\Exception $e) {
+
             $this->logger->critical($e);
             return $this->jsonResponse($e->getMessage());
         }

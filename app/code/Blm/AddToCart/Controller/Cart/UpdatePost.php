@@ -116,8 +116,7 @@ class UpdatePost extends \Magento\Checkout\Controller\Cart implements HttpGetAct
         $params=$this->getRequest()->getParams();
 
         foreach ($params['cart'] as $key => $value) {
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($value['qty'], true));
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($key, true));
+
         $qty=$value['qty'];
                 
         $sql="SELECT q.product_id
@@ -135,7 +134,6 @@ class UpdatePost extends \Magento\Checkout\Controller\Cart implements HttpGetAct
         $product = $objectManager->create('Magento\Catalog\Model\Product')->load($childId);
         $type=$product->getCustomAttribute('package_type')->getValue();
         $product_id=$result[0]['product_id'];
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========c=============\n".print_r($type, true));
 
         if($qty>0){
             $sql="UPDATE blm_crontab

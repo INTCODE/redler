@@ -18,7 +18,6 @@ class Addresses extends \Magento\Multishipping\Controller\Checkout implements Ht
      */
     public function execute()
     {
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========Działa=============\n".print_r('xx', true));
         // If customer do not have addresses
         if (!$this->_getCheckout()->getCustomerDefaultShippingAddress()) {
             $this->_redirect('*/checkout_address/newShipping');
@@ -33,6 +32,7 @@ class Addresses extends \Magento\Multishipping\Controller\Checkout implements Ht
 
         $this->_getState()->setActiveStep(State::STEP_SELECT_ADDRESSES);
         if (!$this->_getCheckout()->validateMinimumAmount()) {
+
             $message = $this->_getCheckout()->getMinimumAmountDescription();
             $this->messageManager->addNotice($message);
         }
@@ -55,9 +55,7 @@ class Addresses extends \Magento\Multishipping\Controller\Checkout implements Ht
             $qty=$value['qty'];
             $type=$value['type'];
 
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========value=============\n".print_r($value, true));
             $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
-            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========value=============\n".print_r($product->debug(), true));
 
             $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
 
@@ -70,8 +68,7 @@ class Addresses extends \Magento\Multishipping\Controller\Checkout implements Ht
                  if($packageId==$type){
                      $children = $objectManager->create('Magento\Catalog\Model\Product')->load($child->getId());
                      //$item= $items->getItemByProduct($children);
-                     // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($children->getId(), true));
-                      //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($quoteID, true));
+
                      $childID=$children->getId();
     
                      $getItemID="SELECT *
@@ -86,10 +83,6 @@ class Addresses extends \Magento\Multishipping\Controller\Checkout implements Ht
                       }else{
                         $ItemID=0;
                       }
-    
-    
-                      file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($ItemID, true));
-    
                  }
                 }
             }else{
@@ -115,8 +108,6 @@ class Addresses extends \Magento\Multishipping\Controller\Checkout implements Ht
         $tab=$_SESSION["curr"] ;
         if(isset($_SESSION["set"] ))
         $isset=$_SESSION["set"];
-       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========addresses=============\n".print_r($dbArray, true));
-      //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========addresses=============\n".print_r($isset, true));
 
       $AddressPost = $this->_objectManager->get('Magento\Multishipping\Controller\Checkout\AddressesPost');
       $AddressPost->updateAddresses($dbArray);

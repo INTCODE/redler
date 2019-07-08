@@ -88,18 +88,15 @@ class Hello implements HelloInterface
 
         $quoteFactory = $objectManager->create('\Magento\Quote\Model\QuoteFactory');
         $q = $quoteFactory->create()->load($quoteId);
-           //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($q->getAllItems(), true));
         foreach ($q->getAllItems() as $key => $value) {
             $cart = $objectManager->get('\Magento\Checkout\Model\Cart'); 
-        //    file_put_contents("hello.txt", file_get_contents("hello.txt")."\n=========xd=============\n".print_r($value->debug(), true));
-//
+    
             if($type!=0){
             if($value->getParentItemId()){
                 $product = $objectManager->get('Magento\Catalog\Model\Product')->load($value->getProductId());
                 $packageId=$product->getCustomAttribute('package_type')->getValue();
                 if($packageId==$type){
                     if($qty<=0){
-                     //   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========xd=============\n".print_r('xd', true));
 
                         $quote = $quoteFactory->create()->load($quoteId);
                         $quote->removeItem($value->getParentItemId());
@@ -109,9 +106,6 @@ class Hello implements HelloInterface
 
                         $quote = $quoteFactory->create()->load($quoteId);
                         $state=$quote->hasProductId($productId);
-                        //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========state=============\n".print_r($productId, true));
-
-                       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========state=============\n".print_r($state, true));
 
                         if($state==1){
                             $itemChenge=$q->getItemById($value->getParentItemId());
@@ -119,7 +113,6 @@ class Hello implements HelloInterface
                             $itemChenge->save();
                         }else{
                             $prams=array('uenc'=>'uenc','product'=>$productId,'addressId'=>$addressId,'form_key'=>'IfRhR9Hl6mxQY1Mo','qty'=>$qty,'super_attribute'=>array('152'=>$type));
-                           // file_put_contents("hello.txt", file_get_contents("hello.txt")."\n=========prams=============\n".print_r($prams, true));
 
                         $productAdd=$objectManager->get('Magento\Catalog\Model\Product')->load($productId);
                         $cart->addProduct($productAdd, $prams);
@@ -128,14 +121,7 @@ class Hello implements HelloInterface
       
                     }
 
-                  //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cart=============\n".print_r('xd', true));
-
-             
-                    //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($itemChenge->debug(), true));
-                //     file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($itemChenge, true));
-                //     file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($value->getParentItemId()), true));
                }
-              // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cart=============\n".print_r('xd', true));
 
             }
         }elseif($type==0){
@@ -155,23 +141,18 @@ class Hello implements HelloInterface
                             $itemChenge->save();
                        }else{
                         $prams=array('uenc'=>'uenc','product'=>$productId,'addressId'=>$addressId,'form_key'=>'IfRhR9Hl6mxQY1Mo','qty'=>$qty);
-                        file_put_contents("hello.txt", file_get_contents("hello.txt")."\n=========prams=============\n".print_r($prams, true));
 
                             $productAdd=$objectManager->get('Magento\Catalog\Model\Product')->load($productId);
                             $cart->addProduct($productAdd, $prams);
                             $cart->save();
                        }
-                        file_put_contents("hello.txt", file_get_contents("hello.txt")."\n=========PRODUCTID=============\n".print_r($value->getProductId(), true));
-                        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========state=============\n".print_r($state, true));
 
 
                     }
              
-                    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($value->getId(), true));
 
                 }else{
                     $prams=array('uenc'=>'uenc','product'=>$productId,'addressId'=>$addressId,'form_key'=>'IfRhR9Hl6mxQY1Mo','qty'=>$qty);
-                        file_put_contents("hello.txt", file_get_contents("hello.txt")."\n=========prams=============\n".print_r($prams, true));
 
                             $productAdd=$objectManager->get('Magento\Catalog\Model\Product')->load($productId);
                             $cart->addProduct($productAdd, $prams);
@@ -197,10 +178,8 @@ class Hello implements HelloInterface
 
         if(isset($result[0])){
             if($qty<=0){
-                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========DELETE=============\n".print_r('xd', true));
                 $sql="DELETE FROM blm_crontab WHERE quoteId=$quoteId AND productId=$productId AND `type`=$type AND address=$addressId";
             }else{
-                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========UPDATE=============\n".print_r('xd', true));
 
                 $sql="UPDATE blm_crontab
                 SET
@@ -268,9 +247,6 @@ class Hello implements HelloInterface
         $sql="SELECT *
         FROM blm_crontab b
         WHERE b.productId= $productId AND b.quoteId=$quoteId AND b.`type`=$type";
-        
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========UPDATE=============\n".print_r($sql, true));
-
 
         $result = $connection->fetchAll($sql);
 
@@ -282,7 +258,6 @@ class Hello implements HelloInterface
             SET
                 address='$addressId'
             WHERE quoteId=$quoteId AND productId=$productId AND `type`=$type ";
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========UPDATE=============\n".print_r($sql, true));
 
 
             if($connection->query($sql)){
@@ -355,8 +330,6 @@ class Hello implements HelloInterface
             $quoteFactory = $objectManager->create('\Magento\Quote\Model\QuoteFactory');
             $quote = $quoteFactory->create()->load($quoteId);
              $cart = $objectManager->get('\Magento\Checkout\Model\Cart'); 
-         
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========UPDATE=============\n".print_r($result, true));
             
             if(!$result){
                 return 'not found';
@@ -398,7 +371,6 @@ class Hello implements HelloInterface
                     'qty'   =>$qty, //quantity of product            
                     'super_attribute'   =>$option //quantity of product            
                 ); 
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========UPDATE=============\n".print_r($params, true));
                 
                 $cart->addProduct($prod, $params);
                 $cart->save();
@@ -450,13 +422,6 @@ class Hello implements HelloInterface
             break;
             }
 
-
-
-
-
-        //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($result, true));
-
-
         return 'error';
 
      }
@@ -501,7 +466,7 @@ class Hello implements HelloInterface
             foreach ($res as $key => $value) {
                 $qtyRest+=$value['qty'];
             }
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+
             $stock=$salable;
             $stock-=$qtyRest;
             if($stock<0){
@@ -532,7 +497,7 @@ class Hello implements HelloInterface
                     foreach ($res as $key => $value) {
                         $qtyRest+=$value['qty'];
                     }
-                    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+                   
                     $stock=$salable;
                     $stock-=$qtyRest;
                     if($stock<0){
@@ -549,10 +514,6 @@ class Hello implements HelloInterface
 
 
         $result = $connection->fetchAll($sql);
-
-
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($result, true));
-
         
 
         if(isset($result[0])){
@@ -597,8 +558,6 @@ class Hello implements HelloInterface
 
 
         $rootPath=$root.'/pub/media/catalog/product';
-       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($rootPath, true));
-       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============root=============\n".print_r($root, true));
 
         $totalCost=null;
         $addressCost=null;
@@ -638,7 +597,7 @@ class Hello implements HelloInterface
                 $_children = $configProduct->getTypeInstance()->getUsedProducts($configProduct);
 
                 foreach ($_children as $k => $v) {
-                    //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($v->debug(), true));
+
 
                 $packageId=$v->getCustomAttribute('package_type')->getValue();
 
@@ -677,7 +636,7 @@ class Hello implements HelloInterface
                         foreach ($resStock as $key => $val) {
                             $qtyRest+=$val['qty'];
                         }
-                      //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+                     
                         $stock=$salable;
                         $stock-=$qtyRest;
                         if($stock<0){
@@ -737,7 +696,7 @@ class Hello implements HelloInterface
                 foreach ($resStock as $key => $val) {
                     $qtyRest+=$val['qty'];
                 }
-               //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+               
                 $stock=$salable;
                 $stock-=$qtyRest;
                 if($stock<0){
@@ -745,8 +704,6 @@ class Hello implements HelloInterface
                 }
 
                 $res['stock']=$stock;
-               // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============array=============\n".print_r($res, true));
-
 
                 array_push($addressRes,$res);
 
@@ -758,17 +715,9 @@ class Hello implements HelloInterface
             }
             }
 
-            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($addressCost, true));
-            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============addressQty=============\n".print_r($addressQty, true));
-            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============totalQty=============\n".print_r($totalQty, true));
-            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============totalCost=============\n".print_r($totalCost, true));
             $ad=array('addressCost'=>$addressCost,'addressQty'=>$addressQty,'totalCost'=>$totalCost,'totalQty'=>$totalQty);
 
             $array=array('data'=>$addressRes,'TotalData'=>$ad);
-
-
-           file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============array=============\n".print_r($array, true));
-
 
             if($array){
                 return json_encode($array);
@@ -807,16 +756,14 @@ class Hello implements HelloInterface
        $customerId = $quote->getCustomer()->getId();
        $customerAddress=array();
         $rootPath=$root.'/pub/media/catalog/product';
-       file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($customerId, true));
+    
        $customerObj = $objectManager->create('Magento\Customer\Model\Customer')->load($customerId);
        foreach ($customerObj->getAddresses() as $address)
         {
             $customerAddress[] = $address->toArray();
 
-
-
         }
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($customerAddress, true));
+    
 
         $totalCost=null;
         $addressCost=null;
@@ -852,7 +799,6 @@ class Hello implements HelloInterface
                 $_children = $configProduct->getTypeInstance()->getUsedProducts($configProduct);
 
                 foreach ($_children as $k => $v) {
-                    //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($v->debug(), true));
 
                 $packageId=$v->getCustomAttribute('package_type')->getValue();
 
@@ -922,11 +868,6 @@ class Hello implements HelloInterface
                }
             }
             
-
-            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============AddressCost=============\n".print_r($addressCost, true));
-            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============addressQty=============\n".print_r($addressQty, true));
-            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============totalQty=============\n".print_r($totalQty, true));
-            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============totalCost=============\n".print_r($totalCost, true));
             $ad=array('addressCost'=>$addressCost,'addressQty'=>$addressQty,'totalCost'=>$totalCost,'totalQty'=>$totalQty);
 
             $array=array('data'=>$addressRes,'TotalData'=>$ad,'addresses'=>$customerAddress);
@@ -960,7 +901,6 @@ class Hello implements HelloInterface
         $connection = $resource->getConnection();
 
         $CartData=json_decode($CartData);
-        //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============quoteid=============\n".print_r($CartData, true));
 
        // $CartData=array('address'=>6,'quoteid'=>28,'quote'=>array(array('productid'=>34,'type'=>21),array('productid'=>34,'type'=>22),array('productid'=>27,'type'=>0)));
 
@@ -979,7 +919,6 @@ class Hello implements HelloInterface
            $products.='(productId='.$value->productid.' AND '.'type='.$value->type.') OR ';
         }
         $products=rtrim($products,' OR ');
-       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============tab=============\n".print_r($tab, true));
 
         $sql="SELECT q.productId,q.qty,q.type
         FROM blm_crontab q
@@ -987,14 +926,7 @@ class Hello implements HelloInterface
 
 
         $result = $connection->fetchAll($sql);
-       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============quoteid=============\n".print_r($result, true));
 
-       
-
-       
-            //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($result, true));
-            //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============tab=============\n".print_r($tab, true));
-            
             $tab = array_map("unserialize",
             array_unique(array_map("serialize", $tab)));
 
@@ -1008,8 +940,6 @@ class Hello implements HelloInterface
              }
 
              $res = array_merge($result, $tab);
-             file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============RES=============\n".print_r($res, true));
-
 
         $StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInterface');
         $StockStateSel = $objectManager->get('\Magento\InventorySalesApi\Api\GetProductSalableQtyInterface');
@@ -1089,7 +1019,6 @@ class Hello implements HelloInterface
 //                 }
 //            }
 //         }
-    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============res=============\n".print_r($res, true));
 
         $result=array();
 foreach ($res as $keyTemp => $tempVal) {
@@ -1103,7 +1032,6 @@ foreach ($res as $keyTemp => $tempVal) {
     $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
 
     if($tempVal['type']!=0){
-   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============TYPE!=0=============\n".print_r($tempVal, true));
 
         $_children = $product->getTypeInstance()->getUsedProducts($product);
                        foreach ($_children as $k => $child) {
@@ -1126,7 +1054,7 @@ foreach ($res as $keyTemp => $tempVal) {
                             foreach ($resStock as $key => $val) {
                                 $qtyRest+=$val['qty'];
                           }
-                            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+                            
                            $stock=$salable;
                            $stock-=$qtyRest;
                            if($stock<0){
@@ -1168,7 +1096,7 @@ foreach ($res as $keyTemp => $tempVal) {
                         foreach ($resStock as $key => $val) {
                             $qtyRest+=$val['qty'];
                       }
-                        //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============qtyRest=============\n".print_r($qtyRest, true));
+                      
                        $stock=$salable;
                        $stock-=$qtyRest;
                        if($stock<0){
@@ -1187,8 +1115,6 @@ foreach ($res as $keyTemp => $tempVal) {
 
 
 }
-        // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============result=============\n".print_r($result, true));
-         file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============RESULT=============\n".print_r($result, true));
 
         if($result){
             return json_encode($result);

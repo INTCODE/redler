@@ -418,6 +418,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
      */
     private function getCartUrl()
     {
+        file_put_contents("testowyLogin.txt", file_get_contents("testowyLogin.txt")."\n=========addresses=9============\n".print_r(get_class_methods($this->_url), true));        
         return $this->_url->getUrl('checkout/cart', ['_secure' => true]);
     }
 

@@ -20,21 +20,24 @@ class Index extends \Magento\Checkout\Controller\Onepage implements HttpGetActio
      */
     public function execute()
     {
-        return $this->resultRedirectFactory->create()->setPath('multishipping/checkout/addresses');
+        //return $this->resultRedirectFactory->create()->setPath('multishipping/checkout/addresses');
        
         /** @var \Magento\Checkout\Helper\Data $checkoutHelper */
         $checkoutHelper = $this->_objectManager->get(\Magento\Checkout\Helper\Data::class);
         if (!$checkoutHelper->canOnepageCheckout()) {
+
             $this->messageManager->addErrorMessage(__('One-page checkout is turned off.'));
             return $this->resultRedirectFactory->create()->setPath('checkout/cart');
         }
 
         $quote = $this->getOnepage()->getQuote();
         if (!$quote->hasItems() || $quote->getHasError() || !$quote->validateMinimumAmount()) {
-            return $this->resultRedirectFactory->create()->setPath('checkout/cart');
+
+            return $this->resultRedirectFactory->create()->setPath('/');
         }
 
         if (!$this->_customerSession->isLoggedIn() && !$checkoutHelper->isAllowedGuestCheckout($quote)) {
+            
             $this->messageManager->addErrorMessage(__('Guest checkout is disabled.'));
             return $this->resultRedirectFactory->create()->setPath('checkout/cart');
         }

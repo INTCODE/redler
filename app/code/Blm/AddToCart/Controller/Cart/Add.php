@@ -104,10 +104,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
         $qty=$params['qty'];
         $address=$params['addressId'];
         if(isset($params['super_attribute'])) $type=reset($params['super_attribute']); else $type = "0";
-       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r('asd', true));
-
-      //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($type, true));
-
 
         $sel="SELECT crontab_id, quoteId, productId, `type`, qty, address
         FROM blm_crontab
@@ -127,8 +123,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                             qty='$qty'
                         WHERE crontab_id=$tabid";
 
-//file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($tabid, true));
-
                         $connection->query($update);
                         $flag=true;
                     }elseif ($qty==0) {
@@ -136,8 +130,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                        $connection->query($del);
                        $flag=true;
                     }
-
-             //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tabdata=============\n".print_r($value, true));
 
                 }
             }
@@ -149,9 +141,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                  $connection->query($ins);
             }
 
-       // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========session=============\n".print_r('qwe', true));
-
-     
         
       
         $id=null;
@@ -214,7 +203,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
             $items = $this->cart->getQuote()->getAllItems();
             $tempCart=$this->cart->getQuote()->getAllItems();
             foreach($items as $item) {
-                             //    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($item->debug(), true));
+                        
                 
                 if($item->getProductId() == $product->getId()){
                     $debugContent .= "?? ".$item->getProductId()." == ".$product->getId()." >>> ".$item->getItemId()."\n";
@@ -235,9 +224,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                                 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
                                 $productDel = $objectManager->get('Magento\Catalog\Model\Product')->load($option->getProduct()->getId());
                                 $packageId=$productDel->getCustomAttribute('package_type')->getValue();
-                                // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($option->getProduct()->getId(), true));
-                                // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========typeID===========\n".print_r($productDel->debug(), true));
-           
 
 
                                 if($product->getTypeId()=='configurable'){
@@ -290,10 +276,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                                  }
                              # code...
                              }
-
-                            // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n===========newqty==============\n".print_r($newqty, true));
-                                     
-            
+         
                          
                         }
                     }
@@ -303,14 +286,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                 }
                             
             }
-
-
-          // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========================\n".print_r($this->cart->getQuote()->getShippingAddress()->debug(), true));
-
-            //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========product============\n".print_r($product->debug(), true));
-
-
-
 
             /**
              * Check product availability
@@ -326,8 +301,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
 
 
             if($params['qty'] > 0){
-                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========product=============\n".print_r($product->debug(), true));
-                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========PARAMS=============\n".print_r($params, true));
 
               $this->cart->addProduct($product, $params);
        
@@ -336,11 +309,7 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                 }
             }
             
-            $this->cart->save();
-          //  file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========koszyk=============\n".print_r($this->cart->debug(), true));
-
-
-       
+            $this->cart->save();  
 
                $sql="SELECT *
                FROM blm_crontab b
@@ -354,11 +323,8 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                    $address=$value['address'];
                    $qty=$value['qty'];
                    $type=$value['type'];
-
-                   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========value=============\n".print_r($value, true));
                    $product = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
-                   //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========value=============\n".print_r($product->debug(), true));
-
+  
                    try {
                     $configProduct = $objectManager->create('Magento\Catalog\Model\Product')->load($productId);
                     $_children = $configProduct->getTypeInstance()->getUsedProducts($configProduct);
@@ -368,8 +334,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
                      if($packageId==$type){
                          $children = $objectManager->create('Magento\Catalog\Model\Product')->load($child->getId());
                          //$item= $items->getItemByProduct($children);
-                         // file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($children->getId(), true));
-                          //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($quoteID, true));
                          $childID=$children->getId();
  
                          $getItemID="SELECT *
@@ -380,21 +344,16 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
  
                           $product_ship=array('qty'=>$qty,'address'=>$address);
                           $ship_elem = array($ItemID => $product_ship);
-                          file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($ItemID, true));
- 
                      }
                     }
                     if(isset($ship_elem)){
                      array_push($dbArray,$ship_elem);
                     }
                    } catch (\Throwable $th) {
-                    file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========cild=============\n".print_r($th->getMessage(), true));    
+                       
                    } 
 
                 }
-                   file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========fin=============\n".print_r($dbArray, true));
-                   
-
 
 
             /**
@@ -448,7 +407,6 @@ class Add extends \Magento\Checkout\Controller\Cart implements HttpPostActionInt
 
             return $this->goBack($url);
         } catch (\Exception $e) {
-             //file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========error=============\n".print_r($e->getMessage(), true));
 
             // $this->messageManager->addExceptionMessage(
             //     $e,

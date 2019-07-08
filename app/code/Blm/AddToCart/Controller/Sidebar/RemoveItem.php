@@ -60,8 +60,6 @@ class RemoveItem extends \Magento\Framework\App\Action\Action implements HttpPos
      */
     public function execute()
     {
-
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r('to tu', true));
    
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
         $resource = $objectManager->get('Magento\Framework\App\ResourceConnection');
@@ -72,14 +70,12 @@ class RemoveItem extends \Magento\Framework\App\Action\Action implements HttpPos
 
 
         if (!$this->getFormKeyValidator()->validate($this->getRequest())) {
+
             return $this->resultRedirectFactory->create()->setPath('*/cart/');
         }
         $itemId = (int)$this->getRequest()->getParam('item_id');
 
         $productData = $objectManager->get('Magento\Quote\Model\Quote\Item')->load($itemId);
-
-
-        file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n=========tab=============\n".print_r($productData->getProductId(), true));
 
 
         try {
@@ -91,8 +87,10 @@ class RemoveItem extends \Magento\Framework\App\Action\Action implements HttpPos
             $this->sidebar->removeQuoteItem($itemId);
             return $this->jsonResponse();
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
+            
             return $this->jsonResponse($e->getMessage());
         } catch (\Exception $e) {
+
             $this->logger->critical($e);
             return $this->jsonResponse($e->getMessage());
         }

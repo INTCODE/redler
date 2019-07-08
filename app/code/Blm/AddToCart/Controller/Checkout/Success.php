@@ -87,8 +87,6 @@ class Success extends Action
                 $quote->save();
                 //$session->setQuote($quote);
         
-                file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============addressQty=============\n".print_r('poszło', true));
-        
         
                 //dodawanie koszyka//
 
