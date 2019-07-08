@@ -724,6 +724,8 @@ function addListenerUpdateMultiShippingCart() {
 function getValuesMultiShipping(target, mode) {//1- change type, 2- change qty, 3- change adres
     var productId = getProductIdMultiShipping(target);
     var type = getTypedMultiShipping(target);
+    console.log(target);
+
     var qty = getQtyMultiShipping(target);
     var addressId = getAddressIdMultiShipping(target);
     ajaxUpdateShippingCart(mode, productId, type, addressId, qty);
@@ -734,7 +736,12 @@ function getProductIdMultiShipping(obj) {
 }
 
 function getTypedMultiShipping(obj) {
-    return jQuery(obj).find("input").attr("type-product");
+    console.log(obj);
+    //return jQuery(obj).parents(".basket-item").attr("type-product");
+    
+   // console.log(jQuery(obj).parents(".basket-item").find(".quantity").children(":first").children(":first").attr("type-product"));
+    return jQuery(obj).parents(".basket-item").find(".quantity").children(":first").children(":first").attr("type-product");
+  // return jQuery(obj).find("input").attr("type-product");
 }
 
 function getAddressIdMultiShipping(obj) {
@@ -761,6 +768,9 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
             value: "address"
         },
     ];
+
+
+   // console.log(type);
     var j = {
         quoteId: parseInt(jQuery("#quoteId").text()),
         productId: productId,
