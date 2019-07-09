@@ -1,7 +1,7 @@
-require(["jquery"], function($) {
+require(["jquery"], function ($) {
 
     // click +/-
-    $('.increaseQty, .decreaseQty').on("click", function() {
+    $('.increaseQty, .decreaseQty').on("click", function () {
         if (!$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled") &&
             (parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) >
                 parseInt($("[data-id=" + $(this).attr("data-target") + "]").val()) ||
@@ -24,7 +24,7 @@ require(["jquery"], function($) {
                     val++;
                     break;
             }
-            $("[data-id=" + $(me).attr("data-target") + "]").each(function() {
+            $("[data-id=" + $(me).attr("data-target") + "]").each(function () {
                 if ($(this).parents(".product-item-details").find(".swatch-option.selected").length > 0) {
                     if ($(this).parents(".product-item-details").find(".swatch-option.selected").attr("option-id") == selectedOption) {
                         $(this).val(val);
@@ -41,13 +41,13 @@ require(["jquery"], function($) {
     });
 
     // change input
-    $(".inputProductQty").on("change", function() {
+    $(".inputProductQty").on("change", function () {
         // data changed
         $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "true");
     });
 
     // focusout input
-    $(".inputProductQty").on("focusout", function() {
+    $(".inputProductQty").on("focusout", function () {
         if (parseInt($(this).attr("max")) >= parseInt($(this).val())) {
             if (parseInt($(this).val()) < 0) {
                 $(this).val(0);
@@ -68,7 +68,7 @@ require(["jquery"], function($) {
         }
     });
 
-    $('.increaseQty, .decreaseQty').on("mouseleave", function() {
+    $('.increaseQty, .decreaseQty').on("mouseleave", function () {
 
         if (parseInt($("[data-id=" + $(this).attr("data-target") + "]").attr("max")) >= parseInt($("[data-id=" + $(this).attr("data-target") + "]").val())) {
             if ($("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed") == "true" && !$("[data-id=" + $(this).attr("data-target") + "]").attr("disabled")) {
@@ -86,15 +86,15 @@ require(["jquery"], function($) {
     });
 
 
-    $("#addresses").on("change", function() {
+    $("#addresses").on("change", function () {
         updateQtyAllItems();
     });
-    $(document).on("ready", function() {
+    $(document).on("ready", function () {
         if ($("#addresses").length > 0) {
             var checkSwatch = setInterval(() => {
                 if ($(".swatch-option.selected").length > 0) {
                     updateQtyAllItems();
-                    $(".swatch-option").on("click", function() {
+                    $(".swatch-option").on("click", function () {
                         var productID = $(this).parent().parent().parent().parent().children(".price-final_price").attr("data-product-id")
                         updateQtyItem(productID === undefined ? $("#product_addtocart_form").find("input[name='product']").val() : productID, $(this).attr('option-id'));
 
@@ -124,7 +124,7 @@ function clickableBody(mode) { //1-none, 2-auto
 
 function addToCartProduct(productId, type, qty, formKey, mode) {
     console.info("Add to cart : new");
-    require(["jquery"], function($) {
+    require(["jquery"], function ($) {
         if ($("#addresses").length > 0 && $("#minicart-content-wrapper").attr("data-change") == "true") {
 
             clickableBody(1);
@@ -139,7 +139,7 @@ function addToCartProduct(productId, type, qty, formKey, mode) {
             j = JSON.stringify(j);
             if (productId)
                 $.ajax({
-                    url: $("#homePath").text() + `/rest/V1/blmCart/${mode==1?'addCrossSell':'add'}/`,
+                    url: $("#homePath").text() + `/rest/V1/blmCart/${mode == 1 ? 'addCrossSell' : 'add'}/`,
                     data: j,
                     type: 'POST',
                     dataType: 'json',
@@ -147,18 +147,18 @@ function addToCartProduct(productId, type, qty, formKey, mode) {
                     contentType: 'application/json',
                     processData: false,
                     /** @inheritdoc */
-                    success: function(res) {
+                    success: function (res) {
                         updateQtyItem(productId, type);
                         var link = location.href;
                         $("#minicart-content-wrapper").attr("data-change", "false");
 
-                        (link.toLowerCase().indexOf("multishipping") >= 0) ? updateMultiShippingCart(): updateProductCart();
+                        (link.toLowerCase().indexOf("multishipping") >= 0) ? updateMultiShippingCart() : updateProductCart();
 
                         //console.log(res);
                     },
 
                     /** @inheritdoc */
-                    error: function(res) {
+                    error: function (res) {
                         console.error("error add - productCart.js");
                         clickableBody(2);
 
@@ -171,7 +171,7 @@ function addToCartProduct(productId, type, qty, formKey, mode) {
 
 
 function updateQtySomeProduct(productId) {
-    require(["jquery"], function($) {
+    require(["jquery"], function ($) {
         if ($("#addresses").length > 0 && $("#minicart-content-wrapper").attr("data-change") == "true") {
             console.log("update qty some item");
             var pid = productId;
@@ -192,7 +192,7 @@ function updateQtySomeProduct(productId) {
 function updateQtyAllItems() {
     console.log("update qty all items");
 
-    require(["jquery"], function($) {
+    require(["jquery"], function ($) {
         if ($("#addresses").length > 0) {
             var updateProducts = {
                 address: $("#addresses").val(),
@@ -203,7 +203,7 @@ function updateQtyAllItems() {
             $("#addresses").attr("disabled", "true");
             $(".inputProductQty").attr("disabled", "true");
 
-            $(".product-item-details [data-product-id]").each(function() {
+            $(".product-item-details [data-product-id]").each(function () {
                 var pid = $(this).attr("data-product-id");
                 var type = 0;
                 if ($(this).parent().find(".swatch-option[aria-checked='true']").length > 0) {
@@ -242,15 +242,15 @@ function updateQtyAllItems() {
                 contentType: 'application/json',
                 processData: false,
                 /** @inheritdoc */
-                success: function(res) {
+                success: function (res) {
                     var json = JSON.parse(res);
                     console.info(json);
 
                     $(".inputProductQty").val(0);
-                    $.each(json, function() {
+                    $.each(json, function () {
                         var me = this;
 
-                        $("[data-id='product-qty-" + me.productId + "']").each(function() {
+                        $("[data-id='product-qty-" + me.productId + "']").each(function () {
                             var parent = ".product-item-details";
                             if ($(this).parents(parent).length <= 0) {
                                 parent = ".product-buy";
@@ -281,7 +281,7 @@ function updateQtyAllItems() {
                 },
 
                 /** @inheritdoc */
-                error: function(res) {
+                error: function (res) {
                     clickableBody(2);
                     console.error("error update - productCart.js");
                     $("#addresses").removeAttr("disabled");
@@ -304,7 +304,7 @@ function addOutOfStock(obj) {
 function updateQtyItem(productId, type) {
     console.log("update qty item " + productId);
     console.log("update type item " + type);
-    require(["jquery"], function($) {
+    require(["jquery"], function ($) {
         if ($("#addresses").length > 0) {
             $("[data-id='product-qty-" + productId + "']").attr("disabled", "true");
             var j = {
@@ -324,10 +324,10 @@ function updateQtyItem(productId, type) {
                 contentType: 'application/json',
                 processData: false,
                 /** @inheritdoc */
-                success: function(res) {
+                success: function (res) {
                     var json = JSON.parse(res);
                     console.info(json);
-                    $.each($("[data-id='product-qty-" + json.productId + "']"), function() {
+                    $.each($("[data-id='product-qty-" + json.productId + "']"), function () {
 
                         var parent = ".product-item-details";
                         if ($(this).parents(parent).length <= 0) {
@@ -355,7 +355,7 @@ function updateQtyItem(productId, type) {
                 },
 
                 /** @inheritdoc */
-                error: function(res) {
+                error: function (res) {
                     clickableBody(2);
                     console.error("error update - productCart.js");
                 }
@@ -366,7 +366,7 @@ function updateQtyItem(productId, type) {
 
 
 function updateProductCart() {
-    require(["jquery"], function($) {
+    require(["jquery"], function ($) {
         if ($("#addresses").length > 0) {
             turnOnLoader("lds-spinner-minicart", 1);
             var j = {
@@ -383,7 +383,7 @@ function updateProductCart() {
                 contentType: 'application/json',
                 processData: false,
                 /** @inheritdoc */
-                success: function(res) {
+                success: function (res) {
                     $("#mini-cart").html('');
                     var itemsOutput = JSON.parse(res);
                     var output = "";
@@ -409,7 +409,7 @@ function updateProductCart() {
                 },
 
                 /** @inheritdoc */
-                error: function(res) {
+                error: function (res) {
                     //$("#minicart-content-wrapper").css("display", "block");
                     $("#minicart-content-wrapper").parents(".mage-dropdown-dialog").css("height", "auto");
                     console.error("error add - productCart.js");
@@ -426,11 +426,11 @@ function updateProductCart() {
 function showMiniCart() {
     console.log(jQuery("body").attr("data-mage-init"));
     if (jQuery("body").attr("data-mage-init") === undefined) {
-        setTimeout(function() {
+        setTimeout(function () {
             jQuery("#minicart-content-wrapper").css("display", "block");
         }, 500);
     } else
-        setTimeout(function() {
+        setTimeout(function () {
             showMiniCart();
         }, 500);
 }
@@ -526,7 +526,7 @@ function addRemoveListener() {
 
 function addListenerPlusMinusProduct() {
 
-    jQuery("#mini-cart .buttonMinicartQty").on("click", function(e) {
+    jQuery("#mini-cart .buttonMinicartQty").on("click", function (e) {
         var $input = jQuery(this).parent().find("input");
         if (jQuery(this).hasClass("plus")) {
             var max = $input.attr("max");
@@ -543,7 +543,7 @@ function addListenerPlusMinusProduct() {
 //multishipping
 function updateMultiShippingCart() {
 
-    require(["jquery"], function($) {
+    require(["jquery"], function ($) {
         var j = {
             quoteId: parseInt($("#quoteId").text()),
         };
@@ -557,7 +557,7 @@ function updateMultiShippingCart() {
             contentType: 'application/json',
             processData: false,
             /** @inheritdoc */
-            success: function(res) {
+            success: function (res) {
                 $("#container-items").html('');
                 $("#multiShippingSummary").html('');
                 console.log(JSON.parse(res));
@@ -577,7 +577,7 @@ function updateMultiShippingCart() {
             },
 
             /** @inheritdoc */
-            error: function(res) {
+            error: function (res) {
 
                 console.error("error add - multishipping.js");
                 console.log(res);
@@ -738,10 +738,10 @@ function getProductIdMultiShipping(obj) {
 function getTypedMultiShipping(obj) {
     console.log(obj);
     //return jQuery(obj).parents(".basket-item").attr("type-product");
-    
-   // console.log(jQuery(obj).parents(".basket-item").find(".quantity").children(":first").children(":first").attr("type-product"));
+
+    // console.log(jQuery(obj).parents(".basket-item").find(".quantity").children(":first").children(":first").attr("type-product"));
     return jQuery(obj).parents(".basket-item").find(".quantity").children(":first").children(":first").attr("type-product");
-  // return jQuery(obj).find("input").attr("type-product");
+    // return jQuery(obj).find("input").attr("type-product");
 }
 
 function getAddressIdMultiShipping(obj) {
@@ -770,7 +770,7 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
     ];
 
 
-   // console.log(type);
+    // console.log(type);
     var j = {
         quoteId: parseInt(jQuery("#quoteId").text()),
         productId: productId,
@@ -813,14 +813,13 @@ function turnOnLoader(id, mode) {//1-on, 2-off
 
 function addActionToFormCrossSell() {
     console.log(jQuery(".products.wrapper.grid.products-grid.products-crosssell form").toArray());
+    var sellType = undefined;
+    if (jQuery(".products.wrapper.grid.products-grid.products-upsell form").length > 0)
+        sellType = jQuery(".products.wrapper.grid.products-grid.products-upsell form").toArray();
 
-    if(jQuery(".products.wrapper.grid.products-grid.products-upsell form").length > 0) {
-        var sellType = jQuery(".products.wrapper.grid.products-grid.products-upsell form").toArray();
-    }
-    else if(jQuery(".products.wrapper.grid.products-grid.products-crosssell form").length > 0) {
-        var sellType = jQuery(".products.wrapper.grid.products-grid.products-crosssell form").toArray();
-    }
-    
+    if (jQuery(".products.wrapper.grid.products-grid.products-crosssell form").length > 0)
+        sellType = jQuery(".products.wrapper.grid.products-grid.products-crosssell form").toArray();
+
     sellType.forEach((item, index) => {
         jQuery(item).unbind('submit');
         jQuery(item).submit((e) => {
@@ -831,7 +830,7 @@ function addActionToFormCrossSell() {
             var type = $input.parents(".product.details.product-item-details").find(".swatch-attribute.package_type").attr("option-selected");
             var formKey = jQuery(e.target).find("input[name='form_key']").attr("value");
             console.log(formKey);
-            addToCartProduct(productId, type == undefined ? 0 : type, qty,formKey,1);
+            addToCartProduct(productId, type == undefined ? 0 : type, qty, formKey, 1);
 
         })
     });
