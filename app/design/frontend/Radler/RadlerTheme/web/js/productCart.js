@@ -813,7 +813,7 @@ function turnOnLoader(id, mode) {//1-on, 2-off
 
 function addActionToFormCrossSell() {
     console.log(jQuery(".products.wrapper.grid.products-grid.products-crosssell form").toArray());
-    var sellType = undefined;
+    var sellType = [];
     if (jQuery(".products.wrapper.grid.products-grid.products-upsell form").length > 0)
         sellType = jQuery(".products.wrapper.grid.products-grid.products-upsell form").toArray();
 
