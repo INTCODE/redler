@@ -437,8 +437,26 @@
 }
 
 .actions-toolbar{
+    display: flex;
+    justify-content: end;
     .primary{
+        order: 1;
         display: block!important;
+        .action{
+            @extend .btn;
+            @extend .btn-green;
+            width: 235px;
+            padding: 10px 10px;
+        }
+    }
+    .secondary{ 
+        width: auto; 
+        position: relative;
+        top: 4px;
+        a{
+            font-size: 14px; 
+            color: #c6c2c2;
+        } 
     }
 }
 
