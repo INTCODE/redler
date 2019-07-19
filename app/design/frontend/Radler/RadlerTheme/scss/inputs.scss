@@ -50,6 +50,7 @@ select{
     @include flex-row(center,center);
     position: relative;
     top: 16px;
+    form,
     .control{
         display: flex;
         .decreaseQty{
@@ -114,8 +115,10 @@ select{
         line-height: 1;
         font-weight: 600;
     }
+    .choice{
+        display: none;
+    }
 }
-
 .sort-by-select{
     span{
         color:$opacity-color;

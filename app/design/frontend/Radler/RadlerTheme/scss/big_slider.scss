@@ -3,6 +3,8 @@
     height: auto;
     position: relative;
     top:-40px;
+    max-height: 438px;
+    overflow: hidden;
     background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%);
   
         .c-aslider__item{

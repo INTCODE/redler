@@ -320,16 +320,21 @@
 
 .cart-empty{ 
     min-height: 550px;
+    background: #f6f3f1;
+    padding: 30px;
+    
     p{
-        &:first-child{
-            background-color: #EADFCF;
-            padding: 10px 20px;
+        &:first-child{ 
+            padding: 200px 30px 20px 30px;
             font-weight: 600;
-            font-size: 14px;
-            border-left: 3px #dabd99 solid;
+            font-size: 35px;
+            padding: 50px;
+            text-align: center;
+            color: #c5c3c0;
+       
         }
         &:nth-child(2){ 
-            text-align: left;
+            text-align: center;
             padding: 10px 0;
             a{  
                 border-radius: 30px;
