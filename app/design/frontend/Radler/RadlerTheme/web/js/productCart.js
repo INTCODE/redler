@@ -57,7 +57,6 @@ require(["jquery"], function ($) {
                 // add to cart
 
                 $(this).parents("form").find("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
-                console.log($(this).parents("form").find("[data-id=addToCart_" + $(this).attr("data-target") + "]"));
                 $("#minicart-content-wrapper").attr("data-change", "true");
                 clickableBody(1);
                 updateProductCart();
@@ -159,10 +158,7 @@ function addToCartProduct(productId, type, qty, formKey, mode) {
 
                     /** @inheritdoc */
                     error: function (res) {
-                        console.error("error add - productCart.js");
                         clickableBody(2);
-
-                        console.log(res);
                     }
                 });
         }
@@ -173,14 +169,11 @@ function addToCartProduct(productId, type, qty, formKey, mode) {
 function updateQtySomeProduct(productId) {
     require(["jquery"], function ($) {
         if ($("#addresses").length > 0 && $("#minicart-content-wrapper").attr("data-change") == "true") {
-            console.log("update qty some item");
             var pid = productId;
             var type = 0;
             if ($("[data-product-id=" + pid + "]").parent().find(".swatch-option[aria-checked='true']").length > 0) {
-                console.log($("[data-product-id=" + pid + "]").parent().find(".swatch-option[aria-checked='true']"));
                 type = $("[data-product-id=" + pid + "]").parent().find(".swatch-option[aria-checked='true']").attr("option-id");
             } else if ($("[data-product-id=" + pid + "]").parents(".product-buy").find(".swatch-option.selected").length > 0) {
-                console.log($("[data-product-id=" + pid + "]").parents(".product-buy").find(".swatch-option.selected"));
                 type = $("[data-product-id=" + pid + "]").parents(".product-buy").find(".swatch-option.selected").attr("option-id");
             }
             updateQtyItem(pid, type);
@@ -226,9 +219,6 @@ function updateQtyAllItems() {
                     type: type
                 };
             }
-
-            console.warn(updateProducts);
-
             var j = JSON.stringify({
                 CartData: JSON.stringify(updateProducts)
             });
@@ -244,7 +234,6 @@ function updateQtyAllItems() {
                 /** @inheritdoc */
                 success: function (res) {
                     var json = JSON.parse(res);
-                    console.info(json);
 
                     $(".inputProductQty").val(0);
                     $.each(json, function () {
@@ -283,7 +272,6 @@ function updateQtyAllItems() {
                 /** @inheritdoc */
                 error: function (res) {
                     clickableBody(2);
-                    console.error("error update - productCart.js");
                     $("#addresses").removeAttr("disabled");
                 }
             });
@@ -302,8 +290,6 @@ function addOutOfStock(obj) {
 }
 
 function updateQtyItem(productId, type) {
-    console.log("update qty item " + productId);
-    console.log("update type item " + type);
     require(["jquery"], function ($) {
         if ($("#addresses").length > 0) {
             $("[data-id='product-qty-" + productId + "']").attr("disabled", "true");
@@ -314,7 +300,6 @@ function updateQtyItem(productId, type) {
                 quoteId: parseInt($("#quoteId").text())
             };
             j = JSON.stringify(j);
-            console.log(j);
             $.ajax({
                 url: $("#homePath").text() + "/rest/V1/blmCart/get/",
                 data: j,
@@ -326,7 +311,6 @@ function updateQtyItem(productId, type) {
                 /** @inheritdoc */
                 success: function (res) {
                     var json = JSON.parse(res);
-                    console.info(json);
                     $.each($("[data-id='product-qty-" + json.productId + "']"), function () {
 
                         var parent = ".product-item-details";
@@ -357,7 +341,6 @@ function updateQtyItem(productId, type) {
                 /** @inheritdoc */
                 error: function (res) {
                     clickableBody(2);
-                    console.error("error update - productCart.js");
                 }
             });
         }
@@ -412,8 +395,6 @@ function updateProductCart() {
                 error: function (res) {
                     //$("#minicart-content-wrapper").css("display", "block");
                     $("#minicart-content-wrapper").parents(".mage-dropdown-dialog").css("height", "auto");
-                    console.error("error add - productCart.js");
-                    console.log(res);
                     clickableBody(2);
                     turnOnLoader("lds-spinner-minicart", 2);
                 }
@@ -424,7 +405,6 @@ function updateProductCart() {
 }
 
 function showMiniCart() {
-    console.log(jQuery("body").attr("data-mage-init"));
     if (jQuery("body").attr("data-mage-init") === undefined) {
         setTimeout(function () {
             jQuery("#minicart-content-wrapper").css("display", "block");
@@ -491,7 +471,7 @@ function getItemTemplate(item) {
 
                 <div class="details-qty qty">
                     <label class="label" for="cart-item-${item.productId}-qty">Qty</label>
-                    <input type="number" max="${item.stock}" value="${item.qty}" size="4" class="item-qty cart-item-qty" product-id="${item.productId}" id="cart-item-${item.crontab_id}-qty" product-type="${item.type}" data-cart-crontab-id="${item.crontab_id}" data-cart-item="${item.productId}" data-item-qty="${item.qty}" data-cart-item-id="${item.name}">
+                    <input type="number" min="0" max="${item.stock}" value="${item.qty}" size="4" class="item-qty cart-item-qty" product-id="${item.productId}" id="cart-item-${item.crontab_id}-qty" product-type="${item.type}" data-cart-crontab-id="${item.crontab_id}" data-cart-item="${item.productId}" data-item-qty="${item.qty}" data-cart-item-id="${item.name}">
                     <button class="update-cart-item" style="display: none" id="update-cart-item-${item.productId}" data-cart-item="${item.productId}" title="Update">
                         <span>Update</span>
                     </button>
@@ -560,7 +540,6 @@ function updateMultiShippingCart() {
             success: function (res) {
                 $("#container-items").html('');
                 $("#multiShippingSummary").html('');
-                console.log(JSON.parse(res));
                 var itemsOutput = JSON.parse(res);
                 var output = "";
 
@@ -578,9 +557,6 @@ function updateMultiShippingCart() {
 
             /** @inheritdoc */
             error: function (res) {
-
-                console.error("error add - multishipping.js");
-                console.log(res);
                 turnOnLoader("lds-spinner", 2);
             }
         });
@@ -635,6 +611,7 @@ function getMultiShippingTemplate(item, index, selectAddresses) {
 <span class="btn-remove"></span>
 </div>`;
 }
+
 function getMultiShippingSummary(total) {
     var output = `<p class="heading">Summary</p>
 <div class="borders">
@@ -647,11 +624,16 @@ function getMultiShippingSummary(total) {
         <span>Order Total</span>
         <span>£${total.totalCost == null ? 0 : total.totalCost}</span>
     </p>
-<button class="btn btn-green" type="submit" onClick="clickableBody(1)">
+<button class="btn btn-green" type="submit" onClick="checkClicableBody(this)">
     Proceed to checkout
 </button>`;
     return output;
 
+}
+
+function checkClicableBody(obj){
+if(jQuery(obj).parents("form").valid())
+    clickableBody(1);
 }
 
 function multiShippingCreateSelect(addresses, toSelect) {
@@ -705,7 +687,7 @@ function addListenerUpdateMultiShippingCart() {
         if (jQuery("#multiShippingSummary").attr("data-changed") == "true") {
             var avaValue = parseInt(jQuery(e.target).parent().find("input").attr("max"));
             var currValue = parseInt(jQuery(e.target).parent().find("input").val());
-            if (currValue <= avaValue)
+             if (currValue <= avaValue && currValue >= 0) 
                 getValuesMultiShipping(e.target, 2);
         }
     });
@@ -714,7 +696,7 @@ function addListenerUpdateMultiShippingCart() {
     jQuery("#checkout_multishipping_form .custom-input-number input").change((e) => {
         var avaValue = parseInt(jQuery(e.target).attr("max"));
         var currValue = parseInt(jQuery(e.target).val());
-        if (currValue <= avaValue)
+         if (currValue <= avaValue && currValue >= 0)
             getValuesMultiShipping(e.target, 2);
     });
 
@@ -724,7 +706,6 @@ function addListenerUpdateMultiShippingCart() {
 function getValuesMultiShipping(target, mode) {//1- change type, 2- change qty, 3- change adres
     var productId = getProductIdMultiShipping(target);
     var type = getTypedMultiShipping(target);
-    console.log(target);
 
     var qty = getQtyMultiShipping(target);
     var addressId = getAddressIdMultiShipping(target);
@@ -736,7 +717,6 @@ function getProductIdMultiShipping(obj) {
 }
 
 function getTypedMultiShipping(obj) {
-    console.log(obj);
     //return jQuery(obj).parents(".basket-item").attr("type-product");
 
     // console.log(jQuery(obj).parents(".basket-item").find(".quantity").children(":first").children(":first").attr("type-product"));
@@ -781,7 +761,6 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
     };
     turnOnLoader("lds-spinner", 1);
     j = JSON.stringify(j);
-    console.log(j);
     jQuery.ajax({
         url: jQuery("#homePath").text() + "/rest/V1/blmCart/editCart/",
         data: j,
@@ -799,7 +778,6 @@ function ajaxUpdateShippingCart(mode, productId, type, addressId, qty) {//1- cha
         error: function (res) {
             turnOnLoader("lds-spinner", 2);
             jQuery("#multiShippingSummary").attr("data-changed", "false");
-            console.info("error update - updateMultiShipping.js");
         }
     });
 
@@ -812,7 +790,7 @@ function turnOnLoader(id, mode) {//1-on, 2-off
 
 
 function addActionToFormCrossSell() {
-    console.log(jQuery(".products.wrapper.grid.products-grid.products-crosssell form").toArray());
+   
     var sellType = [];
     if (jQuery(".products.wrapper.grid.products-grid.products-upsell form").length > 0)
         sellType = jQuery(".products.wrapper.grid.products-grid.products-upsell form").toArray();
@@ -829,7 +807,7 @@ function addActionToFormCrossSell() {
             var qty = $input.val()
             var type = $input.parents(".product.details.product-item-details").find(".swatch-attribute.package_type").attr("option-selected");
             var formKey = jQuery(e.target).find("input[name='form_key']").attr("value");
-            console.log(formKey);
+          
             addToCartProduct(productId, type == undefined ? 0 : type, qty, formKey, 1);
 
         })

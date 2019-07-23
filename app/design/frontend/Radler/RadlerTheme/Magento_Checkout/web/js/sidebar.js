@@ -127,8 +127,10 @@ define([
                     var qty = $inputObject.val();
                     var type = $inputObject.attr("product-type");
                     var stock = $inputObject.attr("max");
-                    if(parseInt(qty)<=parseInt(stock))
+                    if(parseInt(qty)<=parseInt(stock) && parseInt(qty)>=0)
                         addToCartProduct(event.currentTarget.dataset.cartItem, type, qty);
+
+                    
                 //self._updateItemQty($(event.currentTarget));
             };
 
@@ -215,8 +217,7 @@ define([
              var type = $(elem).attr("product-type");
              var dataCartCrontabId = elem.data('cartCrontabId');
              var qty=parseInt($('#cart-item-' + dataCartCrontabId + '-qty').val());
-             console.log(elem);
-             
+             var max = $(elem).attr("max");
             // console.log(elem.data());
             // if($('#cart-item-' + itemId + '-qty').val() <= 0){
             //     this._removeItem(elem);
@@ -226,8 +227,8 @@ define([
             //         'item_qty': parseInt($('#cart-item-' + dataCartCrontabId + '-qty').val()) 
             //     }, elem, this._updateItemQtyAfter);
             // }
-
-            addToCartProduct(itemId,type,qty);
+           if(qty <= max && qty>=0)
+                addToCartProduct(itemId,type,qty);
 
         },
 
