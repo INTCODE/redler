@@ -2,6 +2,7 @@
 .multishipping-checkout-billing,
 .multishipping-checkout-shipping,
 .multishipping-checkout-billing,
+.multishipping-checkout-overview,
 .multishipping-checkout-addresses{
     background: linear-gradient(0deg, #d5b68f 0%, #e9decd 100%); 
     .page-main{ 
@@ -433,7 +434,15 @@
                 padding: 5px 15px;
                 font-size: 12px;
             }
-        }  
+        } 
+        
+        
+        .crosssell{ 
+            .title{
+                padding: 15px;
+            }
+        }
+
 }
 
 .actions-toolbar{
