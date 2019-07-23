@@ -374,13 +374,13 @@ function updateProductCart() {
                         if (item.qty > 0)
                             output += getItemTemplate(item);
                     })
-                    var itemPrice = itemsOutput.TotalData.addressCost != null ? itemsOutput.TotalData.addressCost : 0;
-                    var itemCount = itemsOutput.TotalData.addressQty != null ? itemsOutput.TotalData.addressQty : 0;
+                    var itemPrice = itemsOutput.TotalData.addressCost != null ? '£'+itemsOutput.TotalData.addressCost : '<span="empty-cart">Your cart is empty</span>';
+                    var itemCount = itemsOutput.TotalData.addressQty != null ? itemsOutput.TotalData.addressQty+' items' : "";
                     $("#mini-cart").append(output);
                     $("#itemCount").html(itemCount);
-                    $("#sidebarItemCount").html(`${itemCount} items`);
-                    $("#itemPrice").html(`£${itemPrice}`);
-                    $("#sidebaritemCost").html(`£${itemPrice}`);
+                    $("#sidebarItemCount").html(`${itemCount}`);
+                    $("#itemPrice").html(`${itemPrice}`);
+                    $("#sidebaritemCost").html(`${itemPrice}`);
 
 
                     $("#minicart-content-wrapper").attr("data-change", "false");

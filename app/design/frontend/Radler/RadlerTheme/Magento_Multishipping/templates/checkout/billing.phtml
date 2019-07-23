@@ -210,10 +210,10 @@
                     jQuery("#customer_store_credit_balance").append("Store credit unavailable");
                     jQuery("#payment-continue").attr("disabled", false);
                    }else{       
-                    jQuery("#customer_store_credit_balance").append(res.customer_store_credit_balance);
+                    jQuery("#customer_store_credit_balance").append('£'+res.customer_store_credit_balance);
                     jQuery("#store-credit").append('<input type="checkbox" id="checkbox_store_credit" class="checkbox solo method" />');
                     jQuery("#store_credit_amount").val(res.customer_store_credit_balance);
-
+                    
                     setState();
                    }
                   
