@@ -867,13 +867,13 @@ class Hello implements HelloInterface
                 $addressQty+=$qty;
                }
             }
-            
+            $minAmount = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('sales/minimum_order/amount');
             $ad=array('addressCost'=>$addressCost,'addressQty'=>$addressQty,'totalCost'=>$totalCost,'totalQty'=>$totalQty);
 
-            $array=array('data'=>$addressRes,'TotalData'=>$ad,'addresses'=>$customerAddress);
+            $array=array('data'=>$addressRes,'TotalData'=>$ad,'addresses'=>$customerAddress, 'minimumAmount'=>$minAmount);
 
 
-            file_put_contents("testowyxd.txt", file_get_contents("testowyxd.txt")."\n============addressQty=============\n".print_r($array, true));
+            //file_put_contents("testowyAdd.txt", file_get_contents("testowyAdd.txt")."\n============MinimumAmount=============\n".print_r($minAmount, true));
 
 
 
