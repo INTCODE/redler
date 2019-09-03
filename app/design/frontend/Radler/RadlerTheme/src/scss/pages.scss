@@ -1,0 +1,17 @@
+
+.cms-terms-conditions,
+.cms-deliveries,
+.cms-privacy-policy-cookie-restriction-mode,
+.cms-about-us{
+    background: linear-gradient( 0deg, rgb(213,182,143) 0%, rgb(233,222,205) 100%);
+    .page-main{
+        min-height: 800px;
+    }
+    .main{
+        max-width:1170px;
+        min-height: 800px;
+        margin:0 auto;
+        padding: 50px;
+        background-color: $body_background_color;
+    }
+}

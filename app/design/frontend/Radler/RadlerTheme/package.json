@@ -1,29 +1,40 @@
 {
-  "name": "radlerfront",
-  "version": "1.0.0",
-  "description": "",
+  "name": "gulp-starter",
+  "version": "2.0.0",
+  "description": "Simple gulp starter for front-end projects",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/INTCODE/radlerFront.git"
+    "url": "git+https://github.com/WojtekWernicki/gulp-starter.git"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "gulp",
+    "starter"
+  ],
+  "author": "Wojtek Wernicki",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/INTCODE/radlerFront/issues"
+    "url": "https://github.com/WojtekWernicki/gulp-starter/issues"
   },
-  "homepage": "https://github.com/INTCODE/radlerFront#readme",
+  "homepage": "https://github.com/WojtekWernicki/gulp-starter#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2",
+    "gulp-util": "^3.0.8",
+    "jshint": "^2.9.4"
+  },
   "devDependencies": {
     "bootstrap": "^4.3.1",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^6.0.0",
-    "gulp-clean-css": "^4.0.0",
-    "gulp-inline-css": "^3.3.1",
-    "gulp-sass": "^4.0.2",
-    "jquery": "^3.4.0",
-    "popper.js": "^1.14.7"
+    "gulp-clean-css": "^3.3.1",
+    "pump": "^1.0.2"
   }
 }

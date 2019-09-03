@@ -1,0 +1,37 @@
+.cms-no-route {
+  padding: 0;
+  background: linear-gradient(0deg, #d5b68f 0%, #e9decd 100%);
+}
+
+.cms-no-route .page-main {
+  max-width: 660px;
+  padding: 50px;
+  width: 98%;
+  margin: 100px auto !important;
+  background-color: #f6f3f1;
+  border-radius: 40px 0px 40px 40px;
+  position: relative;
+}
+
+.cms-no-route .page-main::before {
+  position: absolute;
+  right: 20px;
+  top: 40px;
+  content: "";
+  width: 100px;
+  height: 100px;
+  background: url(../images/error.svg);
+  background-size: cover;
+}
+
+.cms-no-route .page-main .main ul {
+  padding: 10px 0 10px 30px;
+}
+
+.cms-no-route .page-main .main ul li a {
+  color: #1c6441;
+}
+
+.cms-no-route .page-main .main ul li a:hover {
+  text-decoration: underline;
+}

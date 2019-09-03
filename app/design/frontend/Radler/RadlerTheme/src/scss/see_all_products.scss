@@ -1,0 +1,43 @@
+.page-bottom{
+    margin-top: 50px;
+    background: rgba(232,207,181,1);
+    background: -moz-linear-gradient(left, rgba(232,207,181,1) 0%, rgba(233,223,205,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(232,207,181,1)), color-stop(100%, rgba(233,223,205,1)));
+    background: -webkit-linear-gradient(left, rgba(232,207,181,1) 0%, rgba(233,223,205,1) 100%);
+    background: -o-linear-gradient(left, rgba(232,207,181,1) 0%, rgba(233,223,205,1) 100%);
+    background: -ms-linear-gradient(left, rgba(232,207,181,1) 0%, rgba(233,223,205,1) 100%);
+    background: linear-gradient(to right, rgba(232,207,181,1) 0%, rgba(233,223,205,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8cfb5', endColorstr='#e9dfcd', GradientType=1 );
+}
+#see_all_products{ 
+    padding: 0; 
+    .wrapper{
+        @extend .row;
+        padding: 50px 0;
+        background-image: url('../images/bottles.png');
+        background-repeat: no-repeat;
+        background-position: left -200px;
+        p{
+            @extend .col-lg-5;
+            font-weight: 600;
+            font-size: 22px;
+            margin:0;
+        }
+        .btn-box{
+            @extend .col-lg-2;
+            text-align: right;
+        }
+    }
+}
+@media (max-width:991px){
+    #see_all_products{
+        .wrapper{
+            text-align: center;
+            background-image: none;
+            .btn-box{
+                margin-top: 20px;
+                text-align: center;
+            }
+        }
+    }
+}
