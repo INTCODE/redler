@@ -59,9 +59,7 @@ require(["jquery"], function($) {
                 $(this).parents("form").find("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
                 $("#minicart-content-wrapper").attr("data-change", "true");
                 clickableBody(1);
-                updateProductCart();
-
-                console.info("Add to cart");
+                updateProductCart(); 
             }
             $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "false");
         }
@@ -76,9 +74,7 @@ require(["jquery"], function($) {
                 clickableBody(1);
                 $(this).parents("form").find("[data-id=addToCart_" + $(this).attr("data-target") + "]").click();
 
-                updateProductCart();
-
-                console.info("Add to cart");
+                updateProductCart(); 
             }
             $("[data-id=" + $(this).attr("data-target") + "]").attr("data-changed", "false");
         }
@@ -153,7 +149,7 @@ function addToCartProduct(productId, type, qty, formKey, mode) {
 
                         (link.toLowerCase().indexOf("multishipping") >= 0) ? updateMultiShippingCart(): updateProductCart();
 
-                        //console.log(res);
+                        
                     },
 
                     /** @inheritdoc */
@@ -182,8 +178,9 @@ function updateQtySomeProduct(productId) {
 }
 
 
-function updateQtyAllItems() {
-    console.log("update qty all items");
+function updateQtyAllItems() { 
+
+    jQuery("#modal-changes").removeClass('disabled');
 
     require(["jquery"], function($) {
         if ($("#addresses").length > 0) {
@@ -265,7 +262,7 @@ function updateQtyAllItems() {
                     });
                     $(".inputProductQty").removeAttr("disabled");
                     $("#addresses").removeAttr("disabled");
-                    console.info("updated all products");
+                    $("#modal-changes").addClass('disabled');
                     clickableBody(2);
                 },
 

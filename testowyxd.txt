@@ -16028,3 +16028,3135 @@ Array
         )
 
 )
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+=========typeID===========
+xd
+=============minAmount============
+500
+=============totalPrice============
+
+=============minAmount============
+500
+=============totalPrice============
+
+=============minAmount============
+500
+=============totalPrice============
+
+=============minAmount============
+500
+=============totalPrice============
+
+=========typeID===========
+xd
+=============minAmount============
+500
+=============totalPrice============
+
+=============minAmount============
+500
+=============totalPrice============
+
+=============minAmount============
+500
+=============totalPrice============
+
+=============minAmount============
+500
+=============totalPrice============
+
+=========typeID===========
+xd
+=============minAmount============
+500
+=============totalPrice============
+
+=============minAmount============
+500
+=============totalPrice============
+
+=============minAmount============
+500
+=============totalPrice============
+
+=============minAmount============
+500
+=============totalPrice============
+
+=========typeID===========
+xd
+=============minAmount============
+500
+=============totalPrice============
+
+=============minAmount============
+500
+=============totalPrice============
+
+=============minAmount============
+500
+=============totalPrice============
+
+=============minAmount============
+500
+=============totalPrice============
+
+=========typeID===========
+xd
+=============minAmount============
+500
+=============totalPrice============
+
+=============minAmount============
+500
+=============totalPrice============
+
+=============minAmount============
+500
+=============totalPrice============
+
+=============minAmount============
+500
+=============totalPrice============
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 72
+    [order_id] => 19
+    [quote_item_id] => 594
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 54
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => aHR0cDovL2xvY2FsaG9zdC9wcm9qZWt0eS9ibG0vcmVkbGVyLw,,
+                    [product] => 56
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Żywiec-Box
+    [name] => Żywiec-Box
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 26.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 75
+    [order_id] => 19
+    [quote_item_id] => 599
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 67
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                    [qty] => 1
+                    [reset_count] => 1
+                )
+
+        )
+
+    [sku] => Sample-Config-Box-2
+    [name] => Sample-Config-Box-2
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)
+
+======================
+Array
+(
+    [item_id] => 77
+    [order_id] => 19
+    [quote_item_id] => 601
+    [store_id] => 1
+    [created_at] => 2019-07-23 11:42:07
+    [updated_at] => 2019-07-23 11:42:07
+    [product_id] => 65
+    [product_type] => simple
+    [product_options] => Array
+        (
+            [info_buyRequest] => Array
+                (
+                    [uenc] => uenc
+                    [product] => 61
+                    [addressId] => 1
+                    [qty] => 1
+                    [super_attribute] => Array
+                        (
+                            [152] => 21
+                        )
+
+                )
+
+        )
+
+    [sku] => Sample-Box-1
+    [name] => Sample-Box-1
+    [no_discount] => 0
+    [qty_canceled] => 0.0000
+    [qty_invoiced] => 0.0000
+    [qty_ordered] => 1.0000
+    [qty_refunded] => 0.0000
+    [qty_shipped] => 0.0000
+    [price] => 0.0000
+    [base_price] => 0.0000
+    [original_price] => 0.0000
+    [tax_amount] => 0.0000
+    [base_tax_amount] => 0.0000
+    [tax_invoiced] => 0.0000
+    [base_tax_invoiced] => 0.0000
+    [discount_amount] => 0.0000
+    [base_discount_amount] => 0.0000
+    [discount_invoiced] => 0.0000
+    [base_discount_invoiced] => 0.0000
+    [amount_refunded] => 0.0000
+    [base_amount_refunded] => 0.0000
+    [row_total] => 0.0000
+    [base_row_total] => 0.0000
+    [row_invoiced] => 0.0000
+    [base_row_invoiced] => 0.0000
+    [row_weight] => 0.0000
+    [free_shipping] => 0
+)

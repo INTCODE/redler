@@ -53,26 +53,37 @@
         .product-info-main{ 
             @extend .col-lg-5;
             order: 2; 
-            padding: 80px 60px 80px 30px;
+            padding: 50px 60px 80px 30px;
             .product-subtext{
                 color: $primary_text_color;
                 font-size: 24px;
                 padding-bottom: 60px;
             }
-            .attribute{
-                font-size: $f-16;
-                color: #A09792;
-                padding-bottom: 40px;
+            .attribute{  
+                padding-bottom: 30px; 
+                p{ 
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: #A09792;
+                    
+                }
+            }
+            .product-store-credit-discount{
+                margin-bottom: 15px;
+                font-size: 13px;
                 line-height: 1.7;
+                background: #1c6441;
+                padding: 10px;
+                color: #fff; 
             }
             .page-title{
-                font-size: 38px;
+                font-size: 30px;
                 font-weight: 500;
             }
             .test{
                 color: #CFA773;
-                font-size: 24px;
-                padding-bottom: 30px;
+                font-size: 18px;
+                padding-bottom: 15px;
                 font-weight: 300;
             }
             .additional-attributes{
@@ -173,6 +184,9 @@
                         }
                     }
                 }
+                .box-tocart{
+                    max-width: 130px;
+                }
                 .package_type{ 
                     position: absolute;
                     top:120px;
@@ -245,7 +259,7 @@
                     display: none;
                 }
                 font-weight: 600;
-                font-size: 32px;
+                font-size: 24px;
                 line-height: 1;
                 .old-price{
                     position: absolute;

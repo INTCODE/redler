@@ -118,6 +118,4 @@ function customInputNumberInit(){
     })
 }
 customInputNumberInit();
-
-
-console.log("aggggg");
+ 

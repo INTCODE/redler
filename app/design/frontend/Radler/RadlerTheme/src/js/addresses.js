@@ -1,5 +1,4 @@
-require(["jquery"], function($) {
-
+require(["jquery"], function($) { 
 
     $( document ).ready(function() {
         var idAddress= $( "#addresses" ).val();

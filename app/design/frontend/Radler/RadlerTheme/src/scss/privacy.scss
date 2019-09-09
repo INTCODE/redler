@@ -1,34 +1,11 @@
 
 
-
-.cms-terms-conditions,
-.cms-privacy-policy-cookie-restriction-mode{
-    background: rgba(232,207,181,1);
-    background: -moz-linear-gradient(left, rgba(232,207,181,1) 0%, rgba(233,223,205,1) 100%);
-    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(232,207,181,1)), color-stop(100%, rgba(233,223,205,1)));
-    background: -webkit-linear-gradient(left, rgba(232,207,181,1) 0%, rgba(233,223,205,1) 100%);
-    background: -o-linear-gradient(left, rgba(232,207,181,1) 0%, rgba(233,223,205,1) 100%);
-    background: -ms-linear-gradient(left, rgba(232,207,181,1) 0%, rgba(233,223,205,1) 100%);
-    background: linear-gradient(to right, rgba(232,207,181,1) 0%, rgba(233,223,205,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8cfb5', endColorstr='#e9dfcd', GradientType=1 );
-
-    .page-title{
-        max-width: 750px;
-        margin: 0 auto;
-        h1{
-            font-size: 30px;
-            padding: 25px 0;
-        } 
-    }
-}
+ 
 
  
 
-.privacy-policy{
-    max-width: 750px;
-    margin: 0 auto;
-    padding: 50px;
-    background-color: #f6f3f1;
+.privacy-policy{ 
+    margin: 0 auto;  
     h2{
         font-size: 24px;
         font-weight: 600;
@@ -45,4 +22,111 @@
     p{
         padding-bottom: 15px;
     }
+    ul{
+        padding-left: 40px;
+        margin-bottom: 20px;
+    }
+    table { 
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        table-layout: fixed; 
+      }
+      
+      table caption {
+        font-size: 1.3em;
+        margin: .5em 0 .75em;
+        display: none;
+      }
+
+      table thead tr{
+          background: #e1e1e1;
+      }
+      
+      table tr {
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        padding: .45em;
+      }
+      
+      table th,
+      table td {
+        padding: .90em;
+        text-align: left;
+        font-weight: 300; 
+        font-size: 13px;
+      }
+      table td.actions{
+          .action{
+            font-weight: 500;
+            background: #d9d2d2;
+            padding: 5px 6px;
+            color: #7b7272;
+              &.view{
+                color: #3c3b3b; 
+                margin-right: 3px;
+              }
+              &.order{
+                font-weight: 600;
+                background: #e9decb; 
+                color: #cfa773;
+              } 
+          }
+      }
+      
+      table th {
+        font-size: .75em;
+        font-weight: 600;  
+      }
+      
+      @media screen and (max-width: 600px) {
+        table {
+          border: 0;
+        }
+      
+        table caption {
+          font-size: 1.3em;
+        }
+        
+        table thead {
+          border: none;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px;
+        }
+        
+        table tr {
+          border-bottom: 3px solid #ddd;
+          display: block;
+          margin-bottom: .625em;
+        }
+        
+        table td {
+          border-bottom: 1px solid #ddd;
+          display: block;
+          font-size: .8em;
+          text-align: right;
+        }
+        
+        table td::before {
+          /*
+          * aria-label has no advantage, it won't be read inside a table
+          content: attr(aria-label);
+          */
+          content: attr(data-label);
+          float: left;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+        
+        table td:last-child {
+          border-bottom: 0;
+        }
+      }
 }

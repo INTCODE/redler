@@ -3,7 +3,7 @@
     height: auto;
     position: relative;
     top:-40px;
-    max-height: 488px;
+    max-height: 550px;
     overflow: hidden;
     background: rgba(232,207,181,1);
     background: -moz-linear-gradient(left, rgba(232,207,181,1) 0%, rgba(233,223,205,1) 100%);
@@ -22,7 +22,8 @@
                 @extend  .col-lg-12;
                 .c-aslider__image{
                     margin:0 auto;
-                    height: 362px;
+                    width: 100%;
+                    height: auto;
                 }
             }
             .c-aslider__caption{
@@ -48,10 +49,10 @@
     }
 }
 .slick-prev{
-    z-index: 10;
+    z-index: 11;
 }
 .slick-next{
-    border:solid red;
+    z-index: 11;
 }
 .slick-dots{
     list-style: none;
